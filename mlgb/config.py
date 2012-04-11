@@ -8,9 +8,9 @@ solr_commit='false'
 solr_qa = '[* TO *]'
 
 
-solr_fields = "id,pr,ml1,ml2,ms1,ms2,ev,soc,dt,pm,mc,uk,nt"
+solr_fields = "id,pr,ml1,ml2,ms1,ms2,ev,evn,soc,dt,pm,mc,uk,nt"
 
-solr_fieldsA = ["id","pr","ml1","ml2","ms1","ms2","ev","soc","dt","pm","mc","uk","nt"]
+solr_fieldsA = ["id","pr","ml1","ml2","ms1","ms2","ev","evn","soc","dt","pm","mc","uk","nt"]
 
 solr_label = {
     "id":"ID",
@@ -20,6 +20,7 @@ solr_label = {
     "ms1":"Shelfmark1",
     "ms2":"Shelfmark2",
     "ev":"Evidence", 
+    "evn":"Evidence notes", 
     "soc":"Suggestion of the contents",
     "dt":"Date",
     "pm":"PressMark",
