@@ -14,7 +14,7 @@ urlpatterns += patterns( 'django.views.generic',
     url(r'^book/(?P<object_id>\d+)/$', 'list_detail.object_detail',
         kwargs={
             'queryset':Book.objects.all(),
-            'template_name' : 'mlgb/mlgb_detail.html'
+            'template_name' : '/opt/www/mlgb/templates/mlgb/mlgb_detail.html'
         },
         name='mlgb_detail'
     ),
