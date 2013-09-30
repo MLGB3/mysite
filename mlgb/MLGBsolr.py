@@ -3,8 +3,6 @@ import simplejson
 from solr import SolrConnection
 from config import *
 
-tem ="http://%s%s/dataimport?command=full-import" % (solr_host,solr_base)
-
 class MLGBsolr:
     def __init__(self):
         self.s_result=()
@@ -14,27 +12,14 @@ class MLGBsolr:
 
     def solrconn(self):
         try:
-            if self.solrrequest():
-                self.conn = SolrConnection(host=solr_host, solrBase=solr_base, username=solr_uname, password=solr_pswd)
-                self.connstatus=True
-	        
-                return True
+            self.conn = SolrConnection( host=solr_host, solrBase=solr_base, \
+                                        username=solr_uname, password=solr_pswd )
+            self.connstatus=True
+            return True
         except:
             #print "solr connection error!"
             return False
         
-    def solrrequest(self,request=tem):
-        try:
-            req = urlopen(request)
-            #rsp=simplejson.loads(req)
-            #s_status = rsp['initArgs'].get('status',None)
-            #print s_status
-            self.req=True
-            
-            return True
-        except:
-            #print "solr request failed!"
-            return False
     def solrquery(self,para):
         if self.solrconn():
             try:
