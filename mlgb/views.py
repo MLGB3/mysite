@@ -509,6 +509,11 @@ def mlgb( request ): #{
           if not sm2.endswith( '.' ): sm2 += '.'
         #}
 
+        # make sure there is a full stop at the end of the combined shelfmarks
+        elif sm1: #{
+          if not sm1.endswith( '.' ): sm1 += '.'
+        #}
+
         # evidence code
         ev = "<i>" + trim( resultsets[i]['ev'] ) + "</i>" 
         
@@ -517,15 +522,26 @@ def mlgb( request ): #{
 
         # date
         dt = trim( resultsets[i]['dt'] )
-        if dt: dt = two_spaces + dt
+        if dt: #{ 
+          dt = two_spaces + dt
+          if not dt.endswith( '.' ): dt += '.'
+        #}
         
         # pressmark
         pm = trim( resultsets[i]['pm'] )
-        if pm: pm = two_spaces + pm
+        if pm: #{
+          pm = two_spaces + pm
+          if not pm.endswith( '.' ): pm += '.'
+        #}
 
         # medieval catalogue
         mc = trim( resultsets[i]['mc'] )
-        if mc: mc = two_spaces + '[' + mc + ']'
+        if mc: #{
+          if mc.endswith( '.' ):
+            mc = two_spaces + '[' + mc + ']'
+          else:
+            mc = two_spaces + '[' + mc + ']' + '.'
+        #}
         
         # unknown
         uk = trim( resultsets[i]['uk'] )
@@ -612,7 +628,7 @@ def mlgb( request ): #{
             body += ev
 
           body += two_spaces
-          body += '%s%s%s%s%s' % (soc, dt, pm, mc, uk)
+          body += '%s%s%s%s%s ' % (soc, dt, pm, mc, uk)
           body += '<a href="/mlgb/book/%s/">' % id
           body += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
           body += '</a></span></li>\n'
