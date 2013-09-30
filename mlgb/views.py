@@ -397,24 +397,28 @@ def mlgb( request ): #{
   space = '&nbsp;'
   two_spaces = space + space
 
-  punctuation = ' %#~@/<>^()?[]{}!"^+-'
+  if request.GET: #{ # was a search term found in GET?
 
-  if request.GET and request.GET["s"].strip( punctuation ): #{ # was a search term found in GET?
-
-    s = request.GET["s"].strip( punctuation )
+    if request.GET.has_key( 's' ): #{
+      s = request.GET["s"].strip()
+    #}
+    else:
+      s = '*'
 
     if len( request.GET ) > 1: #{
-      se = escape( request.GET["se"] )
-      pa = escape( request.GET["pa"] )        
+      if request.GET.has_key( 'se' ):
+        se = escape( request.GET["se"] )
+      if request.GET.has_key( 'pa' ):
+        pa = escape( request.GET["pa"] )        
     #}
 
     # Set search term
-    # N.B. This way of setting the search term introduces a BUG: names containing brackets
-    # cause the search to fail. TODO - fix this!
-    s_field ="%s" % s.strip( punctuation ).lower()
+    s_field = escape_for_solr( s )
+    if ' ' in s_field:
+      s_field = '(%s)' % s_field
 
-    if s=='*':
-      s_field=solr_qa # '[* TO *]' (from config.py)
+    if s=='*' or s=='':
+      s_field='*:*'
 
     else: #{
 
@@ -694,7 +698,7 @@ def mlgb( request ): #{
 # end function mlgb()
 #--------------------------------------------------------------------------------
 
-def category(request):
+def category(request): #{
 
   text = pr = ml1 = body = dl = s = resultsets = None
   norecord = tmp = s_rows = s_field = s_sort = s_field = lists = ""
@@ -757,7 +761,7 @@ def category(request):
   p1 = p2 = p3 = p = []
   param = {}
   j = 0
-  for i in (lists):
+  for i in (lists): #{
     j +=1
     
     if j%2 == 0: #{
@@ -781,3 +785,27 @@ def category(request):
   } )
 
   return HttpResponse(t.render(c))
+#}
+#--------------------------------------------------------------------------------
+
+def escape_for_solr( search_term ): #{
+
+  problem_chars = ['\\', '+', '-', '&', '|', '!', '(', ')', '{', '}', '[', ']', '^', '~',  \
+                   '?', ':', '"', ';' ]
+
+  for c in problem_chars: #{
+    if c not in search_term: continue
+
+    escaped = '\\' + c
+
+    # unescape first, just in case - we don't want to escape twice
+    if escaped in search_term:
+      search_term = search_term.replace( escaped, c )
+
+    # now escape by putting a backslash before that character
+    search_term = search_term.replace( c, escaped )
+  #}
+
+  return search_term
+#}
+#--------------------------------------------------------------------------------
