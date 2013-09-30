@@ -2,8 +2,8 @@ from urllib2 import *
 import simplejson
 from solr import SolrConnection
 from config import *
-#q=*:*&start=190
-#request='http://localhost:8080/solr/select?q=oxford&wt=json'
+
+
 
 class MLGBsolr:
     def __init__(self):
@@ -14,26 +14,12 @@ class MLGBsolr:
 
     def solrconn(self):
         try:
-            if self.solrrequest():
-                self.conn = SolrConnection(host=solr_host, solrBase=solr_base, username=solr_uname, password=solr_pswd)
+            self.conn = SolrConnection( host=solr_host, solrBase=solr_base, \
+                                        username=solr_uname, password=solr_pswd )
                 
-                return True
-        except:
-            print "solr connection error!"
-            return False
-        
-    def solrrequest(self,request="http://localhost:8180/solr/dataimport?command=full-import"):
-        try:
-            req = urlopen(request)
-
-            #rsp=simplejson.loads(req)
-            #s_status = rsp['initArgs'].get('status',None)
-            #print s_status
-            self.req=True
-
             return True
         except:
-            #print "solr request failed!"
+            #print "solr connection error!"
             return False
         
     def solrquery(self,para):
