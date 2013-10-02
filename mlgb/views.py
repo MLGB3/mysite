@@ -149,18 +149,7 @@ def download( request ): #{
 #}
 # end download
 #--------------------------------------------------------------------------------
-
-def detail(request, book_id): #{
-
-  try:
-    p = Poll.objects.get(pk=book_id)
-  except Poll.DoesNotExist:
-    raise Http404
-
-  return render_to_response('mlgb/detail.html', {'book': p})
-#}
-# end detail
-#--------------------------------------------------------------------------------
+## This sets up the data for the Home page
 
 def index(request): #{
 
@@ -841,6 +830,6 @@ def escape_for_solr( search_term ): #{
     search_term = search_term.replace( c, escaped )
   #}
 
-  return search_term
+  return search_term.encode( 'utf-8' )
 #}
 #--------------------------------------------------------------------------------
