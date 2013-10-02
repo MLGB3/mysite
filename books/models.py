@@ -3,7 +3,12 @@ from django.db.models import permalink
 from django.contrib import admin
 from mysite.mlgb.mlgb import *
 
+#========================================================================
+
 x=MLGB()
+
+#========================================================================
+
 class Provenance(models.Model):
     provenance = models.CharField(verbose_name='Place', max_length=50)
     county = models.CharField(max_length=50,blank=True)
@@ -15,16 +20,18 @@ class Provenance(models.Model):
         display= self.provenance
         
         if self.county and self.institution:
-		display='%s, %s. %s.' % (self.provenance, self.county,self.institution)
+                display='%s, %s. %s.' % (self.provenance, self.county,self.institution)
         elif self.county: 
-		display='%s, %s.' % (self.provenance, self.county)
-	elif self.institution: 
-		display='%s, %s.' % (self.provenance, self.institution)
+                display='%s, %s.' % (self.provenance, self.county)
+        elif self.institution: 
+                display='%s, %s.' % (self.provenance, self.institution)
 
         return display
 
     class Meta:
         ordering = ('provenance',)  
+
+#========================================================================
         
 class Modern_location_1(models.Model):
     modern_location_1 = models.CharField(verbose_name='Place', max_length=50)
@@ -33,8 +40,11 @@ class Modern_location_1(models.Model):
         return self.modern_location_1
     class Meta:
         ordering = ('modern_location_1',)
-	verbose_name='Current Location, Place'
+        verbose_name='Current Location, Place'
         verbose_name_plural='Current Location, Places'
+
+#========================================================================
+        
         
 class Modern_location_2(models.Model):
     modern_location_2 = models.CharField(verbose_name='Library', max_length=50)
@@ -45,6 +55,9 @@ class Modern_location_2(models.Model):
         ordering = ('modern_location_2',)
         verbose_name='Current Location, Library'
         verbose_name_plural='Current Location, Libraries'
+
+#========================================================================
+        
 
 class Evidence(models.Model):
     evidence = models.CharField(verbose_name='Evidence Code', max_length=2, unique=True,blank=True)
@@ -58,6 +71,9 @@ class Evidence(models.Model):
     @permalink 
     def get_absolute_url(self):
         return ('item_detail',None,{'object_id':self.id})        
+
+#========================================================================
+        
 
 class Book(models.Model):
     provenance = models.ForeignKey(Provenance)
@@ -76,15 +92,15 @@ class Book(models.Model):
     notes = models.TextField(blank=True)
     urls = models.CharField(max_length=255,blank=True)
     pr_bk = models.BooleanField(verbose_name = "Printed Book")
-#########################################################################
+    #---------------------------------------------------------
     def shelfmark(self):
         return ("%s %s" % (self.shelfmark_1, self.shelfmark_2))
     shelfmark.short_description = 'Shelfmark'
-#########################################################################
+    #---------------------------------------------------------
     def modern_location(self):
         return ("%s, %s" % (self.modern_location_1, self.modern_location_2))
     modern_location.short_description = 'Modern Location'
-#########################################################################
+    #---------------------------------------------------------
     class Meta:
         ordering = ['provenance', 'modern_location_1', 'modern_location_2', 'shelfmark_1', 'shelfmark_2', 'evidence', 'author_title']
     @permalink 
@@ -92,6 +108,9 @@ class Book(models.Model):
         return ('item_detail',None,{'object_id':self.id})
     def __unicode__(self):
         return '%s %s %s %s%s' % (self.provenance,self.shelfmark_1,self.shelfmark_2,self.evidence,self.author_title)
+
+#========================================================================
+        
 class Contains(models.Model):
     book_id = models.ForeignKey(Book)
     contains = models.TextField(verbose_name='Content',blank=True)
@@ -109,13 +128,21 @@ class Contains(models.Model):
     def get_absolute_url(self) :
         return ('item_detail',None,{'object_id':self.id})
 
+
+#========================================================================
+        
 class ContainsInline(admin.StackedInline) :
     model = Contains
     extra=1
     
+#========================================================================
+        
 class ItemAdmin(admin.ModelAdmin) :
     inlines = [ContainsInline]
 
+
+#========================================================================
+        
 class RawBook(models.Model):
     provenance = models.CharField(max_length=50)
     modern_location_1 = models.CharField(max_length=50)
@@ -133,10 +160,6 @@ class RawBook(models.Model):
     def __unicode__(self):
         return self.provenance,self.author_title
 
-#class Image(models.Model):
-    #image = models.ImageField(upload_to="images")
-    #content_type = models.ForeignKey(ContentType)
-    #object_id = models.PositiveIntegerField()
-    #content_object = generic.GenericForeignKey("content_type", "object_id")
 
-
+#========================================================================
+        

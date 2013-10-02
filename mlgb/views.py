@@ -833,3 +833,32 @@ def escape_for_solr( search_term ): #{
   return search_term.encode( 'utf-8' )
 #}
 #--------------------------------------------------------------------------------
+
+def book( request, book_id ): #{
+
+  try:
+    bk = Book.objects.get( pk = book_id )
+
+    ev = {}
+    evidence_code = bk.evidence
+    evidence_desc = 'no evidence'
+
+    try:
+      ev = Evidence.objects.get( evidence = evidence_code )
+      evidence_desc = ev.evidence_description
+
+    except Evidence.DoesNotExist:
+      pass
+
+  except Book.DoesNotExist:
+    raise Http404
+
+  t = loader.get_template('mlgb/mlgb_detail.html')
+
+  c = Context( { 'id': book_id, 
+                 'object': bk,
+                 'evidence_desc': evidence_desc  } )
+
+  return HttpResponse(t.render(c))
+#}
+#--------------------------------------------------------------------------------
