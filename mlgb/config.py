@@ -24,7 +24,7 @@ solr_label = {
     "soc":"Suggestion of the contents",
     "dt":"Date",
     "pm":"PressMark",
-    "mc":"Medeaval Catalogue",
+    "mc":"Medieval Catalogue",
     "uk":"Unknown",
     "nt":"Notes"
 }
