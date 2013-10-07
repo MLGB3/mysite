@@ -10,6 +10,7 @@ x=MLGB()
 #========================================================================
 
 class Provenance(models.Model):
+
     provenance = models.CharField(verbose_name='Place', max_length=50)
     county = models.CharField(max_length=50,blank=True)
     institution = models.CharField(max_length=100,blank=True)
@@ -34,6 +35,7 @@ class Provenance(models.Model):
 #========================================================================
         
 class Modern_location_1(models.Model):
+
     modern_location_1 = models.CharField(verbose_name='Place', max_length=50)
     
     def __unicode__(self):
@@ -47,6 +49,7 @@ class Modern_location_1(models.Model):
         
         
 class Modern_location_2(models.Model):
+
     modern_location_2 = models.CharField(verbose_name='Library', max_length=50)
     abbr = models.CharField(max_length=5,blank=True)
     def __unicode__(self):
@@ -60,6 +63,7 @@ class Modern_location_2(models.Model):
         
 
 class Evidence(models.Model):
+
     evidence = models.CharField(verbose_name='Evidence Code', max_length=2, unique=True,blank=True)
     evidence_description = models.CharField(max_length=200)
     notes = models.TextField(blank=True)
@@ -76,6 +80,7 @@ class Evidence(models.Model):
         
 
 class Book(models.Model):
+
     provenance = models.ForeignKey(Provenance)
     modern_location_1 = models.ForeignKey(Modern_location_1,verbose_name='Modern Location, Place')
     modern_location_2 = models.ForeignKey( Modern_location_2,verbose_name='Modern Location, Library')
@@ -112,6 +117,7 @@ class Book(models.Model):
 #========================================================================
         
 class Contains(models.Model):
+
     book_id = models.ForeignKey(Book)
     contains = models.TextField(verbose_name='Content',blank=True)
     urls = models.CharField(max_length=255,blank=True)
@@ -132,18 +138,21 @@ class Contains(models.Model):
 #========================================================================
         
 class ContainsInline(admin.StackedInline) :
+
     model = Contains
     extra=1
     
 #========================================================================
         
 class ItemAdmin(admin.ModelAdmin) :
+
     inlines = [ContainsInline]
 
 
 #========================================================================
         
 class RawBook(models.Model):
+
     provenance = models.CharField(max_length=50)
     modern_location_1 = models.CharField(max_length=50)
     modern_location_2 = models.CharField(max_length=50)
