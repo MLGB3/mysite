@@ -12,142 +12,11 @@ from urllib import quote, unquote
 import csv
 from cStringIO import StringIO
 #from django.core.paginator import Paginator, InvalidPage, EmptyPage
-#-----------------------------
+#--------------------------------------------------------------------------------
 
 facet=False
 
-#-----------------------------
-
-def fulltext(request): #{
-
-  data=[]
-  lists=[]
-
-  data3=list(Book.objects.values('author_title').distinct().order_by('author_title'))
-  data2=list(Modern_location_2.objects.values('modern_location_2').distinct().order_by('modern_location_2'))
-  data1=list(Modern_location_1.objects.values('modern_location_1').distinct().order_by('modern_location_1'))
-  data=list(Provenance.objects.values('provenance').distinct().order_by('provenance'))
-
-  lists=[]
-
-  for e in data : lists.append( e['provenance'] )
-  for e in data1: lists.append( e['modern_location_1'] )
-  for e in data2: lists.append( e['modern_location_2'] )
-  for e in data3: lists.append( e['author_title'] )
-
-  query = request.GET.get( "q", "" )
-  lists = sorted( set(lists) )
-
-  if len(query) == 0 or query[0] == " " :
-    json = simplejson.dumps(lists)
-  else:
-    json = simplejson.dumps( [e for e in lists
-                              if e.lower().find(query.lower()) != -1 ] )
-
-  return HttpResponse(json, mimetype = 'application/json')
-#}
-# end fulltext
-#-----------------------------
-
-def download( request ): #{
-
-  response=None
-  data=[]
-  text=""
-  
-  rc="\r\n"
-  if request.GET[ "q" ] == "2": rc="<br/>"
-
-  # Gather the data into a text field
-  if request.GET: #{
-
-    data = Book.objects.filter( id = request.GET["i"] )
-
-    text =  "Provenance: %s%s"      % (data[0].provenance, rc)
-    text += "Location: %s, %s%s"    % (data[0].modern_location_2, data[0].modern_location_1, rc)
-    text += "Shelfmark: %s %s%s"    % (data[0].shelfmark_1, data[0].shelfmark_2, rc)
-    text += "Author/Title: %s %s%s" % (data[0].evidence, data[0].author_title, rc)
-
-    if data[0].date:
-      text += "Date: %s%s" % (data[0].date, rc)
-    
-    if data[0].pressmark:
-      text += "Pressmark: %s%s" % (data[0].pressmark, rc)
-    
-    if data[0].medieval_catalogue:
-      text += "Medieval Catalogue: %s%s" % (data[0].medieval_catalogue, rc)
-    
-    if data[0].ownership:
-      text += "Ownership: %s%s" % (data[0].ownership, rc)
-    
-    if data[0].notes.strip('" \n\r'):
-      text += "Notes: %s" % (data[0].notes.strip('" \n\r'))
-  #}
-
-  # Either: write out a CSV file
-  if request.GET[ "q" ] == "1": #{
-    rc=""
-    response = HttpResponse(mimetype='text/csv')
-    response['Content-Disposition'] = 'attachment; filename=%s.csv' % request.GET["i"]
-    writer = csv.writer(response)
-
-    text = text.replace("<p>","")
-    text = text.replace("</p>","")
-    text = text.replace("<strong>","")
-    text = text.replace("</strong>","")
-    text = text.replace("<em>","")
-    text = text.replace("</em>","")
-    text = text.replace('<span style="text-decoration: underline;">',"")
-    text = text.replace("</span>","")
-    text = text.replace("<i>","")
-    text = text.replace("</i>","")
-    text = text.replace("<ul>","")
-    text = text.replace("</ul>","")
-    text = text.replace("<li>","")
-    text = text.replace("</li>","")
-    text = text.replace("<ol>","")
-    text = text.replace("</ol>","")
-    text = text.replace('<span style="text-decoration: line-through;">',"")
-    text = text.replace("&nbsp;","")
-    
-    writer.writerow([text])
-    writer.writerows([data])
-  #}
-
-  # Or: write out a PDF
-  elif request.GET[ "q" ] == "2": #{
-    response = HttpResponse(mimetype='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename=%s.pdf' % request.GET["i"]
-
-    from reportlab.pdfgen.canvas import Canvas
-    from reportlab.lib.styles import getSampleStyleSheet
-    from reportlab.lib.units import inch
-    from reportlab.platypus import Paragraph,Frame,Spacer
-    styles = getSampleStyleSheet()
-    styleN = styles['Normal']
-    styleH = styles['Heading1']
-    story = []
-    
-    story.append(Paragraph("<i>%s</i>%s" % (data[0].evidence, data[0].author_title),styleH))
-    story.append(Spacer(inch * .5, inch * .5))
-    story.append(Paragraph(text,styleN))
-    buffer = StringIO()
-    p = Canvas(buffer)
-    f = Frame(inch, inch, 6.3*inch, 9.8*inch, showBoundary=0)
-    f.addFromList(story,p)
-    p.save()
-    
-    pdf = buffer.getvalue()
-    buffer.close()
-    response.write(pdf)
-  #}
-
-  else:
-    pass
-
-  return response
-#}
-# end download
+#================= Top-level functions, called directly from URL ================
 #--------------------------------------------------------------------------------
 ## This sets up the data for the Home page
 
@@ -198,17 +67,103 @@ def index(request): #{
 
   return HttpResponse( t.render( c ) )    
 #}
-# end index
+# end index() (home page)
 #--------------------------------------------------------------------------------
 
-def trim( the_string, strip_double_quotes = True ): #{
+# The function category() displays a list of medieval libraries, modern libraries
+# or cities. Each item in the list links through to the search results function, i.e. mlgb().
+# In other words, a search will be run based on the name of the medieval library, etc.
 
-  chars_to_strip = ' \r\n\t'
-  if strip_double_quotes:
-    chars_to_strip += '"'
-  return the_string.strip( chars_to_strip )
+def category(request): #{
+
+  text = pr = ml1 = body = dl = s = resultsets = None
+  norecord = s_rows = s_sort = lists = ""
+  nodis = False
+  bod = facet = True
+  
+  if escape(request.GET["se"]) == '3':
+    f_field = "ml1"
+    s = "Location"
+    
+  elif escape(request.GET["se"]) == '2':
+    f_field = "ml2"
+    s = "Library/Institution"
+    
+  else:
+    f_field = "pr"
+    s = "Medieval Library"
+
+  s_sort="pr asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc,ev asc,soc asc,dt asc,pm asc,mc asc,uk asc"
+        
+  s_rows=-1
+  
+  s_para = { 'q':'*:*',
+             'wt':s_wt,
+             'start':0, 
+             'rows':s_rows,
+             'sort':s_sort}
+  if facet:
+    s_para['facet.mincount']='1'
+    s_para['facet']='on'
+    s_para['facet.limit']='-1'
+    s_para['facet.field']=["pr","ml1","ml2"]
+
+  r = MLGBsolr()
+  r.solrresults( s_para, Facet = facet )
+
+  end_inner_section = '</ul></li>\n'
+  end_inner_and_outer_sections = '</ul></li></ul></li>\n'
+      
+  if r.connstatus and r.s_result: #{
+    resultsets = r.s_result.get('facet')
+    norecord = r.s_result.get('numFound')
+  #}
+
+  nodis=True
+
+  if escape(request.GET["se"])=='3':
+    lists= resultsets["ml1"]
+
+  elif escape(request.GET["se"])=='2':
+    lists= resultsets["ml2"]
+
+  else:  
+      lists= resultsets["pr"]
+
+  t = loader.get_template('mlgb/category.html')
+
+  p1 = p2 = p3 = p = []
+  param = {}
+  j = 0
+  for i in (lists): #{
+    j +=1
+    
+    if j%2 == 0: #{
+      param['v'] = i
+      p.append(param)
+      param={}
+    #}
+    else: #{
+      param['k']=i
+    #}
+  #}
+
+  c = Context( {
+      'lists': p,
+      'p1'   : p1,
+      'p2'   : p2,
+      'p3'   : p3, 
+      'no'   : norecord,
+      'nodis': nodis,
+      's':s,
+  } )
+
+  return HttpResponse(t.render(c))
 #}
+# end function category() (list of medieval libraries, modern libraries, etc)
 #--------------------------------------------------------------------------------
+
+# The function mlgb() sets up display of search results
 
 def mlgb( request ): #{
 
@@ -339,7 +294,7 @@ def mlgb( request ): #{
         sql_query = "select * from feeds_photo where feeds_photo.item_id='%s'" % id
         photo_evidence_data = list( Photo.objects.raw( sql_query ) )
         for e in photo_evidence_data: #{
-          link_to_photos += '<a href="%s" rel="lightbox%s" title="%s"></a>' \
+          link_to_photos += '<a href="%s" rel="lightbox%s" title="%s" class="evidence"></a>' \
                          % (e.image.url, id, e.title + ' -- evidence type: ' + evidence_desc)
           link_to_photos += newline
         #}
@@ -496,94 +451,186 @@ def mlgb( request ): #{
   return HttpResponse( t.render( c ) )
 
 #}
-# end function mlgb()
+# end function mlgb() (search results)
 #--------------------------------------------------------------------------------
 
-def category(request): #{
+# Function book() calls up the detail page for one single book.
 
-  text = pr = ml1 = body = dl = s = resultsets = None
-  norecord = s_rows = s_sort = lists = ""
-  nodis = False
-  bod = facet = True
-  
-  if escape(request.GET["se"]) == '3':
-    f_field = "ml1"
-    s = "Location"
-    
-  elif escape(request.GET["se"]) == '2':
-    f_field = "ml2"
-    s = "Library/Institution"
-    
-  else:
-    f_field = "pr"
-    s = "Medieval Library"
+def book( request, book_id ): #{
 
-  s_sort="pr asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc,ev asc,soc asc,dt asc,pm asc,mc asc,uk asc"
-        
-  s_rows=-1
-  
-  s_para = { 'q':'*:*',
-             'wt':s_wt,
-             'start':0, 
-             'rows':s_rows,
-             'sort':s_sort}
-  if facet:
-    s_para['facet.mincount']='1'
-    s_para['facet']='on'
-    s_para['facet.limit']='-1'
-    s_para['facet.field']=["pr","ml1","ml2"]
+  try:
+    bk = Book.objects.get( pk = book_id )
 
-  r = MLGBsolr()
-  r.solrresults( s_para, Facet = facet )
+    ev = {}
+    evidence_code = bk.evidence
+    evidence_desc = 'no evidence'
 
-  end_inner_section = '</ul></li>\n'
-  end_inner_and_outer_sections = '</ul></li></ul></li>\n'
-      
-  if r.connstatus and r.s_result: #{
-    resultsets = r.s_result.get('facet')
-    norecord = r.s_result.get('numFound')
-  #}
+    try:
+      ev = Evidence.objects.get( evidence = evidence_code )
+      evidence_desc = ev.evidence_description
 
-  nodis=True
+    except Evidence.DoesNotExist:
+      pass
 
-  if escape(request.GET["se"])=='3':
-    lists= resultsets["ml1"]
+  except Book.DoesNotExist:
+    raise Http404
 
-  elif escape(request.GET["se"])=='2':
-    lists= resultsets["ml2"]
+  t = loader.get_template('mlgb/mlgb_detail.html')
 
-  else:  
-      lists= resultsets["pr"]
-
-  t = loader.get_template('mlgb/category.html')
-
-  p1 = p2 = p3 = p = []
-  param = {}
-  j = 0
-  for i in (lists): #{
-    j +=1
-    
-    if j%2 == 0: #{
-      param['v'] = i
-      p.append(param)
-      param={}
-    #}
-    else: #{
-      param['k']=i
-    #}
-  #}
-
-  c = Context( {
-      'lists': p,
-      'p1'   : p1,
-      'p2'   : p2,
-      'p3'   : p3, 
-      'no'   : norecord,
-      'nodis': nodis,
-      's':s,
-  } )
+  c = Context( { 'id': book_id, 
+                 'object': bk,
+                 'evidence_desc': evidence_desc  } )
 
   return HttpResponse(t.render(c))
+#}
+# end function book()
+#--------------------------------------------------------------------------------
+
+# Function fulltext() seems to be little used, and is not currently linked to from the home page.
+
+def fulltext(request): #{
+
+  data=[]
+  lists=[]
+
+  data3=list(Book.objects.values('author_title').distinct().order_by('author_title'))
+  data2=list(Modern_location_2.objects.values('modern_location_2').distinct().order_by('modern_location_2'))
+  data1=list(Modern_location_1.objects.values('modern_location_1').distinct().order_by('modern_location_1'))
+  data=list(Provenance.objects.values('provenance').distinct().order_by('provenance'))
+
+  lists=[]
+
+  for e in data : lists.append( e['provenance'] )
+  for e in data1: lists.append( e['modern_location_1'] )
+  for e in data2: lists.append( e['modern_location_2'] )
+  for e in data3: lists.append( e['author_title'] )
+
+  query = request.GET.get( "q", "" )
+  lists = sorted( set(lists) )
+
+  if len(query) == 0 or query[0] == " " :
+    json = simplejson.dumps(lists)
+  else:
+    json = simplejson.dumps( [e for e in lists
+                              if e.lower().find(query.lower()) != -1 ] )
+
+  return HttpResponse(json, mimetype = 'application/json')
+#}
+# end fulltext
+#--------------------------------------------------------------------------------
+
+# Function download() seems to be little used, and is not currently linked to from the home page.
+
+
+def download( request ): #{
+
+  response=None
+  data=[]
+  text=""
+  
+  rc="\r\n"
+  if request.GET[ "q" ] == "2": rc="<br/>"
+
+  # Gather the data into a text field
+  if request.GET: #{
+
+    data = Book.objects.filter( id = request.GET["i"] )
+
+    text =  "Provenance: %s%s"      % (data[0].provenance, rc)
+    text += "Location: %s, %s%s"    % (data[0].modern_location_2, data[0].modern_location_1, rc)
+    text += "Shelfmark: %s %s%s"    % (data[0].shelfmark_1, data[0].shelfmark_2, rc)
+    text += "Author/Title: %s %s%s" % (data[0].evidence, data[0].author_title, rc)
+
+    if data[0].date:
+      text += "Date: %s%s" % (data[0].date, rc)
+    
+    if data[0].pressmark:
+      text += "Pressmark: %s%s" % (data[0].pressmark, rc)
+    
+    if data[0].medieval_catalogue:
+      text += "Medieval Catalogue: %s%s" % (data[0].medieval_catalogue, rc)
+    
+    if data[0].ownership:
+      text += "Ownership: %s%s" % (data[0].ownership, rc)
+    
+    if data[0].notes.strip('" \n\r'):
+      text += "Notes: %s" % (data[0].notes.strip('" \n\r'))
+  #}
+
+  # Either: write out a CSV file
+  if request.GET[ "q" ] == "1": #{
+    rc=""
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=%s.csv' % request.GET["i"]
+    writer = csv.writer(response)
+
+    text = text.replace("<p>","")
+    text = text.replace("</p>","")
+    text = text.replace("<strong>","")
+    text = text.replace("</strong>","")
+    text = text.replace("<em>","")
+    text = text.replace("</em>","")
+    text = text.replace('<span style="text-decoration: underline;">',"")
+    text = text.replace("</span>","")
+    text = text.replace("<i>","")
+    text = text.replace("</i>","")
+    text = text.replace("<ul>","")
+    text = text.replace("</ul>","")
+    text = text.replace("<li>","")
+    text = text.replace("</li>","")
+    text = text.replace("<ol>","")
+    text = text.replace("</ol>","")
+    text = text.replace('<span style="text-decoration: line-through;">',"")
+    text = text.replace("&nbsp;","")
+    
+    writer.writerow([text])
+    writer.writerows([data])
+  #}
+
+  # Or: write out a PDF
+  elif request.GET[ "q" ] == "2": #{
+    response = HttpResponse(mimetype='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=%s.pdf' % request.GET["i"]
+
+    from reportlab.pdfgen.canvas import Canvas
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib.units import inch
+    from reportlab.platypus import Paragraph,Frame,Spacer
+    styles = getSampleStyleSheet()
+    styleN = styles['Normal']
+    styleH = styles['Heading1']
+    story = []
+    
+    story.append(Paragraph("<i>%s</i>%s" % (data[0].evidence, data[0].author_title),styleH))
+    story.append(Spacer(inch * .5, inch * .5))
+    story.append(Paragraph(text,styleN))
+    buffer = StringIO()
+    p = Canvas(buffer)
+    f = Frame(inch, inch, 6.3*inch, 9.8*inch, showBoundary=0)
+    f.addFromList(story,p)
+    p.save()
+    
+    pdf = buffer.getvalue()
+    buffer.close()
+    response.write(pdf)
+  #}
+
+  else:
+    pass
+
+  return response
+#}
+# end download
+#--------------------------------------------------------------------------------
+#============== End of top-level functions called directly from URL =============
+#--------------------------------------------------------------------------------
+
+def trim( the_string, strip_double_quotes = True ): #{
+
+  chars_to_strip = ' \r\n\t'
+  if strip_double_quotes:
+    chars_to_strip += '"'
+  return the_string.strip( chars_to_strip )
 #}
 #--------------------------------------------------------------------------------
 
@@ -675,7 +722,7 @@ def extract_from_result( resultset ): #{
   # unknown
   unknown = trim( resultset['uk'] )
   if unknown: #{
-    if not unknown.endswith( '.' ): unknown += '.'
+    if not unknown.endswith( '.' ) and not unknown.endswith( '?' ): unknown += '.'
   #}
 
   # notes
@@ -689,34 +736,5 @@ def extract_from_result( resultset ): #{
           evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
           pressmark, medieval_catalogue, unknown, notes_on_evidence)
 
-#}
-#--------------------------------------------------------------------------------
-
-def book( request, book_id ): #{
-
-  try:
-    bk = Book.objects.get( pk = book_id )
-
-    ev = {}
-    evidence_code = bk.evidence
-    evidence_desc = 'no evidence'
-
-    try:
-      ev = Evidence.objects.get( evidence = evidence_code )
-      evidence_desc = ev.evidence_description
-
-    except Evidence.DoesNotExist:
-      pass
-
-  except Book.DoesNotExist:
-    raise Http404
-
-  t = loader.get_template('mlgb/mlgb_detail.html')
-
-  c = Context( { 'id': book_id, 
-                 'object': bk,
-                 'evidence_desc': evidence_desc  } )
-
-  return HttpResponse(t.render(c))
 #}
 #--------------------------------------------------------------------------------
