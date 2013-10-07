@@ -20,7 +20,7 @@ facet=False
 #--------------------------------------------------------------------------------
 ## This sets up the data for the Home page
 
-def index(request): #{
+def index( request, pagename = 'home' ): #{
 
   f_field=""
   resultsets=lists1=list2=list3=None
@@ -55,6 +55,7 @@ def index(request): #{
         'lists1': len( lists1 ) / 2,
         'lists2': len( lists2 ) / 2,
         'lists3': len( lists3 ) / 2,
+        'pagename': pagename,
         } )
   #}
   else: #{
@@ -62,6 +63,7 @@ def index(request): #{
         'lists1': 0,
         'lists2': 0,
         'lists3': 0,
+        'pagename': pagename,
         } )
   #}
 
@@ -74,7 +76,7 @@ def index(request): #{
 # or cities. Each item in the list links through to the search results function, i.e. mlgb().
 # In other words, a search will be run based on the name of the medieval library, etc.
 
-def category(request): #{
+def category( request, pagename = 'category' ): #{
 
   text = pr = ml1 = body = dl = s = resultsets = None
   norecord = s_rows = s_sort = lists = ""
@@ -155,7 +157,8 @@ def category(request): #{
       'p3'   : p3, 
       'no'   : norecord,
       'nodis': nodis,
-      's':s,
+      's'    :s,
+      'pagename': pagename,
   } )
 
   return HttpResponse(t.render(c))
@@ -165,7 +168,7 @@ def category(request): #{
 
 # The function mlgb() sets up display of search results
 
-def mlgb( request ): #{
+def mlgb( request, pagename = 'results' ): #{
 
   html = provenance = modern_location1 = detail_text = lists = search_term = resultsets = None
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = sql_query = ""
@@ -446,6 +449,7 @@ def mlgb( request ): #{
       'no'   : number_of_records,
       'nodis': no_display,
       's'    : search_term,
+      'pagename': pagename,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -456,7 +460,7 @@ def mlgb( request ): #{
 
 # Function book() calls up the detail page for one single book.
 
-def book( request, book_id ): #{
+def book( request, book_id, pagename = 'book' ): #{
 
   try:
     bk = Book.objects.get( pk = book_id )
@@ -479,6 +483,7 @@ def book( request, book_id ): #{
 
   c = Context( { 'id': book_id, 
                  'object': bk,
+                 'pagename': pagename,
                  'evidence_desc': evidence_desc  } )
 
   return HttpResponse(t.render(c))
@@ -488,7 +493,7 @@ def book( request, book_id ): #{
 
 # Function fulltext() seems to be little used, and is not currently linked to from the home page.
 
-def fulltext(request): #{
+def fulltext( request, pagename = 'fulltext' ): #{
 
   data=[]
   lists=[]
@@ -522,7 +527,7 @@ def fulltext(request): #{
 # Function download() seems to be little used, and is not currently linked to from the home page.
 
 
-def download( request ): #{
+def download( request, pagename = 'download' ): #{
 
   response=None
   data=[]
@@ -623,8 +628,14 @@ def download( request ): #{
 # end download
 #--------------------------------------------------------------------------------
 
-def about( request ):
-  return render_to_response('mlgb/about.html')
+def about( request, pagename = 'about' ): #{
+
+  t = loader.get_template('mlgb/about.html')
+
+  c = Context( { 'pagename': pagename } )
+
+  return HttpResponse( t.render( c ) )    
+#}
 
 #--------------------------------------------------------------------------------
 #============== End of top-level functions called directly from URL =============
