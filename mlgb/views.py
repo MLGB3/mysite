@@ -327,83 +327,15 @@ def mlgb( request ): #{
 
       # Start loop through result sets
       for i in xrange( 0, len( resultsets ) ): #{
+
+        # Get the data from the Solr result set
+        (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
+        evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
+        pressmark, medieval_catalogue, unknown, notes_on_evidence) = extract_from_result( resultsets[i] )
+
+        # Get photos if any
         link_to_photos=""
 
-        # ID
-        id=resultsets[i]['id']
-
-        # Provenance
-        provenance = trim( resultsets[i]['pr'], False )
-        provenance = provenance.upper()
-
-        # County
-        if resultsets[i]['ct']:
-          provenance += ", " + trim( resultsets[i]['ct'], False )
-
-        # Institution
-        if resultsets[i]['ins']:
-          provenance += ", <i>" + trim( resultsets[i]['ins'] ) + "</i>"
-
-        # Modern library 1
-        modern_location1 = trim( resultsets[i]['ml1'], False )
-
-        # Modern library 2
-        modern_location2 = trim( resultsets[i]['ml2'] ) + "&cedil;"
-
-        # shelfmark 1
-        shelfmark1 = trim( resultsets[i]['sm1'] )
-
-        # shelfmark 2
-        shelfmark2 = trim( resultsets[i]['sm2'] )
-        if shelfmark2: #{
-          if not shelfmark2.endswith( '.' ): shelfmark2 += '.'
-        #}
-
-        # make sure there is a full stop at the end of the combined shelfmarks
-        elif shelfmark1: #{
-          if not shelfmark1.endswith( '.' ): shelfmark1 += '.'
-        #}
-
-        # evidence code
-        evidence_code = "<i>" + trim( resultsets[i]['ev'] ) + "</i>" 
-        # evidence desc
-        evidence_desc = trim( resultsets[i]['evdesc'], False )
-        
-        # suggestion of contents
-        suggestion_of_contents = trim( resultsets[i]['soc'], False )
-
-        # date
-        date_of_work = trim( resultsets[i]['dt'] )
-        if date_of_work: #{ 
-          if not date_of_work.endswith( '.' ): date_of_work += '.'
-        #}
-        
-        # pressmark
-        pressmark = trim( resultsets[i]['pm'] )
-        if pressmark: #{
-          if not pressmark.endswith( '.' ): pressmark += '.'
-        #}
-
-        # medieval catalogue
-        medieval_catalogue = trim( resultsets[i]['mc'] )
-        if medieval_catalogue: #{
-          if medieval_catalogue.endswith( '.' ):
-            medieval_catalogue = '[' + medieval_catalogue + ']'
-          else:
-            medieval_catalogue = '[' + medieval_catalogue + ']' + '.'
-        #}
-        
-        # unknown
-        unknown = trim( resultsets[i]['uk'] )
-        if unknown: #{
-          if not unknown.endswith( '.' ): unknown += '.'
-        #}
-
-        # notes
-        notes_on_evidence = trim( resultsets[i]['nt'] )
-        if notes_on_evidence: notes_on_evidence = two_spaces + notes_on_evidence + '.'
-
-        # photos
         sql_query = "select * from feeds_photo where feeds_photo.item_id='%s'" % id
         photo_evidence_data = list( Photo.objects.raw( sql_query ) )
         for e in photo_evidence_data: #{
@@ -665,6 +597,91 @@ def escape_for_solr( search_term ): #{
   #}
 
   return search_term.encode( 'utf-8' )
+#}
+#--------------------------------------------------------------------------------
+
+def extract_from_result( resultset ): #{
+
+  # ID
+  id = resultset['id']
+
+  # Provenance
+  provenance = trim( resultset['pr'], False )
+  provenance = provenance.upper()
+
+  # County
+  if resultset['ct']:
+    provenance += ", " + trim( resultset['ct'], False )
+
+  # Institution
+  if resultset['ins']:
+    provenance += ", <i>" + trim( resultset['ins'] ) + "</i>"
+
+  # Modern library 1
+  modern_location1 = trim( resultset['ml1'], False )
+
+  # Modern library 2
+  modern_location2 = trim( resultset['ml2'] ) + "&cedil;"
+
+  # shelfmark 1
+  shelfmark1 = trim( resultset['sm1'] )
+
+  # shelfmark 2
+  shelfmark2 = trim( resultset['sm2'] )
+  if shelfmark2: #{
+    if not shelfmark2.endswith( '.' ): shelfmark2 += '.'
+  #}
+
+  # make sure there is a full stop at the end of the combined shelfmarks
+  elif shelfmark1: #{
+    if not shelfmark1.endswith( '.' ): shelfmark1 += '.'
+  #}
+
+  # evidence code
+  evidence_code = trim( resultset['ev'] )
+  if evidence_code:
+    evidence_code = "<i>" + evidence_code + "</i>" 
+  # evidence desc
+  evidence_desc = trim( resultset['evdesc'], False )
+  
+  # suggestion of contents
+  suggestion_of_contents = trim( resultset['soc'], False )
+
+  # date
+  date_of_work = trim( resultset['dt'] )
+  if date_of_work: #{ 
+    if not date_of_work.endswith( '.' ): date_of_work += '.'
+  #}
+  
+  # pressmark
+  pressmark = trim( resultset['pm'] )
+  if pressmark: #{
+    if not pressmark.endswith( '.' ): pressmark += '.'
+  #}
+
+  # medieval catalogue
+  medieval_catalogue = trim( resultset['mc'] )
+  if medieval_catalogue: #{
+    medieval_catalogue = '[' + medieval_catalogue + ']'
+  #}
+  
+  # unknown
+  unknown = trim( resultset['uk'] )
+  if unknown: #{
+    if not unknown.endswith( '.' ): unknown += '.'
+  #}
+
+  # notes
+  notes_on_evidence = trim( resultset['nt'] )
+  if notes_on_evidence: #{
+    if not notes_on_evidence.endswith( '.' ): notes_on_evidence += '.'
+  #}
+
+
+  return (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
+          evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
+          pressmark, medieval_catalogue, unknown, notes_on_evidence)
+
 #}
 #--------------------------------------------------------------------------------
 
