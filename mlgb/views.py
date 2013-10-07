@@ -401,8 +401,17 @@ def mlgb( request ): #{
 
         if len( photo_evidence_data ) <> 0:
           detail_text += link_to_photos
-        else:
-          detail_text += evidence_code
+
+        else: #{
+          if evidence_code: #{
+            alert_text = evidence_desc.replace( "'", "\\'" )
+            detail_text += '<button class="evidence_decoder"'
+            detail_text += ' title="%s" ' % evidence_desc.replace( '"', "'" )
+            detail_text += ' onclick="alert(' + "'" + alert_text + "'" + ')">'
+            detail_text += evidence_code
+            detail_text += '</button>'
+          #}
+        #}
         detail_text += ' <!-- type of evidence -->'
         detail_text += two_spaces
 
@@ -639,8 +648,6 @@ def extract_from_result( resultset ): #{
 
   # evidence code
   evidence_code = trim( resultset['ev'] )
-  if evidence_code:
-    evidence_code = "<i>" + evidence_code + "</i>" 
   # evidence desc
   evidence_desc = trim( resultset['evdesc'], False )
   
