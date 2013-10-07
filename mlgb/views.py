@@ -201,167 +201,6 @@ def index(request): #{
 # end index
 #--------------------------------------------------------------------------------
 
-def search(request): #{
-  # I'm not convinced that function search() ever gets used. Everything seems to go to function mlgb().
-
-  text = pr = ml1 = body = lists = dl = s = resultsets = None
-  norecord = s_rows = solr_query = ""
-  nodis = False
-  bod = True
-
-  d_tag = '<div id="sidetreecontrol"> <a href="?#">Collapse All</a> | <a href="?#">Expand All</a> </div>'
-  d_tag += '<ul class="treeview" id="tree">'
-
-  dn_tag = '<ul style="display:none;">\n'
-  
-  if request.GET and request.GET["s"].strip(' %#~@/<>^()?[]{}!"^+-'): #{
-
-    s =( request.GET[ "s" ] )
-    solr_query = "%s" % s.strip(' %#~@/<>^()?[]{}!"^+-').lower()
-    if s == '*':
-      solr_query ="*:*"
-    
-    
-    s_rows = Book.objects.count()
-    
-    s_para={'q'    : solr_query,
-            'wt'   : s_wt,
-            'start': 0, 
-            'rows' : s_rows,
-            'sort' : s_sort}
-
-    r=MLGBsolr()
-
-    r.solrresults( s_para )
-
-    end_inner_section = '</ul></li>\n'
-    end_inner_and_outer_sections = '</ul></li></ul></li>\n'
-        
-    if r.connstatus and r.s_result: #{
-      resultsets = r.s_result.get( 'docs' )
-      norecord = r.s_result.get( 'numFound' )
-      
-      text = h1 = h2 = d = ""
-
-      for i in xrange( 0, len(resultsets) ): #{
-
-        id=resultsets[i]['id']
-
-        pr = resultsets[ i ][ 'pr' ].strip(' ')              # provenance
-        ml1 = resultsets[ i ][ 'ml1' ].strip(' ')            # modern library 1
-        ml2 = "%s&cedil;" % resultsets[i]['ml2'].strip('" ') # modern library 2 
-                                                             # with 'spacing cedilla' instead of comma (why?)
-        # Shelfmark 1
-        if resultsets[i]['sm1'].strip(' '):
-          sm1="&nbsp;&nbsp;%s." % resultsets[i]['sm1'].strip('" ')
-        else:
-          sm1=""
-
-        # Shelfmark 2
-        if resultsets[i]['sm2'].strip(' '):
-          sm2="&nbsp;&nbsp;%s." % resultsets[i]['sm2'].strip('" ')
-        else:
-          sm2=""
-
-        # Evidence code
-        if resultsets[i]['ev'].strip(' '):
-          ev="<i>%s</i>" % resultsets[i]['ev'].strip('" ')
-        else:
-          ev=""
-
-        # Suggestion of contents
-        soc=resultsets[i]['soc'].strip('" ')
-
-        # Date
-        if resultsets[i]['dt'].strip(' '):
-          dt="&nbsp;&nbsp;%s." % resultsets[i]['dt'].strip('" ')
-        else:
-          dt=""
-
-        # Pressmark
-        if resultsets[i]['pm'].strip(' '):
-          pm="&nbsp;&nbsp;%s." % resultsets[i]['pm'].strip('" ')
-        else:
-          pm=""
-
-        # Medieval catalogue
-        if resultsets[i]['mc'].strip(' '):
-          mc="&nbsp;&nbsp;[%s]." % resultsets[i]['mc'].strip('" ')
-        else:
-          mc=""
-
-        # Unknown
-        if resultsets[i]['uk'].strip(' '):
-          uk="&nbsp;&nbsp;%s." % resultsets[i]['uk'].strip('" ')
-        else:
-          uk=""
-
-        # Notes
-        if resultsets[i]['nt'].strip(' '):
-          nt="&nbsp;&nbsp;%s." % resultsets[i]['nt'].strip('" ')
-        else:
-          nt=""
-        
-        body = '<li><span><strong>%s</strong></span>  ' % ml2
-        body += '<span class="detail">%s%s  %s  %s%s%s%s%s ' % (sm1,sm2,ev,soc,dt,pm,mc,uk)
-        body += '<a href="/mlgb/book/%s/">' % id
-        body += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
-        body += '</a>' 
-        body += '</span>' 
-        body += '</li>\n' 
-          
-          
-        if h1 <> pr: #{
-          h2=""
-          if not bod: 
-            text += end_inner_and_outer_sections
-          text += '<li class="expandable"><div class="hitarea expandable-hitarea"></div>' \
-               +  '<span><strong>%s</strong></span>\n%s' % (pr,dn_tag)
-        #}
-
-        if h2 <> ml1: #{
-          h2=ml1
-          if h1==pr: #{
-            if not bod:
-              text += end_inner_section
-          #}
-          else: #{
-            h1=pr
-          #}
-          text += '<li class="expandable"><div class="hitarea expandable-hitarea"></div>' \
-               +  '<span>%s</span>\n%s' % (ml1,dn_tag)
-        #}
-
-        text += body
-        bod=False
-
-      #}  # end loop through result sets
-
-      if text:
-        lists=d_tag + text + end_inner_and_outer_sections + '</ul>'
-    #} # end of check on whether a result was retrieved
-
-    nodis=True
-  #} # end of check on whether a search query was entered in GET
-    
-  t = loader.get_template('mlgb/mlgb.html')
-
-  if norecord : #{
-    if norecord > s_rows: 
-      norecord=s_rows
-  #}
-  else:
-    norecord=0
-    
-  c = Context( {
-      'lists': lists, 'no':norecord, 'nodis':nodis, 's':s,
-  } )
-
-  return HttpResponse(t.render(c))
-#}
-# end function search() (possibly unused)
-#--------------------------------------------------------------------------------
-
 def trim( the_string, strip_double_quotes = True ): #{
 
   chars_to_strip = ' \r\n\t'
@@ -380,9 +219,9 @@ def mlgb( request ): #{
   first_record = True
   photo_evidence_data = []
 
-  space = '&nbsp;'
-  two_spaces = space + space
   newline = '\n'
+  space = newline + '<span class="spacer">' + newline + '</span>' + newline
+  two_spaces = space + space
 
   start_treeview = newline
   start_treeview += '<div id="sidetreecontrol">' + newline
@@ -462,8 +301,10 @@ def mlgb( request ): #{
     
     # Set sort field
     if field_to_search.lower()=='author/title':
+      # sort primarily by author/title, i.e. 'soc' ('suggestion of contents')
       solr_sort = "soc asc,ev asc,pr asc,ct asc,ins asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc"
     else:
+      # sort first on provenance (medieval library), then modern library and shelfmark
       solr_sort="pr asc,ct asc,ins asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc,ev asc,soc asc,dt asc,pm asc,mc asc,uk asc"
 
     # Run the Solr query
@@ -511,12 +352,10 @@ def mlgb( request ): #{
 
         # shelfmark 1
         shelfmark1 = trim( resultsets[i]['sm1'] )
-        if shelfmark1: shelfmark1 = two_spaces + shelfmark1
 
         # shelfmark 2
         shelfmark2 = trim( resultsets[i]['sm2'] )
         if shelfmark2: #{
-          shelfmark2 = two_spaces + shelfmark2
           if not shelfmark2.endswith( '.' ): shelfmark2 += '.'
         #}
 
@@ -527,21 +366,21 @@ def mlgb( request ): #{
 
         # evidence code
         evidence_code = "<i>" + trim( resultsets[i]['ev'] ) + "</i>" 
+        # evidence desc
+        evidence_desc = trim( resultsets[i]['evdesc'], False )
         
         # suggestion of contents
-        suggestion_of_contents = trim( resultsets[i]['soc'] )
+        suggestion_of_contents = trim( resultsets[i]['soc'], False )
 
         # date
         date_of_work = trim( resultsets[i]['dt'] )
         if date_of_work: #{ 
-          date_of_work = two_spaces + date_of_work
           if not date_of_work.endswith( '.' ): date_of_work += '.'
         #}
         
         # pressmark
         pressmark = trim( resultsets[i]['pm'] )
         if pressmark: #{
-          pressmark = two_spaces + pressmark
           if not pressmark.endswith( '.' ): pressmark += '.'
         #}
 
@@ -549,15 +388,14 @@ def mlgb( request ): #{
         medieval_catalogue = trim( resultsets[i]['mc'] )
         if medieval_catalogue: #{
           if medieval_catalogue.endswith( '.' ):
-            medieval_catalogue = two_spaces + '[' + medieval_catalogue + ']'
+            medieval_catalogue = '[' + medieval_catalogue + ']'
           else:
-            medieval_catalogue = two_spaces + '[' + medieval_catalogue + ']' + '.'
+            medieval_catalogue = '[' + medieval_catalogue + ']' + '.'
         #}
         
         # unknown
         unknown = trim( resultsets[i]['uk'] )
         if unknown: #{
-          unknown = two_spaces + unknown
           if not unknown.endswith( '.' ): unknown += '.'
         #}
 
@@ -569,120 +407,116 @@ def mlgb( request ): #{
         sql_query = "select * from feeds_photo where feeds_photo.item_id='%s'" % id
         photo_evidence_data = list( Photo.objects.raw( sql_query ) )
         for e in photo_evidence_data: #{
-          link_to_photos += '<a href="%s" rel="lightbox%s" title="%s"></a>' % (e.image.url, id, e.title)
+          link_to_photos += '<a href="%s" rel="lightbox%s" title="%s"></a>' \
+                         % (e.image.url, id, e.title + ' -- evidence type: ' + evidence_desc)
           link_to_photos += newline
         #}
         if link_to_photos: #{
           link_to_photos=link_to_photos.replace( "</a>", "%s</a>" % evidence_code, 1 )
         #}
-        
-        # If searching on author/title (i.e. 'suggestion of contents'), 
-        # show author/title as heading 1, then provenance as heading 2, then modern library and shelfmark.
+
+        # If searching on author/title (i.e. 'suggestion of contents'), show author/title as 
+        # heading 1, then provenance as heading 2, then modern library and shelfmark in the detail.
+        # If not searching on author/title, have medieval library as main heading, then modern one.
+
         if field_to_search.lower()=='author/title': #{
+          heading1 = suggestion_of_contents
+          heading2 = provenance
+          heading3 = '%s%s%s' % (modern_location1, space, modern_location2)
+        #}
+        else: #{
+          heading1 = provenance
+          heading2 = modern_location1
+          heading3 = modern_location2
+        #}
 
-          # Set up a string containing modern library and shelfmark
-          detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
-          detail_text = '<li class="one_book">' + newline
-          detail_text += '<span class="modern_location_heading"><strong>' + newline
-          detail_text += '%s%s%s' % (modern_location1, space, modern_location2)
-          detail_text += newline + '</strong></span><!-- end modern location_heading -->' + newline
-          detail_text += '%s<!-- shelfmark 1 -->%s%s' % ( space, shelfmark1, two_spaces )
-          detail_text += newline
-          detail_text += '<span class="detail">' + newline
-          detail_text += '<!-- shelfmark 2 -->%s%s' % (shelfmark2, two_spaces)
-          detail_text += newline
-          detail_text += '<a href="/mlgb/book/%s/">' % id
-          detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
-          detail_text += '</a>' + newline
-          detail_text += '</span></li><!-- end book ID ' + id + ' -->' + newline + newline
+        if h1 <> heading1: #{  # change in heading 1
+          h2=""
+          if not first_record: 
+            html += end_inner_and_outer_sections
+          html += newline
+          html += start_outer_section + newline
+          html += '<span class="outerhead">%s</span>' % heading1
+          html += '<!-- end "outer head" span -->' + newline + start_hidden_list
+        #}
 
-          # See if heading 1 has changed
-          if h1 <> "%s%s" % (evidence_code, suggestion_of_contents): #{ new combination of evidence 
-                                                                     #  and 'suggestion of contents'
-            h2=""
+        if h2 <> heading2: #{ # change in heading 2
+          h2 = heading2
+          if h1 == heading1: #{
             if not first_record: #{
-              html += end_inner_and_outer_sections
+              html += end_inner_section
             #}
+          #}
+          else: #{
+            h1 = heading1
+          #}
+          html += newline
+          html += start_inner_section + newline
+          html += '<span class="innerhead">%s</span>' % heading2
+          html += '<!-- end "inner head" span -->' + newline + start_hidden_list
+        #}
+        
+        # Now set up the 'heading 3' and 'detail' text
+        heading3 = '<span class="modern_location_heading">' \
+                 + newline + heading3 + newline \
+                 + '</span><!-- end modern location_heading -->' + newline
 
-            html += start_outer_section + newline
-            html += '<span class="outerhead"><strong>' + newline
+        detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
+        detail_text += '<li class="one_book">' + newline
 
-            if len( photo_evidence_data ) <> 0:
-              html += '%s%s%s' % (link_to_photos, two_spaces, suggestion_of_contents)
-            else:
-              html +='%s%s%s' % (evidence_code, two_spaces, suggestion_of_contents)
+        detail_text += heading3
+        detail_text += two_spaces
 
-            html += newline + '</strong></span><!-- end "outer head" span -->' + newline
-            html += start_hidden_list
+        if len( photo_evidence_data ) <> 0:
+          detail_text += link_to_photos
+        else:
+          detail_text += evidence_code
+        detail_text += ' <!-- type of evidence -->'
+        detail_text += two_spaces
+
+        detail_text += '<!-- start booklink -->' + newline
+        detail_text += '<a href="/mlgb/book/%s/" class="booklink">' % id
+
+        detail_text += '%s <!-- shelfmark 1 -->' %  shelfmark1 
+        detail_text += space
+
+        if shelfmark2: #{
+          detail_text += '%s <!-- shelfmark 2 -->' %  shelfmark2 
+          detail_text += space
+        #}
+
+        if field_to_search.lower() != 'author/title': #{
+
+          if suggestion_of_contents: #{
+            detail_text += suggestion_of_contents + ' <!-- author/title -->'
+            detail_text += space
           #}
 
-          # See if heading 2 has changed
-          if h2 <> provenance: #{ start new provenance
-            h2 = provenance
-            if h1 == "%s%s" % (evidence_code, suggestion_of_contents): #{
-              if not first_record: #{
-                html += end_inner_section
-              #}
-            #}
-            else: #{
-              h1="%s%s" % (evidence_code, suggestion_of_contents)
-            #}
+          if date_of_work : #{
+            detail_text += date_of_work + ' <!-- date -->'
+            detail_text += space
+          #}
 
-            html += start_inner_section + newline
-            html += '<span class="innerhead">%s</span><!-- end "inner head" span -->' % provenance
-            html += newline + start_hidden_list
+          if pressmark : #{
+            detail_text += pressmark + ' <!-- pressmark -->'
+            detail_text += space
+          #}
+
+          if medieval_catalogue : #{
+            detail_text += medieval_catalogue + ' <!-- medieval catalogue -->'
+            detail_text += space
+          #}
+
+          if unknown : #{
+            detail_text += unknown + ' <!-- unknown -->'
+            detail_text += space
           #}
         #}
 
-        else: #{ not searching on author/title, have medieval library as main heading, then modern one
-          
-          detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
-          detail_text += '<li class="one_book"><span class="modern_location_heading"><strong>' + newline
-          detail_text += modern_location2 + newline
-          detail_text += '</strong></span><!-- end modern location heading -->' + two_spaces + newline
-          detail_text += '<span class="detail">' + newline
-          detail_text += '<!-- shelfmark 1 -->%s<!-- shelfmark 2 -->%s' % (shelfmark1, shelfmark2)
-          detail_text += two_spaces + newline
-
-          if len( photo_evidence_data ) <> 0:
-            detail_text += link_to_photos
-          else:
-            detail_text += evidence_code
-
-          detail_text += two_spaces
-          detail_text += '%s%s%s%s%s ' \
-                      % (suggestion_of_contents, date_of_work, pressmark, medieval_catalogue, unknown)
-          detail_text += newline
-          detail_text += '<a href="/mlgb/book/%s/">' % id
-          detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
-          detail_text += '</a>' + newline
-          detail_text += '</span></li><!-- end book ID ' + id + ' -->' + newline + newline
-                  
-          if h1 <> provenance: #{  # new provenance
-            h2=""
-            if not first_record: html += end_inner_and_outer_sections
-            
-            html += newline
-            html += start_outer_section + newline
-            html += '<span class="outerhead"><strong>%s</strong></span>' % provenance
-            html += '<!-- end "outer head" span -->' + newline + start_hidden_list
-          #}
-
-          if h2 <> modern_location1: #{
-            h2 = modern_location1
-            if h1 == provenance: #{
-              if not first_record: #{
-                html += end_inner_section
-              #}
-            else:    
-              h1 = provenance
-            #}
-            html += newline
-            html += start_inner_section + newline
-            html += '<span class="innerhead">%s</span>' % modern_location1
-            html += '<!-- end "inner head" span -->' + newline + start_hidden_list
-          #}
-        #}
+        detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
+        detail_text += '</a>' + newline
+        detail_text += '<!-- end booklink -->' + newline
+        detail_text += '</li><!-- end book ID ' + id + ' -->' + newline + newline
 
         # Add the string of HTML that you have generated for this record to the main HTML source
         html += detail_text
