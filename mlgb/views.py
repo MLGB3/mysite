@@ -1,3 +1,10 @@
+"""
+# Main setup script for all MLGB front end web pages
+
+# Originally by Xiaofeng Yang, 2009-2010
+# but very, very thoroughly rewritten by Sushila Burgess 2013.
+"""
+#--------------------------------------------------------------------------------
 from mysite.books.models import *
 from mysite.feeds.models import Photo
 from django.utils import simplejson
@@ -15,6 +22,7 @@ from cStringIO import StringIO
 #--------------------------------------------------------------------------------
 
 facet=False
+default_rows_per_page = 100
 
 #================= Top-level functions, called directly from URL ================
 #--------------------------------------------------------------------------------
@@ -206,20 +214,15 @@ def mlgb( request, pagename = 'results' ): #{
         
   if request.GET: #{ # was a search term found in GET?
 
-    if request.GET.has_key( 's' ): #{
-      search_term = request.GET["s"].strip()
-    #}
-    else:
-      search_term = '*'
+    # Get search term, field to search, records per page and start row from GET
+    search_term = get_value_from_GET( request, 's' )
+    if not search_term: search_term = '*'
 
-    if len( request.GET ) > 1: #{
-      if request.GET.has_key( 'se' ):
-        field_to_search = escape( request.GET["se"] )
-      if request.GET.has_key( 'pa' ):
-        page_size = escape( request.GET["pa"] )        
-    #}
+    field_to_search = get_value_from_GET( request, "se" )
+    page_size = get_value_from_GET( request, "pa" ) 
+    solr_start = get_value_from_GET( request, "start", 0 ) 
 
-    # Set search term
+    # Construct Solr query
     solr_query = escape_for_solr( search_term )
     if ' ' in solr_query:
       solr_query = '(%s)' % solr_query
@@ -243,17 +246,15 @@ def mlgb( request, pagename = 'results' ): #{
 
       elif field_to_search.lower()=='library/institution':
         solr_query ="library:%s" % solr_query
+
+      else:
+        solr_query ="text:%s" % solr_query
+
     #}
     
     # Set page size
-    if page_size =="100":
-      solr_rows=100
-    elif page_size=="200":
-      solr_rows=200
-    elif page_size=="500":
-      solr_rows=500
-    elif page_size=="1000":
-      solr_rows=1000
+    if page_size in [ "100", "200", "500", "1000" ]:
+      solr_rows = int( page_size )
     else: 
       solr_rows=Book.objects.count()
     
@@ -268,7 +269,7 @@ def mlgb( request, pagename = 'results' ): #{
     # Run the Solr query
     s_para={'q'    : solr_query,
             'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
-            'start': 0, 
+            'start': solr_start, 
             'rows' : solr_rows,
             'sort' : solr_sort}
     r=MLGBsolr()
@@ -363,6 +364,8 @@ def mlgb( request, pagename = 'results' ): #{
         else: #{
           if evidence_code: #{
             alert_text = evidence_desc.replace( "'", "\\'" )
+            alert_text = alert_text.replace( '"', "\\'" )
+
             detail_text += '<button class="evidence_decoder"'
             detail_text += ' title="%s" ' % evidence_desc.replace( '"', "'" )
             detail_text += ' onclick="alert(' + "'" + alert_text + "'" + ')">'
@@ -423,9 +426,14 @@ def mlgb( request, pagename = 'results' ): #{
 
       #} # end loop through result sets
 
-      if html:
-        lists = start_treeview + html + end_inner_and_outer_sections + '</ul><!-- end ID "tree" -->'
+      if html: #{
+        pag = pagination( rows_found = number_of_records, \
+                          current_row = solr_start, \
+                          rows_per_page = solr_rows, \
+                          include_print_button = False )
 
+        lists = pag + start_treeview + html + end_inner_and_outer_sections + '</ul><!-- end ID "tree" -->'
+      #}
     #} # end of check on whether we retrieved a result
 
     no_display=True
@@ -754,3 +762,323 @@ def extract_from_result( resultset ): #{
 
 #}
 #--------------------------------------------------------------------------------
+## This function was copied from code written by Mat Wilcoxson for EMLO/Cultures of Knowledge
+## with some adaptation by Sue B.
+
+def pagination( rows_found, current_row, rows_per_page=None, include_print_button=False ): #{
+
+  newline = '\n'
+  html = newline  # we'll build up all the pagination links in the 'html' string
+
+  if rows_per_page == None:
+    rows_per_page = default_rows_per_page
+  button_title = ""
+
+  ##=======================================================================
+  ## Write some Javascript to change the GET parameters to a new start row.
+  ##=======================================================================
+  page_change_scriptname = 'js_go_to_row' 
+  script = write_page_change_script( page_change_scriptname )
+  html += script
+
+
+  ##==========================================================================
+  ## Work out how many rows and pages you have got, and which page you are on.
+  ##==========================================================================
+  rows_found    = int( rows_found )
+  current_row   = int( current_row )
+  rows_per_page = int( rows_per_page )
+
+  first_page_start = 0
+
+  if rows_found % rows_per_page == 0 :
+    last_page_start = rows_found - rows_per_page
+  else :
+    last_page_start = rows_found - (rows_found % rows_per_page)
+
+  page_count = int( last_page_start / rows_per_page ) + 1
+
+  current_page = (current_row / rows_per_page) + 1
+  
+  pages_to_jump = 10  # provide arrow buttons allowing you to jump 10 pages
+
+  jump_back_to_row = current_row - (pages_to_jump*rows_per_page)
+  full_backwards_jump = True
+  if jump_back_to_row < first_page_start: #{
+    jump_back_to_row = first_page_start
+    jump_back_to_page = 1
+    full_backwards_jump = False
+  #}
+  else: #{
+    jump_back_to_page = (jump_back_to_row / rows_per_page) + 1; # row 0 is on page 1
+  #}
+
+  jump_forwards_to_row = current_row + (pages_to_jump*rows_per_page)
+  full_forwards_jump = True
+  if jump_forwards_to_row > last_page_start: #{
+    jump_forwards_to_row = last_page_start
+    jump_forwards_to_page = page_count
+    full_forwards_jump = False
+  #}
+  else: #{
+    jump_forwards_to_page = (jump_forwards_to_row / rows_per_page) + 1; # if we have 10 rows per page, 
+                                                                        # row 20 will be on p3 not p2
+  #}
+
+  two_pages = rows_per_page * 2
+
+  ##===============================================================================
+  ## Tell the user how many rows and pages you have got, and which page you are on.
+  ##===============================================================================
+  if rows_found < 1: #{
+    html += '<p> <strong> No records found. </strong> </p>' + newline
+    return html
+  #}
+
+  html += '<div class="pagination">' + newline
+  html += '<p>' + newline
+  html += '<strong>' + newline
+  if rows_found == 1:
+    html += 'One record found.' + newline
+  else:
+    html += str(rows_found) + ' records found.' + newline
+  html += '</strong>' + newline
+
+  ##================================================================
+  ## If you have more than one page, display page navigation buttons
+  ##================================================================
+  if page_count > 1 : #{
+
+    html += '<span class="spacer">' + newline
+    html += 'Page %d of %d (%d records per page). ' % (current_page, page_count, rows_per_page)
+    html += '</span>' + newline
+    html += '<br>' + newline
+
+    ##=========================================================================================
+    ##====================== start of section with 'jump to page' buttons =====================
+    ##=========================================================================================
+    ## "Jump backwards" section
+    ##=========================
+
+    if current_row == first_page_start : #{
+
+      ## At the start of the first page, so don't provide a 'First' button
+      html += '<button class="selected_page" disabled="disabled">First</button>' + newline
+      html += '<button class="selected_page" disabled="disabled">&lt;&lt;</button>' + newline
+
+      html += '<span class="spacer">&nbsp;</span>' + newline
+      html += '<span class="spacer">&nbsp;</span>' + newline
+    #}
+    else: #{
+
+      ## Not at the start of the first page, so DO provide a 'First' button
+      html += '<button class="go_to_page" '
+      html += ' onclick="%s( %d )"' % (page_change_scriptname, first_page_start)
+      html += ' title="Go to first page of results">' + newline
+      html += 'First' + newline
+      html += '</button>' + newline
+        
+      ## Also provide a 'jump backwards by multiple pages' button
+      if rows_found > rows_per_page : #{
+        if full_backwards_jump:
+          button_title = "Jump back %d pages to page %d of results" % (pages_to_jump, jump_back_to_page)
+        else:
+          button_title = "Go to page %d of results" % jump_back_to_page
+        html += '<button class="go_to_page" '
+        html += ' onclick="%s( %d )" ' % (page_change_scriptname, jump_back_to_row)
+        html += ' title="%s">' % button_title
+        html += newline + '&lt;&lt;' + newline
+        html += '</button>' + newline
+      #}
+
+      html += '<span class="spacer">&nbsp;</span>' + newline
+      
+      ## If more than 2 pages from start, put dots to show we're jumping across a block of pages
+      if current_row - two_pages > first_page_start: #{
+        html += '...' + newline
+      #}
+
+      html += '<span class="spacer">&nbsp;</span>' + newline
+
+      ## If at least 2 pages from start, provide a 'back 2 pages' button
+      if current_row - two_pages >= first_page_start : #{
+        html += '<button class="go_to_page" '
+        html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row-two_pages ) 
+        target_page = current_page - 2
+        html += ' title="Go to page %d of results">' % target_page
+        html += str( target_page ) + newline
+        html += '</button>' + newline
+      #}
+      
+      ## If at least 1 page from start, provide a 'back 1 page' button
+      if current_row - rows_per_page >= first_page_start : #{
+        html += '<button class="go_to_page" '
+        html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row-rows_per_page ) 
+        target_page = current_page - 1
+        html += ' title="Go to page %d of results">' % target_page
+        html += str( target_page ) + newline
+        html += '</button>' + newline
+      #}
+    #} ## End of "if we are on the first page" ("jump backwards" section)
+    ##=========================================================================================
+
+    ## Display the current page number
+    html += newline 
+    html += '<button class="selected_page" disabled="disabled">%d</button>' % current_page 
+    html += newline 
+
+    ##=========================================================================================
+    ## "Jump forwards" section
+    ##========================
+
+    ## If at least 1 page from end, provide a 'forward 1 page' button
+    if current_row + rows_per_page <= last_page_start : #{
+      html += '<button class="go_to_page" '
+      html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row+rows_per_page ) 
+      target_page = current_page + 1
+      html += ' title="Go to page %d of results">' % target_page
+      html += str( target_page ) + newline
+      html += '</button>' + newline
+    #}
+    
+    ## If at least 2 pages from end, provide a 'forward 2 pages' button
+    if current_row + two_pages <= last_page_start : #{
+      html += '<button class="go_to_page" '
+      html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row+two_pages ) 
+      target_page = current_page + 2
+      html += ' title="Go to page %d of results">' % target_page
+      html += str( target_page ) + newline
+      html += '</button>' + newline
+    #}
+    
+    ## If more than 2 pages from end, put dots to show we're jumping across a block of pages
+    html += '<span class="spacer">&nbsp;</span>' + newline
+    if current_row + two_pages < last_page_start: #{
+      html += '...' + newline
+    #}
+
+    html += '<span class="spacer">&nbsp;</span>' + newline
+
+    if current_row == last_page_start : #{
+      ## At the start of the last page, so don't provide a 'Last' button
+      html += '<button class="selected_page" disabled="disabled">&gt;&gt;</button>' + newline
+      html += '<button class="selected_page" disabled="disabled">Last</button>' + newline
+    #}
+    else : #{
+      ## NOT at the start of the last page, so DO provide 'jump forward' and 'Last' buttons
+      if rows_found > rows_per_page : #{
+        if full_forwards_jump:
+          button_title = "Jump forwards %d pages to page %d of results" \
+                       % (pages_to_jump, jump_forwards_to_page)
+        else:
+          button_title = "Go to page %d of results" % jump_forwards_to_page
+
+        html += '<button class="go_to_page" '
+        html += ' onclick="%s( %d )" ' % (page_change_scriptname, jump_forwards_to_row)
+        html += ' title="%s">' % button_title
+        html += '&gt;&gt;' + newline
+        html += '</button>' + newline
+      #}
+
+      html += '<button class="go_to_page" '
+      html += ' onclick="%s( %d )"' % (page_change_scriptname, last_page_start)
+      html += ' title="Go to last page of results">' + newline
+      html += 'Last' + newline
+      html += '</button>' + newline
+    #}
+    ## End of 'if we are on the last page' ("jump forwards" section)
+    ##=========================================================================================
+    ##====================== end of section with 'jump to page' buttons =======================
+    ##=========================================================================================
+  #} ## end of 'if page count > 1'
+
+  if include_print_button: #{
+    # Although 'print' button is not part of pagination, could be convenient
+    # to have it on same line, so, if required, add 'print' button here.
+    pass
+  #}
+
+  html += '</p>' + newline
+  html += '</div><!--class:pagination-->' + newline
+  html += newline
+
+  return html
+#}
+#--------------------------------------------------------------------------------
+
+def write_page_change_script( page_change_scriptname ): #{
+
+  newline = '\n'
+  script = newline
+
+  script += '  <script type="text/javascript">' + newline
+  script += '  function ' + page_change_scriptname + '( rowNumber ) {' + newline
+
+  script += '    var foundStart = false;' + newline
+
+  script += '    rowNumber = parseInt( rowNumber );' + newline
+  script += '    if( isNaN( rowNumber )) {' + newline
+  script += '      alert( \'Invalid row number.\' );' + newline
+  script += '      return;' + newline
+  script += '    }' + newline
+
+  script += '    var search = window.location.search;' + newline
+  script += '    if( search.length == 0 ) {' + newline
+  script += '      window.location.search = \'?start=\' + rowNumber;' + newline
+  script += '      return;' + newline
+  script += '    }' + newline
+
+  script += '    var parts = search.split( \'&\' );' + newline
+  script += '    var numParts = parts.length;' + newline
+
+  script += '    for( i = 0; i < numParts; i++ ) {' + newline
+  script += '      var part = parts[ i ];' + newline
+  script += '      if( i == 0 ) {' + newline
+  script += '        var firstChar = part.substring( 0, 1 );' + newline
+  script += '        if( firstChar == \'?\' ) {       // that\'s what it *should* be!' + newline
+  script += '          part = part.substring( 1 );  // trim off the leading question mark' + newline
+  script += '          parts[i] = part;' + newline
+  script += '        }' + newline
+  script += '      }' + newline
+
+  script += '      var pair = part.split( \'=\' );' + newline
+  script += '      if( pair.length == 2 ) { // once again, that\'s what it *should* be!' + newline
+  script += '        var searchName = pair[0];' + newline
+  script += '        if( searchName == \'start\' ) {' + newline
+  script += '          foundStart = true;' + newline
+  script += '          parts[i] = searchName + \'=\' + rowNumber;' + newline
+  script += '          break;' + newline
+  script += '        }' + newline
+  script += '      }' + newline
+  script += '      else {' + newline
+  script += '        alert( \'Invalid search term(s).\' );' + newline
+  script += '        return;' + newline
+  script += '      }' + newline
+  script += '    }' + newline
+
+  script += '    var newSearch = \'?\' + parts.join( \'&\' );' + newline
+
+  script += '    if( ! foundStart ) {' + newline
+  script += '      newSearch = newSearch + \'&start=\' + rowNumber;' + newline
+  script += '    }' + newline
+  script += '    window.location.search = newSearch;' + newline
+  script += '  }' + newline
+  script += '  </script>' + newline + newline
+
+  return script
+#}
+#--------------------------------------------------------------------------------
+
+def get_value_from_GET( request, key, default_value = '' ): #{
+
+  value = default_value
+  if request.GET: #{
+    if request.GET.has_key( key ): #{
+      value = request.GET[ key ].strip()
+    #}
+  #}
+  return value
+#}
+#--------------------------------------------------------------------------------
+
+
