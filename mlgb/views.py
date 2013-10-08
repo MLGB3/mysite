@@ -178,10 +178,10 @@ def category( request, pagename = 'category' ): #{
 
 def mlgb( request, pagename = 'results' ): #{
 
-  html = provenance = modern_location1 = detail_text = lists = search_term = resultsets = None
+  html = provenance = modern_location1 = detail_text = result_string = search_term = resultsets = None
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = sql_query = ""
   link_to_photos = ""
-  no_display = False
+  show_tree = False
   first_record = True
   photo_evidence_data = []
 
@@ -377,7 +377,18 @@ def mlgb( request, pagename = 'results' ): #{
         detail_text += two_spaces
 
         detail_text += '<!-- start booklink -->' + newline
-        detail_text += '<a href="/mlgb/book/%s/" class="booklink">' % id
+        detail_text += '<a href="/mlgb/book/%s/' % id
+
+        # Pass in your search, so that they can search again from the detail page
+        if search_term and search_term != '*': #{
+          detail_text += '?s=%s' % quote( search_term.encode( 'utf-8' ) )
+          if field_to_search:
+            detail_text += '&se=%s' % quote( field_to_search.encode( 'utf-8' ) )
+          if page_size:
+            detail_text += '&pa=%s' % quote( page_size.encode( 'utf-8' ) )
+        #}
+
+        detail_text += '" class="booklink">'
 
         detail_text += '%s <!-- shelfmark 1 -->' %  shelfmark1 
         detail_text += space
@@ -432,11 +443,12 @@ def mlgb( request, pagename = 'results' ): #{
                           rows_per_page = solr_rows, \
                           include_print_button = False )
 
-        lists = pag + start_treeview + html + end_inner_and_outer_sections + '</ul><!-- end ID "tree" -->'
+        result_string = pag + start_treeview + html + end_inner_and_outer_sections
+        result_string += '</ul><!-- end ID "tree" -->'
       #}
     #} # end of check on whether we retrieved a result
 
-    no_display=True
+    show_tree=True
 
   #} # end of check on whether a search term was found in GET
     
@@ -453,11 +465,13 @@ def mlgb( request, pagename = 'results' ): #{
     number_of_records = 0
     
   c = Context( {
-      'lists': lists,
-      'no'   : number_of_records,
-      'nodis': no_display,
-      's'    : search_term,
-      'pagename': pagename,
+      'result_string'    : result_string,
+      'number_of_records': number_of_records,
+      'showtree'         : show_tree,
+      'search_term'      : search_term,
+      'field_to_search'  : field_to_search,
+      'page_size'        : page_size,
+      'pagename'         : pagename,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -487,11 +501,20 @@ def book( request, book_id, pagename = 'book' ): #{
   except Book.DoesNotExist:
     raise Http404
 
+  # See if they have entered a search to get here.
+  # If so, allow them to repeat it.
+  search_term = get_value_from_GET( request, 's' )
+  field_to_search = get_value_from_GET( request, "se" )
+  page_size = get_value_from_GET( request, "pa" ) 
+  
   t = loader.get_template('mlgb/mlgb_detail.html')
 
   c = Context( { 'id': book_id, 
                  'object': bk,
                  'pagename': pagename,
+                 'search_term': search_term,
+                 'field_to_search': field_to_search,
+                 'page_size': page_size,
                  'evidence_desc': evidence_desc  } )
 
   return HttpResponse(t.render(c))
