@@ -107,7 +107,7 @@ def category( request, pagename = 'category' ): #{
   #}
 
   # Extract the facet counts for the relevant category
-  searching = get_value_from_GET( request, 'searching', default_value = 'medieval_library' )
+  searching = get_value_from_GET( request, 'field_to_search', default_value = 'medieval_library' )
 
   if searching == 'place': #{
     facet_list = facet_results[ "ml1" ]  # modern library 1, i.e. city where modern library is located
@@ -140,12 +140,14 @@ def category( request, pagename = 'category' ): #{
 
   t = loader.get_template('mlgb/category.html')
 
+  page_size = get_value_from_GET( request, 'page_size', default_value = default_rows_per_page )
+
   c = Context( {
-      'category_desc' : category_desc,
-      'category_data' : category_data,
-      'pagename'      : pagename,
-      'pagesize'      : default_rows_per_page,
-      'display_legend': True
+      'field_to_search' : category_desc,
+      'category_data'   : category_data,
+      'pagename'        : pagename,
+      'page_size'       : page_size,
+      'display_legend'  : True
   } )
 
   return HttpResponse(t.render(c))
@@ -194,11 +196,11 @@ def mlgb( request, pagename = 'results' ): #{
   if request.GET: #{ # was a search term found in GET?
 
     # Get search term, field to search, records per page and start row from GET
-    search_term = get_value_from_GET( request, 's' )
+    search_term = get_value_from_GET( request, 'search_term' )
     if not search_term: search_term = '*'
 
-    field_to_search = get_value_from_GET( request, "se" )
-    page_size = get_value_from_GET( request, "pa" ) 
+    field_to_search = get_value_from_GET( request, "field_to_search" )
+    page_size = get_value_from_GET( request, "page_size" ) 
     solr_start = get_value_from_GET( request, "start", 0 ) 
 
     # Construct Solr query
@@ -232,7 +234,7 @@ def mlgb( request, pagename = 'results' ): #{
     #}
     
     # Set page size
-    if page_size in [ "100", "200", "500", "1000" ]:
+    if page_size.isdigit():
       solr_rows = int( page_size )
     else: 
       solr_rows=Book.objects.count()
@@ -361,11 +363,11 @@ def mlgb( request, pagename = 'results' ): #{
 
         # Pass in your search, so that they can search again from the detail page
         if search_term and search_term != '*': #{
-          detail_text += '?s=%s' % quote( search_term.encode( 'utf-8' ) )
+          detail_text += '?search_term=%s' % quote( search_term.encode( 'utf-8' ) )
           if field_to_search:
-            detail_text += '&se=%s' % quote( field_to_search.encode( 'utf-8' ) )
+            detail_text += '&field_to_search=%s' % quote( field_to_search.encode( 'utf-8' ) )
           if page_size:
-            detail_text += '&pa=%s' % quote( page_size.encode( 'utf-8' ) )
+            detail_text += '&page_size=%s' % quote( page_size.encode( 'utf-8' ) )
         #}
 
         detail_text += '" class="booklink">'
@@ -431,16 +433,6 @@ def mlgb( request, pagename = 'results' ): #{
     
   t = loader.get_template('mlgb/mlgb.html')
 
-  # check number of records displayed
-  # N.B. this displays the requested page size, not the number of rows in the index!
-  # TODO - must fix this and make it behave more sensibly!
-  if number_of_records : #{ 
-    if number_of_records > solr_rows:
-      number_of_records = solr_rows
-  #}
-  else:
-    number_of_records = 0
-    
   c = Context( {
       'result_string'    : result_string,
       'number_of_records': number_of_records,
@@ -480,9 +472,9 @@ def book( request, book_id, pagename = 'book' ): #{
 
   # See if they have entered a search to get here.
   # If so, allow them to repeat it.
-  search_term = get_value_from_GET( request, 's' )
-  field_to_search = get_value_from_GET( request, "se" )
-  page_size = get_value_from_GET( request, "pa" ) 
+  search_term = get_value_from_GET( request, 'search_term' )
+  field_to_search = get_value_from_GET( request, "field_to_search" )
+  page_size = get_value_from_GET( request, "page_size" ) 
   
   t = loader.get_template('mlgb/mlgb_detail.html')
 
