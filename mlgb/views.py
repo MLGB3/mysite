@@ -22,7 +22,7 @@ from cStringIO import StringIO
 #--------------------------------------------------------------------------------
 
 facet=False
-default_rows_per_page = 100
+default_rows_per_page = 500
 
 #================= Top-level functions, called directly from URL ================
 #--------------------------------------------------------------------------------
@@ -30,48 +30,49 @@ default_rows_per_page = 100
 
 def index( request, pagename = 'home' ): #{
 
-  f_field=""
-  resultsets=lists1=list2=list3=None
-  facet=True
-  s_sort="pr asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc,ev asc,soc asc,dt asc,pm asc,mc asc,uk asc"
+  facet = True
+  facet_results = {}
+  medieval_library_count = modern_library_count = location_count = 0
 
-  s_para={'q':'*:*',
-          'wt':s_wt,
-          'start':0, 
-          'rows':'-1',
-          'sort':s_sort}
+  s_para = {'q'    : '*:*',
+            'wt'   : s_wt,
+            'start': 0, 
+            'rows' : 0,
+           }
 
-  s_para['facet.mincount']='1'
-  s_para['facet']='on'
-  s_para['facet.limit']='-1'
-  s_para['facet.field']=["pr","ml1","ml2"]
+  s_para[ 'facet.mincount' ] = '1'
+  s_para[ 'facet'          ] = 'on'
+  s_para[ 'facet.limit'    ] = '-1'
+  s_para[ 'facet.field'    ] = [ "pr", "ml1", "ml2" ]
 
-  r=MLGBsolr()
+  r = MLGBsolr()
 
   r.solrresults( s_para, Facet=facet )
 
-  t = loader.get_template('index.html')
+  t = loader.get_template( 'index.html' )
 
   if r.connstatus and r.s_result: #{
-    resultsets= r.s_result.get('facet')
+    facet_results = r.s_result.get( 'facet' )
 
-    lists1 = resultsets[ "pr" ]
-    lists2 = resultsets[ "ml1" ]
-    lists3 = resultsets[ "ml2" ]  
+    medieval_library_count = facet_results[ "pr" ]
+    modern_library_count   = facet_results[ "ml1" ]
+    location_count         = facet_results[ "ml2" ]  
 
     c = Context( {
-        'lists1': len( lists1 ) / 2,
-        'lists2': len( lists2 ) / 2,
-        'lists3': len( lists3 ) / 2,
-        'pagename': pagename,
+        'medieval_library_count': len( medieval_library_count ) / 2,
+        'modern_library_count'  : len( modern_library_count ) / 2,
+        'location_count'        : len( location_count ) / 2,
+        'pagename'              : pagename,
+        'default_rows_per_page' : default_rows_per_page,
         } )
   #}
   else: #{
     c = Context( {
-        'lists1': 0,
-        'lists2': 0,
-        'lists3': 0,
-        'pagename': pagename,
+        'medieval_library_count': 0,
+        'modern_library_count'  : 0,
+        'location_count'        : 0,
+        'pagename'              : pagename,
+        'default_rows_per_page' : default_rows_per_page,
         } )
   #}
 
@@ -86,87 +87,65 @@ def index( request, pagename = 'home' ): #{
 
 def category( request, pagename = 'category' ): #{
 
-  text = pr = ml1 = body = dl = s = resultsets = None
-  norecord = s_rows = s_sort = lists = ""
-  nodis = False
-  bod = facet = True
-  
-  if escape(request.GET["se"]) == '3':
-    f_field = "ml1"
-    s = "Location"
-    
-  elif escape(request.GET["se"]) == '2':
-    f_field = "ml2"
-    s = "Library/Institution"
-    
-  else:
-    f_field = "pr"
-    s = "Medieval Library"
+  # Get the facet counts for all three categories from Solr
+  facet_results = None
 
-  s_sort="pr asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc,ev asc,soc asc,dt asc,pm asc,mc asc,uk asc"
-        
-  s_rows=-1
-  
-  s_para = { 'q':'*:*',
-             'wt':s_wt,
-             'start':0, 
-             'rows':s_rows,
-             'sort':s_sort}
-  if facet:
-    s_para['facet.mincount']='1'
-    s_para['facet']='on'
-    s_para['facet.limit']='-1'
-    s_para['facet.field']=["pr","ml1","ml2"]
+  s_para = { 'q'    : '*:*',
+             'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
+             'rows' : 0 }
+
+  s_para[ 'facet.mincount' ] = '1'
+  s_para[ 'facet'          ] = 'on'
+  s_para[ 'facet.limit'    ] = '-1'
+  s_para[ 'facet.field'    ] = [ "pr", "ml1", "ml2" ]
 
   r = MLGBsolr()
-  r.solrresults( s_para, Facet = facet )
+  r.solrresults( s_para, Facet = True )
 
-  end_inner_section = '</ul></li>\n'
-  end_inner_and_outer_sections = '</ul></li></ul></li>\n'
-      
   if r.connstatus and r.s_result: #{
-    resultsets = r.s_result.get('facet')
-    norecord = r.s_result.get('numFound')
+    facet_results = r.s_result.get( 'facet' )
   #}
 
-  nodis=True
+  # Extract the facet counts for the relevant category
+  searching = get_value_from_GET( request, 'searching', default_value = 'medieval_library' )
 
-  if escape(request.GET["se"])=='3':
-    lists= resultsets["ml1"]
+  if searching == 'place': #{
+    facet_list = facet_results[ "ml1" ]  # modern library 1, i.e. city where modern library is located
+    category_desc = "Location"
+  #}
+  elif searching == 'modern_library': #{
+    facet_list = facet_results[ "ml2" ]  # modern library 2, i.e. name of the library
+    category_desc = "Modern Library/Institution"
+  #}
+  else: #{
+    facet_list = facet_results[ "pr" ] # provenance
+    category_desc = "Medieval Library"
+  #}
 
-  elif escape(request.GET["se"])=='2':
-    lists= resultsets["ml2"]
-
-  else:  
-      lists= resultsets["pr"]
+  category_data = []
+  key_value_pair = {}
+  j = 0
+  for i in facet_list: #{
+    j +=1
+    
+    if j % 2 == 0: #{  # even-numbered row, so this is the *value* of the key/value pair
+      key_value_pair[ 'number_of_records' ] = i
+      category_data.append( key_value_pair )
+      key_value_pair = {}
+    #}
+    else: #{  # odd-numbered row, so this is the *key* of the key/value pair
+      key_value_pair[ 'name' ] = i
+    #}
+  #}
 
   t = loader.get_template('mlgb/category.html')
 
-  p1 = p2 = p3 = p = []
-  param = {}
-  j = 0
-  for i in (lists): #{
-    j +=1
-    
-    if j%2 == 0: #{
-      param['v'] = i
-      p.append(param)
-      param={}
-    #}
-    else: #{
-      param['k']=i
-    #}
-  #}
-
   c = Context( {
-      'lists': p,
-      'p1'   : p1,
-      'p2'   : p2,
-      'p3'   : p3, 
-      'no'   : norecord,
-      'nodis': nodis,
-      's'    :s,
-      'pagename': pagename,
+      'category_desc' : category_desc,
+      'category_data' : category_data,
+      'pagename'      : pagename,
+      'pagesize'      : default_rows_per_page,
+      'display_legend': True
   } )
 
   return HttpResponse(t.render(c))
@@ -281,6 +260,7 @@ def mlgb( request, pagename = 'results' ): #{
 
       resultsets = r.s_result.get( 'docs' )
       number_of_records = r.s_result.get( 'numFound' )
+      if number_of_records > 0: show_tree = True
       
       html = h1 = h2 = d = link_to_photos = ""
 
@@ -447,9 +427,6 @@ def mlgb( request, pagename = 'results' ): #{
         result_string += '</ul><!-- end ID "tree" -->'
       #}
     #} # end of check on whether we retrieved a result
-
-    show_tree=True
-
   #} # end of check on whether a search term was found in GET
     
   t = loader.get_template('mlgb/mlgb.html')
