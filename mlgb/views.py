@@ -228,6 +228,9 @@ def mlgb( request, pagename = 'results' ): #{
       elif field_to_search.lower()=='library/institution':
         solr_query ="library:%s" % solr_query
 
+      elif field_to_search.lower()=='shelfmark':
+        solr_query ="shelfmarks:%s" % solr_query
+
       else:
         solr_query ="text:%s" % solr_query
 
