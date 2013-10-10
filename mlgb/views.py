@@ -64,6 +64,8 @@ def index( request, pagename = 'home' ): #{
         'location_count'        : len( location_count ) / 2,
         'pagename'              : pagename,
         'default_rows_per_page' : default_rows_per_page,
+        'searchable_fields'     : get_searchable_field_list(),
+        'page_sizes'            : get_page_sizes(),
         } )
   #}
   else: #{
@@ -73,6 +75,8 @@ def index( request, pagename = 'home' ): #{
         'location_count'        : 0,
         'pagename'              : pagename,
         'default_rows_per_page' : default_rows_per_page,
+        'searchable_fields'     : get_searchable_field_list(),
+        'page_sizes'            : get_page_sizes(),
         } )
   #}
 
@@ -107,20 +111,20 @@ def category( request, pagename = 'category' ): #{
   #}
 
   # Extract the facet counts for the relevant category
-  searching = get_value_from_GET( request, 'field_to_search', default_value = 'medieval_library' )
+  field_to_search = get_value_from_GET( request, 'field_to_search', default_value = 'medieval_library' )
 
-  if searching == 'place': #{
+  if field_to_search == 'location': #{
     facet_list = facet_results[ "ml1" ]  # modern library 1, i.e. city where modern library is located
-    category_desc = "Location"
   #}
-  elif searching == 'modern_library': #{
+  elif field_to_search == 'modern_library': #{
     facet_list = facet_results[ "ml2" ]  # modern library 2, i.e. name of the library
-    category_desc = "Modern Library/Institution"
   #}
   else: #{
     facet_list = facet_results[ "pr" ] # provenance
-    category_desc = "Medieval Library"
   #}
+
+  searchable_fields = get_searchable_field_list()
+  category_desc = get_searchable_field_label( field_to_search )
 
   category_data = []
   key_value_pair = {}
@@ -143,11 +147,14 @@ def category( request, pagename = 'category' ): #{
   page_size = get_value_from_GET( request, 'page_size', default_value = default_rows_per_page )
 
   c = Context( {
-      'field_to_search' : category_desc,
-      'category_data'   : category_data,
-      'pagename'        : pagename,
-      'page_size'       : page_size,
-      'display_legend'  : True
+      'field_to_search'  : field_to_search,
+      'category_desc'    : category_desc,
+      'category_data'    : category_data,
+      'pagename'         : pagename,
+      'page_size'        : page_size,
+      'searchable_fields': get_searchable_field_list(),
+      'page_sizes'       : get_page_sizes(),
+      'display_legend'   : True
   } )
 
   return HttpResponse(t.render(c))
@@ -213,20 +220,17 @@ def mlgb( request, pagename = 'results' ): #{
 
     else: #{
 
-      if field_to_search.lower()=='author/title':
+      if field_to_search.lower()=='author_title':
         solr_query ="authortitle:%s" % solr_query
 
-      elif field_to_search.lower()=='modern library/institution':
+      elif field_to_search.lower()=='modern_library':
         solr_query ="library:%s" % solr_query
 
-      elif field_to_search.lower()=='medieval library':
+      elif field_to_search.lower()=='medieval_library':
         solr_query ="provenance:%s" % solr_query
 
       elif field_to_search.lower()=='location':  
         solr_query ="location:%s" % solr_query
-
-      elif field_to_search.lower()=='library/institution':
-        solr_query ="library:%s" % solr_query
 
       elif field_to_search.lower()=='shelfmark':
         solr_query ="shelfmarks:%s" % solr_query
@@ -442,7 +446,10 @@ def mlgb( request, pagename = 'results' ): #{
       'showtree'         : show_tree,
       'search_term'      : search_term,
       'field_to_search'  : field_to_search,
+      'field_label'      : get_searchable_field_label( field_to_search ),
+      'searchable_fields': get_searchable_field_list(),
       'page_size'        : page_size,
+      'page_sizes'       : get_page_sizes(),
       'pagename'         : pagename,
   } )
 
@@ -486,7 +493,9 @@ def book( request, book_id, pagename = 'book' ): #{
                  'pagename': pagename,
                  'search_term': search_term,
                  'field_to_search': field_to_search,
+                 'searchable_fields': get_searchable_field_list(),
                  'page_size': page_size,
+                 'page_sizes': get_page_sizes(),
                  'evidence_desc': evidence_desc  } )
 
   return HttpResponse(t.render(c))
@@ -1076,4 +1085,37 @@ def get_value_from_GET( request, key, default_value = '' ): #{
 #}
 #--------------------------------------------------------------------------------
 
+def get_searchable_field_list(): #{
+
+  fields = [ { ""                : 'All fields' },
+             { 'author_title'    : 'Author/Title' },
+             { 'location'        : 'Location' },
+             { 'medieval_library': 'Medieval Library' },
+             { 'modern_library'  : 'Modern Library/Institution' },
+             { 'shelfmark'       : 'Shelfmark' } ]
+
+  return fields
+#}
+#--------------------------------------------------------------------------------
+
+def get_page_sizes(): #{
+
+  sizes = [ '100', '200', '500', '1000', 'All' ]
+  return sizes
+#}
+#--------------------------------------------------------------------------------
+
+def get_searchable_field_label( field_to_search = 'medieval_library' ): #{
+
+  searchable_field_label = ''
+  searchable_fields = get_searchable_field_list()
+  for fieldname_and_desc in searchable_fields: #{
+    if fieldname_and_desc.has_key( field_to_search ): #{
+      searchable_field_label = fieldname_and_desc[ field_to_search ]
+      break
+    #}
+  #}
+  return searchable_field_label
+#}
+#--------------------------------------------------------------------------------
 
