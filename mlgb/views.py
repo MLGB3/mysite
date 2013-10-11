@@ -170,7 +170,6 @@ def mlgb( request, pagename = 'results' ): #{
   html = provenance = modern_location1 = detail_text = result_string = search_term = resultsets = None
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = sql_query = ""
   link_to_photos = ""
-  show_tree = False
   first_record = True
   photo_evidence_data = []
 
@@ -270,7 +269,6 @@ def mlgb( request, pagename = 'results' ): #{
 
       resultsets = r.s_result.get( 'docs' )
       number_of_records = r.s_result.get( 'numFound' )
-      if number_of_records > 0: show_tree = True
       
       html = h1 = h2 = d = link_to_photos = ""
 
@@ -444,7 +442,6 @@ def mlgb( request, pagename = 'results' ): #{
   c = Context( {
       'result_string'    : result_string,
       'number_of_records': number_of_records,
-      'showtree'         : show_tree,
       'search_term'      : search_term,
       'field_to_search'  : field_to_search,
       'field_label'      : get_searchable_field_label( field_to_search ),
