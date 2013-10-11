@@ -127,18 +127,31 @@ def category( request, pagename = 'category' ): #{
   category_desc = get_searchable_field_label( field_to_search )
 
   category_data = []
+  prev_letter = ''
+  letter_index = -1
   key_value_pair = {}
+
   j = 0
-  for i in facet_list: #{
+  for facet_entry in facet_list: #{
     j +=1
     
     if j % 2 == 0: #{  # even-numbered row, so this is the *value* of the key/value pair
-      key_value_pair[ 'number_of_records' ] = i
-      category_data.append( key_value_pair )
+      key_value_pair[ 'number_of_records' ] = facet_entry
+      category_data[ letter_index ][ initial_letter ].append( key_value_pair )
       key_value_pair = {}
     #}
     else: #{  # odd-numbered row, so this is the *key* of the key/value pair
-      key_value_pair[ 'name' ] = i
+      facet_entry = facet_entry.strip()
+      key_value_pair[ 'name' ] = facet_entry
+
+      # Find out where each block of letters starts and ends in the data
+      initial_letter = facet_entry[ 0 : 1 ].upper()
+      if initial_letter != prev_letter: #{
+        letter_index += 1
+        category_data.append( { initial_letter : [] } )
+        prev_letter = initial_letter
+      #}
+
     #}
   #}
 
@@ -154,8 +167,7 @@ def category( request, pagename = 'category' ): #{
       'page_size'        : page_size,
       'searchable_fields': get_searchable_field_list(),
       'page_sizes'       : get_page_sizes(),
-      'default_rows_per_page': str( default_rows_per_page ),
-      'display_catg_desc': True
+      'default_rows_per_page': str( default_rows_per_page )
   } )
 
   return HttpResponse(t.render(c))
@@ -503,7 +515,8 @@ def book( request, book_id, pagename = 'book' ): #{
 # end function book()
 #--------------------------------------------------------------------------------
 
-# Function fulltext() seems to be little used, and is not currently linked to from the home page.
+# Function fulltext() seems to be used to generate 'auto-complete' settings for the search box
+# on the Home page (see index.html)
 
 def fulltext( request, pagename = 'fulltext' ): #{
 
@@ -536,8 +549,8 @@ def fulltext( request, pagename = 'fulltext' ): #{
 # end fulltext
 #--------------------------------------------------------------------------------
 
-# Function download() seems to be little used, and is not currently linked to from the home page.
-
+# It seems that function download() should be called from the 'record detail' page (mlgb_detail.html).
+# However, the links to it are hidden.
 
 def download( request, pagename = 'download' ): #{
 
