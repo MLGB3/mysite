@@ -63,7 +63,7 @@ def index( request, pagename = 'home' ): #{
         'modern_library_count'  : len( modern_library_count ) / 2,
         'location_count'        : len( location_count ) / 2,
         'pagename'              : pagename,
-        'default_rows_per_page' : default_rows_per_page,
+        'default_rows_per_page' : str( default_rows_per_page ),
         'searchable_fields'     : get_searchable_field_list(),
         'page_sizes'            : get_page_sizes(),
         } )
@@ -74,7 +74,7 @@ def index( request, pagename = 'home' ): #{
         'modern_library_count'  : 0,
         'location_count'        : 0,
         'pagename'              : pagename,
-        'default_rows_per_page' : default_rows_per_page,
+        'default_rows_per_page' : str( default_rows_per_page ),
         'searchable_fields'     : get_searchable_field_list(),
         'page_sizes'            : get_page_sizes(),
         } )
@@ -154,7 +154,8 @@ def category( request, pagename = 'category' ): #{
       'page_size'        : page_size,
       'searchable_fields': get_searchable_field_list(),
       'page_sizes'       : get_page_sizes(),
-      'display_legend'   : True
+      'default_rows_per_page': str( default_rows_per_page ),
+      'display_catg_desc': True
   } )
 
   return HttpResponse(t.render(c))
@@ -450,6 +451,7 @@ def mlgb( request, pagename = 'results' ): #{
       'searchable_fields': get_searchable_field_list(),
       'page_size'        : page_size,
       'page_sizes'       : get_page_sizes(),
+      'default_rows_per_page': str( default_rows_per_page ),
       'pagename'         : pagename,
   } )
 
@@ -496,6 +498,7 @@ def book( request, book_id, pagename = 'book' ): #{
                  'searchable_fields': get_searchable_field_list(),
                  'page_size': page_size,
                  'page_sizes': get_page_sizes(),
+                 'default_rows_per_page': str( default_rows_per_page ),
                  'evidence_desc': evidence_desc  } )
 
   return HttpResponse(t.render(c))
