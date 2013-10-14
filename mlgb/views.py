@@ -261,10 +261,10 @@ def mlgb( request, pagename = 'results' ): #{
     # Set sort field
     if field_to_search.lower()=='author_title':
       # sort primarily by author/title, i.e. 'soc' ('suggestion of contents')
-      solr_sort = "soc asc,ev asc,pr asc,ct asc,ins asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc"
+      solr_sort = "soc asc, ev asc, pr asc, ct asc, ins asc, ml1 asc, ml2 asc, shelfmarksort asc, id asc"
     else:
       # sort first on provenance (medieval library), then modern library and shelfmark
-      solr_sort="pr asc,ct asc,ins asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc,ev asc,soc asc,dt asc,pm asc,mc asc,uk asc"
+      solr_sort="pr asc, ct asc, ins asc, ml1 asc, ml2 asc, shelfmarksort asc, id asc"
 
     # Run the Solr query
     s_para={'q'    : solr_query,
