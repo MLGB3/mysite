@@ -259,7 +259,7 @@ def mlgb( request, pagename = 'results' ): #{
       solr_rows=Book.objects.count()
     
     # Set sort field
-    if field_to_search.lower()=='author/title':
+    if field_to_search.lower()=='author_title':
       # sort primarily by author/title, i.e. 'soc' ('suggestion of contents')
       solr_sort = "soc asc,ev asc,pr asc,ct asc,ins asc,ml1 asc,ml2 asc,sm1 asc,sm2 asc"
     else:
@@ -310,7 +310,7 @@ def mlgb( request, pagename = 'results' ): #{
         # heading 1, then provenance as heading 2, then modern library and shelfmark in the detail.
         # If not searching on author/title, have medieval library as main heading, then modern one.
 
-        if field_to_search.lower()=='author/title': #{
+        if field_to_search.lower()=='author_title': #{
           heading1 = suggestion_of_contents
           heading2 = provenance
           heading3 = '%s%s%s' % (modern_location1, space, modern_location2)
@@ -398,7 +398,7 @@ def mlgb( request, pagename = 'results' ): #{
           detail_text += space
         #}
 
-        if field_to_search.lower() != 'author/title': #{
+        if field_to_search.lower() != 'author_title': #{
 
           if suggestion_of_contents: #{
             detail_text += suggestion_of_contents + ' <!-- author/title -->'
