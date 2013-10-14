@@ -97,6 +97,8 @@ class Book(models.Model):
     notes = models.TextField(blank=True)
     urls = models.CharField(max_length=255,blank=True)
     pr_bk = models.BooleanField(verbose_name = "Printed Book")
+    shelfmark_sort = models.CharField( max_length=255,blank=True )
+
     #---------------------------------------------------------
     def shelfmark(self):
         return ("%s %s" % (self.shelfmark_1, self.shelfmark_2))
