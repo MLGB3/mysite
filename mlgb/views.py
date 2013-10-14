@@ -191,11 +191,11 @@ def mlgb( request, pagename = 'results' ): #{
 
   start_treeview = newline
   start_treeview += '<div id="sidetreecontrol">' + newline
-  start_treeview += '<a href="?#">Collapse All</a> | <a href="?#">Expand All</a>' + newline
+  start_treeview += '<a href="?#">Expand All</a> | <a href="?#">Collapse All</a>' + newline
   start_treeview += '</div>' + newline
   start_treeview += '<ul class="treeview" id="tree">' + newline + newline
 
-  start_hidden_list = '<ul style="display:none;">' + newline
+  start_hidden_list = '<ul style="display:block;">' + newline
 
   start_outer_section = '<li class="expandable outerhead">' + newline \
                       + '<div class="hitarea expandable-hitarea"></div>' + newline
