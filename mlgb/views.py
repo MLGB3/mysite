@@ -5,6 +5,7 @@
 # but very, very thoroughly rewritten by Sushila Burgess 2013.
 """
 #--------------------------------------------------------------------------------
+
 from mysite.books.models import *
 from mysite.feeds.models import Photo
 from django.utils import simplejson
@@ -18,11 +19,12 @@ from django.utils.html import escape
 from urllib import quote, unquote
 import csv
 from cStringIO import StringIO
-#from django.core.paginator import Paginator, InvalidPage, EmptyPage
+
 #--------------------------------------------------------------------------------
 
 facet=False
 default_rows_per_page = 500
+newline = '\n'
 
 #================= Top-level functions, called directly from URL ================
 #--------------------------------------------------------------------------------
@@ -185,7 +187,6 @@ def mlgb( request, pagename = 'results' ): #{
   first_record = True
   photo_evidence_data = []
 
-  newline = '\n'
   space = newline + '<span class="spacer">' + newline + '</span>' + newline
   two_spaces = space + space
 
@@ -261,10 +262,10 @@ def mlgb( request, pagename = 'results' ): #{
     # Set sort field
     if field_to_search.lower()=='author_title':
       # sort primarily by author/title, i.e. 'soc' ('suggestion of contents')
-      solr_sort = "soc asc, ev asc, pr asc, ct asc, ins asc, ml1 asc, ml2 asc, shelfmarksort asc, id asc"
+      solr_sort = ", ".join( get_author_title_sortfields() )
     else:
       # sort first on provenance (medieval library), then modern library and shelfmark
-      solr_sort="pr asc, ct asc, ins asc, ml1 asc, ml2 asc, shelfmarksort asc, id asc"
+      solr_sort = ", ".join( get_provenance_sortfields() )
 
     # Run the Solr query
     s_para={'q'    : solr_query,
@@ -363,14 +364,7 @@ def mlgb( request, pagename = 'results' ): #{
 
         else: #{
           if evidence_code: #{
-            alert_text = evidence_desc.replace( "'", "\\'" )
-            alert_text = alert_text.replace( '"', "\\'" )
-
-            detail_text += '<button class="evidence_decoder"'
-            detail_text += ' title="%s" ' % evidence_desc.replace( '"', "'" )
-            detail_text += ' onclick="alert(' + "'" + alert_text + "'" + ')">'
-            detail_text += evidence_code
-            detail_text += '</button>'
+            detail_text += get_evidence_decoder_button( evidence_code, evidence_desc )
           #}
         #}
         detail_text += ' <!-- type of evidence -->'
@@ -513,6 +507,231 @@ def book( request, book_id, pagename = 'book' ): #{
   return HttpResponse(t.render(c))
 #}
 # end function book()
+#--------------------------------------------------------------------------------
+
+# The function browse() allows browsing by modern location and shelfmark
+
+def browse( request, letter = 'A', pagename = 'browse' ): #{
+
+  html = detail_text = result_string = resultsets = ""
+  number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = ""
+  letters = []
+  first_record = True
+
+  space = newline + '<span class="spacer">' + newline + '</span>' + newline
+  two_spaces = space + space
+
+  # Set default field to search, records per page and start row, 
+  # for use in pagination and 'search again' functionality.
+  field_to_search = 'location' # this is used in the 'Search' box on the right-hand side
+  solr_field_to_search = 'ml1'
+  page_size = str( default_rows_per_page )
+  solr_start = 0
+
+  if request.GET: #{ # are there any parameters in GET?
+    # Get actual records per page and start row from GET
+    page_size = get_value_from_GET( request, "page_size", str( default_rows_per_page )) 
+    solr_start = get_value_from_GET( request, "start", 0 ) 
+
+    # They may also have chosen to browse by a different sort field
+    field_to_search = get_value_from_GET( request, "browse_by", field_to_search ) 
+    if field_to_search == 'modern_library':
+      solr_field_to_search = 'ml2'
+    elif field_to_search == 'medieval_library':
+      solr_field_to_search = 'pr'
+  #}
+
+  # Construct Solr query
+  if not letter.isalpha(): letter = 'A'
+  solr_query = '%s:(%s*)' % (solr_field_to_search, letter.upper())
+  
+  # Set page size
+  if page_size.isdigit():
+    solr_rows = int( page_size )
+  else: 
+    solr_rows=Book.objects.count()
+  
+  # Set sort field
+  solr_sort = ", ".join( get_location_and_shelfmark_sortfields() )
+
+  # Run the Solr query
+  s_para={'q'    : solr_query,
+          'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
+          'start': solr_start, 
+          'rows' : solr_rows,
+          'sort' : solr_sort}
+  r=MLGBsolr()
+  r.solrresults( s_para, Facet=facet )
+
+
+  # Start to display the results
+  if r.connstatus and r.s_result: #{ #did we retrieve a result?
+
+    resultsets = r.s_result.get( 'docs' )
+    number_of_records = r.s_result.get( 'numFound' )
+    
+    html = prev_heading = heading = ""
+
+    # Start loop through result sets
+    for i in xrange( 0, len( resultsets ) ): #{
+
+      # Get the data from the Solr result set
+      (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
+      evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
+      pressmark, medieval_catalogue, unknown, notes_on_evidence) = \
+      extract_from_result( resultsets[i], False ) # here False means 'don't add punctuation'
+
+      heading = get_modern_location_heading( modern_location1, modern_location2 )
+
+      if prev_heading <> heading: #{  # change in heading
+
+        if first_record:
+          first_record=False
+        else:
+          html += newline + '</table>' + newline
+
+        html += newline + "<h3>" + newline
+        html += heading
+        html += newline + "</h3>" + newline
+        html += '<table class="browseresults">' + newline
+        prev_heading = heading
+      #}
+
+      # Now set up the 'detail' text
+      detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
+      detail_text += '<tr class="book_row_1">' + newline
+
+      booklink_start = get_booklink_start( id, '', field_to_search, page_size )
+
+      # Evidence
+      detail_text += newline + '<td class="evidence">' + newline
+      if evidence_code: #{
+        detail_text += get_evidence_decoder_button( evidence_code, evidence_desc )
+      #}
+      detail_text += ' <!-- type of evidence -->'
+      detail_text += newline + '</td>' + newline
+
+      # Shelfmarks
+      detail_text += newline + '<td class="shelfmarks">' + newline
+      if shelfmark1 or shelfmark2: #{
+        detail_text += booklink_start
+        detail_text += '%s <!-- shelfmark 1 -->' %  shelfmark1 
+        if shelfmark2: #{
+          detail_text += space
+          detail_text += '%s <!-- shelfmark 2 -->' %  shelfmark2 
+        #}
+        detail_text += '</a>'
+      #}
+      detail_text += newline + '</td>' + newline
+
+      # Author/title
+      detail_text += newline + '<td class="authortitle">' + newline
+      if suggestion_of_contents: #{
+        detail_text += booklink_start
+        detail_text += suggestion_of_contents + ' <!-- author/title -->'
+        detail_text += '</a>'
+      #}
+      detail_text += newline + '</td>' + newline
+
+      # Date of work
+      detail_text += newline + '<td class="date_of_work">' + newline
+      if date_of_work : #{
+        detail_text += booklink_start
+        detail_text += date_of_work + ' <!-- date -->'
+        detail_text += '</a>'
+      #}
+      detail_text += newline + '</td>' + newline
+
+      detail_text += newline + '<td>' + newline
+      detail_text += newline + '</td>' + newline
+
+      detail_text += '</tr>' + newline
+
+      # Now start a hidden row for the rest...
+      detail_text += '<tr id="book_%s_row_2" class="book_row_2 hidden">' % id
+      detail_text += newline
+     
+      detail_text += newline + '<td></td>'
+      detail_text += newline + '<td colspan="4"><ul>' + newline
+
+      if provenance : #{
+        detail_text += '<li>Provenance: ' + provenance + ' <!-- provenance -->'
+        detail_text += '</li>' + newline
+      #}
+
+      if evidence_desc : #{
+        detail_text += '<li>Evidence: ' + evidence_desc + ' <!-- evidence description -->'
+        detail_text += '</li>' + newline
+      #}
+
+      if pressmark : #{
+        detail_text += '<li>Pressmark: ' + pressmark + ' <!-- pressmark -->'
+        detail_text += '</li>' + newline
+      #}
+
+      if medieval_catalogue : #{
+        detail_text += '<li>Medieval catalogue: ' + medieval_catalogue + ' <!-- medieval catalogue -->'
+        detail_text += '</li>' + newline
+      #}
+
+      if unknown : #{
+        detail_text += '<li>' + unknown + ' <!-- unknown -->'
+        detail_text += '</li>' + newline
+      #}
+      detail_text += newline + '</ul></td>' + newline
+
+      detail_text += '</tr><!-- end book ID ' + id + ' -->' + newline + newline
+
+      # Add the string of HTML that you have generated for this record to the main HTML source
+      html += detail_text
+
+    #} # end loop through result sets
+    if number_of_records > 0:  #{
+
+      html += newline + '</table><!-- end browseresults -->' + newline
+
+      alphabet = '<div class="letterlinks">'
+      initials = get_initial_letters( solr_field_to_search )
+      for initial in initials: #{
+        alphabet += '<a href="/mlgb/browse/%s" ' % initial
+        if initial == letter.upper(): alphabet += ' class="selected" '
+        alphabet += '>%s</a>' % initial
+        alphabet += space
+      #}
+      alphabet += '</div><!-- letterlinks -->'
+
+      pag = pagination( rows_found = number_of_records, \
+                        current_row = solr_start, \
+                        rows_per_page = solr_rows, \
+                        include_print_button = False )
+
+      result_string = alphabet + pag + html 
+    #}
+  #} # end of check on whether we retrieved a result
+    
+  page_title = 'Browsing by %s and shelfmark: %s' \
+               % (get_searchable_field_label( field_to_search ), letter)
+
+  t = loader.get_template('mlgb/browse.html')
+
+  c = Context( {
+      'result_string'    : result_string,
+      'number_of_records': number_of_records,
+      'letter'           : letter,
+      'field_to_search'  : field_to_search,
+      'field_label'      : get_searchable_field_label( field_to_search ),
+      'searchable_fields': get_searchable_field_list(),
+      'page_size'        : page_size,
+      'page_sizes'       : get_page_sizes(),
+      'default_rows_per_page': str( default_rows_per_page ),
+      'pagename'         : pagename,
+      'page_title'       : page_title,
+  } )
+
+  return HttpResponse( t.render( c ) )
+
+#}
+# end function browse()
 #--------------------------------------------------------------------------------
 
 # Function fulltext() seems to be used to generate 'auto-complete' settings for the search box
@@ -697,7 +916,7 @@ def escape_for_solr( search_term ): #{
 #}
 #--------------------------------------------------------------------------------
 
-def extract_from_result( resultset ): #{
+def extract_from_result( resultset, add_punctuation = True ): #{
 
   # ID
   id = resultset['id']
@@ -718,7 +937,8 @@ def extract_from_result( resultset ): #{
   modern_location1 = trim( resultset['ml1'], False )
 
   # Modern library 2
-  modern_location2 = trim( resultset['ml2'] ) + "&cedil;"
+  modern_location2 = trim( resultset['ml2'] )
+  if modern_location2 and add_punctuation: modern_location2 += ','
 
   # shelfmark 1
   shelfmark1 = trim( resultset['sm1'] )
@@ -726,12 +946,12 @@ def extract_from_result( resultset ): #{
   # shelfmark 2
   shelfmark2 = trim( resultset['sm2'] )
   if shelfmark2: #{
-    if not shelfmark2.endswith( '.' ): shelfmark2 += '.'
+    if add_punctuation and not shelfmark2.endswith( '.' ): shelfmark2 += '.'
   #}
 
   # make sure there is a full stop at the end of the combined shelfmarks
   elif shelfmark1: #{
-    if not shelfmark1.endswith( '.' ): shelfmark1 += '.'
+    if add_punctuation and not shelfmark1.endswith( '.' ): shelfmark1 += '.'
   #}
 
   # evidence code
@@ -745,31 +965,36 @@ def extract_from_result( resultset ): #{
   # date
   date_of_work = trim( resultset['dt'] )
   if date_of_work: #{ 
-    if not date_of_work.endswith( '.' ): date_of_work += '.'
+    if add_punctuation and not date_of_work.endswith( '.' ): 
+      date_of_work += '.'
   #}
   
   # pressmark
   pressmark = trim( resultset['pm'] )
   if pressmark: #{
-    if not pressmark.endswith( '.' ): pressmark += '.'
+    if add_punctuation and not pressmark.endswith( '.' ): 
+      pressmark += '.'
   #}
 
   # medieval catalogue
   medieval_catalogue = trim( resultset['mc'] )
   if medieval_catalogue: #{
-    medieval_catalogue = '[' + medieval_catalogue + ']'
+    if add_punctuation: 
+      medieval_catalogue = '[' + medieval_catalogue + ']'
   #}
   
   # unknown
   unknown = trim( resultset['uk'] )
   if unknown: #{
-    if not unknown.endswith( '.' ) and not unknown.endswith( '?' ): unknown += '.'
+    if add_punctuation and not unknown.endswith( '.' ) and not unknown.endswith( '?' ): 
+      unknown += '.'
   #}
 
   # notes
   notes_on_evidence = trim( resultset['nt'] )
   if notes_on_evidence: #{
-    if not notes_on_evidence.endswith( '.' ): notes_on_evidence += '.'
+    if add_punctuation and not notes_on_evidence.endswith( '.' ): 
+      notes_on_evidence += '.'
   #}
 
 
@@ -784,7 +1009,6 @@ def extract_from_result( resultset ): #{
 
 def pagination( rows_found, current_row, rows_per_page=None, include_print_button=False ): #{
 
-  newline = '\n'
   html = newline  # we'll build up all the pagination links in the 'html' string
 
   if rows_per_page == None:
@@ -1025,7 +1249,6 @@ def pagination( rows_found, current_row, rows_per_page=None, include_print_butto
 
 def write_page_change_script( page_change_scriptname ): #{
 
-  newline = '\n'
   script = newline
 
   script += '  <script type="text/javascript">' + newline
@@ -1132,3 +1355,142 @@ def get_searchable_field_label( field_to_search = 'medieval_library' ): #{
 #}
 #--------------------------------------------------------------------------------
 
+def get_modern_location_heading( modern_location1, modern_location2 ): #{
+
+  heading = modern_location1.strip()
+  if modern_location1 and modern_location2: heading += ', ' 
+  heading += modern_location2.strip()
+  return heading
+#}
+#--------------------------------------------------------------------------------
+
+def get_author_title_sortfields(): #{
+
+  author_title_sortfields = [ 'soc asc',           # suggestion of contents, i.e. author/title
+                              'ev asc',            # evidence code
+                              'prsort asc',        # provenance (place, e.g. town/city)
+                              'ctsort asc',        # provenance (county)
+                              'inssort asc',       # provenance (institution name)
+                              'ml1sort asc',       # modern location 1 (city etc)
+                              'ml2sort asc',       # location location 2 (library name)
+                              'shelfmarksort asc', # shelfmark in numerically-sortable format
+                              'id asc']
+
+  return author_title_sortfields
+#}
+#--------------------------------------------------------------------------------
+
+def get_provenance_sortfields(): #{
+
+  provenance_sortfields = [ 'prsort asc',        # provenance (place, e.g. town/city)
+                            'ctsort asc',        # provenance (county)
+                            'inssort asc',       # provenance (institution name)
+                            'ml1sort asc',       # modern location 1 (city etc)
+                            'ml2sort asc',       # location location 2 (library name)
+                            'shelfmarksort asc', # shelfmark in numerically-sortable format
+                            'soc asc',           # suggestion of contents, i.e. author/title
+                            'ev asc',            # evidence code
+                            'id asc']
+
+  return provenance_sortfields
+#}
+#--------------------------------------------------------------------------------
+
+def get_location_and_shelfmark_sortfields(): #{
+
+  shelfmark_sortfields = [ 'ml1sort asc',       # modern location 1 (city etc)
+                           'ml2sort asc',       # location location 2 (library name)
+                           'shelfmarksort asc', # shelfmark in numerically-sortable format
+                           'soc asc',           # suggestion of contents, i.e. author/title
+                           'ev asc',            # evidence code
+                           'prsort asc',        # provenance (place, e.g. town/city)
+                           'ctsort asc',        # provenance (county)
+                           'inssort asc',       # provenance (institution name)
+                           'id asc']
+
+  return shelfmark_sortfields
+#}
+#--------------------------------------------------------------------------------
+
+def get_evidence_decoder_button( evidence_code = '', evidence_desc = '' ): #{
+
+  button_text = ''
+
+  alert_text = evidence_desc.replace( "'", "\\'" )
+  alert_text = alert_text.replace( '"', "\\'" )
+
+  button_text += '<button class="evidence_decoder"'
+  button_text += ' title="%s" ' % alert_text
+  button_text += ' onclick="alert(' + "'" + alert_text + "'" + ')">'
+  button_text += evidence_code
+  button_text += '</button>'
+
+  return button_text
+#}
+#--------------------------------------------------------------------------------
+
+def get_booklink_start( book_id = '', search_term = '', field_to_search = '', page_size = '' ): #{
+
+  booklink = '<!-- start booklink -->' + newline
+  booklink += '<a href="/mlgb/book/%s/' % book_id
+
+  s = '?'
+
+  # Pass in your search, so that they can search again from the detail page
+  if search_term and search_term != '*': #{
+    booklink += '%ssearch_term=%s' % (s, quote( search_term.encode( 'utf-8' ) ))
+    s = '&'
+  #}
+
+  if field_to_search: #{
+    booklink += '%sfield_to_search=%s' % (s, quote( field_to_search.encode( 'utf-8' ) ))
+    s = '&'
+  #}
+
+  if page_size: #{
+    booklink += '%spage_size=%s' % (s, quote( page_size.encode( 'utf-8' ) ))
+    s = '&'
+  #}
+
+  booklink += '" class="booklink">'
+  return booklink
+#}
+#--------------------------------------------------------------------------------
+
+def get_initial_letters( facet_field ): #{
+
+  facet_field += '_initial' # e.g. 'pr' becomes 'pr_initial'
+  facet = True
+  facet_results = {}
+  letters = []
+
+  s_para = {'q'    : '*:*',
+            'wt'   : s_wt,
+            'start': 0, 
+            'rows' : 0,
+           }
+
+  s_para[ 'facet.mincount' ] = '1'
+  s_para[ 'facet'          ] = 'on'
+  s_para[ 'facet.limit'    ] = '-1'
+  s_para[ 'facet.field'    ] = [ facet_field ]
+
+  facet_getter = MLGBsolr()
+
+  facet_getter.solrresults( s_para, Facet=facet )
+
+  if facet_getter.connstatus and facet_getter.s_result: #{
+    facet_results = facet_getter.s_result.get( 'facet' )
+    letters_and_counts = facet_results[ facet_field ]
+  #}
+  
+  i = 0
+  for letter_or_count in letters_and_counts: #{ odd-numbered entries = letter, even-numbered = count
+   i += 1
+   if i % 2: 
+     letters.append( letter_or_count )
+  #}
+
+  return letters
+#}
+#--------------------------------------------------------------------------------
