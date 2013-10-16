@@ -570,7 +570,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     resultsets = r.s_result.get( 'docs' )
     number_of_records = r.s_result.get( 'numFound' )
     
-    html = prev_heading = heading = ""
+    prev_heading = heading = ""
+    html = get_expand_collapse_script()
 
     # Start loop through result sets
     for i in xrange( 0, len( resultsets ) ): #{
@@ -588,31 +589,40 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
         if first_record:
           first_record=False
         else:
-          html += newline + '</table>' + newline
+          html += newline + '</div><!-- end div browseresults -->' + newline
 
+        html += '<p>'
         html += newline + "<h3>" + newline
         html += heading
         html += newline + "</h3>" + newline
-        html += '<table class="browseresults">' + newline
+        html += '</p>'
+        html += '<div class="browseresults">' + newline
         prev_heading = heading
       #}
 
       # Now set up the 'detail' text
       detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
-      detail_text += '<tr class="book_row_1">' + newline
+      detail_text += '<div class="book_row_1">' + newline
 
       booklink_start = get_booklink_start( id, '', field_to_search, page_size )
 
+      # Expand/collapse button
+      detail_text += newline + '<div class="browse_concertina">'
+      detail_text += get_expand_collapse_button( id, label = '+' )
+      detail_text += newline + '</div><!-- end concertina button -->'
+
       # Evidence
-      detail_text += newline + '<td class="evidence">' + newline
+      detail_text += newline + '<div class="browse_evidence">' + newline
       if evidence_code: #{
         detail_text += get_evidence_decoder_button( evidence_code, evidence_desc )
       #}
+      else:
+        detail_text += space
       detail_text += ' <!-- type of evidence -->'
-      detail_text += newline + '</td>' + newline
+      detail_text += newline + '</div><!-- end evidence -->' + newline
 
       # Shelfmarks
-      detail_text += newline + '<td class="shelfmarks">' + newline
+      detail_text += newline + '<div class="browse_shelfmarks">' + newline
       if shelfmark1 or shelfmark2: #{
         detail_text += booklink_start
         detail_text += '%s <!-- shelfmark 1 -->' %  shelfmark1 
@@ -622,37 +632,42 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
         #}
         detail_text += '</a>'
       #}
-      detail_text += newline + '</td>' + newline
+      else:
+        detail_text += space
+      detail_text += newline + '</div><!-- end shelfmarks -->' + newline
 
       # Author/title
-      detail_text += newline + '<td class="authortitle">' + newline
+      detail_text += newline + '<div class="browse_authortitle">' + newline
       if suggestion_of_contents: #{
         detail_text += booklink_start
         detail_text += suggestion_of_contents + ' <!-- author/title -->'
         detail_text += '</a>'
       #}
-      detail_text += newline + '</td>' + newline
+      else:
+        detail_text += space
+      detail_text += newline + '</div><!-- end author/title -->' + newline
 
       # Date of work
-      detail_text += newline + '<td class="date_of_work">' + newline
+      detail_text += newline + '<div class="browse_date_of_work">' + newline
       if date_of_work : #{
         detail_text += booklink_start
         detail_text += date_of_work + ' <!-- date -->'
         detail_text += '</a>'
       #}
-      detail_text += newline + '</td>' + newline
+      else:
+        detail_text += space
+      detail_text += newline + '</div><!-- end date of work -->' + newline
 
-      detail_text += newline + '<td>' + newline
-      detail_text += newline + '</td>' + newline
+      detail_text += newline + '<div class="browse_editlink">' + newline
+      detail_text += newline + '</div><!-- end edit link -->' + newline
 
-      detail_text += '</tr>' + newline
+      detail_text += '</div><!-- end book_row_1 -->' + newline
 
       # Now start a hidden row for the rest...
-      detail_text += '<tr id="book_%s_row_2" class="book_row_2 hidden">' % id
+      detail_text += '<div id="%s" class="book_row_2_hidden">' % get_2nd_row_id( id )
       detail_text += newline
      
-      detail_text += newline + '<td></td>'
-      detail_text += newline + '<td colspan="4"><ul>' + newline
+      detail_text += newline + '<ul>' + newline
 
       if provenance : #{
         detail_text += '<li>Provenance: ' + provenance + ' <!-- provenance -->'
@@ -678,9 +693,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
         detail_text += '<li>' + unknown + ' <!-- unknown -->'
         detail_text += '</li>' + newline
       #}
-      detail_text += newline + '</ul></td>' + newline
+      detail_text += newline + '</ul>' + newline
 
-      detail_text += '</tr><!-- end book ID ' + id + ' -->' + newline + newline
+      detail_text += '</div><!-- end book ID ' + id + ' -->' + newline + newline
 
       # Add the string of HTML that you have generated for this record to the main HTML source
       html += detail_text
@@ -688,7 +703,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     #} # end loop through result sets
     if number_of_records > 0:  #{
 
-      html += newline + '</table><!-- end browseresults -->' + newline
+      html += newline + '</div><!-- end browseresults -->' + newline
 
       alphabet = '<div class="letterlinks">'
       initials = get_initial_letters( solr_field_to_search )
@@ -1492,5 +1507,55 @@ def get_initial_letters( facet_field ): #{
   #}
 
   return letters
+#}
+#--------------------------------------------------------------------------------
+
+def get_expand_collapse_button( book_id, label = '+' ): #{
+
+  button_id = "concertina%s" % book_id
+
+  button_text = '<button name="%s" id="%s" ' % (button_id, button_id)
+  button_text += ' value="%s" ' % label
+  button_text += ' onclick="expand_or_collapse_2nd_row( %s, this.value )" ' % book_id
+  button_text += '>%s</button>' % label
+
+  return button_text
+#}
+#--------------------------------------------------------------------------------
+
+def get_2nd_row_id( book_id ): #{
+  return "book_row_2_%s" % book_id
+#}
+#--------------------------------------------------------------------------------
+
+def get_expand_collapse_script(): #{
+
+  script = newline + newline
+
+  script += '<script type="text/javascript">'                             + newline
+  script += 'function expand_or_collapse_2nd_row( book_id, new_value ) {' + newline
+
+  script += '  var button_id = "concertina" + book_id;'                   + newline
+  script += '  var the_button = document.getElementById( button_id );'    + newline
+
+  script += '  var row_id = "%s" + book_id;' % get_2nd_row_id( "" )       + newline
+  script += '  var the_row = document.getElementById( row_id );'          + newline
+
+  script += '  if( new_value == "+" ) {'                                  + newline
+  script += '    the_row.className = "book_row_2_displayed";'             + newline
+  script += '    the_button.value = "-";'                                 + newline
+  script += '    the_button.innerHTML = "-";'                             + newline
+  script += '  }'                                                         + newline
+  script += '  else {'                                                    + newline
+  script += '    the_row.className = "book_row_2_hidden";'                + newline
+  script += '    the_button.value = "+";'                                 + newline
+  script += '    the_button.innerHTML = "+";'                             + newline
+  script += '  }'                                                         + newline
+  script += '}'                                                           + newline
+  script += '</script>'                                                   + newline
+
+  script += newline + newline
+
+  return script
 #}
 #--------------------------------------------------------------------------------
