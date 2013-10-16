@@ -724,6 +724,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         include_print_button = False )
 
       result_string = alphabet + pag + html 
+
+      if number_of_records > solr_rows: # repeat pagination at the bottom
+        result_string += '<br>' + pag + '<br>'
     #}
   #} # end of check on whether we retrieved a result
     
