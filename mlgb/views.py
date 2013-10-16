@@ -582,20 +582,22 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       pressmark, medieval_catalogue, unknown, notes_on_evidence) = \
       extract_from_result( resultsets[i], False ) # here False means 'don't add punctuation'
 
+      unformatted_provenance = extract_unformatted_provenance( resultsets[i] ) # no italics etc
+
       heading = get_modern_location_heading( modern_location1, modern_location2 )
 
-      if prev_heading <> heading: #{  # change in heading
+      if prev_heading.lower() <> heading.lower(): #{  # change in heading
 
         if first_record:
           first_record=False
         else:
           html += newline + '</div><!-- end div browseresults -->' + newline
 
-        html += '<p>'
         html += newline + "<h3>" + newline
+        html += '<p>'
         html += heading
-        html += newline + "</h3>" + newline
         html += '</p>'
+        html += newline + "</h3>" + newline
         html += '<div class="browseresults">' + newline
         prev_heading = heading
       #}
@@ -647,16 +649,17 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
         detail_text += space
       detail_text += newline + '</div><!-- end author/title -->' + newline
 
-      # Date of work
-      detail_text += newline + '<div class="browse_date_of_work">' + newline
-      if date_of_work : #{
-        detail_text += booklink_start
-        detail_text += date_of_work + ' <!-- date -->'
+      # Provenance
+      detail_text += newline + '<div class="browse_provenance">' + newline
+      if provenance : #{
+        detail_text += '<a href="/mlgb/?search_term=%s&field_to_search=medieval_library">' \
+                    % quote( unformatted_provenance.encode( 'utf-8' ) )
+        detail_text += provenance + ' <!-- provenance -->'
         detail_text += '</a>'
       #}
       else:
         detail_text += space
-      detail_text += newline + '</div><!-- end date of work -->' + newline
+      detail_text += newline + '</div><!-- end provenance -->' + newline
 
       detail_text += newline + '<div class="browse_editlink">' + newline
       detail_text += newline + '</div><!-- end edit link -->' + newline
@@ -669,13 +672,13 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
      
       detail_text += newline + '<ul>' + newline
 
-      if provenance : #{
-        detail_text += '<li>Provenance: ' + provenance + ' <!-- provenance -->'
+      if evidence_desc : #{
+        detail_text += '<li>Evidence: ' + evidence_desc + ' <!-- evidence description -->'
         detail_text += '</li>' + newline
       #}
 
-      if evidence_desc : #{
-        detail_text += '<li>Evidence: ' + evidence_desc + ' <!-- evidence description -->'
+      if date_of_work : #{
+        detail_text += '<li>Date: ' + date_of_work + ' <!-- date of work -->'
         detail_text += '</li>' + newline
       #}
 
@@ -1017,6 +1020,22 @@ def extract_from_result( resultset, add_punctuation = True ): #{
           evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
           pressmark, medieval_catalogue, unknown, notes_on_evidence)
 
+#}
+#--------------------------------------------------------------------------------
+
+def extract_unformatted_provenance( resultset ): #{ # no added italics etc
+
+  unformatted_provenance = trim( resultset['pr'] ) 
+
+  # County
+  if resultset['ct']:
+    unformatted_provenance += ", " + trim( resultset['ct'] )
+
+  # Institution
+  if resultset['ins']:
+    unformatted_provenance += ", " + trim( resultset['ins'] )
+
+  return unformatted_provenance
 #}
 #--------------------------------------------------------------------------------
 ## This function was copied from code written by Mat Wilcoxson for EMLO/Cultures of Knowledge
