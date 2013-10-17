@@ -70,7 +70,7 @@ def category( request, pagename = 'category' ): #{
   s_para[ 'facet.mincount' ] = '1'
   s_para[ 'facet'          ] = 'on'
   s_para[ 'facet.limit'    ] = '-1'
-  s_para[ 'facet.field'    ] = [ "pr", "ml1", "ml2" ]
+  s_para[ 'facet.field'    ] = [ "pr_full", "ml1", "ml_full" ]
 
   r = MLGBsolr()
   r.solrresults( s_para, Facet = True )
@@ -86,10 +86,10 @@ def category( request, pagename = 'category' ): #{
     facet_list = facet_results[ "ml1" ]  # modern library 1, i.e. city where modern library is located
   #}
   elif field_to_search == 'modern_library': #{
-    facet_list = facet_results[ "ml2" ]  # modern library 2, i.e. name of the library
+    facet_list = facet_results[ "ml_full" ]  # modern library 2, i.e. name of the library (plus city)
   #}
   else: #{
-    facet_list = facet_results[ "pr" ] # provenance
+    facet_list = facet_results[ "pr_full" ] # provenance, i.e. medieval library
   #}
 
   searchable_fields = get_searchable_field_list()
@@ -128,10 +128,15 @@ def category( request, pagename = 'category' ): #{
 
   page_size = get_value_from_GET( request, 'page_size', default_value = default_rows_per_page )
 
+  (medieval_library_count, modern_library_count, location_count) = get_category_counts()
+
   c = Context( {
       'field_to_search'  : field_to_search,
       'category_desc'    : category_desc,
       'category_data'    : category_data,
+      'medieval_library_count': medieval_library_count,
+      'modern_library_count'  : modern_library_count,
+      'location_count'        : location_count,
       'pagename'         : pagename,
       'page_size'        : page_size,
       'searchable_fields': get_searchable_field_list(),
@@ -1700,7 +1705,7 @@ def get_category_counts(): #{
   s_para[ 'facet.mincount' ] = '1'
   s_para[ 'facet'          ] = 'on'
   s_para[ 'facet.limit'    ] = '-1'
-  s_para[ 'facet.field'    ] = [ "pr", "ml1", "ml2" ]
+  s_para[ 'facet.field'    ] = [ "pr_full", "ml1", "ml_full" ]
 
   r = MLGBsolr()
 
@@ -1709,9 +1714,9 @@ def get_category_counts(): #{
   if r.connstatus and r.s_result: #{
     facet_results = r.s_result.get( 'facet' )
 
-    medieval_library_results = facet_results[ "pr" ]
-    modern_library_results   = facet_results[ "ml1" ]
-    location_results         = facet_results[ "ml2" ]  
+    medieval_library_results = facet_results[ "pr_full" ]
+    modern_library_results   = facet_results[ "ml_full" ]
+    location_results         = facet_results[ "ml1" ]  
 
     # Each list consists of a series of key/value pairs, so is twice as long as the actual total.
     medieval_library_count = len( medieval_library_results ) / 2
