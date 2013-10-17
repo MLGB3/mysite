@@ -35,55 +35,19 @@ browse_expanded_class = "book_row_2_displayed"
 
 def index( request, pagename = 'home' ): #{
 
-  facet = True
-  facet_results = {}
-  medieval_library_count = modern_library_count = location_count = 0
-
-  s_para = {'q'    : '*:*',
-            'wt'   : s_wt,
-            'start': 0, 
-            'rows' : 0,
-           }
-
-  s_para[ 'facet.mincount' ] = '1'
-  s_para[ 'facet'          ] = 'on'
-  s_para[ 'facet.limit'    ] = '-1'
-  s_para[ 'facet.field'    ] = [ "pr", "ml1", "ml2" ]
-
-  r = MLGBsolr()
-
-  r.solrresults( s_para, Facet=facet )
+  (medieval_library_count, modern_library_count, location_count) = get_category_counts()
 
   t = loader.get_template( 'index.html' )
 
-  if r.connstatus and r.s_result: #{
-    facet_results = r.s_result.get( 'facet' )
-
-    medieval_library_count = facet_results[ "pr" ]
-    modern_library_count   = facet_results[ "ml1" ]
-    location_count         = facet_results[ "ml2" ]  
-
-    c = Context( {
-        'medieval_library_count': len( medieval_library_count ) / 2,
-        'modern_library_count'  : len( modern_library_count ) / 2,
-        'location_count'        : len( location_count ) / 2,
-        'pagename'              : pagename,
-        'default_rows_per_page' : str( default_rows_per_page ),
-        'searchable_fields'     : get_searchable_field_list(),
-        'page_sizes'            : get_page_sizes(),
-        } )
-  #}
-  else: #{
-    c = Context( {
-        'medieval_library_count': 0,
-        'modern_library_count'  : 0,
-        'location_count'        : 0,
-        'pagename'              : pagename,
-        'default_rows_per_page' : str( default_rows_per_page ),
-        'searchable_fields'     : get_searchable_field_list(),
-        'page_sizes'            : get_page_sizes(),
-        } )
-  #}
+  c = Context( {
+      'medieval_library_count': medieval_library_count,
+      'modern_library_count'  : modern_library_count,
+      'location_count'        : location_count,
+      'pagename'              : pagename,
+      'default_rows_per_page' : str( default_rows_per_page ),
+      'searchable_fields'     : get_searchable_field_list(),
+      'page_sizes'            : get_page_sizes(),
+      } )
 
   return HttpResponse( t.render( c ) )    
 #}
@@ -752,6 +716,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
   t = loader.get_template('mlgb/browse.html')
 
+  # Get data to fill in the 'Categories' box in the righthand sidebar
+  (medieval_library_count, modern_library_count, location_count) = get_category_counts()
+
   c = Context( {
       'result_string'    : result_string,
       'number_of_records': number_of_records,
@@ -764,6 +731,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       'default_rows_per_page': str( default_rows_per_page ),
       'pagename'         : pagename,
       'page_title'       : page_title,
+      'medieval_library_count': medieval_library_count,
+      'modern_library_count'  : modern_library_count,
+      'location_count'        : location_count,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -1665,4 +1635,43 @@ def get_browse_display_options( request, letter = 'A', rows_found = 0, rows_per_
 
   return options
 #}
+#--------------------------------------------------------------------------------
+
+def get_category_counts(): #{
+
+  facet = True
+  facet_results = {}
+  medieval_library_count = modern_library_count = location_count = 0
+
+  s_para = {'q'    : '*:*',
+            'wt'   : s_wt,
+            'start': 0, 
+            'rows' : 0,
+           }
+
+  s_para[ 'facet.mincount' ] = '1'
+  s_para[ 'facet'          ] = 'on'
+  s_para[ 'facet.limit'    ] = '-1'
+  s_para[ 'facet.field'    ] = [ "pr", "ml1", "ml2" ]
+
+  r = MLGBsolr()
+
+  r.solrresults( s_para, Facet=facet )
+
+  if r.connstatus and r.s_result: #{
+    facet_results = r.s_result.get( 'facet' )
+
+    medieval_library_results = facet_results[ "pr" ]
+    modern_library_results   = facet_results[ "ml1" ]
+    location_results         = facet_results[ "ml2" ]  
+
+    # Each list consists of a series of key/value pairs, so is twice as long as the actual total.
+    medieval_library_count = len( medieval_library_results ) / 2
+    modern_library_count   = len( modern_library_results ) / 2
+    location_count         = len( location_results ) / 2
+  #}
+
+  return (medieval_library_count, modern_library_count, location_count)
+#}
+# end get_category_counts()
 #--------------------------------------------------------------------------------
