@@ -26,6 +26,9 @@ facet=False
 default_rows_per_page = 500
 newline = '\n'
 
+browse_collapsed_class = "book_row_2_hidden"
+browse_expanded_class = "book_row_2_displayed"
+
 #================= Top-level functions, called directly from URL ================
 #--------------------------------------------------------------------------------
 ## This sets up the data for the Home page
@@ -513,7 +516,7 @@ def book( request, book_id, pagename = 'book' ): #{
 
 def browse( request, letter = 'A', pagename = 'browse' ): #{
 
-  html = detail_text = result_string = resultsets = ""
+  html = detail_text = result_string = resultsets = expand_2nd_row = ""
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = ""
   letters = []
   first_record = True
@@ -539,6 +542,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       solr_field_to_search = 'ml2'
     elif field_to_search == 'medieval_library':
       solr_field_to_search = 'pr'
+
+    # They may have chosen expand/collapse options
+    expand_2nd_row = get_value_from_GET( request, "expand", "no" ) 
   #}
 
   # Construct Solr query
@@ -572,6 +578,15 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     
     prev_heading = heading = ""
     html = get_expand_collapse_script()
+
+    if expand_2nd_row == "yes": #{
+      class_of_2nd_row = browse_expanded_class
+      concertina_label = '-'
+    #}
+    else: #{
+      class_of_2nd_row = browse_collapsed_class
+      concertina_label = '+'
+    #}
 
     # Start loop through result sets
     for i in xrange( 0, len( resultsets ) ): #{
@@ -610,7 +625,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
       # Expand/collapse button
       detail_text += newline + '<div class="browse_concertina">'
-      detail_text += get_expand_collapse_button( id, label = '+' )
+      detail_text += get_expand_collapse_button( id, concertina_label )
       detail_text += newline + '</div><!-- end concertina button -->'
 
       # Evidence
@@ -666,8 +681,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
       detail_text += '</div><!-- end book_row_1 -->' + newline
 
-      # Now start a hidden row for the rest...
-      detail_text += '<div id="%s" class="book_row_2_hidden">' % get_2nd_row_id( id )
+      # Now start an optionally hidden row for the rest...
+      detail_text += '<div id="%s" class="%s">' % (get_2nd_row_id( id ), class_of_2nd_row)
       detail_text += newline
      
       detail_text += newline + '<ul>' + newline
@@ -723,7 +738,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         rows_per_page = solr_rows, \
                         include_print_button = False )
 
-      result_string = alphabet + pag + html 
+      option_string = get_browse_display_options( request, letter )
+
+      result_string = alphabet + pag + option_string + html 
 
       if number_of_records > solr_rows: # repeat pagination at the bottom
         result_string += '<br>' + pag + '<br>'
@@ -1564,12 +1581,12 @@ def get_expand_collapse_script(): #{
   script += '  var the_row = document.getElementById( row_id );'          + newline
 
   script += '  if( new_value == "+" ) {'                                  + newline
-  script += '    the_row.className = "book_row_2_displayed";'             + newline
+  script += '    the_row.className = "%s";' % browse_expanded_class       + newline
   script += '    the_button.value = "-";'                                 + newline
   script += '    the_button.innerHTML = "-";'                             + newline
   script += '  }'                                                         + newline
   script += '  else {'                                                    + newline
-  script += '    the_row.className = "book_row_2_hidden";'                + newline
+  script += '    the_row.className = "%s";' % browse_collapsed_class      + newline
   script += '    the_button.value = "+";'                                 + newline
   script += '    the_button.innerHTML = "+";'                             + newline
   script += '  }'                                                         + newline
@@ -1579,5 +1596,38 @@ def get_expand_collapse_script(): #{
   script += newline + newline
 
   return script
+#}
+#--------------------------------------------------------------------------------
+
+def get_browse_display_options( request, letter = 'A' ): #{
+
+  options = ""
+  new_search = "/mlgb/browse/%s/" % letter
+  delim = "?"
+
+  # For expand/collapse options, preserve 
+  # any existing parameters except 'expand'
+  if request.GET: #{  # 
+    for k, v in request.GET.items(): #{
+
+      if k == 'expand': continue
+
+      new_search += delim
+      new_search += "%s=%s" % (k, quote( v.encode( 'utf-8' )))
+
+      if delim == "?": delim = "&"
+    #}
+  #}
+
+  new_search += delim + "expand="
+  expand_search = new_search + "yes"
+  collapse_search = new_search + "no"
+
+  options += '<a href="%s" title="Expand All">Expand All</a>' % expand_search
+  options += ' | '
+  options += '<a href="%s" title="Collapse All">Collapse All</a>' % collapse_search
+
+
+  return options
 #}
 #--------------------------------------------------------------------------------
