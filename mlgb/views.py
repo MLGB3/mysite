@@ -501,7 +501,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     solr_start = get_value_from_GET( request, "start", 0 ) 
 
     # They may also have chosen to browse by a different sort field
-    field_to_search = get_value_from_GET( request, "browse_by", field_to_search ) 
+    field_to_search = get_value_from_GET( request, "order_by", field_to_search ) 
     if field_to_search == 'modern_library':
       solr_field_to_search = 'ml2'
     elif field_to_search == 'medieval_library':
@@ -522,7 +522,12 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     solr_rows=Book.objects.count()
   
   # Set sort field
-  solr_sort = ", ".join( get_location_and_shelfmark_sortfields() )
+  if field_to_search == 'modern_library':
+    solr_sort = ", ".join( get_modern_library_sortfields() )
+  elif field_to_search == 'medieval_library':
+    solr_sort = ", ".join( get_provenance_sortfields() )
+  else:
+    solr_sort = ", ".join( get_location_sortfields() )
 
   # Run the Solr query
   s_para={'q'    : solr_query,
@@ -563,7 +568,12 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
       unformatted_provenance = extract_unformatted_provenance( resultsets[i] ) # no italics etc
 
-      heading = get_modern_location_heading( modern_location1, modern_location2 )
+      if field_to_search == 'medieval_library':
+        heading = provenance
+      elif field_to_search == 'modern_library':
+        heading = get_modern_location_heading( modern_location2, modern_location1 )
+      else:
+        heading = get_modern_location_heading( modern_location1, modern_location2 )
 
       if prev_heading.lower() <> heading.lower(): #{  # change in heading
 
@@ -628,17 +638,35 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
         detail_text += space
       detail_text += newline + '</div><!-- end author/title -->' + newline
 
-      # Provenance
-      detail_text += newline + '<div class="browse_provenance">' + newline
-      if provenance : #{
-        detail_text += '<a href="/mlgb/?search_term=%s&field_to_search=medieval_library">' \
-                    % quote( unformatted_provenance.encode( 'utf-8' ) )
-        detail_text += provenance + ' <!-- provenance -->'
-        detail_text += '</a>'
+      # Provenance OR modern library
+      if field_to_search == 'medieval_library': #{ # show modern location in detail text
+        detail_text += newline + '<div class="browse_modern_library">' + newline
+        if modern_location1 or modern_location2 : #{
+          modern_location = modern_location1.strip()
+          if modern_location1 and modern_location2 :
+            modern_location += ', '
+          modern_location += modern_location2.strip()
+          detail_text += '<a href="/mlgb/?search_term=%s&field_to_search=modern_library">' \
+                      % quote( modern_location.encode( 'utf-8' ) )
+          detail_text += modern_location + ' <!-- modern location -->'
+          detail_text += '</a>'
+        #}
+        else:
+          detail_text += space
+        detail_text += newline + '</div><!-- end provenance -->' + newline
       #}
-      else:
-        detail_text += space
-      detail_text += newline + '</div><!-- end provenance -->' + newline
+      else: #{ # show medieval library/provenance in detail text
+        detail_text += newline + '<div class="browse_provenance">' + newline
+        if provenance : #{
+          detail_text += '<a href="/mlgb/?search_term=%s&field_to_search=medieval_library">' \
+                      % quote( unformatted_provenance.encode( 'utf-8' ) )
+          detail_text += provenance + ' <!-- provenance -->'
+          detail_text += '</a>'
+        #}
+        else:
+          detail_text += space
+        detail_text += newline + '</div><!-- end provenance -->' + newline
+      #}
 
       detail_text += newline + '<div class="browse_editlink">' + newline
       detail_text += newline + '</div><!-- end edit link -->' + newline
@@ -690,7 +718,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       alphabet = '<div class="letterlinks">'
       initials = get_initial_letters( solr_field_to_search )
       for initial in initials: #{
-        alphabet += '<a href="/mlgb/browse/%s" ' % initial
+        alphabet += '<a href="/mlgb/browse/%s/?order_by=%s" ' % (initial, field_to_search)
         if initial == letter.upper(): alphabet += ' class="selected" '
         alphabet += '>%s</a>' % initial
         alphabet += space
@@ -711,8 +739,12 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     #}
   #} # end of check on whether we retrieved a result
     
-  page_title = 'Browsing by %s and shelfmark: %s' \
-               % (get_searchable_field_label( field_to_search ), letter)
+  page_title = 'Browsing by %s and ' % get_searchable_field_label( field_to_search )
+  if field_to_search == 'medieval_library':
+    page_title += 'modern location'
+  else:
+    page_title += 'shelfmark'
+  page_title += ": %s" % letter
 
   t = loader.get_template('mlgb/browse.html')
 
@@ -1420,10 +1452,26 @@ def get_provenance_sortfields(): #{
 #}
 #--------------------------------------------------------------------------------
 
-def get_location_and_shelfmark_sortfields(): #{
+def get_location_sortfields(): #{
 
-  shelfmark_sortfields = [ 'ml1sort asc',       # modern location 1 (city etc)
+  location_sortfields = [  'ml1sort asc',       # modern location 1 (city etc)
                            'ml2sort asc',       # location location 2 (library name)
+                           'shelfmarksort asc', # shelfmark in numerically-sortable format
+                           'soc asc',           # suggestion of contents, i.e. author/title
+                           'ev asc',            # evidence code
+                           'prsort asc',        # provenance (place, e.g. town/city)
+                           'ctsort asc',        # provenance (county)
+                           'inssort asc',       # provenance (institution name)
+                           'id asc']
+
+  return location_sortfields
+#}
+#--------------------------------------------------------------------------------
+
+def get_modern_library_sortfields(): #{
+
+  shelfmark_sortfields = [ 'ml2sort asc',       # location location 2 (library name)
+                           'ml1sort asc',       # modern location 1 (city etc)
                            'shelfmarksort asc', # shelfmark in numerically-sortable format
                            'soc asc',           # suggestion of contents, i.e. author/title
                            'ev asc',            # evidence code
