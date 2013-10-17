@@ -738,7 +738,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         rows_per_page = solr_rows, \
                         include_print_button = False )
 
-      option_string = get_browse_display_options( request, letter )
+      option_string = get_browse_display_options( request, letter, number_of_records, solr_rows )
 
       result_string = alphabet + pag + option_string + html 
 
@@ -1599,7 +1599,7 @@ def get_expand_collapse_script(): #{
 #}
 #--------------------------------------------------------------------------------
 
-def get_browse_display_options( request, letter = 'A' ): #{
+def get_browse_display_options( request, letter = 'A', rows_found = 0, rows_per_page = 0 ): #{
 
   options = ""
   new_search = "/mlgb/browse/%s/" % letter
@@ -1626,6 +1626,41 @@ def get_browse_display_options( request, letter = 'A' ): #{
   options += '<a href="%s" title="Expand All">Expand All</a>' % expand_search
   options += ' | '
   options += '<a href="%s" title="Collapse All">Collapse All</a>' % collapse_search
+
+
+  # For page size change option, preserve 
+  # any existing parameters except 'page_size' and 'start'
+  if rows_found > rows_per_page or rows_found > default_rows_per_page: #{
+    delim = '?'
+    new_search = ''
+
+    if request.GET: #{  # 
+
+      for k, v in request.GET.items(): #{
+
+        if k == 'page_size': continue
+        if k == 'start': continue
+
+        new_search += delim
+        new_search += "%s=%s" % (k, quote( v.encode( 'utf-8' )))
+
+        if delim == "?": delim = "&"
+      #}
+    #}
+
+    new_search += delim + "page_size="
+
+    if rows_found > rows_per_page : #{
+      new_search += 'All'
+      new_title = 'Show as one page'
+    #}
+    elif rows_found > default_rows_per_page: #{
+      new_search += str( default_rows_per_page )
+      new_title = 'Paginate'
+    #}
+
+    options += ' | <a href="%s" title="%s">%s</a>' % (new_search, new_title, new_title)
+  #}
 
 
   return options
