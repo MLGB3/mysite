@@ -60,7 +60,19 @@ def index( request, pagename = 'home' ): #{
 
 def category( request, pagename = 'category' ): #{
 
-  # Get the facet counts for all three categories from Solr
+  # Get the facet counts for the appropriate category from Solr
+  field_to_search = get_value_from_GET( request, 'field_to_search', default_value = 'medieval_library' )
+
+  if field_to_search == 'location': #{
+    facet_field = "ml1"  # modern library 1, i.e. city where modern library is located, e.g. 'Oxford'
+  #}
+  elif field_to_search == 'modern_library': #{
+    facet_field = "ml_full"  # modern library 2: name of library (plus city), e.g. 'Bodleian, Oxford'
+  #}
+  else: #{
+    facet_field = "pr_full"  # provenance, i.e. medieval library
+  #}
+
   facet_results = None
 
   s_para = { 'q'    : '*:*',
@@ -70,7 +82,7 @@ def category( request, pagename = 'category' ): #{
   s_para[ 'facet.mincount' ] = '1'
   s_para[ 'facet'          ] = 'on'
   s_para[ 'facet.limit'    ] = '-1'
-  s_para[ 'facet.field'    ] = [ "pr_full", "ml1", "ml_full" ]
+  s_para[ 'facet.field'    ] = [ facet_field ]
 
   r = MLGBsolr()
   r.solrresults( s_para, Facet = True )
@@ -80,48 +92,62 @@ def category( request, pagename = 'category' ): #{
   #}
 
   # Extract the facet counts for the relevant category
-  field_to_search = get_value_from_GET( request, 'field_to_search', default_value = 'medieval_library' )
-
-  if field_to_search == 'location': #{
-    facet_list = facet_results[ "ml1" ]  # modern library 1, i.e. city where modern library is located
-  #}
-  elif field_to_search == 'modern_library': #{
-    facet_list = facet_results[ "ml_full" ]  # modern library 2, i.e. name of the library (plus city)
-  #}
-  else: #{
-    facet_list = facet_results[ "pr_full" ] # provenance, i.e. medieval library
-  #}
+  facet_list = facet_results[ facet_field ]
 
   searchable_fields = get_searchable_field_list()
   category_desc = get_searchable_field_label( field_to_search )
 
-  category_data = []
+  whole_category = []
+  entry_initial = ''
+  entry_name = ''
+  entry_count = 0
+
+  # Create a list of tuples, each tuples containing an uppercase initial, a name and a number.
+  j = 0
+  for facet_entry in facet_list: #{ # this is a list of key/value pairs
+    j +=1
+    if j % 2 > 0: #{  # odd-numbered row, so this is the *key* of the key/value pair
+      facet_entry = facet_entry.strip()
+      entry_name = facet_entry
+
+      # When constructing full names from individual elements,
+      # sometimes ugly combinations of commas and whitespace have crept in 
+      entry_name = entry_name.replace( ', ,',  ',' ) # remove accidentally doubled-up commas
+      entry_name = entry_name.replace( ' ,',   ',' ) # remove space before a comma
+      entry_name = entry_name.replace( '\n,',  ',' ) # remove newline before a comma
+      entry_name = entry_name.replace( '\r,',  ',' ) # remove carriage return before a comma
+      entry_name = entry_name.replace( '\t,',  ',' ) # remove tab before a comma
+
+      entry_initial = entry_name[ 0 : 1 ].upper()
+    #}
+    else: #{  # even-numbered row, so this is the *value* of the key/value pair
+      entry_count = facet_entry
+      whole_category.append( (entry_initial, entry_name, entry_count) )
+      entry_initial = ''
+      entry_name = ''
+      entry_count = 0
+    #}
+  #}
+
+  # Some names beginning with lowercase letters will have been sorted to the end.
+  # So, re-sort the list with the uppercase initial as the first sort key.
+  whole_category = sorted( whole_category, key = lambda entryvals: entryvals[0] + entryvals[1].upper() )
+
+  # Now set up a list that is sub-divided by initial letter
+  divided_category = []
   prev_letter = ''
   letter_index = -1
-  key_value_pair = {}
 
-  j = 0
-  for facet_entry in facet_list: #{
-    j +=1
-    
-    if j % 2 == 0: #{  # even-numbered row, so this is the *value* of the key/value pair
-      key_value_pair[ 'number_of_records' ] = facet_entry
-      category_data[ letter_index ][ initial_letter ].append( key_value_pair )
-      key_value_pair = {}
+  for (entry_initial, entry_name, entry_count) in whole_category: #{
+
+    if entry_initial != prev_letter: #{
+      letter_index += 1
+      divided_category.append( { entry_initial : [] } )
+      prev_letter = entry_initial
     #}
-    else: #{  # odd-numbered row, so this is the *key* of the key/value pair
-      facet_entry = facet_entry.strip()
-      key_value_pair[ 'name' ] = facet_entry
 
-      # Find out where each block of letters starts and ends in the data
-      initial_letter = facet_entry[ 0 : 1 ].upper()
-      if initial_letter != prev_letter: #{
-        letter_index += 1
-        category_data.append( { initial_letter : [] } )
-        prev_letter = initial_letter
-      #}
-
-    #}
+    divided_category[ letter_index ][ entry_initial ].append( { 'name': entry_name,
+                                                                'number_of_records': entry_count } )
   #}
 
   t = loader.get_template('mlgb/category.html')
@@ -133,7 +159,7 @@ def category( request, pagename = 'category' ): #{
   c = Context( {
       'field_to_search'  : field_to_search,
       'category_desc'    : category_desc,
-      'category_data'    : category_data,
+      'category_data'    : divided_category,
       'medieval_library_count': medieval_library_count,
       'modern_library_count'  : modern_library_count,
       'location_count'        : location_count,
