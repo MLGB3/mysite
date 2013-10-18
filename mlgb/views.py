@@ -22,6 +22,9 @@ from cStringIO import StringIO
 
 #--------------------------------------------------------------------------------
 
+editable = False
+baseurl="/mlgb"
+
 facet=False
 default_rows_per_page = 500
 newline = '\n'
@@ -40,6 +43,7 @@ def index( request, pagename = 'home' ): #{
   t = loader.get_template( 'index.html' )
 
   c = Context( {
+      'editable'              : editable,
       'medieval_library_count': medieval_library_count,
       'modern_library_count'  : modern_library_count,
       'location_count'        : location_count,
@@ -52,6 +56,25 @@ def index( request, pagename = 'home' ): #{
   return HttpResponse( t.render( c ) )    
 #}
 # end index() (home page)
+#--------------------------------------------------------------------------------
+## This sets up the data for the Home page in 'editable' mode
+
+def index_e( request, pagename = 'home' ): #{
+
+  enable_edit()
+  return index( request, pagename )
+#}
+#--------------------------------------------------------------------------------
+## This changes links to include the 'editable' part of the URL  
+
+def enable_edit(): #{
+
+  global editable
+  editable = True
+
+  global baseurl
+  baseurl = '/e/mlgb'
+#}
 #--------------------------------------------------------------------------------
 
 # The function category() displays a list of medieval libraries, modern libraries
@@ -157,6 +180,7 @@ def category( request, pagename = 'category' ): #{
   (medieval_library_count, modern_library_count, location_count) = get_category_counts()
 
   c = Context( {
+      'editable'         : editable,
       'field_to_search'  : field_to_search,
       'category_desc'    : category_desc,
       'category_data'    : divided_category,
@@ -173,6 +197,12 @@ def category( request, pagename = 'category' ): #{
   return HttpResponse(t.render(c))
 #}
 # end function category() (list of medieval libraries, modern libraries, etc)
+#--------------------------------------------------------------------------------
+
+def category_e( request, pagename = 'category' ): #{
+  enable_edit()
+  return category( request, pagename )
+#}
 #--------------------------------------------------------------------------------
 
 # The function mlgb() sets up display of search results
@@ -369,7 +399,7 @@ def mlgb( request, pagename = 'results' ): #{
         detail_text += two_spaces
 
         detail_text += '<!-- start booklink -->' + newline
-        detail_text += '<a href="/mlgb/book/%s/' % id
+        detail_text += '<a href="%s/book/%s/' % (baseurl, id)
 
         # Pass in your search, so that they can search again from the detail page
         if search_term and search_term != '*': #{
@@ -421,6 +451,13 @@ def mlgb( request, pagename = 'results' ): #{
         detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
         detail_text += '</a>' + newline
         detail_text += '<!-- end booklink -->' + newline
+
+        if editable: #{
+          detail_text += '<a href="/admin/books/book/%s" title="Edit this record" target="_blank"' % id
+          detail_text += ' class="editlink">'
+          detail_text += space + 'Edit' + '</a>' + newline
+        #}
+
         detail_text += '</li><!-- end book ID ' + id + ' -->' + newline + newline
 
         # Add the string of HTML that you have generated for this record to the main HTML source
@@ -444,6 +481,7 @@ def mlgb( request, pagename = 'results' ): #{
   t = loader.get_template('mlgb/mlgb.html')
 
   c = Context( {
+      'editable'         : editable,
       'result_string'    : result_string,
       'number_of_records': number_of_records,
       'search_term'      : search_term,
@@ -460,6 +498,11 @@ def mlgb( request, pagename = 'results' ): #{
 
 #}
 # end function mlgb() (search results)
+#--------------------------------------------------------------------------------
+def mlgb_e( request, pagename = 'results' ): #{
+  enable_edit()
+  return mlgb( request, pagename )
+#}
 #--------------------------------------------------------------------------------
 
 # Function book() calls up the detail page for one single book.
@@ -495,6 +538,7 @@ def book( request, book_id, pagename = 'book' ): #{
                  'object': bk,
                  'pagename': pagename,
                  'search_term': search_term,
+                 'editable': editable,
                  'field_to_search': field_to_search,
                  'searchable_fields': get_searchable_field_list(),
                  'page_size': page_size,
@@ -505,6 +549,11 @@ def book( request, book_id, pagename = 'book' ): #{
   return HttpResponse(t.render(c))
 #}
 # end function book()
+#--------------------------------------------------------------------------------
+def book_e( request, book_id, pagename = 'book' ): #{
+  enable_edit()
+  return book( request, book_id, pagename )
+#}
 #--------------------------------------------------------------------------------
 
 # The function browse() allows browsing by modern location and shelfmark
@@ -677,8 +726,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
           if modern_location1 and modern_location2 :
             modern_location += ', '
           modern_location += modern_location2.strip()
-          detail_text += '<a href="/mlgb/?search_term=%s&field_to_search=modern_library">' \
-                      % quote( modern_location.encode( 'utf-8' ) )
+          detail_text += '<a href="%s/?search_term=%s&field_to_search=modern_library">' \
+                      % (baseurl, quote( modern_location.encode( 'utf-8' ) ))
           detail_text += modern_location + ' <!-- modern location -->'
           detail_text += '</a>'
         #}
@@ -689,8 +738,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       else: #{ # show medieval library/provenance in detail text
         detail_text += newline + '<div class="browse_provenance">' + newline
         if provenance : #{
-          detail_text += '<a href="/mlgb/?search_term=%s&field_to_search=medieval_library">' \
-                      % quote( unformatted_provenance.encode( 'utf-8' ) )
+          detail_text += '<a href="%s/?search_term=%s&field_to_search=medieval_library">' \
+                      % (baseurl, quote( unformatted_provenance.encode( 'utf-8' ) ))
           detail_text += provenance + ' <!-- provenance -->'
           detail_text += '</a>'
         #}
@@ -700,6 +749,11 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       #}
 
       detail_text += newline + '<div class="browse_editlink">' + newline
+      if editable: #{
+        detail_text += '<a href="/admin/books/book/%s" title="Edit this record" target="_blank"' % id
+        detail_text += ' class="editlink">'
+        detail_text += 'Edit' + '</a>' + newline
+      #}
       detail_text += newline + '</div><!-- end edit link -->' + newline
 
       detail_text += '</div><!-- end book_row_1 -->' + newline
@@ -749,7 +803,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       alphabet = '<div class="letterlinks">'
       initials = get_initial_letters( solr_field_to_search )
       for initial in initials: #{
-        alphabet += '<a href="/mlgb/browse/%s/?order_by=%s" ' % (initial, field_to_search)
+        alphabet += '<a href="%s/browse/%s/?order_by=%s" ' % (baseurl, initial, field_to_search)
         if initial == letter.upper(): alphabet += ' class="selected" '
         alphabet += '>%s</a>' % initial
         alphabet += space
@@ -783,6 +837,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   (medieval_library_count, modern_library_count, location_count) = get_category_counts()
 
   c = Context( {
+      'editable'         : editable,
       'result_string'    : result_string,
       'number_of_records': number_of_records,
       'letter'           : letter,
@@ -803,6 +858,11 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
 #}
 # end function browse()
+#--------------------------------------------------------------------------------
+def browse_e( request, letter = 'A', pagename = 'browse' ): #{
+  enable_edit()
+  return browse( request, letter, pagename )
+#}
 #--------------------------------------------------------------------------------
 
 # Function fulltext() seems to be used to generate 'auto-complete' settings for the search box
@@ -947,11 +1007,19 @@ def about( request, pagename = 'about' ): #{
 
   t = loader.get_template('mlgb/about.html')
 
-  c = Context( { 'pagename': pagename } )
+  c = Context( { 'pagename': pagename, 
+                 'editable': editable, 
+               } )
 
   return HttpResponse( t.render( c ) )    
 #}
 
+#--------------------------------------------------------------------------------
+
+def about_e( request, pagename = 'about' ): #{
+  enable_edit()
+  return about( request, pagename )
+#}
 #--------------------------------------------------------------------------------
 #============== End of top-level functions called directly from URL =============
 #--------------------------------------------------------------------------------
@@ -1535,7 +1603,7 @@ def get_evidence_decoder_button( evidence_code = '', evidence_desc = '' ): #{
 def get_booklink_start( book_id = '', search_term = '', field_to_search = '', page_size = '' ): #{
 
   booklink = '<!-- start booklink -->' + newline
-  booklink += '<a href="/mlgb/book/%s/' % book_id
+  booklink += '<a href="%s/book/%s/' % (baseurl, book_id)
 
   s = '?'
 
@@ -1650,7 +1718,7 @@ def get_expand_collapse_script(): #{
 def get_browse_display_options( request, letter = 'A', rows_found = 0, rows_per_page = 0 ): #{
 
   options = ""
-  new_search = "/mlgb/browse/%s/" % letter
+  new_search = "%s/browse/%s/" % (baseurl, letter)
   delim = "?"
 
   # For expand/collapse options, preserve 

@@ -4,6 +4,9 @@ from django.conf import settings
 
 admin.autodiscover()
 
+# N.B. I am not convinced that the settings here ever get actively used.
+# Need to change the urls.py in /usr/share/mysite/apache in order to add a new URL pattern.
+
 urlpatterns = patterns('',
 
     (r'^$', 'mysite.mlgb.views.index'),
