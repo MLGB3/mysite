@@ -496,7 +496,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   # Set default field to search, records per page and start row, 
   # for use in pagination and 'search again' functionality.
   field_to_search = 'location' # this is used in the 'Search' box on the right-hand side
-  solr_field_to_search = 'ml1'
+  solr_field_to_search = 'ml1_initial'
   page_size = str( default_rows_per_page )
   solr_start = 0
 
@@ -508,9 +508,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     # They may also have chosen to browse by a different sort field
     field_to_search = get_value_from_GET( request, "order_by", field_to_search ) 
     if field_to_search == 'modern_library':
-      solr_field_to_search = 'ml2'
+      solr_field_to_search = 'ml2_initial'
     elif field_to_search == 'medieval_library':
-      solr_field_to_search = 'pr'
+      solr_field_to_search = 'pr_initial'
 
     # They may have chosen expand/collapse options
     expand_2nd_row = get_value_from_GET( request, "expand", "no" ) 
@@ -518,7 +518,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
   # Construct Solr query
   if not letter.isalpha(): letter = 'A'
-  solr_query = '%s:(%s*)' % (solr_field_to_search, letter.upper())
+  solr_query = '%s:%s' % (solr_field_to_search, letter.upper())
   
   # Set page size
   if page_size.isdigit():
@@ -1536,7 +1536,6 @@ def get_booklink_start( book_id = '', search_term = '', field_to_search = '', pa
 
 def get_initial_letters( facet_field ): #{
 
-  facet_field += '_initial' # e.g. 'pr' becomes 'pr_initial'
   facet = True
   facet_results = {}
   letters = []
