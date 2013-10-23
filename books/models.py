@@ -90,7 +90,7 @@ class Book(models.Model):
     evidence_notes = models.TextField(blank=True)
     author_title = models.CharField(max_length=255)
     date = models.CharField(max_length=100, blank=True)
-    pressmark = models.CharField(max_length=200, blank=True)
+    pressmark = models.TextField(blank=True)
     medieval_catalogue = models.CharField(max_length=50, blank=True)
     unknown = models.CharField(verbose_name='Query',max_length=50, blank=True)
     ownership = models.TextField(blank=True)
