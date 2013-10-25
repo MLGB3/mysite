@@ -213,7 +213,6 @@ def mlgb( request, pagename = 'results' ): #{
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = sql_query = ""
   link_to_photos = ""
   first_record = True
-  photo_evidence_data = []
 
   space = newline + '<span class="spacer">' + newline + '</span>' + newline
   two_spaces = space + space
@@ -240,78 +239,17 @@ def mlgb( request, pagename = 'results' ): #{
                                + '</ul><!-- end "inner head" list -->'      + newline \
                                + '</li><!-- end "outer head" list item -->' \
                                + newline + newline
+  end_treeview = '</ul><!-- end ID "tree" -->'
         
   if request.GET: #{ # was a search term found in GET?
 
-    # Get search term, field to search, records per page and start row from GET
-    search_term = get_value_from_GET( request, 'search_term' )
-    if not search_term: search_term = '*'
-
-    field_to_search = get_value_from_GET( request, "field_to_search" )
-    page_size = get_value_from_GET( request, "page_size" ) 
-    solr_start = get_value_from_GET( request, "start", 0 ) 
-
-    # Construct Solr query
-    solr_query = escape_for_solr( search_term )
-    if ' ' in solr_query:
-      solr_query = '(%s)' % solr_query
-
-    if search_term=='*' or search_term=='':
-      solr_query='*:*'
-
-    else: #{
-
-      if field_to_search.lower()=='author_title':
-        solr_query ="authortitle:%s" % solr_query
-
-      elif field_to_search.lower()=='modern_library':
-        solr_query ="library:%s" % solr_query
-
-      elif field_to_search.lower()=='medieval_library':
-        solr_query ="provenance:%s" % solr_query
-
-      elif field_to_search.lower()=='location':  
-        solr_query ="location:%s" % solr_query
-
-      elif field_to_search.lower()=='shelfmark':
-        solr_query ="shelfmarks:%s" % solr_query
-
-      else:
-        solr_query ="text:%s" % solr_query
-
-    #}
-    
-    # Set page size
-    if page_size.isdigit():
-      solr_rows = int( page_size )
-    else: 
-      solr_rows=Book.objects.count()
-    
-    # Set sort field
-    if field_to_search.lower()=='author_title':
-      # sort primarily by author/title, i.e. 'soc' ('suggestion of contents')
-      solr_sort = ", ".join( get_author_title_sortfields() )
-    else:
-      # sort first on provenance (medieval library), then modern library and shelfmark
-      solr_sort = ", ".join( get_provenance_sortfields() )
-
-    # Run the Solr query
-    s_para={'q'    : solr_query,
-            'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
-            'start': solr_start, 
-            'rows' : solr_rows,
-            'sort' : solr_sort}
-    r=MLGBsolr()
-    r.solrresults( s_para, Facet=facet )
-
+    (resultsets, number_of_records, 
+     field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
     # Start to display the results
-    if r.connstatus and r.s_result: #{ #did we retrieve a result?
+    if number_of_records > 0 : #{ #did we retrieve a result?
 
-      resultsets = r.s_result.get( 'docs' )
-      number_of_records = r.s_result.get( 'numFound' )
-      
-      html = h1 = h2 = d = link_to_photos = ""
+      html = h1 = h2 = link_to_photos = ""
 
       # Start loop through result sets
       for i in xrange( 0, len( resultsets ) ): #{
@@ -322,18 +260,7 @@ def mlgb( request, pagename = 'results' ): #{
         pressmark, medieval_catalogue, unknown, notes_on_evidence) = extract_from_result( resultsets[i] )
 
         # Get photos if any
-        link_to_photos=""
-
-        sql_query = "select * from feeds_photo where feeds_photo.item_id='%s'" % id
-        photo_evidence_data = list( Photo.objects.raw( sql_query ) )
-        for e in photo_evidence_data: #{
-          link_to_photos += '<a href="%s" rel="lightbox%s" title="%s" class="evidence"></a>' \
-                         % (e.image.url, id, e.title + ' -- evidence type: ' + evidence_desc)
-          link_to_photos += newline
-        #}
-        if link_to_photos: #{
-          link_to_photos=link_to_photos.replace( "</a>", "%s</a>" % evidence_code, 1 )
-        #}
+        link_to_photos = get_photo_evidence( id, evidence_code, evidence_desc )
 
         # If searching on author/title (i.e. 'suggestion of contents'), show author/title as 
         # heading 1, then provenance as heading 2, then modern library and shelfmark in the detail.
@@ -387,7 +314,7 @@ def mlgb( request, pagename = 'results' ): #{
         detail_text += heading3
         detail_text += two_spaces
 
-        if len( photo_evidence_data ) <> 0:
+        if len( link_to_photos ) > 0:
           detail_text += link_to_photos
 
         else: #{
@@ -472,8 +399,7 @@ def mlgb( request, pagename = 'results' ): #{
                           rows_per_page = solr_rows, \
                           include_print_button = False )
 
-        result_string = pag + start_treeview + html + end_inner_and_outer_sections
-        result_string += '</ul><!-- end ID "tree" -->'
+        result_string = pag + start_treeview + html + end_inner_and_outer_sections + end_treeview
       #}
     #} # end of check on whether we retrieved a result
   #} # end of check on whether a search term was found in GET
@@ -901,6 +827,8 @@ def fulltext( request, pagename = 'fulltext' ): #{
 
 # It seems that function download() should be called from the 'record detail' page (mlgb_detail.html).
 # However, the links to it are hidden.
+# That is presumably because the output is a bit rubbish.
+# It is also called by the admin interface
 
 def download( request, pagename = 'download' ): #{
 
@@ -1110,6 +1038,8 @@ def extract_from_result( resultset, add_punctuation = True ): #{
   
   # pressmark
   pressmark = trim( resultset['pm'] )
+  if pressmark.startswith( '<p>' ): pressmark = pressmark[ 3: ]
+  if pressmark.endswith( '</p>' ): pressmark = pressmark[ :-4 ]
   if pressmark: #{
     if add_punctuation and not pressmark.endswith( '.' ): 
       pressmark += '.'
@@ -1157,6 +1087,23 @@ def extract_unformatted_provenance( resultset ): #{ # no added italics etc
     unformatted_provenance += ", " + trim( resultset['ins'] )
 
   return unformatted_provenance
+#}
+#--------------------------------------------------------------------------------
+
+def get_photo_evidence( id, evidence_code, evidence_desc ): #{ 
+
+  link_to_photos = ""
+  photo_evidence_data = []
+
+  sql_query = "select * from feeds_photo where feeds_photo.item_id='%s'" % id
+  photo_evidence_data = list( Photo.objects.raw( sql_query ) )
+  for e in photo_evidence_data: #{
+    link_to_photos += '<a href="%s" rel="lightbox%s" title="%s" class="evidence">%s</a>' \
+    % (e.image.url, id, e.title + ' -- evidence type: ' + evidence_desc, evidence_code)
+    link_to_photos += newline
+  #}
+
+  return link_to_photos
 #}
 #--------------------------------------------------------------------------------
 ## This function was copied from code written by Mat Wilcoxson for EMLO/Cultures of Knowledge
@@ -1820,4 +1767,172 @@ def get_category_counts(): #{
   return (medieval_library_count, modern_library_count, location_count)
 #}
 # end get_category_counts()
+#--------------------------------------------------------------------------------
+
+# Download search results etc as a CSV file.
+
+def downloadcsv( request, pagename = 'download' ): #{
+
+  response=None
+  data=[]
+  text=""
+  
+  rc="\r\n"
+  if request.GET[ "q" ] == "2": rc="<br/>"
+
+  # Gather the data into a text field
+  if request.GET: #{
+
+    data = Book.objects.filter( id = request.GET["i"] )
+
+    text =  "Provenance: %s%s"      % (data[0].provenance, rc)
+    text += "Location: %s, %s%s"    % (data[0].modern_location_2, data[0].modern_location_1, rc)
+    text += "Shelfmark: %s %s%s"    % (data[0].shelfmark_1, data[0].shelfmark_2, rc)
+    text += "Author/Title: %s %s%s" % (data[0].evidence, data[0].author_title, rc)
+
+    if data[0].date:
+      text += "Date: %s%s" % (data[0].date, rc)
+    
+    if data[0].pressmark:
+      text += "Pressmark: %s%s" % (data[0].pressmark, rc)
+    
+    if data[0].medieval_catalogue:
+      text += "Medieval Catalogue: %s%s" % (data[0].medieval_catalogue, rc)
+    
+    if data[0].ownership:
+      text += "Ownership: %s%s" % (data[0].ownership, rc)
+    
+    if data[0].notes.strip('" \n\r'):
+      text += "Notes: %s" % (data[0].notes.strip('" \n\r'))
+  #}
+
+  # Either: write out a CSV file
+  if request.GET[ "q" ] == "1": #{
+    rc=""
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=%s.csv' % request.GET["i"]
+    writer = csv.writer(response)
+
+    text = text.replace("<p>","")
+    text = text.replace("</p>","")
+    text = text.replace("<strong>","")
+    text = text.replace("</strong>","")
+    text = text.replace("<em>","")
+    text = text.replace("</em>","")
+    text = text.replace('<span style="text-decoration: underline;">',"")
+    text = text.replace("</span>","")
+    text = text.replace("<i>","")
+    text = text.replace("</i>","")
+    text = text.replace("<ul>","")
+    text = text.replace("</ul>","")
+    text = text.replace("<li>","")
+    text = text.replace("</li>","")
+    text = text.replace("<ol>","")
+    text = text.replace("</ol>","")
+    text = text.replace('<span style="text-decoration: line-through;">',"")
+    text = text.replace("&nbsp;","")
+    
+    writer.writerow([text])
+    writer.writerows([data])
+  #}
+
+  return response
+#}
+# end downloadcsv
+#--------------------------------------------------------------------------------
+
+# Run a *basic* Solr query( i.e. on a single search term)
+# and return results, number of records, field to search, search term, start row 
+# and page size both as an integer (solr_rows) and as a string (page_size).
+
+def basic_solr_query( request ): #{
+
+  resultsets = []
+  number_of_records = 0
+
+  field_to_search = ""
+  search_term     = ""
+  solr_start      = ""
+  page_size       = ""
+
+  solr_query      = ""
+  solr_sort       = ""
+  solr_rows       = ""
+
+  if request.GET: #{ # was a search term found in GET?
+
+    # Get search term, field to search, records per page and start row from GET
+    search_term = get_value_from_GET( request, 'search_term' )
+    if not search_term: search_term = '*'
+
+    field_to_search = get_value_from_GET( request, "field_to_search" )
+    page_size = get_value_from_GET( request, "page_size" ) 
+    solr_start = get_value_from_GET( request, "start", 0 ) 
+
+    # Construct Solr query
+    solr_query = escape_for_solr( search_term )
+    if ' ' in solr_query:
+      solr_query = '(%s)' % solr_query
+
+    if search_term=='*' or search_term=='':
+      solr_query='*:*'
+
+    else: #{
+
+      if field_to_search.lower()=='author_title':
+        solr_query ="authortitle:%s" % solr_query
+
+      elif field_to_search.lower()=='modern_library':
+        solr_query ="library:%s" % solr_query
+
+      elif field_to_search.lower()=='medieval_library':
+        solr_query ="provenance:%s" % solr_query
+
+      elif field_to_search.lower()=='location':  
+        solr_query ="location:%s" % solr_query
+
+      elif field_to_search.lower()=='shelfmark':
+        solr_query ="shelfmarks:%s" % solr_query
+
+      else:
+        solr_query ="text:%s" % solr_query
+
+    #}
+    
+    # Set page size
+    if page_size.isdigit():
+      solr_rows = int( page_size )
+    else: 
+      solr_rows=Book.objects.count()
+    
+    # Set sort field
+    if field_to_search.lower()=='author_title':
+      # sort primarily by author/title, i.e. 'soc' ('suggestion of contents')
+      solr_sort = ", ".join( get_author_title_sortfields() )
+    else:
+      # sort first on provenance (medieval library), then modern library and shelfmark
+      solr_sort = ", ".join( get_provenance_sortfields() )
+
+    # Run the Solr query
+    s_para={'q'    : solr_query,
+            'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
+            'start': solr_start, 
+            'rows' : solr_rows,
+            'sort' : solr_sort}
+
+    r = MLGBsolr()
+
+    r.solrresults( s_para, Facet=facet )
+
+    if r.connstatus and r.s_result: #{ #did we retrieve a result?
+
+      resultsets = r.s_result.get( 'docs' )
+      number_of_records = r.s_result.get( 'numFound' )
+    #}
+  #} # end of check on whether a search term was found in GET
+
+  return ( resultsets, number_of_records, 
+           field_to_search, search_term, solr_start, solr_rows, page_size )
+#}
+# end function basic_solr_query()
 #--------------------------------------------------------------------------------
