@@ -164,7 +164,7 @@ class RawBook(models.Model):
     #ev = models.ForeignKey(Evidence)
     author_title = models.CharField(max_length=50)
     date = models.CharField(max_length=50, blank=True)
-    pressmark = models.CharField(max_length=50, blank=True)
+    pressmark = models.TextField(blank=True)
     medieval_catalogue = models.CharField(max_length=50, blank=True)
     unknown = models.CharField(max_length=50, blank=True)
     notes = models.TextField(blank=True)
