@@ -26,7 +26,7 @@ USE_I18N = True
 
 MEDIA_ROOT = '/opt/www/mlgb/media/'
 
-MEDIA_URL = 'http://163.1.127.175/feeds/media/'
+MEDIA_URL = '/feeds/media/'
 
 ADMIN_MEDIA_PREFIX = '/media/'
 
