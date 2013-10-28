@@ -11,6 +11,7 @@ from mysite.feeds.models import Photo
 from django.utils import simplejson
 from mysite.mlgb.MLGBsolr import *
 from mysite.mlgb.config import *
+from mysite.apache.settings import MEDIA_URL
 from django.template import Context, loader
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
@@ -217,34 +218,13 @@ def mlgb( request, pagename = 'results' ): #{
   space = newline + '<span class="spacer">' + newline + '</span>' + newline
   two_spaces = space + space
 
-  start_treeview = newline
-  start_treeview += '<div id="sidetreecontrol">' + newline
-  start_treeview += '<a href="?#">Expand All</a> | <a href="?#">Collapse All</a>' + newline
-  start_treeview += '</div>' + newline
-  start_treeview += '<ul class="treeview" id="tree">' + newline + newline
-
-  start_hidden_list = '<ul style="display:block;">' + newline
-
-  start_outer_section = '<li class="expandable outerhead">' + newline \
-                      + '<div class="hitarea expandable-hitarea"></div>' + newline
-
-  start_inner_section = '<li class="expandable innerhead">' + newline \
-                      + '<div class="hitarea expandable-hitarea"></div>' + newline
-
-  end_inner_section = newline + '</ul><!-- end "book" list -->' + newline \
-                    + '</li><!-- end "inner head" list item -->' + newline + newline
-
-  end_inner_and_outer_sections = newline + '</ul><!-- end "book" list -->'  + newline \
-                               + '</li><!-- end "inner head" list item -->' + newline \
-                               + '</ul><!-- end "inner head" list -->'      + newline \
-                               + '</li><!-- end "outer head" list item -->' \
-                               + newline + newline
-  end_treeview = '</ul><!-- end ID "tree" -->'
-        
   if request.GET: #{ # was a search term found in GET?
 
     (resultsets, number_of_records, 
      field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
+
+    (start_treeview, start_collapsible_list, start_outer_section, start_inner_section, end_inner_section,
+     end_inner_and_outer_sections, end_treeview) = get_treeview_formatting()
 
     # Start to display the results
     if number_of_records > 0 : #{ #did we retrieve a result?
@@ -257,10 +237,11 @@ def mlgb( request, pagename = 'results' ): #{
         # Get the data from the Solr result set
         (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
         evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-        pressmark, medieval_catalogue, unknown, notes_on_evidence) = extract_from_result( resultsets[i] )
+        pressmark, medieval_catalogue, unknown, notes_on_evidence,
+        images) = extract_from_result( resultsets[i] )
 
         # Get photos if any
-        link_to_photos = get_photo_evidence( id, evidence_code, evidence_desc )
+        link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
 
         # If searching on author/title (i.e. 'suggestion of contents'), show author/title as 
         # heading 1, then provenance as heading 2, then modern library and shelfmark in the detail.
@@ -284,7 +265,7 @@ def mlgb( request, pagename = 'results' ): #{
           html += newline
           html += start_outer_section + newline
           html += '<span class="outerhead">%s</span>' % heading1
-          html += '<!-- end "outer head" span -->' + newline + start_hidden_list
+          html += '<!-- end "outer head" span -->' + newline + start_collapsible_list
         #}
 
         if h2 <> heading2: #{ # change in heading 2
@@ -300,7 +281,7 @@ def mlgb( request, pagename = 'results' ): #{
           html += newline
           html += start_inner_section + newline
           html += '<span class="innerhead">%s</span>' % heading2
-          html += '<!-- end "inner head" span -->' + newline + start_hidden_list
+          html += '<!-- end "inner head" span -->' + newline + start_collapsible_list
         #}
         
         # Now set up the 'heading 3' and 'detail' text
@@ -569,7 +550,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       # Get the data from the Solr result set
       (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
       evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-      pressmark, medieval_catalogue, unknown, notes_on_evidence) = \
+      pressmark, medieval_catalogue, unknown, notes_on_evidence, images) = \
       extract_from_result( resultsets[i], False ) # here False means 'don't add punctuation'
 
       unformatted_provenance = extract_unformatted_provenance( resultsets[i] ) # no italics etc
@@ -1067,9 +1048,47 @@ def extract_from_result( resultset, add_punctuation = True ): #{
   #}
 
 
+  # image data
+  images = []
+  if resultset.has_key( 'imageurl' ): #{
+    img_count = len( resultset[ 'imageurl' ] )
+    if img_count > 0 : #{
+      every_img_has_title = False
+      every_img_has_caption = False
+      if resultset.has_key( 'imagetitle' ): #{
+        if len( resultset[ 'imagetitle' ] ) == img_count: 
+          every_img_has_title = True
+      #}
+
+      if resultset.has_key( 'imagecaption' ): #{
+        if len( resultset[ 'imagecaption' ] ) == img_count: 
+          every_img_has_caption = True
+      #}
+
+      for i in range( 0, img_count ): #{
+
+        url = resultset[ 'imageurl' ][ i ]
+        title = ''
+        caption = ''
+
+        if every_img_has_title:
+          title = resultset[ 'imagetitle' ][ i]
+        else:
+          title = 'photographic evidence'
+
+        if every_img_has_caption:
+          caption = resultset[ 'imagecaption' ][ i]
+        else:
+          caption = 'photographic evidence'
+
+        images.append( (url, title, caption) )
+      #}
+    #}
+  #}
+
   return (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
           evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-          pressmark, medieval_catalogue, unknown, notes_on_evidence)
+          pressmark, medieval_catalogue, unknown, notes_on_evidence, images)
 
 #}
 #--------------------------------------------------------------------------------
@@ -1090,16 +1109,17 @@ def extract_unformatted_provenance( resultset ): #{ # no added italics etc
 #}
 #--------------------------------------------------------------------------------
 
-def get_photo_evidence( id, evidence_code, evidence_desc ): #{ 
+def get_photo_evidence( id, images, evidence_code, evidence_desc ): #{ 
 
   link_to_photos = ""
-  photo_evidence_data = []
 
-  sql_query = "select * from feeds_photo where feeds_photo.item_id='%s'" % id
-  photo_evidence_data = list( Photo.objects.raw( sql_query ) )
-  for e in photo_evidence_data: #{
+  for img in images: #{  # each entry in the image list is a 3-part tuple: URL, title, caption
+
+    image_url = MEDIA_URL + img[0]
+    image_title = img[1] + ' -- type of evidence: ' + evidence_desc
+
     link_to_photos += '<a href="%s" rel="lightbox%s" title="%s" class="evidence">%s</a>' \
-    % (e.image.url, id, e.title + ' -- evidence type: ' + evidence_desc, evidence_code)
+    % (image_url, id, image_title, evidence_code)
     link_to_photos += newline
   #}
 
@@ -1935,4 +1955,37 @@ def basic_solr_query( request ): #{
            field_to_search, search_term, solr_start, solr_rows, page_size )
 #}
 # end function basic_solr_query()
+#--------------------------------------------------------------------------------
+
+def get_treeview_formatting(): #{
+
+  start_treeview = newline
+  start_treeview += '<div id="sidetreecontrol">' + newline
+  start_treeview += '<a href="?#">Expand All</a> | <a href="?#">Collapse All</a>' + newline
+  start_treeview += '</div>' + newline + newline
+
+  start_treeview += '<ul class="treeview" id="tree">' + newline + newline
+
+  start_collapsible_list = '<ul style="display:block;"><!-- start "book" list -->' + newline
+
+  start_outer_section = '<li class="expandable outerhead">' + newline \
+                      + '<div class="hitarea expandable-hitarea"></div>' + newline
+
+  start_inner_section = '<li class="expandable innerhead">' + newline \
+                      + '<div class="hitarea expandable-hitarea"></div>' + newline
+
+  end_inner_section = newline + '</ul><!-- end "book" list -->' + newline \
+                    + '</li><!-- end "inner head" list item -->' + newline + newline
+
+  end_inner_and_outer_sections = newline + '</ul><!-- end "book" list -->'  + newline \
+                               + '</li><!-- end "inner head" list item -->' + newline \
+                               + '</ul><!-- end "inner head" list -->'      + newline \
+                               + '</li><!-- end "outer head" list item -->' \
+                               + newline + newline
+  end_treeview = '</ul><!-- end ID "tree" class "treeview" -->'
+        
+  return (start_treeview, start_collapsible_list, start_outer_section, start_inner_section,
+          end_inner_section, end_inner_and_outer_sections, end_treeview)
+#}
+# end function get_treeview_formatting()
 #--------------------------------------------------------------------------------
