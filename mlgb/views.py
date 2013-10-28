@@ -28,10 +28,15 @@ baseurl="/mlgb"
 
 facet=False
 default_rows_per_page = 500
-newline = '\n'
 
+prev_heading_1 = ""
+prev_heading_2 = ""
 browse_collapsed_class = "book_row_2_hidden"
 browse_expanded_class = "book_row_2_displayed"
+
+newline = '\n'
+space = newline + '<span class="spacer">' + newline + '</span>' + newline
+two_spaces = space + space
 
 #================= Top-level functions, called directly from URL ================
 #--------------------------------------------------------------------------------
@@ -210,13 +215,9 @@ def category_e( request, pagename = 'category' ): #{
 
 def mlgb( request, pagename = 'results' ): #{
 
-  html = provenance = modern_location1 = detail_text = result_string = search_term = resultsets = None
+  html = provenance = modern_location1 = result_string = search_term = resultsets = None
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = sql_query = ""
-  link_to_photos = ""
   first_record = True
-
-  space = newline + '<span class="spacer">' + newline + '</span>' + newline
-  two_spaces = space + space
 
   if request.GET: #{ # was a search term found in GET?
 
@@ -228,159 +229,29 @@ def mlgb( request, pagename = 'results' ): #{
 
     # Start to display the results
     if number_of_records > 0 : #{ #did we retrieve a result?
-
-      html = h1 = h2 = link_to_photos = ""
+      html = ""
 
       # Start loop through result sets
       for i in xrange( 0, len( resultsets ) ): #{
 
-        # Get the data from the Solr result set
-        (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
-        evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-        pressmark, medieval_catalogue, unknown, notes_on_evidence,
-        images) = extract_from_result( resultsets[i] )
-
-        # Get photos if any
-        link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
-
-        # If searching on author/title (i.e. 'suggestion of contents'), show author/title as 
-        # heading 1, then provenance as heading 2, then modern library and shelfmark in the detail.
-        # If not searching on author/title, have medieval library as main heading, then modern one.
-
-        if field_to_search.lower()=='author_title': #{
-          heading1 = suggestion_of_contents
-          heading2 = provenance
-          heading3 = '%s%s%s' % (modern_location1, space, modern_location2)
-        #}
-        else: #{
-          heading1 = provenance
-          heading2 = modern_location1
-          heading3 = modern_location2
-        #}
-
-        if h1 <> heading1: #{  # change in heading 1
-          h2=""
-          if not first_record: 
-            html += end_inner_and_outer_sections
-          html += newline
-          html += start_outer_section + newline
-          html += '<span class="outerhead">%s</span>' % heading1
-          html += '<!-- end "outer head" span -->' + newline + start_collapsible_list
-        #}
-
-        if h2 <> heading2: #{ # change in heading 2
-          h2 = heading2
-          if h1 == heading1: #{
-            if not first_record: #{
-              html += end_inner_section
-            #}
-          #}
-          else: #{
-            h1 = heading1
-          #}
-          html += newline
-          html += start_inner_section + newline
-          html += '<span class="innerhead">%s</span>' % heading2
-          html += '<!-- end "inner head" span -->' + newline + start_collapsible_list
-        #}
-        
-        # Now set up the 'heading 3' and 'detail' text
-        heading3 = '<span class="modern_location_heading">' \
-                 + newline + heading3 + newline \
-                 + '</span><!-- end modern location_heading -->' + newline
-
-        detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
-        detail_text += '<li class="one_book">' + newline
-
-        detail_text += heading3
-        detail_text += two_spaces
-
-        if len( link_to_photos ) > 0:
-          detail_text += link_to_photos
-
-        else: #{
-          if evidence_code: #{
-            detail_text += get_evidence_decoder_button( evidence_code, evidence_desc )
-          #}
-        #}
-        detail_text += ' <!-- type of evidence -->'
-        detail_text += two_spaces
-
-        detail_text += '<!-- start booklink -->' + newline
-        detail_text += '<a href="%s/book/%s/' % (baseurl, id)
-
-        # Pass in your search, so that they can search again from the detail page
-        if search_term and search_term != '*': #{
-          detail_text += '?search_term=%s' % quote( search_term.encode( 'utf-8' ) )
-          if field_to_search:
-            detail_text += '&field_to_search=%s' % quote( field_to_search.encode( 'utf-8' ) )
-          if page_size:
-            detail_text += '&page_size=%s' % quote( page_size.encode( 'utf-8' ) )
-        #}
-
-        detail_text += '" class="booklink">'
-
-        detail_text += '%s <!-- shelfmark 1 -->' %  shelfmark1 
-        detail_text += space
-
-        if shelfmark2: #{
-          detail_text += '%s <!-- shelfmark 2 -->' %  shelfmark2 
-          detail_text += space
-        #}
-
-        if field_to_search.lower() != 'author_title': #{
-
-          if suggestion_of_contents: #{
-            detail_text += suggestion_of_contents + ' <!-- author/title -->'
-            detail_text += space
-          #}
-
-          if date_of_work : #{
-            detail_text += date_of_work + ' <!-- date -->'
-            detail_text += space
-          #}
-
-          if pressmark : #{
-            detail_text += pressmark + ' <!-- pressmark -->'
-            detail_text += space
-          #}
-
-          if medieval_catalogue : #{
-            detail_text += medieval_catalogue + ' <!-- medieval catalogue -->'
-            detail_text += space
-          #}
-
-          if unknown : #{
-            detail_text += unknown + ' <!-- unknown -->'
-            detail_text += space
-          #}
-        #}
-
-        detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
-        detail_text += '</a>' + newline
-        detail_text += '<!-- end booklink -->' + newline
-
-        if editable: #{
-          detail_text += '<a href="/admin/books/book/%s" title="Edit this record" target="_blank"' % id
-          detail_text += ' class="editlink">'
-          detail_text += space + 'Edit' + '</a>' + newline
-        #}
-
-        detail_text += '</li><!-- end book ID ' + id + ' -->' + newline + newline
+        text_for_one_record = display_as_treeview( resultsets[i], first_record, \
+                              field_to_search, search_term, page_size )
 
         # Add the string of HTML that you have generated for this record to the main HTML source
-        html += detail_text
+        html += text_for_one_record
         first_record=False
 
       #} # end loop through result sets
 
       if html: #{
+        html = start_treeview + html + end_inner_and_outer_sections + end_treeview
+
         pag = pagination( rows_found = number_of_records, \
                           current_row = solr_start, \
                           rows_per_page = solr_rows, \
                           include_print_button = False )
 
-        result_string = pag + start_treeview + html + end_inner_and_outer_sections + end_treeview
+        result_string = pag + html
       #}
     #} # end of check on whether we retrieved a result
   #} # end of check on whether a search term was found in GET
@@ -467,13 +338,10 @@ def book_e( request, book_id, pagename = 'book' ): #{
 
 def browse( request, letter = 'A', pagename = 'browse' ): #{
 
-  html = detail_text = result_string = resultsets = expand_2nd_row = ""
+  html = result_string = resultsets = expand_2nd_row = ""
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = ""
   letters = []
   first_record = True
-
-  space = newline + '<span class="spacer">' + newline + '</span>' + newline
-  two_spaces = space + space
 
   # Set default field to search, records per page and start row, 
   # for use in pagination and 'search again' functionality.
@@ -532,180 +400,23 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     resultsets = r.s_result.get( 'docs' )
     number_of_records = r.s_result.get( 'numFound' )
     
-    prev_heading = heading = ""
     html = get_expand_collapse_script()
-
-    if expand_2nd_row == "yes": #{
-      class_of_2nd_row = browse_expanded_class
-      concertina_label = '-'
-    #}
-    else: #{
-      class_of_2nd_row = browse_collapsed_class
-      concertina_label = '+'
-    #}
 
     # Start loop through result sets
     for i in xrange( 0, len( resultsets ) ): #{
 
-      # Get the data from the Solr result set
-      (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
-      evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-      pressmark, medieval_catalogue, unknown, notes_on_evidence, images) = \
-      extract_from_result( resultsets[i], False ) # here False means 'don't add punctuation'
-
-      unformatted_provenance = extract_unformatted_provenance( resultsets[i] ) # no italics etc
-
-      if field_to_search == 'medieval_library':
-        heading = provenance
-      elif field_to_search == 'modern_library':
-        heading = get_modern_location_heading( modern_location2, modern_location1 )
-      else:
-        heading = get_modern_location_heading( modern_location1, modern_location2 )
-
-      if prev_heading.lower() <> heading.lower(): #{  # change in heading
-
-        if first_record:
-          first_record=False
-        else:
-          html += newline + '</div><!-- end div browseresults -->' + newline
-
-        html += newline + "<h3>" + newline
-        html += '<p>'
-        html += heading
-        html += '</p>'
-        html += newline + "</h3>" + newline
-        html += '<div class="browseresults">' + newline
-        prev_heading = heading
-      #}
-
-      # Now set up the 'detail' text
-      detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
-      detail_text += '<div class="book_row_1">' + newline
-
-      booklink_start = get_booklink_start( id, '', field_to_search, page_size )
-
-      # Expand/collapse button
-      detail_text += newline + '<div class="browse_concertina">'
-      detail_text += get_expand_collapse_button( id, concertina_label )
-      detail_text += newline + '</div><!-- end concertina button -->'
-
-      # Evidence
-      detail_text += newline + '<div class="browse_evidence">' + newline
-      if evidence_code: #{
-        detail_text += get_evidence_decoder_button( evidence_code, evidence_desc )
-      #}
-      else:
-        detail_text += space
-      detail_text += ' <!-- type of evidence -->'
-      detail_text += newline + '</div><!-- end evidence -->' + newline
-
-      # Shelfmarks
-      detail_text += newline + '<div class="browse_shelfmarks">' + newline
-      if shelfmark1 or shelfmark2: #{
-        detail_text += booklink_start
-        detail_text += '%s <!-- shelfmark 1 -->' %  shelfmark1 
-        if shelfmark2: #{
-          detail_text += space
-          detail_text += '%s <!-- shelfmark 2 -->' %  shelfmark2 
-        #}
-        detail_text += '</a>'
-      #}
-      else:
-        detail_text += space
-      detail_text += newline + '</div><!-- end shelfmarks -->' + newline
-
-      # Author/title
-      detail_text += newline + '<div class="browse_authortitle">' + newline
-      if suggestion_of_contents: #{
-        detail_text += booklink_start
-        detail_text += suggestion_of_contents + ' <!-- author/title -->'
-        detail_text += '</a>'
-      #}
-      else:
-        detail_text += space
-      detail_text += newline + '</div><!-- end author/title -->' + newline
-
-      # Provenance OR modern library
-      if field_to_search == 'medieval_library': #{ # show modern location in detail text
-        detail_text += newline + '<div class="browse_modern_library">' + newline
-        if modern_location1 or modern_location2 : #{
-          modern_location = modern_location1.strip()
-          if modern_location1 and modern_location2 :
-            modern_location += ', '
-          modern_location += modern_location2.strip()
-          detail_text += '<a href="%s/?search_term=%s&field_to_search=modern_library">' \
-                      % (baseurl, quote( modern_location.encode( 'utf-8' ) ))
-          detail_text += modern_location + ' <!-- modern location -->'
-          detail_text += '</a>'
-        #}
-        else:
-          detail_text += space
-        detail_text += newline + '</div><!-- end provenance -->' + newline
-      #}
-      else: #{ # show medieval library/provenance in detail text
-        detail_text += newline + '<div class="browse_provenance">' + newline
-        if provenance : #{
-          detail_text += '<a href="%s/?search_term=%s&field_to_search=medieval_library">' \
-                      % (baseurl, quote( unformatted_provenance.encode( 'utf-8' ) ))
-          detail_text += provenance + ' <!-- provenance -->'
-          detail_text += '</a>'
-        #}
-        else:
-          detail_text += space
-        detail_text += newline + '</div><!-- end provenance -->' + newline
-      #}
-
-      detail_text += newline + '<div class="browse_editlink">' + newline
-      if editable: #{
-        detail_text += '<a href="/admin/books/book/%s" title="Edit this record" target="_blank"' % id
-        detail_text += ' class="editlink">'
-        detail_text += 'Edit' + '</a>' + newline
-      #}
-      detail_text += newline + '</div><!-- end edit link -->' + newline
-
-      detail_text += '</div><!-- end book_row_1 -->' + newline
-
-      # Now start an optionally hidden row for the rest...
-      detail_text += '<div id="%s" class="%s">' % (get_2nd_row_id( id ), class_of_2nd_row)
-      detail_text += newline
-     
-      detail_text += newline + '<ul>' + newline
-
-      if evidence_desc : #{
-        detail_text += '<li>Evidence: ' + evidence_desc + ' <!-- evidence description -->'
-        detail_text += '</li>' + newline
-      #}
-
-      if date_of_work : #{
-        detail_text += '<li>Date: ' + date_of_work + ' <!-- date of work -->'
-        detail_text += '</li>' + newline
-      #}
-
-      if pressmark : #{
-        detail_text += '<li>Pressmark: ' + pressmark + ' <!-- pressmark -->'
-        detail_text += '</li>' + newline
-      #}
-
-      if medieval_catalogue : #{
-        detail_text += '<li>Medieval catalogue: ' + medieval_catalogue + ' <!-- medieval catalogue -->'
-        detail_text += '</li>' + newline
-      #}
-
-      if unknown : #{
-        detail_text += '<li>' + unknown + ' <!-- unknown -->'
-        detail_text += '</li>' + newline
-      #}
-      detail_text += newline + '</ul>' + newline
-
-      detail_text += '</div><!-- end book ID ' + id + ' -->' + newline + newline
+      text_for_one_record = display_as_table( resultsets[i], expand_2nd_row, first_record, \
+                            field_to_search, '', page_size )
 
       # Add the string of HTML that you have generated for this record to the main HTML source
-      html += detail_text
+      html += text_for_one_record
+      first_record=False
 
     #} # end loop through result sets
+
     if number_of_records > 0:  #{
 
-      html += newline + '</div><!-- end browseresults -->' + newline
+      html += end_results_table()
 
       alphabet = '<div class="letterlinks">'
       initials = get_initial_letters( solr_field_to_search )
@@ -1988,4 +1699,344 @@ def get_treeview_formatting(): #{
           end_inner_section, end_inner_and_outer_sections, end_treeview)
 #}
 # end function get_treeview_formatting()
+#--------------------------------------------------------------------------------
+
+def display_as_treeview( one_row, first_record = False, \
+                         field_to_search = '', search_term = '', page_size = '' ): #{
+
+  global prev_heading_1 # these two globals allow us to see whether there has been a change of heading
+  global prev_heading_2
+
+  html = ""
+  link_to_photos = ""
+
+  # Get the data from the Solr result set
+  (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
+  evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
+  pressmark, medieval_catalogue, unknown, notes_on_evidence, images) = extract_from_result( one_row )
+
+  # Get photos if any
+  link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
+
+  # Get formatting tags etc.
+  (start_treeview, start_collapsible_list, start_outer_section, start_inner_section, end_inner_section,
+  end_inner_and_outer_sections, end_treeview) = get_treeview_formatting()
+
+  # If searching on author/title (i.e. 'suggestion of contents'), show author/title as 
+  # heading 1, then provenance as heading 2, then modern library and shelfmark in the detail.
+  # If not searching on author/title, have medieval library as main heading, then modern one.
+
+  if field_to_search.lower()=='author_title': #{
+    heading1 = suggestion_of_contents
+    heading2 = provenance
+    heading3 = '%s%s%s' % (modern_location1, space, modern_location2)
+  #}
+  else: #{
+    heading1 = provenance
+    heading2 = modern_location1
+    heading3 = modern_location2
+  #}
+
+  if prev_heading_1 <> heading1: #{  # change in heading 1
+    prev_heading_2=""
+    if not first_record: 
+      html += end_inner_and_outer_sections
+    html += newline
+    html += start_outer_section + newline
+    html += '<span class="outerhead">%s</span>' % heading1
+    html += '<!-- end "outer head" span -->' + newline + start_collapsible_list
+  #}
+
+  if prev_heading_2 <> heading2: #{ # change in heading 2
+    prev_heading_2 = heading2
+    if prev_heading_1 == heading1: #{
+      if not first_record: #{
+        html += end_inner_section
+      #}
+    #}
+    else: #{
+      prev_heading_1 = heading1
+    #}
+    html += newline
+    html += start_inner_section + newline
+    html += '<span class="innerhead">%s</span>' % heading2
+    html += '<!-- end "inner head" span -->' + newline + start_collapsible_list
+  #}
+  
+  # Now set up the 'heading 3' and 'detail' text
+  heading3 = '<span class="modern_location_heading">' \
+           + newline + heading3 + newline \
+           + '</span><!-- end modern location_heading -->' + newline
+
+  detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
+  detail_text += '<li class="one_book">' + newline
+
+  detail_text += heading3
+  detail_text += two_spaces
+
+  if len( link_to_photos ) > 0:
+    detail_text += link_to_photos
+
+  else: #{
+    if evidence_code: #{
+      detail_text += get_evidence_decoder_button( evidence_code, evidence_desc )
+    #}
+  #}
+  detail_text += ' <!-- type of evidence -->'
+  detail_text += two_spaces
+
+  detail_text += '<!-- start booklink -->' + newline
+  detail_text += '<a href="%s/book/%s/' % (baseurl, id)
+
+  # Pass in your search, so that they can search again from the detail page
+  if search_term and search_term != '*': #{
+    detail_text += '?search_term=%s' % quote( search_term.encode( 'utf-8' ) )
+    if field_to_search:
+      detail_text += '&field_to_search=%s' % quote( field_to_search.encode( 'utf-8' ) )
+    if page_size:
+      detail_text += '&page_size=%s' % quote( page_size.encode( 'utf-8' ) )
+  #}
+
+  detail_text += '" class="booklink">'
+
+  detail_text += '%s <!-- shelfmark 1 -->' %  shelfmark1 
+  detail_text += space
+
+  if shelfmark2: #{
+    detail_text += '%s <!-- shelfmark 2 -->' %  shelfmark2 
+    detail_text += space
+  #}
+
+  if field_to_search.lower() != 'author_title': #{
+
+    if suggestion_of_contents: #{
+      detail_text += suggestion_of_contents + ' <!-- author/title -->'
+      detail_text += space
+    #}
+
+    if date_of_work : #{
+      detail_text += date_of_work + ' <!-- date -->'
+      detail_text += space
+    #}
+
+    if pressmark : #{
+      detail_text += pressmark + ' <!-- pressmark -->'
+      detail_text += space
+    #}
+
+    if medieval_catalogue : #{
+      detail_text += medieval_catalogue + ' <!-- medieval catalogue -->'
+      detail_text += space
+    #}
+
+    if unknown : #{
+      detail_text += unknown + ' <!-- unknown -->'
+      detail_text += space
+    #}
+  #}
+
+  detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
+  detail_text += '</a>' + newline
+  detail_text += '<!-- end booklink -->' + newline
+
+  if editable: #{
+    detail_text += '<a href="/admin/books/book/%s" title="Edit this record" target="_blank"' % id
+    detail_text += ' class="editlink">'
+    detail_text += space + 'Edit' + '</a>' + newline
+  #}
+
+  detail_text += '</li><!-- end book ID ' + id + ' -->' + newline + newline
+
+  # Pass back a string of HTML for display
+  html += detail_text
+  return html
+#}
+# end function display_as_treeview()
+#--------------------------------------------------------------------------------
+
+def display_as_table( one_row, expand_2nd_row, first_record = False, \
+                      field_to_search = '', search_term = '', page_size = '' ): #{
+
+  global prev_heading_1
+  html = ""
+
+  if expand_2nd_row == "yes": #{
+    class_of_2nd_row = browse_expanded_class
+    concertina_label = '-'
+  #}
+  else: #{
+    class_of_2nd_row = browse_collapsed_class
+    concertina_label = '+'
+  #}
+
+
+  # Get the data from the Solr result set
+  (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
+  evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
+  pressmark, medieval_catalogue, unknown, notes_on_evidence, images) = \
+  extract_from_result( one_row, False ) # here False means 'don't add punctuation'
+
+  unformatted_provenance = extract_unformatted_provenance( one_row ) # no italics etc
+
+  if field_to_search == 'medieval_library':
+    heading = provenance
+  elif field_to_search == 'modern_library':
+    heading = get_modern_location_heading( modern_location2, modern_location1 )
+  else:
+    heading = get_modern_location_heading( modern_location1, modern_location2 )
+
+  if prev_heading_1.lower() <> heading.lower(): #{  # change in heading
+
+    if first_record:
+      first_record=False
+    else:
+      html += end_results_table()
+
+    html += newline + "<h3>" + newline
+    html += '<p>'
+    html += heading
+    html += '</p>'
+    html += newline + "</h3>" + newline
+    html += start_results_table()
+    prev_heading_1 = heading
+  #}
+
+  # Now set up the 'detail' text
+  detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
+  detail_text += '<div class="book_row_1">' + newline
+
+  booklink_start = get_booklink_start( id, '', field_to_search, page_size )
+
+  # Expand/collapse button
+  detail_text += newline + '<div class="browse_concertina">'
+  detail_text += get_expand_collapse_button( id, concertina_label )
+  detail_text += newline + '</div><!-- end concertina button -->'
+
+  # Evidence
+  detail_text += newline + '<div class="browse_evidence">' + newline
+  link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
+  if link_to_photos:
+    detail_text += link_to_photos
+  elif evidence_code: #{
+    detail_text += get_evidence_decoder_button( evidence_code, evidence_desc )
+  #}
+  else:
+    detail_text += space
+  detail_text += ' <!-- type of evidence -->'
+  detail_text += newline + '</div><!-- end evidence -->' + newline
+
+  # Shelfmarks
+  detail_text += newline + '<div class="browse_shelfmarks">' + newline
+  if shelfmark1 or shelfmark2: #{
+    detail_text += booklink_start
+    detail_text += '%s <!-- shelfmark 1 -->' %  shelfmark1 
+    if shelfmark2: #{
+      detail_text += space
+      detail_text += '%s <!-- shelfmark 2 -->' %  shelfmark2 
+    #}
+    detail_text += '</a>'
+  #}
+  else:
+    detail_text += space
+  detail_text += newline + '</div><!-- end shelfmarks -->' + newline
+
+  # Author/title
+  detail_text += newline + '<div class="browse_authortitle">' + newline
+  if suggestion_of_contents: #{
+    detail_text += booklink_start
+    detail_text += suggestion_of_contents + ' <!-- author/title -->'
+    detail_text += '</a>'
+  #}
+  else:
+    detail_text += space
+  detail_text += newline + '</div><!-- end author/title -->' + newline
+
+  # Provenance OR modern library
+  if field_to_search == 'medieval_library': #{ # show modern location in detail text
+    detail_text += newline + '<div class="browse_modern_library">' + newline
+    if modern_location1 or modern_location2 : #{
+      modern_location = modern_location1.strip()
+      if modern_location1 and modern_location2 :
+        modern_location += ', '
+      modern_location += modern_location2.strip()
+      detail_text += '<a href="%s/?search_term=%s&field_to_search=modern_library">' \
+                  % (baseurl, quote( modern_location.encode( 'utf-8' ) ))
+      detail_text += modern_location + ' <!-- modern location -->'
+      detail_text += '</a>'
+    #}
+    else:
+      detail_text += space
+    detail_text += newline + '</div><!-- end provenance -->' + newline
+  #}
+  else: #{ # show medieval library/provenance in detail text
+    detail_text += newline + '<div class="browse_provenance">' + newline
+    if provenance : #{
+      detail_text += '<a href="%s/?search_term=%s&field_to_search=medieval_library">' \
+                  % (baseurl, quote( unformatted_provenance.encode( 'utf-8' ) ))
+      detail_text += provenance + ' <!-- provenance -->'
+      detail_text += '</a>'
+    #}
+    else:
+      detail_text += space
+    detail_text += newline + '</div><!-- end provenance -->' + newline
+  #}
+
+  detail_text += newline + '<div class="browse_editlink">' + newline
+  if editable: #{
+    detail_text += '<a href="/admin/books/book/%s" title="Edit this record" target="_blank"' % id
+    detail_text += ' class="editlink">'
+    detail_text += 'Edit' + '</a>' + newline
+  #}
+  detail_text += newline + '</div><!-- end edit link -->' + newline
+
+  detail_text += '</div><!-- end book_row_1 -->' + newline
+
+  # Now start an optionally hidden row for the rest...
+  detail_text += '<div id="%s" class="%s">' % (get_2nd_row_id( id ), class_of_2nd_row)
+  detail_text += newline
+ 
+  detail_text += newline + '<ul>' + newline
+
+  if evidence_desc : #{
+    detail_text += '<li>Evidence: ' + evidence_desc + ' <!-- evidence description -->'
+    detail_text += '</li>' + newline
+  #}
+
+  if date_of_work : #{
+    detail_text += '<li>Date: ' + date_of_work + ' <!-- date of work -->'
+    detail_text += '</li>' + newline
+  #}
+
+  if pressmark : #{
+    detail_text += '<li>Pressmark: ' + pressmark + ' <!-- pressmark -->'
+    detail_text += '</li>' + newline
+  #}
+
+  if medieval_catalogue : #{
+    detail_text += '<li>Medieval catalogue: ' + medieval_catalogue + ' <!-- medieval catalogue -->'
+    detail_text += '</li>' + newline
+  #}
+
+  if unknown : #{
+    detail_text += '<li>' + unknown + ' <!-- unknown -->'
+    detail_text += '</li>' + newline
+  #}
+  detail_text += newline + '</ul>' + newline
+
+  detail_text += '</div><!-- end book ID ' + id + ' -->' + newline + newline
+
+  # Pass back a string of HTML for display
+  html += detail_text
+  return html
+#}
+# end function display_as_table()
+#--------------------------------------------------------------------------------
+# I'm actually using divs rather than a table (even though this is perfectly
+# valid data for tabular display) because the "colspan" attribute of "td" isn't working.
+
+def start_results_table():
+  return newline + '<div class="browseresults">' + newline
+#--------------------------------------------------------------------------------
+def end_results_table():
+  return newline + '</div><!-- end browseresults -->' + newline
 #--------------------------------------------------------------------------------
