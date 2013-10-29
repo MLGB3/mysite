@@ -35,7 +35,7 @@ browse_collapsed_class = "book_row_2_hidden"
 browse_expanded_class = "book_row_2_displayed"
 
 newline = '\n'
-space = newline + '<span class="spacer">' + newline + '</span>' + newline
+space = newline + '<span class="spacer"> </span>' + newline
 two_spaces = space + space
 
 #================= Top-level functions, called directly from URL ================
@@ -215,6 +215,11 @@ def category_e( request, pagename = 'category' ): #{
 
 def mlgb( request, pagename = 'results' ): #{
 
+  global prev_heading_1 # these two globals allow us to see whether there has been a change of heading
+  global prev_heading_2
+  prev_heading_1 = ""
+  prev_heading_2 = ""
+
   html = provenance = modern_location1 = result_string = search_term = resultsets = None
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = sql_query = ""
   first_record = True
@@ -337,6 +342,9 @@ def book_e( request, book_id, pagename = 'book' ): #{
 # The function browse() allows browsing by modern location and shelfmark
 
 def browse( request, letter = 'A', pagename = 'browse' ): #{
+
+  global prev_heading_1
+  prev_heading_1 = ""
 
   html = result_string = resultsets = expand_2nd_row = ""
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = ""
@@ -752,7 +760,18 @@ def extract_from_result( resultset, add_punctuation = True ): #{
   #}
 
   # notes
-  notes_on_evidence = trim( resultset['nt'] )
+  general_notes = trim( resultset['nt'] )
+  if general_notes.endswith( '<p>&nbsp;</p>' ): # no need for lots of whitespace
+    general_notes = general_notes[ 0 : 0 - len( '<p>&nbsp;</p>' ) ]
+  if general_notes: #{
+    if add_punctuation and not general_notes.endswith( '.' ): 
+      general_notes += '.'
+  #}
+
+  # notes on evidence
+  notes_on_evidence = trim( resultset['evn'] )
+  if notes_on_evidence.endswith( '<p>&nbsp;</p>' ): # no need for lots of whitespace
+    notes_on_evidence = notes_on_evidence[ 0 : 0 - len( '<p>&nbsp;</p>' ) ]
   if notes_on_evidence: #{
     if add_punctuation and not notes_on_evidence.endswith( '.' ): 
       notes_on_evidence += '.'
@@ -799,7 +818,7 @@ def extract_from_result( resultset, add_punctuation = True ): #{
 
   return (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
           evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-          pressmark, medieval_catalogue, unknown, notes_on_evidence, images)
+          pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images)
 
 #}
 #--------------------------------------------------------------------------------
@@ -1713,7 +1732,8 @@ def display_as_treeview( one_row, first_record = False, \
   # Get the data from the Solr result set
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-  pressmark, medieval_catalogue, unknown, notes_on_evidence, images) = extract_from_result( one_row )
+  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images) = \
+  extract_from_result( one_row )
 
   # Get photos if any
   link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
@@ -1873,7 +1893,7 @@ def display_as_table( one_row, expand_2nd_row, first_record = False, \
   # Get the data from the Solr result set
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-  pressmark, medieval_catalogue, unknown, notes_on_evidence, images) = \
+  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images) = \
   extract_from_result( one_row, False ) # here False means 'don't add punctuation'
 
   unformatted_provenance = extract_unformatted_provenance( one_row ) # no italics etc
@@ -1897,7 +1917,7 @@ def display_as_table( one_row, expand_2nd_row, first_record = False, \
     html += heading
     html += '</p>'
     html += newline + "</h3>" + newline
-    html += start_results_table()
+    html += start_results_table( field_to_search )
     prev_heading_1 = heading
   #}
 
@@ -1940,6 +1960,18 @@ def display_as_table( one_row, expand_2nd_row, first_record = False, \
     detail_text += space
   detail_text += newline + '</div><!-- end shelfmarks -->' + newline
 
+  # Date
+  detail_text += newline + '<div class="browse_date">' + newline
+  if date_of_work: #{
+    detail_text += booklink_start
+    detail_text += date_of_work + ' <!-- date -->'
+    detail_text += '</a>'
+  #}
+  else:
+    detail_text += space
+  detail_text += newline + '</div><!-- end date -->' + newline
+
+
   # Author/title
   detail_text += newline + '<div class="browse_authortitle">' + newline
   if suggestion_of_contents: #{
@@ -1966,7 +1998,7 @@ def display_as_table( one_row, expand_2nd_row, first_record = False, \
     #}
     else:
       detail_text += space
-    detail_text += newline + '</div><!-- end provenance -->' + newline
+    detail_text += newline + '</div><!-- end modern location -->' + newline
   #}
   else: #{ # show medieval library/provenance in detail text
     detail_text += newline + '<div class="browse_provenance">' + newline
@@ -1993,27 +2025,32 @@ def display_as_table( one_row, expand_2nd_row, first_record = False, \
 
   # Now start an optionally hidden row for the rest...
   detail_text += '<div id="%s" class="%s">' % (get_2nd_row_id( id ), class_of_2nd_row)
-  detail_text += newline
- 
   detail_text += newline + '<ul>' + newline
 
-  if evidence_desc : #{
-    detail_text += '<li>Evidence: ' + evidence_desc + ' <!-- evidence description -->'
+  if evidence_code.strip() : #{
+    detail_text += '<li>'
+    detail_text += '<em>Type of evidence:</em> ' + evidence_desc + ' <!-- evidence description -->'
     detail_text += '</li>' + newline
   #}
 
-  if date_of_work : #{
-    detail_text += '<li>Date: ' + date_of_work + ' <!-- date of work -->'
+  if notes_on_evidence: #{
+    detail_text += '<li>'
+    detail_text += '<em>Notes on evidence:</em> ' + notes_on_evidence + ' <!-- notes on evidence -->'
     detail_text += '</li>' + newline
   #}
 
   if pressmark : #{
-    detail_text += '<li>Pressmark: ' + pressmark + ' <!-- pressmark -->'
+    detail_text += '<li><em>Pressmark:</em> ' + pressmark + ' <!-- pressmark -->'
     detail_text += '</li>' + newline
   #}
 
   if medieval_catalogue : #{
-    detail_text += '<li>Medieval catalogue: ' + medieval_catalogue + ' <!-- medieval catalogue -->'
+    detail_text += '<li><em>Medieval catalogue:</em> ' + medieval_catalogue + ' <!--medieval catalogue-->'
+    detail_text += '</li>' + newline
+  #}
+
+  if general_notes : #{
+    detail_text += '<li><em>General notes:</em> ' + general_notes + ' <!-- general notes -->'
     detail_text += '</li>' + newline
   #}
 
@@ -2031,11 +2068,56 @@ def display_as_table( one_row, expand_2nd_row, first_record = False, \
 #}
 # end function display_as_table()
 #--------------------------------------------------------------------------------
+
 # I'm actually using divs rather than a table (even though this is perfectly
 # valid data for tabular display) because the "colspan" attribute of "td" isn't working.
 
-def start_results_table():
-  return newline + '<div class="browseresults">' + newline
+def start_results_table( field_to_search ): #{
+
+  html = newline + '<div class="browseresults">' + newline
+  html += '<div class="book_row_1">' + newline
+
+
+  # Expand/collapse button and evidence
+  html += newline + '<div colspan="2" class="columnhead">' + newline
+  html += 'Evidence'
+  html += newline + '</div><!-- end evidence -->' + newline
+
+  # Shelfmarks
+  html += newline + '<div class="browse_shelfmarks columnhead">' + newline
+  html += 'Shelfmark'
+  html += newline + '</div><!-- end shelfmarks -->' + newline
+
+  # Date
+  html += newline + '<div class="browse_date columnhead">' + newline
+  html += 'Date'
+  html += newline + '</div><!-- end date -->' + newline
+
+
+  # Author/title
+  html += newline + '<div class="browse_authortitle columnhead">' + newline
+  html += 'Suggestion of contents'
+  html += newline + '</div><!-- end author/title -->' + newline
+
+  # Provenance OR modern library
+  if field_to_search == 'medieval_library': #{ # show modern location in detail text
+    html += newline + '<div class="browse_modern_library columnhead">' + newline
+    html += 'Modern location'
+    html += newline + '</div><!-- end modern location -->' + newline
+  #}
+  else: #{ # show medieval library/provenance in detail text
+    html += newline + '<div class="browse_provenance columnhead">' + newline
+    html += 'Medieval library'
+    html += newline + '</div><!-- end provenance -->' + newline
+  #}
+
+  html += newline + '<div class="browse_editlink columnhead">' + newline
+  html += newline + '</div><!-- end edit link -->' + newline
+
+  html += '</div><!-- end column headers -->' + newline
+
+  return html
+#}
 #--------------------------------------------------------------------------------
 def end_results_table():
   return newline + '</div><!-- end browseresults -->' + newline
