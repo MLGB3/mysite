@@ -229,9 +229,6 @@ def mlgb( request, pagename = 'results' ): #{
     (resultsets, number_of_records, 
      field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
-    (start_treeview, start_collapsible_list, start_outer_section, start_inner_section, end_inner_section,
-     end_inner_and_outer_sections, end_treeview) = get_treeview_formatting()
-
     # Start to display the results
     if number_of_records > 0 : #{ #did we retrieve a result?
       html = ""
@@ -249,7 +246,7 @@ def mlgb( request, pagename = 'results' ): #{
       #} # end loop through result sets
 
       if html: #{
-        html = start_treeview + html + end_inner_and_outer_sections + end_treeview
+        html = wrap_in_tree( html )
 
         pag = pagination( rows_found = number_of_records, \
                           current_row = solr_start, \
@@ -344,16 +341,20 @@ def book_e( request, book_id, pagename = 'book' ): #{
 def browse( request, letter = 'A', pagename = 'browse' ): #{
 
   global prev_heading_1
+  global prev_heading_2
   prev_heading_1 = ""
+  prev_heading_2 = ""
 
   html = result_string = resultsets = expand_2nd_row = ""
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = ""
   letters = []
   first_record = True
+  output_style = 'treeview'
 
   # Set default field to search, records per page and start row, 
   # for use in pagination and 'search again' functionality.
   field_to_search = 'location' # this is used in the 'Search' box on the right-hand side
+  search_term = ''
   solr_field_to_search = 'ml1_initial'
   page_size = str( default_rows_per_page )
   solr_start = 0
@@ -372,6 +373,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
     # They may have chosen expand/collapse options
     expand_2nd_row = get_value_from_GET( request, "expand", "no" ) 
+
+    # They may have chosen treeview vs. table
+    output_style = get_value_from_GET( request, "output_style", "treeview" ) 
   #}
 
   # Construct Solr query
@@ -408,13 +412,20 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     resultsets = r.s_result.get( 'docs' )
     number_of_records = r.s_result.get( 'numFound' )
     
-    html = get_expand_collapse_script()
 
     # Start loop through result sets
     for i in xrange( 0, len( resultsets ) ): #{
 
-      text_for_one_record = display_as_table( resultsets[i], expand_2nd_row, first_record, \
-                            field_to_search, '', page_size )
+      if output_style == 'table':  #{
+        if first_record: html = get_expand_collapse_script()
+
+        text_for_one_record = display_as_table( resultsets[i], expand_2nd_row, first_record, \
+                              field_to_search, '', page_size )
+      #}
+      else: #{
+        text_for_one_record = display_as_treeview( resultsets[i], first_record, \
+                              field_to_search, search_term, page_size )
+      #}
 
       # Add the string of HTML that you have generated for this record to the main HTML source
       html += text_for_one_record
@@ -424,7 +435,15 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
     if number_of_records > 0:  #{
 
-      html += end_results_table()
+      if output_style == 'table':  #{
+        html += end_results_table()
+        option_string = get_browse_table_links( request, letter, number_of_records, solr_rows )
+
+      #}
+      else: #{
+        html = wrap_in_tree( html )
+        option_string = ''
+      #}
 
       alphabet = '<div class="letterlinks">'
       initials = get_initial_letters( solr_field_to_search )
@@ -440,8 +459,6 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         current_row = solr_start, \
                         rows_per_page = solr_rows, \
                         include_print_button = False )
-
-      option_string = get_browse_display_options( request, letter, number_of_records, solr_rows )
 
       result_string = alphabet + pag + option_string + html 
 
@@ -1412,7 +1429,7 @@ def get_expand_collapse_script(): #{
 #}
 #--------------------------------------------------------------------------------
 
-def get_browse_display_options( request, letter = 'A', rows_found = 0, rows_per_page = 0 ): #{
+def get_browse_table_links( request, letter = 'A', rows_found = 0, rows_per_page = 0 ): #{
 
   options = ""
   new_search = "%s/browse/%s/" % (baseurl, letter)
@@ -2121,4 +2138,13 @@ def start_results_table( field_to_search ): #{
 #--------------------------------------------------------------------------------
 def end_results_table():
   return newline + '</div><!-- end browseresults -->' + newline
+#--------------------------------------------------------------------------------
+def wrap_in_tree( html ): #{
+
+  (start_treeview, start_collapsible_list, start_outer_section, start_inner_section, end_inner_section,
+  end_inner_and_outer_sections, end_treeview) = get_treeview_formatting()
+
+  html = start_treeview + html + end_inner_and_outer_sections + end_treeview
+  return html
+#}
 #--------------------------------------------------------------------------------
