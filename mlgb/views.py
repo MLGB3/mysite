@@ -1,7 +1,7 @@
 """
 # Main setup script for all MLGB front end web pages
 
-# Originally by Xiaofeng Yang, 2009-2010
+# Originally written in 'vile' mode by the diabolical Xiaofeng Yang, 2009-2010
 # but very, very thoroughly rewritten by Sushila Burgess 2013.
 """
 #--------------------------------------------------------------------------------
@@ -222,6 +222,7 @@ def mlgb( request, pagename = 'results' ): #{
 
   html = provenance = modern_location1 = result_string = search_term = resultsets = None
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = sql_query = ""
+  pagination_change_link = ""
   first_record = True
 
   if request.GET: #{ # was a search term found in GET?
@@ -246,11 +247,15 @@ def mlgb( request, pagename = 'results' ): #{
       #} # end loop through result sets
 
       if html: #{
+
         html = wrap_in_tree( html )
+
+        pagination_change_link = get_pagination_change_link( request, number_of_records, solr_rows )
 
         pag = pagination( rows_found = number_of_records, \
                           current_row = solr_start, \
                           rows_per_page = solr_rows, \
+                          pagination_change_link = pagination_change_link, \
                           include_print_button = False )
 
         result_string = pag + html
@@ -455,9 +460,12 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       #}
       alphabet += '</div><!-- letterlinks -->'
 
+      pagination_change_link = get_pagination_change_link( request, number_of_records, solr_rows )
+
       pag = pagination( rows_found = number_of_records, \
                         current_row = solr_start, \
                         rows_per_page = solr_rows, \
+                        pagination_change_link = pagination_change_link, \
                         include_print_button = False )
 
       result_string = alphabet + pag + option_string + html 
@@ -876,7 +884,8 @@ def get_photo_evidence( id, images, evidence_code, evidence_desc ): #{
 ## This function was copied from code written by Mat Wilcoxson for EMLO/Cultures of Knowledge
 ## with some adaptation by Sue B.
 
-def pagination( rows_found, current_row, rows_per_page=None, include_print_button=False ): #{
+def pagination( rows_found, current_row, rows_per_page=None, pagination_change_link = '', \
+                include_print_button=False ): #{
 
   html = newline  # we'll build up all the pagination links in the 'html' string
 
@@ -962,6 +971,11 @@ def pagination( rows_found, current_row, rows_per_page=None, include_print_butto
     html += '<span class="spacer">' + newline
     html += 'Page %d of %d (%d records per page). ' % (current_page, page_count, rows_per_page)
     html += '</span>' + newline
+
+    if pagination_change_link: #{ # offer to show multiple pages as one single page
+      html += space + pagination_change_link
+    #}
+
     html += '<br>' + newline
 
     ##=========================================================================================
@@ -1101,6 +1115,12 @@ def pagination( rows_found, current_row, rows_per_page=None, include_print_butto
     ##====================== end of section with 'jump to page' buttons =======================
     ##=========================================================================================
   #} ## end of 'if page count > 1'
+
+  elif page_count == 1 : #{
+    if pagination_change_link: #{  offer to split up the single page into multiple pages
+      html += space + pagination_change_link
+    #}
+  #}
 
   if include_print_button: #{
     # Although 'print' button is not part of pagination, could be convenient
@@ -1457,12 +1477,20 @@ def get_browse_table_links( request, letter = 'A', rows_found = 0, rows_per_page
   options += ' | '
   options += '<a href="%s" title="Collapse All">Collapse All</a>' % collapse_search
 
+  return options
+#}
+#--------------------------------------------------------------------------------
+
+def get_pagination_change_link( request, rows_found = 0, rows_per_page = 0 ): #{
 
   # For page size change option, preserve 
   # any existing parameters except 'page_size' and 'start'
+
+  link = ''
+  new_search = ''
+
   if rows_found > rows_per_page or rows_found > default_rows_per_page: #{
     delim = '?'
-    new_search = ''
 
     if request.GET: #{  # 
 
@@ -1489,11 +1517,10 @@ def get_browse_table_links( request, letter = 'A', rows_found = 0, rows_per_page
       new_title = 'Paginate'
     #}
 
-    options += ' | <a href="%s" title="%s">%s</a>' % (new_search, new_title, new_title)
+    link = '<a href="%s" title="%s">%s</a>' % (new_search, new_title, new_title)
   #}
 
-
-  return options
+  return link
 #}
 #--------------------------------------------------------------------------------
 
