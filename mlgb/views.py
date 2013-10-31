@@ -29,6 +29,7 @@ baseurl="/mlgb"
 facet=False
 default_rows_per_page = 500
 
+output_style = 'compacttree'
 prev_heading_1 = ""
 prev_heading_2 = ""
 browse_collapsed_class = "book_row_2_hidden"
@@ -215,10 +216,14 @@ def category_e( request, pagename = 'category' ): #{
 
 def mlgb( request, pagename = 'results' ): #{
 
+  global output_style # 'treeview', 'compacttree' or 'table'
+  output_style = 'compacttree'
+
   global prev_heading_1 # these two globals allow us to see whether there has been a change of heading
   global prev_heading_2
   prev_heading_1 = ""
   prev_heading_2 = ""
+  table_control_links = ""
 
   html = provenance = modern_location1 = result_string = search_term = resultsets = None
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = sql_query = ""
@@ -230,6 +235,12 @@ def mlgb( request, pagename = 'results' ): #{
     (resultsets, number_of_records, 
      field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
+    # They may have chosen treeview vs. table
+    output_style = get_value_from_GET( request, "output_style", "compacttree" ) 
+
+    # They may have chosen expand/collapse options (used in 'table' mode)
+    expand_2nd_tablerow = get_value_from_GET( request, "expand", "no" ) 
+
     # Start to display the results
     if number_of_records > 0 : #{ #did we retrieve a result?
       html = ""
@@ -237,8 +248,16 @@ def mlgb( request, pagename = 'results' ): #{
       # Start loop through result sets
       for i in xrange( 0, len( resultsets ) ): #{
 
-        text_for_one_record = display_as_treeview( resultsets[i], first_record, \
-                              field_to_search, search_term, page_size )
+        if output_style == 'table':  #{
+          if first_record: html = get_expand_collapse_script()
+
+          text_for_one_record = display_as_table( resultsets[i], expand_2nd_tablerow, first_record, \
+                                field_to_search, '', page_size )
+        #}
+        else: #{
+          text_for_one_record = display_as_treeview( resultsets[i], first_record, \
+                                field_to_search, search_term, page_size )
+        #}
 
         # Add the string of HTML that you have generated for this record to the main HTML source
         html += text_for_one_record
@@ -248,7 +267,14 @@ def mlgb( request, pagename = 'results' ): #{
 
       if html: #{
 
-        html = wrap_in_tree( html )
+        if output_style == 'table':  #{
+          html += end_results_table()
+          table_control_links = get_table_control_links( request, number_of_records, solr_rows )
+          html = table_control_links + html
+        #}
+        else: #{
+          html = wrap_in_tree( html )
+        #}
 
         pagination_change_link = get_pagination_change_link( request, number_of_records, solr_rows )
 
@@ -345,16 +371,19 @@ def book_e( request, book_id, pagename = 'book' ): #{
 
 def browse( request, letter = 'A', pagename = 'browse' ): #{
 
+  global output_style # 'treeview', 'compacttree' or 'table'
+  output_style = 'compacttree'
+
   global prev_heading_1
   global prev_heading_2
   prev_heading_1 = ""
   prev_heading_2 = ""
 
-  html = result_string = resultsets = expand_2nd_row = ""
+  html = result_string = resultsets = expand_2nd_tablerow = ""
   number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = ""
   letters = []
+  table_control_links = ''
   first_record = True
-  output_style = 'treeview'
 
   # Set default field to search, records per page and start row, 
   # for use in pagination and 'search again' functionality.
@@ -377,10 +406,10 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       solr_field_to_search = 'pr_initial'
 
     # They may have chosen expand/collapse options
-    expand_2nd_row = get_value_from_GET( request, "expand", "no" ) 
+    expand_2nd_tablerow = get_value_from_GET( request, "expand", "no" ) 
 
     # They may have chosen treeview vs. table
-    output_style = get_value_from_GET( request, "output_style", "treeview" ) 
+    output_style = get_value_from_GET( request, "output_style", "compacttree" ) 
   #}
 
   # Construct Solr query
@@ -395,11 +424,13 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   
   # Set sort field
   if field_to_search == 'modern_library':
-    solr_sort = ", ".join( get_modern_library_sortfields() )
+    sortfields = get_modern_library_and_shelfmark_sortfields() 
   elif field_to_search == 'medieval_library':
-    solr_sort = ", ".join( get_provenance_sortfields() )
+    sortfields = get_provenance_and_location_sortfields() 
   else:
-    solr_sort = ", ".join( get_location_sortfields() )
+    sortfields = get_location_and_shelfmark_sortfields() 
+
+  solr_sort = ", ".join( sortfields )
 
   # Run the Solr query
   s_para={'q'    : solr_query,
@@ -424,7 +455,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       if output_style == 'table':  #{
         if first_record: html = get_expand_collapse_script()
 
-        text_for_one_record = display_as_table( resultsets[i], expand_2nd_row, first_record, \
+        text_for_one_record = display_as_table( resultsets[i], expand_2nd_tablerow, first_record, \
                               field_to_search, '', page_size )
       #}
       else: #{
@@ -442,12 +473,11 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 
       if output_style == 'table':  #{
         html += end_results_table()
-        option_string = get_browse_table_links( request, letter, number_of_records, solr_rows )
+        table_control_links = get_table_control_links( request, number_of_records, solr_rows )
 
       #}
       else: #{
         html = wrap_in_tree( html )
-        option_string = ''
       #}
 
       alphabet = '<div class="letterlinks">'
@@ -468,7 +498,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         pagination_change_link = pagination_change_link, \
                         include_print_button = False )
 
-      result_string = alphabet + pag + option_string + html 
+      result_string = alphabet + pag + table_control_links + html 
 
       if number_of_records > solr_rows: # repeat pagination at the bottom
         result_string += '<br>' + pag + '<br>'
@@ -1246,74 +1276,83 @@ def get_searchable_field_label( field_to_search = 'medieval_library' ): #{
 
 def get_modern_location_heading( modern_location1, modern_location2 ): #{
 
-  heading = modern_location1.strip()
-  if modern_location1 and modern_location2: heading += ', ' 
-  heading += modern_location2.strip()
+  heading = trim( modern_location1, False )
+  if modern_location1 and modern_location2: #{
+    if not heading.endswith( ',' ): heading += ', ' 
+  #}
+  heading += ' ' + trim( modern_location2, False )
+  if heading.endswith( ',' ): heading = heading[ 0 : -1 ]
   return heading
-#}
-#--------------------------------------------------------------------------------
-
-def get_author_title_sortfields(): #{
-
-  author_title_sortfields = [ 'soc asc',           # suggestion of contents, i.e. author/title
-                              'ev asc',            # evidence code
-                              'prsort asc',        # provenance (place, e.g. town/city)
-                              'ctsort asc',        # provenance (county)
-                              'inssort asc',       # provenance (institution name)
-                              'ml1sort asc',       # modern location 1 (city etc)
-                              'ml2sort asc',       # location location 2 (library name)
-                              'shelfmarksort asc', # shelfmark in numerically-sortable format
-                              'id asc']
-
-  return author_title_sortfields
 #}
 #--------------------------------------------------------------------------------
 
 def get_provenance_sortfields(): #{
 
-  provenance_sortfields = [ 'prsort asc',        # provenance (place, e.g. town/city)
-                            'ctsort asc',        # provenance (county)
-                            'inssort asc',       # provenance (institution name)
-                            'ml1sort asc',       # modern location 1 (city etc)
-                            'ml2sort asc',       # location location 2 (library name)
-                            'shelfmarksort asc', # shelfmark in numerically-sortable format
-                            'soc asc',           # suggestion of contents, i.e. author/title
-                            'ev asc',            # evidence code
-                            'id asc']
-
-  return provenance_sortfields
+  sortfields = [ 'prsort asc',        # provenance (place, e.g. town/city)
+                 'ctsort asc',        # provenance (county)
+                 'inssort asc' ]      # provenance (institution name)
+  return sortfields
 #}
-#--------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
 def get_location_sortfields(): #{
 
-  location_sortfields = [  'ml1sort asc',       # modern location 1 (city etc)
-                           'ml2sort asc',       # location location 2 (library name)
-                           'shelfmarksort asc', # shelfmark in numerically-sortable format
-                           'soc asc',           # suggestion of contents, i.e. author/title
-                           'ev asc',            # evidence code
-                           'prsort asc',        # provenance (place, e.g. town/city)
-                           'ctsort asc',        # provenance (county)
-                           'inssort asc',       # provenance (institution name)
-                           'id asc']
-
-  return location_sortfields
+  sortfields = [  'ml1sort asc',       # modern location 1 (city etc)
+                  'ml2sort asc' ]      # modern location 2 (library name)
+  return sortfields
 #}
 #--------------------------------------------------------------------------------
 
 def get_modern_library_sortfields(): #{
 
-  shelfmark_sortfields = [ 'ml2sort asc',       # location location 2 (library name)
-                           'ml1sort asc',       # modern location 1 (city etc)
-                           'shelfmarksort asc', # shelfmark in numerically-sortable format
-                           'soc asc',           # suggestion of contents, i.e. author/title
-                           'ev asc',            # evidence code
-                           'prsort asc',        # provenance (place, e.g. town/city)
-                           'ctsort asc',        # provenance (county)
-                           'inssort asc',       # provenance (institution name)
-                           'id asc']
+  sortfields = [ 'ml2sort asc',       # modern location 2 (library name)
+                 'ml1sort asc' ]      # modern location 1 (city etc)
+  return sortfields
+#}
+#--------------------------------------------------------------------------------
+def get_author_title_sortfields(): #{
+  sortfields = [ 'soc asc' ] # suggestion of contents, i.e. author/title
+  return sortfields
+#}
+#--------------------------------------------------------------------------------
 
-  return shelfmark_sortfields
+def get_shelfmark_sortfields(): #{
+  sortfields = [ 'shelfmarksort asc' ] # shelfmark in numerically-sortable format
+  return sortfields
+#}
+#--------------------------------------------------------------------------------
+
+def get_provenance_and_location_sortfields( secondary_sort_on_shelfmark = True ): #{
+  sortfields = get_provenance_sortfields()
+  sortfields.extend( get_location_sortfields() ) # add modern location 
+  if secondary_sort_on_shelfmark: sortfields.extend( get_shelfmark_sortfields() )
+  return sortfields
+#}
+#-------------------------------------------------------------------------------
+def get_location_and_provenance_sortfields( secondary_sort_on_shelfmark = True ): #{
+  sortfields = get_location_sortfields()
+  sortfields.extend( get_provenance_sortfields() )
+  if secondary_sort_on_shelfmark: sortfields.extend( get_shelfmark_sortfields() )
+  return sortfields
+#}
+#--------------------------------------------------------------------------------
+def get_modern_library_and_provenance_sortfields( secondary_sort_on_shelfmark = True ): #{
+  sortfields = get_modern_library_sortfields()
+  sortfields.extend( get_provenance_sortfields() )
+  if secondary_sort_on_shelfmark: sortfields.extend( get_shelfmark_sortfields() )
+  return sortfields
+#}
+#--------------------------------------------------------------------------------
+def get_location_and_shelfmark_sortfields( secondary_sort_on_shelfmark = True ): #{
+  sortfields = get_modern_library_sortfields()
+  sortfields.extend( get_shelfmark_sortfields() )
+  return sortfields
+#}
+#--------------------------------------------------------------------------------
+def get_modern_library_and_shelfmark_sortfields(): #{
+  sortfields = get_modern_library_sortfields()
+  sortfields.extend( get_shelfmark_sortfields() )
+  return sortfields
 #}
 #--------------------------------------------------------------------------------
 
@@ -1449,10 +1488,10 @@ def get_expand_collapse_script(): #{
 #}
 #--------------------------------------------------------------------------------
 
-def get_browse_table_links( request, letter = 'A', rows_found = 0, rows_per_page = 0 ): #{
+def get_table_control_links( request, rows_found = 0, rows_per_page = 0 ): #{
 
-  options = ""
-  new_search = "%s/browse/%s/" % (baseurl, letter)
+  links = ""
+  new_search = "" 
   delim = "?"
 
   # For expand/collapse options, preserve 
@@ -1473,11 +1512,11 @@ def get_browse_table_links( request, letter = 'A', rows_found = 0, rows_per_page
   expand_search = new_search + "yes"
   collapse_search = new_search + "no"
 
-  options += '<a href="%s" title="Expand All">Expand All</a>' % expand_search
-  options += ' | '
-  options += '<a href="%s" title="Collapse All">Collapse All</a>' % collapse_search
+  links += '<a href="%s" title="Expand All">Expand All</a>' % expand_search
+  links += ' | '
+  links += '<a href="%s" title="Collapse All">Collapse All</a>' % collapse_search
 
-  return options
+  return links
 #}
 #--------------------------------------------------------------------------------
 
@@ -1700,12 +1739,18 @@ def basic_solr_query( request ): #{
       solr_rows=Book.objects.count()
     
     # Set sort field
-    if field_to_search.lower()=='author_title':
+    if field_to_search.lower() == 'author_title':
       # sort primarily by author/title, i.e. 'soc' ('suggestion of contents')
-      solr_sort = ", ".join( get_author_title_sortfields() )
+      sortfields =  get_author_title_sortfields() 
+    elif field_to_search == 'modern_library':
+      sortfields = get_modern_library_and_provenance_sortfields() 
+    elif field_to_search == 'location':
+      sortfields = get_location_and_provenance_sortfields() 
     else:
       # sort first on provenance (medieval library), then modern library and shelfmark
-      solr_sort = ", ".join( get_provenance_sortfields() )
+      sortfields = get_provenance_and_location_sortfields() 
+
+    solr_sort = ", ".join( sortfields )
 
     # Run the Solr query
     s_para={'q'    : solr_query,
@@ -1788,17 +1833,42 @@ def display_as_treeview( one_row, first_record = False, \
 
   # If searching on author/title (i.e. 'suggestion of contents'), show author/title as 
   # heading 1, then provenance as heading 2, then modern library and shelfmark in the detail.
-  # If not searching on author/title, have medieval library as main heading, then modern one.
+  # If not searching on author/title, either have medieval library as main heading, then modern one,
+  # or have modern location/library as main heading, then medieval one.
 
-  if field_to_search.lower()=='author_title': #{
+  if field_to_search.lower() == 'author_title': #{
     heading1 = suggestion_of_contents
     heading2 = provenance
-    heading3 = '%s%s%s' % (modern_location1, space, modern_location2)
+    heading3 = get_modern_location_heading( modern_location1, modern_location2 )
   #}
+
+  elif field_to_search.lower() == 'location': #{
+    heading1 = get_modern_location_heading( modern_location1, modern_location2 )
+    heading2 = provenance
+    heading3 = ''
+  #}
+
+  elif field_to_search.lower() == 'modern_library': #{
+    heading1 = get_modern_location_heading( modern_location2, modern_location1 )
+    heading2 = provenance
+    heading3 = ''
+  #}
+
   else: #{
-    heading1 = provenance
-    heading2 = modern_location1
-    heading3 = modern_location2
+    if output_style == 'compacttree': #{
+      heading1 = provenance
+      heading2 = get_modern_location_heading( modern_location1, modern_location2 )
+      heading3 = ''
+    #}
+    else: #{
+      heading1 = provenance
+      heading2 = modern_location1
+      heading3 = modern_location2
+    #}
+  #}
+
+  if output_style == 'compacttree': #{
+    heading2 = '<span class="heading2">%s</span>' % heading2
   #}
 
   if prev_heading_1 <> heading1: #{  # change in heading 1
@@ -1807,7 +1877,7 @@ def display_as_treeview( one_row, first_record = False, \
       html += end_inner_and_outer_sections
     html += newline
     html += start_outer_section + newline
-    html += '<span class="outerhead">%s</span>' % heading1
+    html += '<span class="outerhead" title="expand/collapse this section">%s</span>' % heading1
     html += '<!-- end "outer head" span -->' + newline + start_collapsible_list
   #}
 
@@ -1823,20 +1893,22 @@ def display_as_treeview( one_row, first_record = False, \
     #}
     html += newline
     html += start_inner_section + newline
-    html += '<span class="innerhead">%s</span>' % heading2
+    html += '<span class="innerhead" title="expand/collapse this section">%s</span>' % heading2
     html += '<!-- end "inner head" span -->' + newline + start_collapsible_list
   #}
   
   # Now set up the 'heading 3' and 'detail' text
-  heading3 = '<span class="modern_location_heading">' \
-           + newline + heading3 + newline \
-           + '</span><!-- end modern location_heading -->' + newline
+  if heading3: #{
+    heading3 = '<span class="modern_location_heading">' \
+             + newline + heading3 + newline \
+             + '</span><!-- end modern location_heading -->' + two_spaces + newline
+  #}
 
   detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
   detail_text += '<li class="one_book">' + newline
 
   detail_text += heading3
-  detail_text += two_spaces
+  detail_text
 
   if len( link_to_photos ) > 0:
     detail_text += link_to_photos
@@ -1844,6 +1916,8 @@ def display_as_treeview( one_row, first_record = False, \
   else: #{
     if evidence_code: #{
       detail_text += get_evidence_decoder_button( evidence_code, evidence_desc )
+    else:
+      detail_text += '<span class="noevidence"> </span>'
     #}
   #}
   detail_text += ' <!-- type of evidence -->'
@@ -1918,13 +1992,13 @@ def display_as_treeview( one_row, first_record = False, \
 # end function display_as_treeview()
 #--------------------------------------------------------------------------------
 
-def display_as_table( one_row, expand_2nd_row, first_record = False, \
+def display_as_table( one_row, expand_2nd_tablerow, first_record = False, \
                       field_to_search = '', search_term = '', page_size = '' ): #{
 
   global prev_heading_1
   html = ""
 
-  if expand_2nd_row == "yes": #{
+  if expand_2nd_tablerow == "yes": #{
     class_of_2nd_row = browse_expanded_class
     concertina_label = '-'
   #}
