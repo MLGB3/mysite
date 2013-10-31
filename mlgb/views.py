@@ -30,6 +30,8 @@ facet=False
 default_rows_per_page = 500
 
 output_style = 'compacttree'
+order_by = ''
+
 prev_heading_1 = ""
 prev_heading_2 = ""
 browse_collapsed_class = "book_row_2_hidden"
@@ -376,6 +378,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   global output_style # 'treeview', 'compacttree' or 'table'
   output_style = 'compacttree'
 
+  global order_by
+  order_by = ''
+
   global prev_heading_1
   global prev_heading_2
   prev_heading_1 = ""
@@ -401,11 +406,14 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     solr_start = get_value_from_GET( request, "start", 0 ) 
 
     # They may also have chosen to browse by a different sort field
-    field_to_search = get_value_from_GET( request, "order_by", field_to_search ) 
+    field_to_search = get_value_from_GET( request, "field_to_search", field_to_search ) 
     if field_to_search == 'modern_library':
       solr_field_to_search = 'ml2_initial'
     elif field_to_search == 'medieval_library':
       solr_field_to_search = 'pr_initial'
+
+    # They may have chosen a different sort order
+    order_by = get_value_from_GET( request, "order_by", field_to_search )
 
     # They may have chosen expand/collapse options
     expand_2nd_tablerow = get_value_from_GET( request, "expand", "no" ) 
@@ -425,13 +433,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     solr_rows=Book.objects.count()
   
   # Set sort field
-  if field_to_search == 'modern_library':
-    sortfields = get_modern_library_and_provenance_sortfields() 
-  elif field_to_search == 'medieval_library':
-    sortfields = get_provenance_and_location_sortfields() 
-  else:
-    sortfields = get_location_and_provenance_sortfields() 
-
+  sortfields = get_sortfields()
   solr_sort = ", ".join( sortfields )
 
   # Run the Solr query
@@ -485,8 +487,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       alphabet = '<div class="letterlinks">'
       initials = get_initial_letters( solr_field_to_search )
       for initial in initials: #{
-        alphabet += '<a href="%s/browse/%s/?order_by=%s&output_style=%s" ' \
-                 % (baseurl, initial, field_to_search, output_style)
+        alphabet += '<a href="%s/browse/%s/?field_to_search=%s&output_style=%s&order_by=%s" ' \
+                 % (baseurl, initial, field_to_search, output_style, order_by )
         if initial == letter.upper(): alphabet += ' class="selected" '
         alphabet += '>%s</a>' % initial
         alphabet += space
@@ -502,7 +504,12 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         include_print_button = False )
 
       output_style_radio = get_output_style_change_field()
-      result_string = alphabet + pag + output_style_radio + table_control_links + html 
+      order_by_select = get_order_change_field( field_to_search, order_by )
+
+      result_string = alphabet + pag 
+      result_string += '<p>' + order_by_select + space + output_style_radio + '</p>'
+      result_string += table_control_links 
+      result_string += html 
 
       if number_of_records > solr_rows: # repeat pagination at the bottom
         result_string += '<br>' + pag + '<br>'
@@ -1238,6 +1245,7 @@ def get_value_from_GET( request, key, default_value = '' ): #{
   if request.GET: #{
     if request.GET.has_key( key ): #{
       value = request.GET[ key ].strip()
+      if not value: value = default_value
     #}
   #}
   return value
@@ -1326,17 +1334,31 @@ def get_shelfmark_sortfields(): #{
 #}
 #--------------------------------------------------------------------------------
 
+def get_date_sortfields(): #{
+  sortfields = [ 'dt asc' ] # date as string
+  return sortfields
+#}
+#--------------------------------------------------------------------------------
+
 def get_provenance_and_location_sortfields( secondary_sort_on_shelfmark = True ): #{
   sortfields = get_provenance_sortfields()
   sortfields.extend( get_location_sortfields() ) # add modern location 
   if secondary_sort_on_shelfmark: sortfields.extend( get_shelfmark_sortfields() )
+  else: sortfields.extend( get_date_sortfields() )
   return sortfields
 #}
 #-------------------------------------------------------------------------------
+def get_provenance_and_date_sortfields(): #{
+  sortfields = get_provenance_sortfields()
+  sortfields.extend( get_date_sortfields() )
+  return sortfields
+#}
+#--------------------------------------------------------------------------------
 def get_location_and_provenance_sortfields( secondary_sort_on_shelfmark = True ): #{
   sortfields = get_location_sortfields()
   sortfields.extend( get_provenance_sortfields() )
   if secondary_sort_on_shelfmark: sortfields.extend( get_shelfmark_sortfields() )
+  else: sortfields.extend( get_date_sortfields() )
   return sortfields
 #}
 #--------------------------------------------------------------------------------
@@ -1344,10 +1366,11 @@ def get_modern_library_and_provenance_sortfields( secondary_sort_on_shelfmark = 
   sortfields = get_modern_library_sortfields()
   sortfields.extend( get_provenance_sortfields() )
   if secondary_sort_on_shelfmark: sortfields.extend( get_shelfmark_sortfields() )
+  else: sortfields.extend( get_date_sortfields() )
   return sortfields
 #}
 #--------------------------------------------------------------------------------
-def get_location_and_shelfmark_sortfields( secondary_sort_on_shelfmark = True ): #{
+def get_location_and_shelfmark_sortfields(): #{
   sortfields = get_modern_library_sortfields()
   sortfields.extend( get_shelfmark_sortfields() )
   return sortfields
@@ -2259,7 +2282,6 @@ def get_output_style_change_field(): #{
   #labels = { 'compacttree': 'compact treeview', 'treeview': 'extended treeview', 'table': 'table' }
   labels = { 'compacttree': 'treeview', 'table': 'table' }
 
-  radio += '<p>'
   radio += 'Output style: '
 
   #for style_choice in [ 'compacttree', 'treeview', 'table' ]: 
@@ -2274,7 +2296,129 @@ def get_output_style_change_field(): #{
     radio += space
   #}
 
-  radio += '</p>'
   return radio
+#}
+#--------------------------------------------------------------------------------
+def get_order_change_options( primary_order_by = 'any' ): #{
+
+  valid_options = []
+
+  all_options = {
+
+    'any': [],
+
+    'medieval_library': [ 'provenance_location_shelfmark',
+                          'provenance_location_date',
+                          'provenance_date' ],
+
+    'location'        : [ 'location_provenance_shelfmark',
+                          'location_provenance_date',
+                          'location_shelfmark' ],
+
+    'modern_library'  : [ 'modern_library_provenance_shelfmark',
+                          'modern_library_provenance_date',
+                          'modern_library_shelfmark' ],
+  }
+
+  all_options[ 'any' ].extend( all_options[ 'medieval_library' ] )
+  all_options[ 'any' ].extend( all_options[ 'location' ] )
+  all_options[ 'any' ].extend( all_options[ 'modern_library' ] )
+
+  all_options[ 'any' ].append( 'author_title' )
+
+  if not all_options.has_key( primary_order_by ):
+    primary_order_by = 'any'
+
+  valid_options = all_options[ primary_order_by ]
+  return valid_options
+#}
+#--------------------------------------------------------------------------------
+def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): #{
+
+  valid_options = get_order_change_options( primary_order_by )
+
+  fieldstring =  '<script type="text/javascript">' + newline
+  fieldstring += 'function getValueOfOrderBy() {' + newline
+  fieldstring += '  indx=document.getElementById("order_by").selectedIndex;' + newline
+  fieldstring += '  var orderOptionID = "order_by_" + indx;' + newline
+  fieldstring += '  var orderOptionField=document.getElementById( orderOptionID );' + newline
+  fieldstring += '  return orderOptionField.value;' + newline
+  fieldstring += '}' + newline
+  fieldstring += '</script>' + newline
+
+  fieldstring += '<label for="order_by">Order by: </label>'
+  fieldstring += '<select name="order_by" id="order_by" '
+  fieldstring += ' onchange="newChoice=getValueOfOrderBy(); jsChangeSearch( ' # see base.html 
+  fieldstring += "'order_by'" + ', newChoice )" '
+  fieldstring += '>' + newline
+
+  i = 0
+  for option in valid_options: #{
+    label = option.replace( 'modern_library', 'modern library' )
+    label = label.replace( '_', ', ' )
+    label = label.capitalize()
+
+    fieldstring += '<option value="%s" id="order_by_%d" ' % (option, i)
+
+    if selected_order_by == option: fieldstring += ' SELECTED '
+
+    fieldstring += '>%s</option>' % label
+    fieldstring += newline
+    i += 1
+  #}
+
+  fieldstring += '</select>' + newline
+
+  return fieldstring
+#}
+#--------------------------------------------------------------------------------
+
+def get_sortfields(): #{
+
+  if order_by == 'medieval_library' or order_by == 'provenance_location_shelfmark':
+    sortfields = get_provenance_and_location_sortfields() 
+
+  elif order_by == 'provenance_location_date':
+    sortfields = get_provenance_and_location_sortfields( secondary_sort_on_shelfmark = False ) 
+
+  elif order_by == 'provenance_date':
+    sortfields = get_provenance_and_date_sortfields() 
+
+  #---
+
+  elif order_by == 'modern_library' or order_by == 'modern_library_provenance_shelfmark':
+    sortfields = get_modern_library_and_provenance_sortfields() 
+
+  elif order_by == 'modern_library_provenance_date':
+    sortfields = get_modern_library_and_provenance_sortfields( secondary_sort_on_shelfmark = False ) 
+
+
+  elif order_by == 'modern_library_shelfmark':
+    sortfields = get_modern_library_and_shelfmark_sortfields() 
+
+  #---
+
+  elif order_by == 'location' or order_by == 'location_provenance_shelfmark':
+    sortfields = get_location_and_provenance_sortfields() 
+
+  elif order_by == 'location_provenance_date':
+    sortfields = get_location_and_provenance_sortfields( secondary_sort_on_shelfmark = False ) 
+
+
+  elif order_by == 'location_shelfmark':
+    sortfields = get_location_and_shelfmark_sortfields() 
+
+  #---
+
+  elif order_by == 'author_title':
+    sortfields =  get_author_title_sortfields() 
+
+  #---
+
+  else:
+    # sort by default on provenance (medieval library), then modern library and shelfmark
+    sortfields = get_provenance_and_location_sortfields() 
+
+  return sortfields
 #}
 #--------------------------------------------------------------------------------
