@@ -284,7 +284,9 @@ def mlgb( request, pagename = 'results' ): #{
                           pagination_change_link = pagination_change_link, \
                           include_print_button = False )
 
-        result_string = pag + html
+        output_style_radio = get_output_style_change_field()
+
+        result_string = pag + output_style_radio + html
       #}
     #} # end of check on whether we retrieved a result
   #} # end of check on whether a search term was found in GET
@@ -424,11 +426,11 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   
   # Set sort field
   if field_to_search == 'modern_library':
-    sortfields = get_modern_library_and_shelfmark_sortfields() 
+    sortfields = get_modern_library_and_provenance_sortfields() 
   elif field_to_search == 'medieval_library':
     sortfields = get_provenance_and_location_sortfields() 
   else:
-    sortfields = get_location_and_shelfmark_sortfields() 
+    sortfields = get_location_and_provenance_sortfields() 
 
   solr_sort = ", ".join( sortfields )
 
@@ -483,7 +485,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       alphabet = '<div class="letterlinks">'
       initials = get_initial_letters( solr_field_to_search )
       for initial in initials: #{
-        alphabet += '<a href="%s/browse/%s/?order_by=%s" ' % (baseurl, initial, field_to_search)
+        alphabet += '<a href="%s/browse/%s/?order_by=%s&output_style=%s" ' \
+                 % (baseurl, initial, field_to_search, output_style)
         if initial == letter.upper(): alphabet += ' class="selected" '
         alphabet += '>%s</a>' % initial
         alphabet += space
@@ -498,7 +501,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         pagination_change_link = pagination_change_link, \
                         include_print_button = False )
 
-      result_string = alphabet + pag + table_control_links + html 
+      output_style_radio = get_output_style_change_field()
+      result_string = alphabet + pag + output_style_radio + table_control_links + html 
 
       if number_of_records > solr_rows: # repeat pagination at the bottom
         result_string += '<br>' + pag + '<br>'
@@ -1898,7 +1902,7 @@ def display_as_treeview( one_row, first_record = False, \
   #}
   
   # Now set up the 'heading 3' and 'detail' text
-  if heading3: #{
+  if heading3 and field_to_search != 'author_title': #{
     heading3 = '<span class="modern_location_heading">' \
              + newline + heading3 + newline \
              + '</span><!-- end modern location_heading -->' + two_spaces + newline
@@ -2247,5 +2251,30 @@ def wrap_in_tree( html ): #{
 
   html = start_treeview + html + end_inner_and_outer_sections + end_treeview
   return html
+#}
+#--------------------------------------------------------------------------------
+def get_output_style_change_field(): #{
+
+  radio = ''
+  #labels = { 'compacttree': 'compact treeview', 'treeview': 'extended treeview', 'table': 'table' }
+  labels = { 'compacttree': 'treeview', 'table': 'table' }
+
+  radio += '<p>'
+  radio += 'Output style: '
+
+  #for style_choice in [ 'compacttree', 'treeview', 'table' ]: 
+  for style_choice in [ 'compacttree', 'table' ]: #{
+    label = labels[ style_choice ]
+    radio += '<input type="radio" name="output_style" '
+    radio += ' id="output_style_%s" value="%s" ' % (style_choice, style_choice)
+    if style_choice == output_style: radio += ' CHECKED ';
+    radio += ' onclick="jsChangeSearch( this.name, this.value )" ' # see base.html for jsChangeSearch()
+    radio += ' onchange="jsChangeSearch( this.name, this.value )" '
+    radio += '/> <label for="output_style_%s">%s</label>' % (style_choice, label)
+    radio += space
+  #}
+
+  radio += '</p>'
+  return radio
 #}
 #--------------------------------------------------------------------------------
