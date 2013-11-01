@@ -237,7 +237,11 @@ def mlgb( request, pagename = 'results' ): #{
 
   if request.GET: #{ # was a search term found in GET?
 
-    # They may have chosen a different sort order
+    # Check whether they are searching on a specific field
+    field_to_search = get_value_from_GET( request, "field_to_search" )
+
+    # The field being searched may require a different order from the default,
+    # or they may have chosen a different sort order themselves.
     order_by = get_value_from_GET( request, "order_by", field_to_search )
 
     # Now run the Solr query
@@ -1392,6 +1396,16 @@ def get_modern_library_and_shelfmark_sortfields(): #{
 #}
 #--------------------------------------------------------------------------------
 
+def get_author_title_provenance_location_sortfields( secondary_sort_on_shelfmark = True ): #{
+  sortfields = get_author_title_sortfields()
+  sortfields.extend( get_provenance_sortfields() )
+  sortfields.extend( get_location_sortfields() ) # add modern location 
+  if secondary_sort_on_shelfmark: sortfields.extend( get_shelfmark_sortfields() )
+  else: sortfields.extend( get_date_sortfields() )
+  return sortfields
+#}
+#-------------------------------------------------------------------------------
+
 def get_evidence_decoder_button( evidence_code = '', evidence_desc = '' ): #{
 
   button_text = ''
@@ -2323,7 +2337,7 @@ def get_order_change_options( primary_order_by = 'any' ): #{
   all_options[ 'any' ].extend( all_options[ 'location' ] )
   all_options[ 'any' ].extend( all_options[ 'modern_library' ] )
 
-  all_options[ 'any' ].append( 'author_title' )
+  all_options[ 'any' ].append( 'author_title_provenance_location' )
 
   if not all_options.has_key( primary_order_by ):
     primary_order_by = 'any'
@@ -2346,6 +2360,7 @@ def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): 
   fieldstring += '</script>' + newline
 
   fieldstring += '<label for="order_by">Order by: </label>'
+
   fieldstring += '<select name="order_by" id="order_by" '
   fieldstring += ' onchange="newChoice=getValueOfOrderBy(); jsChangeSearch( ' # see base.html 
   fieldstring += "'order_by'" + ', newChoice )" '
@@ -2357,7 +2372,10 @@ def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): 
 
     fieldstring += '<option value="%s" id="order_by_%d" ' % (option, i)
 
-    if selected_order_by == option: fieldstring += ' SELECTED '
+    if selected_order_by == option: 
+      fieldstring += ' SELECTED '
+    elif option == 'author_title_provenance_location' and selected_order_by == 'author_title':
+      fieldstring += ' SELECTED '
 
     fieldstring += '>%s</option>' % label
     fieldstring += newline
@@ -2373,6 +2391,8 @@ def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): 
 def get_order_by_label( fieldname ): #{
 
   label = fieldname.replace( 'modern_library', 'modern library' )
+  label = fieldname.replace( 'author_title', 'author/title' )
+
   label = label.replace( '_', ', ' )
   label = label.capitalize()
   return label
@@ -2416,8 +2436,8 @@ def get_sortfields(): #{
 
   #---
 
-  elif order_by == 'author_title':
-    sortfields =  get_author_title_sortfields() 
+  elif order_by == 'author_title' or order_by == 'author_title_provenance_location':
+    sortfields = get_author_title_provenance_location_sortfields() 
 
   #---
 
