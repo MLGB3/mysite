@@ -2036,12 +2036,7 @@ def display_as_table( one_row, expand_2nd_tablerow, first_record = False, \
 
   unformatted_provenance = extract_unformatted_provenance( one_row ) # no italics etc
 
-  if field_to_search == 'medieval_library':
-    heading = provenance
-  elif field_to_search == 'modern_library':
-    heading = get_modern_location_heading( modern_location2, modern_location1 )
-  else:
-    heading = get_modern_location_heading( modern_location1, modern_location2 )
+  heading, heading2, heading3 = get_headings_from_sort_order( one_row )
 
   if prev_heading_1.lower() <> heading.lower(): #{  # change in heading
 
@@ -2083,6 +2078,24 @@ def display_as_table( one_row, expand_2nd_tablerow, first_record = False, \
   detail_text += ' <!-- type of evidence -->'
   detail_text += newline + '</div><!-- end evidence -->' + newline
 
+  # Location/modern library if not already a heading
+  if not order_by.startswith( 'location' ) and not order_by.startswith( 'modern_library' ): #{ 
+    detail_text += newline + '<div class="browse_modern_library">' + newline
+    if modern_location1 or modern_location2 : #{
+      modern_location = modern_location1.strip()
+      if modern_location1 and modern_location2 :
+        modern_location += ', '
+      modern_location += modern_location2.strip()
+      detail_text += '<a href="%s/?search_term=%s&field_to_search=modern_library">' \
+                  % (baseurl, quote( modern_location.encode( 'utf-8' ) ))
+      detail_text += modern_location + ' <!-- modern location -->'
+      detail_text += '</a>'
+    #}
+    else:
+      detail_text += space
+    detail_text += newline + '</div><!-- end modern location -->' + newline
+  #}
+
   # Shelfmarks
   detail_text += newline + '<div class="browse_shelfmarks">' + newline
   if shelfmark1 or shelfmark2: #{
@@ -2110,35 +2123,21 @@ def display_as_table( one_row, expand_2nd_tablerow, first_record = False, \
   detail_text += newline + '</div><!-- end date -->' + newline
 
 
-  # Author/title
-  detail_text += newline + '<div class="browse_authortitle">' + newline
-  if suggestion_of_contents: #{
-    detail_text += booklink_start
-    detail_text += suggestion_of_contents + ' <!-- author/title -->'
-    detail_text += '</a>'
-  #}
-  else:
-    detail_text += space
-  detail_text += newline + '</div><!-- end author/title -->' + newline
-
-  # Provenance OR modern library
-  if field_to_search == 'medieval_library': #{ # show modern location in detail text
-    detail_text += newline + '<div class="browse_modern_library">' + newline
-    if modern_location1 or modern_location2 : #{
-      modern_location = modern_location1.strip()
-      if modern_location1 and modern_location2 :
-        modern_location += ', '
-      modern_location += modern_location2.strip()
-      detail_text += '<a href="%s/?search_term=%s&field_to_search=modern_library">' \
-                  % (baseurl, quote( modern_location.encode( 'utf-8' ) ))
-      detail_text += modern_location + ' <!-- modern location -->'
+  # Author/title if not already a heading
+  if not order_by.startswith( 'author_title' ): #{
+    detail_text += newline + '<div class="browse_authortitle">' + newline
+    if suggestion_of_contents: #{
+      detail_text += booklink_start
+      detail_text += suggestion_of_contents + ' <!-- author/title -->'
       detail_text += '</a>'
     #}
     else:
       detail_text += space
-    detail_text += newline + '</div><!-- end modern location -->' + newline
+    detail_text += newline + '</div><!-- end author/title -->' + newline
   #}
-  else: #{ # show medieval library/provenance in detail text
+
+  # Provenance if not already a heading
+  if not order_by.startswith( 'provenance' ): #{ show medieval library/provenance in detail text
     detail_text += newline + '<div class="browse_provenance">' + newline
     if provenance : #{
       detail_text += '<a href="%s/?search_term=%s&field_to_search=medieval_library">' \
@@ -2221,6 +2220,13 @@ def start_results_table( field_to_search ): #{
   html += 'Evidence'
   html += newline + '</div><!-- end evidence -->' + newline
 
+  # Modern library if not already shown in heading
+  if not order_by.startswith( 'location' ) and not order_by.startswith( 'modern_library' ): #{ 
+    html += newline + '<div class="browse_modern_library columnhead">' + newline
+    html += 'Modern location'
+    html += newline + '</div><!-- end modern location -->' + newline
+  #}
+
   # Shelfmarks
   html += newline + '<div class="browse_shelfmarks columnhead">' + newline
   html += 'Shelfmark'
@@ -2232,18 +2238,15 @@ def start_results_table( field_to_search ): #{
   html += newline + '</div><!-- end date -->' + newline
 
 
-  # Author/title
-  html += newline + '<div class="browse_authortitle columnhead">' + newline
-  html += 'Suggestion of contents'
-  html += newline + '</div><!-- end author/title -->' + newline
-
-  # Provenance OR modern library
-  if field_to_search == 'medieval_library': #{ # show modern location in detail text
-    html += newline + '<div class="browse_modern_library columnhead">' + newline
-    html += 'Modern location'
-    html += newline + '</div><!-- end modern location -->' + newline
+  # Author/title if not already shown in heading
+  if not order_by.startswith( 'author_title' ): #{
+    html += newline + '<div class="browse_authortitle columnhead">' + newline
+    html += 'Suggestion of contents'
+    html += newline + '</div><!-- end author/title -->' + newline
   #}
-  else: #{ # show medieval library/provenance in detail text
+
+  # Medieval library/provenance if not already shown in heading
+  if not order_by.startswith( 'provenance' ): #{ show medieval library/provenance in detail text
     html += newline + '<div class="browse_provenance columnhead">' + newline
     html += 'Medieval library'
     html += newline + '</div><!-- end provenance -->' + newline
