@@ -32,6 +32,9 @@ default_rows_per_page = 500
 output_style = 'compacttree'
 order_by = ''
 
+# sort by default on provenance (medieval library), then location/modern library, then shelfmark
+default_order_by = 'provenance_location_shelfmark'
+
 prev_heading_1 = ""
 prev_heading_2 = ""
 browse_collapsed_class = "book_row_2_hidden"
@@ -1384,7 +1387,7 @@ def get_modern_library_and_provenance_sortfields( secondary_sort_on_shelfmark = 
 #}
 #--------------------------------------------------------------------------------
 def get_location_and_shelfmark_sortfields(): #{
-  sortfields = get_modern_library_sortfields()
+  sortfields = get_location_sortfields()
   sortfields.extend( get_shelfmark_sortfields() )
   return sortfields
 #}
@@ -1876,36 +1879,7 @@ def display_as_treeview( one_row, first_record = False, \
   # If not searching on author/title, either have medieval library as main heading, then modern one,
   # or have modern location/library as main heading, then medieval one.
 
-  if field_to_search.lower() == 'author_title': #{
-    heading1 = suggestion_of_contents
-    heading2 = provenance
-    heading3 = get_modern_location_heading( modern_location1, modern_location2 )
-  #}
-
-  elif field_to_search.lower() == 'location': #{
-    heading1 = get_modern_location_heading( modern_location1, modern_location2 )
-    heading2 = provenance
-    heading3 = ''
-  #}
-
-  elif field_to_search.lower() == 'modern_library': #{
-    heading1 = get_modern_location_heading( modern_location2, modern_location1 )
-    heading2 = provenance
-    heading3 = ''
-  #}
-
-  else: #{
-    if output_style == 'compacttree': #{
-      heading1 = provenance
-      heading2 = get_modern_location_heading( modern_location1, modern_location2 )
-      heading3 = ''
-    #}
-    else: #{
-      heading1 = provenance
-      heading2 = modern_location1
-      heading3 = modern_location2
-    #}
-  #}
+  heading1, heading2, heading3 = get_headings_from_sort_order( one_row )
 
   if output_style == 'compacttree': #{
     heading2 = '<span class="heading2">%s</span>' % heading2
@@ -1938,7 +1912,7 @@ def display_as_treeview( one_row, first_record = False, \
   #}
   
   # Now set up the 'heading 3' and 'detail' text
-  if heading3 and field_to_search != 'author_title': #{
+  if heading3 and output_style == 'treeview': #{
     heading3 = '<span class="modern_location_heading">' \
              + newline + heading3 + newline \
              + '</span><!-- end modern location_heading -->' + two_spaces + newline
@@ -1947,8 +1921,8 @@ def display_as_treeview( one_row, first_record = False, \
   detail_text = newline + '<!-- start book ID ' + id + ' -->' + newline
   detail_text += '<li class="one_book">' + newline
 
-  detail_text += heading3
-  detail_text
+  # 'Heading 3' is not really a heading, but a repeated item of detail text.
+  if heading3: detail_text += heading3
 
   if len( link_to_photos ) > 0:
     detail_text += link_to_photos
@@ -1962,6 +1936,9 @@ def display_as_treeview( one_row, first_record = False, \
   #}
   detail_text += ' <!-- type of evidence -->'
   detail_text += two_spaces
+
+  if 'location' not in order_by and 'modern_library' not in order_by: #not already displayed as a heading
+    detail_text += space + modern_location1 + ' ' + modern_location2
 
   detail_text += '<!-- start booklink -->' + newline
   detail_text += '<a href="%s/book/%s/' % (baseurl, id)
@@ -1985,37 +1962,40 @@ def display_as_treeview( one_row, first_record = False, \
     detail_text += space
   #}
 
-  if field_to_search.lower() != 'author_title': #{
+  if not order_by.startswith( 'author_title' ): #{  # already displayed as heading 1
 
     if suggestion_of_contents: #{
       detail_text += suggestion_of_contents + ' <!-- author/title -->'
       detail_text += space
     #}
+  #}
 
-    if date_of_work : #{
-      detail_text += date_of_work + ' <!-- date -->'
-      detail_text += space
-    #}
+  if date_of_work : #{
+    detail_text += date_of_work + ' <!-- date -->'
+    detail_text += space
+  #}
 
-    if pressmark : #{
-      detail_text += pressmark + ' <!-- pressmark -->'
-      detail_text += space
-    #}
+  if pressmark : #{
+    detail_text += pressmark + ' <!-- pressmark -->'
+    detail_text += space
+  #}
 
-    if medieval_catalogue : #{
-      detail_text += medieval_catalogue + ' <!-- medieval catalogue -->'
-      detail_text += space
-    #}
+  if medieval_catalogue : #{
+    detail_text += medieval_catalogue + ' <!-- medieval catalogue -->'
+    detail_text += space
+  #}
 
-    if unknown : #{
-      detail_text += unknown + ' <!-- unknown -->'
-      detail_text += space
-    #}
+  if unknown : #{
+    detail_text += unknown + ' <!-- unknown -->'
+    detail_text += space
   #}
 
   detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
   detail_text += '</a>' + newline
   detail_text += '<!-- end booklink -->' + newline
+
+  if 'provenance' not in order_by:  #not already displayed as a heading
+    detail_text += space + provenance
 
   if editable: #{
     detail_text += '<a href="/admin/books/book/%s" title="Edit this record" target="_blank"' % id
@@ -2331,13 +2311,14 @@ def get_order_change_options( primary_order_by = 'any' ): #{
     'modern_library'  : [ 'modern_library_provenance_shelfmark',
                           'modern_library_provenance_date',
                           'modern_library_shelfmark' ],
+
+    'author_title'    : [ 'author_title_provenance_location' ],
   }
 
   all_options[ 'any' ].extend( all_options[ 'medieval_library' ] )
   all_options[ 'any' ].extend( all_options[ 'location' ] )
   all_options[ 'any' ].extend( all_options[ 'modern_library' ] )
-
-  all_options[ 'any' ].append( 'author_title_provenance_location' )
+  all_options[ 'any' ].extend( all_options[ 'author_title' ] )
 
   if not all_options.has_key( primary_order_by ):
     primary_order_by = 'any'
@@ -2374,8 +2355,6 @@ def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): 
 
     if selected_order_by == option: 
       fieldstring += ' SELECTED '
-    elif option == 'author_title_provenance_location' and selected_order_by == 'author_title':
-      fieldstring += ' SELECTED '
 
     fieldstring += '>%s</option>' % label
     fieldstring += newline
@@ -2390,8 +2369,10 @@ def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): 
 
 def get_order_by_label( fieldname ): #{
 
-  label = fieldname.replace( 'modern_library', 'modern library' )
-  label = fieldname.replace( 'author_title', 'author/title' )
+  label = fieldname
+
+  label = label.replace( 'modern_library', 'modern library' )
+  label = label.replace( 'author_title', 'author/title' )
 
   label = label.replace( '_', ', ' )
   label = label.capitalize()
@@ -2401,50 +2382,95 @@ def get_order_by_label( fieldname ): #{
 
 def get_sortfields(): #{
 
-  if order_by == 'medieval_library' or order_by == 'provenance_location_shelfmark':
-    sortfields = get_provenance_and_location_sortfields() 
+  global order_by
 
-  elif order_by == 'provenance_location_date':
-    sortfields = get_provenance_and_location_sortfields( secondary_sort_on_shelfmark = False ) 
+  if order_by == 'medieval_library': 
+    order_by = 'provenance_location_shelfmark'
 
-  elif order_by == 'provenance_date':
-    sortfields = get_provenance_and_date_sortfields() 
+  elif order_by == 'modern_library':
+    order_by = 'modern_library_provenance_shelfmark'
 
-  #---
+  elif order_by == 'location':
+    order_by = 'location_provenance_shelfmark'
 
-  elif order_by == 'modern_library' or order_by == 'modern_library_provenance_shelfmark':
-    sortfields = get_modern_library_and_provenance_sortfields() 
-
-  elif order_by == 'modern_library_provenance_date':
-    sortfields = get_modern_library_and_provenance_sortfields( secondary_sort_on_shelfmark = False ) 
-
-
-  elif order_by == 'modern_library_shelfmark':
-    sortfields = get_modern_library_and_shelfmark_sortfields() 
+  elif order_by == 'author_title':
+    order_by = 'author_title_provenance_location'
 
   #---
 
-  elif order_by == 'location' or order_by == 'location_provenance_shelfmark':
-    sortfields = get_location_and_provenance_sortfields() 
+  possible_sortfields = {
+    'provenance_location_shelfmark': get_provenance_and_location_sortfields(),
+    'provenance_location_date'     : get_provenance_and_location_sortfields( False ),
+    'provenance_date'              : get_provenance_and_date_sortfields(),
+    #---
+    'modern_library_provenance_shelfmark': get_modern_library_and_provenance_sortfields(),
+    'modern_library_provenance_date'     : get_modern_library_and_provenance_sortfields( False ),
+    'modern_library_shelfmark'           : get_modern_library_and_shelfmark_sortfields(),
+    #---
+    'location_provenance_shelfmark': get_location_and_provenance_sortfields(),
+    'location_provenance_date'     : get_location_and_provenance_sortfields( False ),
+    'location_shelfmark'           : get_location_and_shelfmark_sortfields(),
+    #---
+    'author_title_provenance_location': get_author_title_provenance_location_sortfields(),
+    #---
+  }
 
-  elif order_by == 'location_provenance_date':
-    sortfields = get_location_and_provenance_sortfields( secondary_sort_on_shelfmark = False ) 
+  if not possible_sortfields.has_key( order_by ):
+    order_by = default_order_by
 
-
-  elif order_by == 'location_shelfmark':
-    sortfields = get_location_and_shelfmark_sortfields() 
-
-  #---
-
-  elif order_by == 'author_title' or order_by == 'author_title_provenance_location':
-    sortfields = get_author_title_provenance_location_sortfields() 
-
-  #---
-
-  else:
-    # sort by default on provenance (medieval library), then modern library and shelfmark
-    sortfields = get_provenance_and_location_sortfields() 
-
+  sortfields = possible_sortfields[ order_by ]
   return sortfields
+#}
+#--------------------------------------------------------------------------------
+def get_headings_from_sort_order( one_row ):  #{
+
+  heading1 = ''
+  heading2 = ''
+  heading3 = ''
+
+  # Get the data from the Solr result set
+  (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
+  evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
+  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images) = \
+  extract_from_result( one_row )
+
+  sort = order_by
+  if not sort: sort = default_order_by 
+
+  # Each element of 'order by' string wants to be one complete word
+  # so that we can split on underscores.
+  sort = sort.replace( 'author_title', 'authortitle' )
+  sort = sort.replace( 'modern_library', 'modernlibrary' )
+
+  sort_words = sort.split( '_' )
+  headings = []
+  for word in sort_words: #{
+
+    if word == 'authortitle':
+      headings.append( suggestion_of_contents )
+
+    elif word == 'provenance':
+      headings.append( provenance )
+
+    elif word == 'location': #{
+      if output_style == 'treeview': #{
+        headings.append( modern_location1 )
+        headings.append( modern_location2 )
+      #}
+      else: #{
+        headings.append( get_modern_location_heading( modern_location1, modern_location2 ) )
+      #}
+    #}
+
+    elif word == 'modernlibrary': #{
+      headings.append( get_modern_location_heading( modern_location2, modern_location1 ) )
+    #}
+  #}
+
+  if len( headings ) >= 1: heading1 = headings[ 0 ]
+  if len( headings ) >= 2: heading2 = headings[ 1 ]
+  if len( headings ) >= 3: heading3 = headings[ 2 ]
+
+  return heading1, heading2, heading3
 #}
 #--------------------------------------------------------------------------------
