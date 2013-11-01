@@ -221,6 +221,9 @@ def mlgb( request, pagename = 'results' ): #{
   global output_style # 'treeview', 'compacttree' or 'table'
   output_style = 'compacttree'
 
+  global order_by
+  order_by = ''
+
   global prev_heading_1 # these two globals allow us to see whether there has been a change of heading
   global prev_heading_2
   prev_heading_1 = ""
@@ -234,6 +237,10 @@ def mlgb( request, pagename = 'results' ): #{
 
   if request.GET: #{ # was a search term found in GET?
 
+    # They may have chosen a different sort order
+    order_by = get_value_from_GET( request, "order_by", field_to_search )
+
+    # Now run the Solr query
     (resultsets, number_of_records, 
      field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
@@ -287,8 +294,14 @@ def mlgb( request, pagename = 'results' ): #{
                           include_print_button = False )
 
         output_style_radio = get_output_style_change_field()
+        order_by_select = get_order_change_field( 'any', order_by )
 
-        result_string = pag + output_style_radio + html
+        result_string = pag
+        result_string += '<p>' + order_by_select + space + output_style_radio + '</p>'
+        result_string += html
+
+        if number_of_records > solr_rows: # repeat pagination at the bottom
+          result_string += '<br>' + pag + '<br>'
       #}
     #} # end of check on whether we retrieved a result
   #} # end of check on whether a search term was found in GET
@@ -379,7 +392,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   output_style = 'compacttree'
 
   global order_by
-  order_by = ''
+  order_by = 'location' # default value, may be overridden from GET in a moment
+  field_to_search = order_by # default value for field being browsed, also used in right-hand Search box
 
   global prev_heading_1
   global prev_heading_2
@@ -387,14 +401,13 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   prev_heading_2 = ""
 
   html = result_string = resultsets = expand_2nd_tablerow = ""
-  number_of_records = solr_rows = solr_query = solr_sort = field_to_search = page_size = ""
+  number_of_records = solr_rows = solr_query = solr_sort = page_size = ""
   letters = []
   table_control_links = ''
   first_record = True
 
   # Set default field to search, records per page and start row, 
   # for use in pagination and 'search again' functionality.
-  field_to_search = 'location' # this is used in the 'Search' box on the right-hand side
   search_term = ''
   solr_field_to_search = 'ml1_initial'
   page_size = str( default_rows_per_page )
@@ -432,7 +445,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   else: 
     solr_rows=Book.objects.count()
   
-  # Set sort field
+  # Set sort field based on which options are valid for this browse type
   sortfields = get_sortfields()
   solr_sort = ", ".join( sortfields )
 
@@ -516,11 +529,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     #}
   #} # end of check on whether we retrieved a result
     
-  page_title = 'Browsing by %s and ' % get_searchable_field_label( field_to_search )
-  if field_to_search == 'medieval_library':
-    page_title += 'modern location'
-  else:
-    page_title += 'shelfmark'
+  page_title = 'Browsing by %s' % get_searchable_field_label( field_to_search )
   page_title += ": %s" % letter
 
   t = loader.get_template('mlgb/browse.html')
@@ -1766,17 +1775,7 @@ def basic_solr_query( request ): #{
       solr_rows=Book.objects.count()
     
     # Set sort field
-    if field_to_search.lower() == 'author_title':
-      # sort primarily by author/title, i.e. 'soc' ('suggestion of contents')
-      sortfields =  get_author_title_sortfields() 
-    elif field_to_search == 'modern_library':
-      sortfields = get_modern_library_and_provenance_sortfields() 
-    elif field_to_search == 'location':
-      sortfields = get_location_and_provenance_sortfields() 
-    else:
-      # sort first on provenance (medieval library), then modern library and shelfmark
-      sortfields = get_provenance_and_location_sortfields() 
-
+    sortfields = get_sortfields()
     solr_sort = ", ".join( sortfields )
 
     # Run the Solr query
@@ -2354,9 +2353,7 @@ def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): 
 
   i = 0
   for option in valid_options: #{
-    label = option.replace( 'modern_library', 'modern library' )
-    label = label.replace( '_', ', ' )
-    label = label.capitalize()
+    label = get_order_by_label( option )
 
     fieldstring += '<option value="%s" id="order_by_%d" ' % (option, i)
 
@@ -2370,6 +2367,15 @@ def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): 
   fieldstring += '</select>' + newline
 
   return fieldstring
+#}
+#--------------------------------------------------------------------------------
+
+def get_order_by_label( fieldname ): #{
+
+  label = fieldname.replace( 'modern_library', 'modern library' )
+  label = label.replace( '_', ', ' )
+  label = label.capitalize()
+  return label
 #}
 #--------------------------------------------------------------------------------
 
