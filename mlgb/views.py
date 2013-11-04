@@ -29,11 +29,15 @@ baseurl="/mlgb"
 facet=False
 default_rows_per_page = 500
 
-output_style = 'compacttree'
-order_by = ''
+default_output_style = 'treeview'
+original_print_layout = 'ker_treeview'
+possible_output_styles = [ default_output_style, 'table', original_print_layout ]
+
+output_style = default_output_style
 
 # sort by default on provenance (medieval library), then location/modern library, then shelfmark
 default_order_by = 'provenance_location_shelfmark'
+order_by = default_order_by
 
 prev_heading_1 = ""
 prev_heading_2 = ""
@@ -221,8 +225,8 @@ def category_e( request, pagename = 'category' ): #{
 
 def mlgb( request, pagename = 'results' ): #{
 
-  global output_style # 'treeview', 'compacttree' or 'table'
-  output_style = 'compacttree'
+  global output_style # 'treeview', 'table', or original print layout (subset of treeview)
+  output_style = default_output_style
 
   global order_by
   order_by = ''
@@ -251,8 +255,10 @@ def mlgb( request, pagename = 'results' ): #{
     (resultsets, number_of_records, 
      field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
-    # They may have chosen treeview vs. table
-    output_style = get_value_from_GET( request, "output_style", "compacttree" ) 
+    # They may have chosen treeview, table or layout of original book
+    # However, 'layout of original book' is only valid for ordering by provenance then location.
+    output_style = get_value_from_GET( request, "output_style", default_output_style ) 
+    reset_output_style_if_necessary()
 
     # They may have chosen expand/collapse options (used in 'table' mode)
     expand_2nd_tablerow = get_value_from_GET( request, "expand", "no" ) 
@@ -327,6 +333,8 @@ def mlgb( request, pagename = 'results' ): #{
       'page_sizes'       : get_page_sizes(),
       'default_rows_per_page': str( default_rows_per_page ),
       'pagename'         : pagename,
+      'order_options'    : get_order_change_field( 'any', order_by, False ),
+      'output_styles'    : get_output_style_change_field( False ),
   } )
 
   return HttpResponse( t.render( c ) )
@@ -395,8 +403,8 @@ def book_e( request, book_id, pagename = 'book' ): #{
 
 def browse( request, letter = 'A', pagename = 'browse' ): #{
 
-  global output_style # 'treeview', 'compacttree' or 'table'
-  output_style = 'compacttree'
+  global output_style # 'treeview', 'table' or original print layout (subset of treeview)
+  output_style = default_output_style
 
   global order_by
   order_by = 'location' # default value, may be overridden from GET in a moment
@@ -438,8 +446,10 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     # They may have chosen expand/collapse options
     expand_2nd_tablerow = get_value_from_GET( request, "expand", "no" ) 
 
-    # They may have chosen treeview vs. table
-    output_style = get_value_from_GET( request, "output_style", "compacttree" ) 
+    # They may have chosen treeview, table or layout of original book
+    # However, 'layout of original book' is only valid for ordering by provenance then location.
+    output_style = get_value_from_GET( request, "output_style", default_output_style ) 
+    reset_output_style_if_necessary()
   #}
 
   # Construct Solr query
@@ -472,7 +482,6 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
     resultsets = r.s_result.get( 'docs' )
     number_of_records = r.s_result.get( 'numFound' )
     
-
     # Start loop through result sets
     for i in xrange( 0, len( resultsets ) ): #{
 
@@ -560,6 +569,8 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       'medieval_library_count': medieval_library_count,
       'modern_library_count'  : modern_library_count,
       'location_count'        : location_count,
+      'order_options'    : get_order_change_field( 'any', order_by, False ),
+      'output_styles'    : get_output_style_change_field( False ),
   } )
 
   return HttpResponse( t.render( c ) )
@@ -1881,7 +1892,7 @@ def display_as_treeview( one_row, first_record = False, \
 
   heading1, heading2, heading3 = get_headings_from_sort_order( one_row )
 
-  if output_style == 'compacttree': #{
+  if output_style == 'treeview': #{
     heading2 = '<span class="heading2">%s</span>' % heading2
   #}
 
@@ -1912,7 +1923,7 @@ def display_as_treeview( one_row, first_record = False, \
   #}
   
   # Now set up the 'heading 3' and 'detail' text
-  if heading3 and output_style == 'treeview': #{
+  if heading3 and output_style == original_print_layout: #{
     heading3 = '<span class="modern_location_heading">' \
              + newline + heading3 + newline \
              + '</span><!-- end modern location_heading -->' + two_spaces + newline
@@ -2272,24 +2283,41 @@ def wrap_in_tree( html ): #{
   return html
 #}
 #--------------------------------------------------------------------------------
-def get_output_style_change_field(): #{
+def get_output_style_change_field( with_onchange = True ): #{
 
+  global output_style
+
+  field_id = 'output_style'
+  if not with_onchange: field_id += '2'
   radio = ''
-  #labels = { 'compacttree': 'compact treeview', 'treeview': 'extended treeview', 'table': 'table' }
-  labels = { 'compacttree': 'treeview', 'table': 'table' }
+
+  labels = { default_output_style: 'treeview', 
+             'table': 'table', 
+             original_print_layout: 'original book layout' }
 
   radio += 'Output style: '
 
-  #for style_choice in [ 'compacttree', 'treeview', 'table' ]: 
-  for style_choice in [ 'compacttree', 'table' ]: #{
+  for style_choice in [ default_output_style, 'table', original_print_layout ]: #{
+
+    if style_choice == original_print_layout and not can_offer_original_print_layout():
+      continue
+
+    if not with_onchange: radio += '<br>'
+
     label = labels[ style_choice ]
     radio += '<input type="radio" name="output_style" '
-    radio += ' id="output_style_%s" value="%s" ' % (style_choice, style_choice)
+    radio += ' id="%s_%s" value="%s" ' % (field_id, style_choice, style_choice)
     if style_choice == output_style: radio += ' CHECKED ';
-    radio += ' onclick="jsChangeSearch( this.name, this.value )" ' # see base.html for jsChangeSearch()
-    radio += ' onchange="jsChangeSearch( this.name, this.value )" '
-    radio += '/> <label for="output_style_%s">%s</label>' % (style_choice, label)
-    radio += space
+
+    if with_onchange: #{
+      radio += ' onclick="jsChangeSearch( this.name, this.value )" ' # see base.html for jsChangeSearch()
+      radio += ' onchange="jsChangeSearch( this.name, this.value )" '
+    #}
+
+    radio += '/> <label for="%s_%s">%s</label>' % (field_id, style_choice, label)
+
+    if with_onchange:
+      radio += space
   #}
 
   return radio
@@ -2330,31 +2358,39 @@ def get_order_change_options( primary_order_by = 'any' ): #{
   return valid_options
 #}
 #--------------------------------------------------------------------------------
-def get_order_change_field( primary_order_by = 'any', selected_order_by = '' ): #{
+def get_order_change_field( primary_order_by = 'any', selected_order_by = '', with_onchange = True ): #{
 
   valid_options = get_order_change_options( primary_order_by )
+  fieldstring = ''
+  field_id = 'order_by'
 
-  fieldstring =  '<script type="text/javascript">' + newline
-  fieldstring += 'function getValueOfOrderBy() {' + newline
-  fieldstring += '  indx=document.getElementById("order_by").selectedIndex;' + newline
-  fieldstring += '  var orderOptionID = "order_by_" + indx;' + newline
-  fieldstring += '  var orderOptionField=document.getElementById( orderOptionID );' + newline
-  fieldstring += '  return orderOptionField.value;' + newline
-  fieldstring += '}' + newline
-  fieldstring += '</script>' + newline
+  if with_onchange: #{
+    fieldstring += '<script type="text/javascript">' + newline
+    fieldstring += 'function getValueOfOrderBy() {' + newline
+    fieldstring += '  indx=document.getElementById("order_by").selectedIndex;' + newline
+    fieldstring += '  var orderOptionID = "order_by_" + indx;' + newline
+    fieldstring += '  var orderOptionField=document.getElementById( orderOptionID );' + newline
+    fieldstring += '  return orderOptionField.value;' + newline
+    fieldstring += '}' + newline
+    fieldstring += '</script>' + newline
+  #}
+  else:
+    field_id += '2'
 
-  fieldstring += '<label for="order_by">Order by: </label>'
+  fieldstring += '<label for="%s">Order by: </label>' % field_id
 
-  fieldstring += '<select name="order_by" id="order_by" '
-  fieldstring += ' onchange="newChoice=getValueOfOrderBy(); jsChangeSearch( ' # see base.html 
-  fieldstring += "'order_by'" + ', newChoice )" '
+  fieldstring += '<select name="order_by" id="%s" ' % field_id
+  if with_onchange: #{
+    fieldstring += ' onchange="newChoice=getValueOfOrderBy(); jsChangeSearch( ' # see base.html 
+    fieldstring += "'order_by'" + ', newChoice )" '
+  #}
   fieldstring += '>' + newline
 
   i = 0
   for option in valid_options: #{
     label = get_order_by_label( option )
 
-    fieldstring += '<option value="%s" id="order_by_%d" ' % (option, i)
+    fieldstring += '<option value="%s" id="%s_%d" ' % (option, field_id, i)
 
     if selected_order_by == option: 
       fieldstring += ' SELECTED '
@@ -2456,7 +2492,7 @@ def get_headings_from_sort_order( one_row ):  #{
       headings.append( provenance )
 
     elif word == 'location': #{
-      if output_style == 'treeview': #{
+      if output_style == original_print_layout: #{
         headings.append( modern_location1 )
         headings.append( modern_location2 )
       #}
@@ -2475,5 +2511,30 @@ def get_headings_from_sort_order( one_row ):  #{
   if len( headings ) >= 3: heading3 = headings[ 2 ]
 
   return heading1, heading2, heading3
+#}
+#--------------------------------------------------------------------------------
+
+def can_offer_original_print_layout(): #{
+
+  # Original print layout can only be offered if 'order by' starts with provenance, then location
+  can_offer_it = False
+
+  valid_orders = [ '',  # if order is blank, it defaults to provenance, location, shelfmark
+                   'provenance_location_shelfmark', 
+                   'provenance_location_date',
+                   'medieval_library' ]
+
+  if order_by in valid_orders: can_offer_it = True
+
+  return can_offer_it
+#}
+#--------------------------------------------------------------------------------
+
+def reset_output_style_if_necessary(): #{
+
+  global output_style
+  if output_style == original_print_layout and not can_offer_original_print_layout(): #{
+    output_style = default_output_style
+  #}
 #}
 #--------------------------------------------------------------------------------
