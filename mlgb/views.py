@@ -39,6 +39,8 @@ output_style = default_output_style
 default_order_by = 'provenance_location_shelfmark'
 order_by = default_order_by
 
+printing = False
+
 prev_heading_1 = ""
 prev_heading_2 = ""
 browse_collapsed_class = "book_row_2_hidden"
@@ -225,6 +227,9 @@ def category_e( request, pagename = 'category' ): #{
 
 def mlgb( request, pagename = 'results' ): #{
 
+  global printing # are we about to print this page, or view it in onscreen mode?
+  printing = False
+
   global output_style # 'treeview', 'table', or original print layout (subset of treeview)
   output_style = default_output_style
 
@@ -250,6 +255,9 @@ def mlgb( request, pagename = 'results' ): #{
     # The field being searched may require a different order from the default,
     # or they may have chosen a different sort order themselves.
     order_by = get_value_from_GET( request, "order_by", field_to_search )
+
+    # Check whether they want to print this page
+    printing = get_value_from_GET( request, "printing", False )
 
     # Now run the Solr query
     (resultsets, number_of_records, 
@@ -304,7 +312,7 @@ def mlgb( request, pagename = 'results' ): #{
                           current_row = solr_start, \
                           rows_per_page = solr_rows, \
                           pagination_change_link = pagination_change_link, \
-                          include_print_button = False )
+                          link_for_print_button = get_link_for_print_button( request ) )
 
         output_style_radio = get_output_style_change_field()
         order_by_select = get_order_change_field( 'any', order_by )
@@ -335,6 +343,7 @@ def mlgb( request, pagename = 'results' ): #{
       'pagename'         : pagename,
       'order_options'    : get_order_change_field( 'any', order_by, False ),
       'output_styles'    : get_output_style_change_field( False ),
+      'printing'         : printing,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -403,6 +412,9 @@ def book_e( request, book_id, pagename = 'book' ): #{
 
 def browse( request, letter = 'A', pagename = 'browse' ): #{
 
+  global printing # are we about to print this page, or view it in onscreen mode?
+  printing = False
+
   global output_style # 'treeview', 'table' or original print layout (subset of treeview)
   output_style = default_output_style
 
@@ -429,6 +441,10 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   solr_start = 0
 
   if request.GET: #{ # are there any parameters in GET?
+
+    # Check whether they want to print this page
+    printing = get_value_from_GET( request, "printing", False )
+
     # Get actual records per page and start row from GET
     page_size = get_value_from_GET( request, "page_size", str( default_rows_per_page )) 
     solr_start = get_value_from_GET( request, "start", 0 ) 
@@ -513,16 +529,20 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
         html = wrap_in_tree( html )
       #}
 
-      alphabet = '<div class="letterlinks">'
-      initials = get_initial_letters( solr_field_to_search )
-      for initial in initials: #{
-        alphabet += '<a href="%s/browse/%s/?field_to_search=%s&output_style=%s&order_by=%s" ' \
-                 % (baseurl, initial, field_to_search, output_style, order_by )
-        if initial == letter.upper(): alphabet += ' class="selected" '
-        alphabet += '>%s</a>' % initial
-        alphabet += space
+      if printing:
+        alphabet = ''
+      else: #{
+        alphabet = '<div class="letterlinks">'
+        initials = get_initial_letters( solr_field_to_search )
+        for initial in initials: #{
+          alphabet += '<a href="%s/browse/%s/?field_to_search=%s&output_style=%s&order_by=%s" ' \
+                   % (baseurl, initial, field_to_search, output_style, order_by )
+          if initial == letter.upper(): alphabet += ' class="selected" '
+          alphabet += '>%s</a>' % initial
+          alphabet += space
+        #}
+        alphabet += '</div><!-- letterlinks -->'
       #}
-      alphabet += '</div><!-- letterlinks -->'
 
       pagination_change_link = get_pagination_change_link( request, number_of_records, solr_rows )
 
@@ -530,7 +550,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         current_row = solr_start, \
                         rows_per_page = solr_rows, \
                         pagination_change_link = pagination_change_link, \
-                        include_print_button = False )
+                        link_for_print_button = get_link_for_print_button( request ) )
 
       output_style_radio = get_output_style_change_field()
       order_by_select = get_order_change_field( field_to_search, order_by )
@@ -571,6 +591,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
       'location_count'        : location_count,
       'order_options'    : get_order_change_field( 'any', order_by, False ),
       'output_styles'    : get_output_style_change_field( False ),
+      'printing'         : printing,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -953,7 +974,7 @@ def get_photo_evidence( id, images, evidence_code, evidence_desc ): #{
 ## with some adaptation by Sue B.
 
 def pagination( rows_found, current_row, rows_per_page=None, pagination_change_link = '', \
-                include_print_button=False ): #{
+                link_for_print_button = '' ): #{
 
   html = newline  # we'll build up all the pagination links in the 'html' string
 
@@ -1023,7 +1044,7 @@ def pagination( rows_found, current_row, rows_per_page=None, pagination_change_l
   #}
 
   html += '<div class="pagination">' + newline
-  html += '<p>' + newline
+  if not printing: html += '<p>' + newline
   html += '<strong>' + newline
   if rows_found == 1:
     html += 'One record found.' + newline
@@ -1040,148 +1061,152 @@ def pagination( rows_found, current_row, rows_per_page=None, pagination_change_l
     html += 'Page %d of %d (%d records per page). ' % (current_page, page_count, rows_per_page)
     html += '</span>' + newline
 
-    if pagination_change_link: #{ # offer to show multiple pages as one single page
+    if pagination_change_link and not printing: #{ # offer to show multiple pages as one single page
       html += space + pagination_change_link
     #}
 
     html += '<br>' + newline
 
-    ##=========================================================================================
-    ##====================== start of section with 'jump to page' buttons =====================
-    ##=========================================================================================
-    ## "Jump backwards" section
-    ##=========================
+    if not printing: #{
+      html += '<br>' + newline
 
-    if current_row == first_page_start : #{
+      ##=========================================================================================
+      ##====================== start of section with 'jump to page' buttons =====================
+      ##=========================================================================================
+      ## "Jump backwards" section
+      ##=========================
 
-      ## At the start of the first page, so don't provide a 'First' button
-      html += '<button class="selected_page" disabled="disabled">First</button>' + newline
-      html += '<button class="selected_page" disabled="disabled">&lt;&lt;</button>' + newline
+      if current_row == first_page_start : #{
 
-      html += '<span class="spacer">&nbsp;</span>' + newline
-      html += '<span class="spacer">&nbsp;</span>' + newline
-    #}
-    else: #{
+        ## At the start of the first page, so don't provide a 'First' button
+        html += '<button class="selected_page" disabled="disabled">First</button>' + newline
+        html += '<button class="selected_page" disabled="disabled">&lt;&lt;</button>' + newline
 
-      ## Not at the start of the first page, so DO provide a 'First' button
-      html += '<button class="go_to_page" '
-      html += ' onclick="%s( %d )"' % (page_change_scriptname, first_page_start)
-      html += ' title="Go to first page of results">' + newline
-      html += 'First' + newline
-      html += '</button>' + newline
-        
-      ## Also provide a 'jump backwards by multiple pages' button
-      if rows_found > rows_per_page : #{
-        if full_backwards_jump:
-          button_title = "Jump back %d pages to page %d of results" % (pages_to_jump, jump_back_to_page)
-        else:
-          button_title = "Go to page %d of results" % jump_back_to_page
+        html += '<span class="spacer">&nbsp;</span>' + newline
+        html += '<span class="spacer">&nbsp;</span>' + newline
+      #}
+      else: #{
+
+        ## Not at the start of the first page, so DO provide a 'First' button
         html += '<button class="go_to_page" '
-        html += ' onclick="%s( %d )" ' % (page_change_scriptname, jump_back_to_row)
-        html += ' title="%s">' % button_title
-        html += newline + '&lt;&lt;' + newline
+        html += ' onclick="%s( %d )"' % (page_change_scriptname, first_page_start)
+        html += ' title="Go to first page of results">' + newline
+        html += 'First' + newline
+        html += '</button>' + newline
+          
+        ## Also provide a 'jump backwards by multiple pages' button
+        if rows_found > rows_per_page : #{
+          if full_backwards_jump:
+            button_title = "Jump back %d pages to page %d of results" % (pages_to_jump, jump_back_to_page)
+          else:
+            button_title = "Go to page %d of results" % jump_back_to_page
+          html += '<button class="go_to_page" '
+          html += ' onclick="%s( %d )" ' % (page_change_scriptname, jump_back_to_row)
+          html += ' title="%s">' % button_title
+          html += newline + '&lt;&lt;' + newline
+          html += '</button>' + newline
+        #}
+
+        html += '<span class="spacer">&nbsp;</span>' + newline
+        
+        ## If more than 2 pages from start, put dots to show we're jumping across a block of pages
+        if current_row - two_pages > first_page_start: #{
+          html += '...' + newline
+        #}
+
+        html += '<span class="spacer">&nbsp;</span>' + newline
+
+        ## If at least 2 pages from start, provide a 'back 2 pages' button
+        if current_row - two_pages >= first_page_start : #{
+          html += '<button class="go_to_page" '
+          html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row-two_pages ) 
+          target_page = current_page - 2
+          html += ' title="Go to page %d of results">' % target_page
+          html += str( target_page ) + newline
+          html += '</button>' + newline
+        #}
+        
+        ## If at least 1 page from start, provide a 'back 1 page' button
+        if current_row - rows_per_page >= first_page_start : #{
+          html += '<button class="go_to_page" '
+          html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row-rows_per_page ) 
+          target_page = current_page - 1
+          html += ' title="Go to page %d of results">' % target_page
+          html += str( target_page ) + newline
+          html += '</button>' + newline
+        #}
+      #} ## End of "if we are on the first page" ("jump backwards" section)
+      ##=========================================================================================
+
+      ## Display the current page number
+      html += newline 
+      html += '<button class="selected_page" disabled="disabled">%d</button>' % current_page 
+      html += newline 
+
+      ##=========================================================================================
+      ## "Jump forwards" section
+      ##========================
+
+      ## If at least 1 page from end, provide a 'forward 1 page' button
+      if current_row + rows_per_page <= last_page_start : #{
+        html += '<button class="go_to_page" '
+        html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row+rows_per_page ) 
+        target_page = current_page + 1
+        html += ' title="Go to page %d of results">' % target_page
+        html += str( target_page ) + newline
         html += '</button>' + newline
       #}
-
-      html += '<span class="spacer">&nbsp;</span>' + newline
       
-      ## If more than 2 pages from start, put dots to show we're jumping across a block of pages
-      if current_row - two_pages > first_page_start: #{
+      ## If at least 2 pages from end, provide a 'forward 2 pages' button
+      if current_row + two_pages <= last_page_start : #{
+        html += '<button class="go_to_page" '
+        html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row+two_pages ) 
+        target_page = current_page + 2
+        html += ' title="Go to page %d of results">' % target_page
+        html += str( target_page ) + newline
+        html += '</button>' + newline
+      #}
+      
+      ## If more than 2 pages from end, put dots to show we're jumping across a block of pages
+      html += '<span class="spacer">&nbsp;</span>' + newline
+      if current_row + two_pages < last_page_start: #{
         html += '...' + newline
       #}
 
       html += '<span class="spacer">&nbsp;</span>' + newline
 
-      ## If at least 2 pages from start, provide a 'back 2 pages' button
-      if current_row - two_pages >= first_page_start : #{
-        html += '<button class="go_to_page" '
-        html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row-two_pages ) 
-        target_page = current_page - 2
-        html += ' title="Go to page %d of results">' % target_page
-        html += str( target_page ) + newline
-        html += '</button>' + newline
+      if current_row == last_page_start : #{
+        ## At the start of the last page, so don't provide a 'Last' button
+        html += '<button class="selected_page" disabled="disabled">&gt;&gt;</button>' + newline
+        html += '<button class="selected_page" disabled="disabled">Last</button>' + newline
       #}
-      
-      ## If at least 1 page from start, provide a 'back 1 page' button
-      if current_row - rows_per_page >= first_page_start : #{
-        html += '<button class="go_to_page" '
-        html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row-rows_per_page ) 
-        target_page = current_page - 1
-        html += ' title="Go to page %d of results">' % target_page
-        html += str( target_page ) + newline
-        html += '</button>' + newline
-      #}
-    #} ## End of "if we are on the first page" ("jump backwards" section)
-    ##=========================================================================================
+      else : #{
+        ## NOT at the start of the last page, so DO provide 'jump forward' and 'Last' buttons
+        if rows_found > rows_per_page : #{
+          if full_forwards_jump:
+            button_title = "Jump forwards %d pages to page %d of results" \
+                         % (pages_to_jump, jump_forwards_to_page)
+          else:
+            button_title = "Go to page %d of results" % jump_forwards_to_page
 
-    ## Display the current page number
-    html += newline 
-    html += '<button class="selected_page" disabled="disabled">%d</button>' % current_page 
-    html += newline 
-
-    ##=========================================================================================
-    ## "Jump forwards" section
-    ##========================
-
-    ## If at least 1 page from end, provide a 'forward 1 page' button
-    if current_row + rows_per_page <= last_page_start : #{
-      html += '<button class="go_to_page" '
-      html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row+rows_per_page ) 
-      target_page = current_page + 1
-      html += ' title="Go to page %d of results">' % target_page
-      html += str( target_page ) + newline
-      html += '</button>' + newline
-    #}
-    
-    ## If at least 2 pages from end, provide a 'forward 2 pages' button
-    if current_row + two_pages <= last_page_start : #{
-      html += '<button class="go_to_page" '
-      html += ' onclick="%s( %d )" ' % ( page_change_scriptname, current_row+two_pages ) 
-      target_page = current_page + 2
-      html += ' title="Go to page %d of results">' % target_page
-      html += str( target_page ) + newline
-      html += '</button>' + newline
-    #}
-    
-    ## If more than 2 pages from end, put dots to show we're jumping across a block of pages
-    html += '<span class="spacer">&nbsp;</span>' + newline
-    if current_row + two_pages < last_page_start: #{
-      html += '...' + newline
-    #}
-
-    html += '<span class="spacer">&nbsp;</span>' + newline
-
-    if current_row == last_page_start : #{
-      ## At the start of the last page, so don't provide a 'Last' button
-      html += '<button class="selected_page" disabled="disabled">&gt;&gt;</button>' + newline
-      html += '<button class="selected_page" disabled="disabled">Last</button>' + newline
-    #}
-    else : #{
-      ## NOT at the start of the last page, so DO provide 'jump forward' and 'Last' buttons
-      if rows_found > rows_per_page : #{
-        if full_forwards_jump:
-          button_title = "Jump forwards %d pages to page %d of results" \
-                       % (pages_to_jump, jump_forwards_to_page)
-        else:
-          button_title = "Go to page %d of results" % jump_forwards_to_page
+          html += '<button class="go_to_page" '
+          html += ' onclick="%s( %d )" ' % (page_change_scriptname, jump_forwards_to_row)
+          html += ' title="%s">' % button_title
+          html += '&gt;&gt;' + newline
+          html += '</button>' + newline
+        #}
 
         html += '<button class="go_to_page" '
-        html += ' onclick="%s( %d )" ' % (page_change_scriptname, jump_forwards_to_row)
-        html += ' title="%s">' % button_title
-        html += '&gt;&gt;' + newline
+        html += ' onclick="%s( %d )"' % (page_change_scriptname, last_page_start)
+        html += ' title="Go to last page of results">' + newline
+        html += 'Last' + newline
         html += '</button>' + newline
       #}
-
-      html += '<button class="go_to_page" '
-      html += ' onclick="%s( %d )"' % (page_change_scriptname, last_page_start)
-      html += ' title="Go to last page of results">' + newline
-      html += 'Last' + newline
-      html += '</button>' + newline
-    #}
-    ## End of 'if we are on the last page' ("jump forwards" section)
-    ##=========================================================================================
-    ##====================== end of section with 'jump to page' buttons =======================
-    ##=========================================================================================
+      ## End of 'if we are on the last page' ("jump forwards" section)
+      ##=========================================================================================
+      ##====================== end of section with 'jump to page' buttons =======================
+      ##=========================================================================================
+    #} ## end of 'if not printing'
   #} ## end of 'if page count > 1'
 
   elif page_count == 1 : #{
@@ -1190,13 +1215,17 @@ def pagination( rows_found, current_row, rows_per_page=None, pagination_change_l
     #}
   #}
 
-  if include_print_button: #{
+  if link_for_print_button and not printing: #{
     # Although 'print' button is not part of pagination, could be convenient
-    # to have it on same line, so, if required, add 'print' button here.
-    pass
+    # to have it on same line.
+    html += space
+    html += '<a href="%s" target="_blank" ' % link_for_print_button
+    html += ' class="go_to_page" title="Print current page of results (in new tab)">' + newline
+    html += 'Print' + newline
+    html += '</a>' + newline
   #}
 
-  html += '</p>' + newline
+  if not printing: html += '</p>' + newline
   html += '</div><!--class:pagination-->' + newline
   html += newline
 
@@ -1211,54 +1240,14 @@ def write_page_change_script( page_change_scriptname ): #{
   script += '  <script type="text/javascript">' + newline
   script += '  function ' + page_change_scriptname + '( rowNumber ) {' + newline
 
-  script += '    var foundStart = false;' + newline
-
   script += '    rowNumber = parseInt( rowNumber );' + newline
   script += '    if( isNaN( rowNumber )) {' + newline
   script += '      alert( \'Invalid row number.\' );' + newline
   script += '      return;' + newline
   script += '    }' + newline
 
-  script += '    var search = window.location.search;' + newline
-  script += '    if( search.length == 0 ) {' + newline
-  script += '      window.location.search = \'?start=\' + rowNumber;' + newline
-  script += '      return;' + newline
-  script += '    }' + newline
+  script += '    jsChangeSearch( "start", rowNumber ); ' # see base.html for jsChangeSearch()
 
-  script += '    var parts = search.split( \'&\' );' + newline
-  script += '    var numParts = parts.length;' + newline
-
-  script += '    for( i = 0; i < numParts; i++ ) {' + newline
-  script += '      var part = parts[ i ];' + newline
-  script += '      if( i == 0 ) {' + newline
-  script += '        var firstChar = part.substring( 0, 1 );' + newline
-  script += '        if( firstChar == \'?\' ) {       // that\'s what it *should* be!' + newline
-  script += '          part = part.substring( 1 );  // trim off the leading question mark' + newline
-  script += '          parts[i] = part;' + newline
-  script += '        }' + newline
-  script += '      }' + newline
-
-  script += '      var pair = part.split( \'=\' );' + newline
-  script += '      if( pair.length == 2 ) { // once again, that\'s what it *should* be!' + newline
-  script += '        var searchName = pair[0];' + newline
-  script += '        if( searchName == \'start\' ) {' + newline
-  script += '          foundStart = true;' + newline
-  script += '          parts[i] = searchName + \'=\' + rowNumber;' + newline
-  script += '          break;' + newline
-  script += '        }' + newline
-  script += '      }' + newline
-  script += '      else {' + newline
-  script += '        alert( \'Invalid search term(s).\' );' + newline
-  script += '        return;' + newline
-  script += '      }' + newline
-  script += '    }' + newline
-
-  script += '    var newSearch = \'?\' + parts.join( \'&\' );' + newline
-
-  script += '    if( ! foundStart ) {' + newline
-  script += '      newSearch = newSearch + \'&start=\' + rowNumber;' + newline
-  script += '    }' + newline
-  script += '    window.location.search = newSearch;' + newline
   script += '  }' + newline
   script += '  </script>' + newline + newline
 
@@ -1504,6 +1493,8 @@ def get_initial_letters( facet_field ): #{
 
 def get_expand_collapse_button( book_id, label = '+' ): #{
 
+  if printing: return ''
+
   button_id = "concertina%s" % book_id
 
   button_text = '<button name="%s" id="%s" ' % (button_id, button_id)
@@ -1521,6 +1512,8 @@ def get_2nd_row_id( book_id ): #{
 #--------------------------------------------------------------------------------
 
 def get_expand_collapse_script(): #{
+
+  if printing: return ''
 
   script = newline + newline
 
@@ -1554,6 +1547,8 @@ def get_expand_collapse_script(): #{
 
 def get_table_control_links( request, rows_found = 0, rows_per_page = 0 ): #{
 
+  if printing: return ''
+
   links = ""
   new_search = "" 
   delim = "?"
@@ -1585,6 +1580,8 @@ def get_table_control_links( request, rows_found = 0, rows_per_page = 0 ): #{
 #--------------------------------------------------------------------------------
 
 def get_pagination_change_link( request, rows_found = 0, rows_per_page = 0 ): #{
+
+  if printing: return ''
 
   # For page size change option, preserve 
   # any existing parameters except 'page_size' and 'start'
@@ -1624,6 +1621,24 @@ def get_pagination_change_link( request, rows_found = 0, rows_per_page = 0 ): #{
   #}
 
   return link
+#}
+#--------------------------------------------------------------------------------
+
+def get_link_for_print_button( request ): #{
+  if printing: return ''  # already printing, no further button needed
+  new_search = "" 
+  delim = "?"
+  # Preserve any existing parameters except 'printing'
+  if request.GET: #{  # 
+    for k, v in request.GET.items(): #{
+      if k == 'printing': continue
+      new_search += delim
+      new_search += "%s=%s" % (k, quote( v.encode( 'utf-8' )))
+      if delim == "?": delim = "&"
+    #}
+  #}
+  new_search += delim + "printing=yes"
+  return new_search
 #}
 #--------------------------------------------------------------------------------
 
@@ -1834,7 +1849,8 @@ def get_treeview_formatting(): #{
 
   start_treeview = newline
   start_treeview += '<div id="sidetreecontrol">' + newline
-  start_treeview += '<a href="?#">Expand All</a> | <a href="?#">Collapse All</a>' + newline
+  if not printing:
+    start_treeview += '<a href="?#">Expand All</a> | <a href="?#">Collapse All</a>' + newline
   start_treeview += '</div>' + newline + newline
 
   start_treeview += '<ul class="treeview" id="tree">' + newline + newline
@@ -2001,14 +2017,15 @@ def display_as_treeview( one_row, first_record = False, \
     detail_text += space
   #}
 
-  detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
+  if not printing:
+    detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
   detail_text += '</a>' + newline
   detail_text += '<!-- end booklink -->' + newline
 
   if 'provenance' not in order_by:  #not already displayed as a heading
     detail_text += space + provenance
 
-  if editable: #{
+  if editable and not printing: #{
     detail_text += '<a href="/admin/books/book/%s" title="Edit this record" target="_blank"' % id
     detail_text += ' class="editlink">'
     detail_text += space + 'Edit' + '</a>' + newline
@@ -2287,6 +2304,8 @@ def get_output_style_change_field( with_onchange = True ): #{
 
   global output_style
 
+  if printing: return ''
+
   field_id = 'output_style'
   if not with_onchange: field_id += '2'
   radio = ''
@@ -2359,6 +2378,8 @@ def get_order_change_options( primary_order_by = 'any' ): #{
 #}
 #--------------------------------------------------------------------------------
 def get_order_change_field( primary_order_by = 'any', selected_order_by = '', with_onchange = True ): #{
+
+  if printing: return ''
 
   valid_options = get_order_change_options( primary_order_by )
   fieldstring = ''
