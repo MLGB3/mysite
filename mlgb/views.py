@@ -312,7 +312,8 @@ def mlgb( request, pagename = 'results' ): #{
                           current_row = solr_start, \
                           rows_per_page = solr_rows, \
                           pagination_change_link = pagination_change_link, \
-                          link_for_print_button = get_link_for_print_button( request ) )
+                          link_for_print_button = get_link_for_print_button( request ),
+                          link_for_download_button = get_link_for_download_button( request ) )
 
         output_style_radio = get_output_style_change_field()
         order_by_select = get_order_change_field( 'any', order_by )
@@ -419,7 +420,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
   output_style = default_output_style
 
   global order_by
-  order_by = 'location' # default value, may be overridden from GET in a moment
+  order_by = 'medieval_library' # default value, may be overridden from GET in a moment
   field_to_search = order_by # default value for field being browsed, also used in right-hand Search box
 
   global prev_heading_1
@@ -550,7 +551,9 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
                         current_row = solr_start, \
                         rows_per_page = solr_rows, \
                         pagination_change_link = pagination_change_link, \
-                        link_for_print_button = get_link_for_print_button( request ) )
+                        link_for_print_button = get_link_for_print_button( request ),
+                        link_for_download_button = get_link_for_download_button(  \
+                                                   request, solr_field_to_search, letter.upper() ) )
 
       output_style_radio = get_output_style_change_field()
       order_by_select = get_order_change_field( field_to_search, order_by )
@@ -641,7 +644,6 @@ def fulltext( request, pagename = 'fulltext' ): #{
 
 # It seems that function download() should be called from the 'record detail' page (mlgb_detail.html).
 # However, the links to it are hidden.
-# That is presumably because the output is a bit rubbish.
 # It is also called by the admin interface
 
 def download( request, pagename = 'download' ): #{
@@ -649,96 +651,65 @@ def download( request, pagename = 'download' ): #{
   response=None
   data=[]
   text=""
+  book_id = ""
+  selected_output_type = ""
+
+  output_type_csv = "1"
+  output_type_pdf = "2"
   
   rc="\r\n"
-  if request.GET[ "q" ] == "2": rc="<br/>"
 
-  # Gather the data into a text field
   if request.GET: #{
 
-    data = Book.objects.filter( id = request.GET["i"] )
+    if request.GET.has_key( "i" ):
+      book_id = request.GET[ "i" ]
 
-    text =  "Provenance: %s%s"      % (data[0].provenance, rc)
-    text += "Location: %s, %s%s"    % (data[0].modern_location_2, data[0].modern_location_1, rc)
-    text += "Shelfmark: %s %s%s"    % (data[0].shelfmark_1, data[0].shelfmark_2, rc)
-    text += "Author/Title: %s %s%s" % (data[0].evidence, data[0].author_title, rc)
-
-    if data[0].date:
-      text += "Date: %s%s" % (data[0].date, rc)
-    
-    if data[0].pressmark:
-      text += "Pressmark: %s%s" % (data[0].pressmark, rc)
-    
-    if data[0].medieval_catalogue:
-      text += "Medieval Catalogue: %s%s" % (data[0].medieval_catalogue, rc)
-    
-    if data[0].ownership:
-      text += "Ownership: %s%s" % (data[0].ownership, rc)
-    
-    if data[0].notes.strip('" \n\r'):
-      text += "Notes: %s" % (data[0].notes.strip('" \n\r'))
+    if request.GET.has_key( "q" ):
+      selected_output_type = request.GET[ "q" ]
   #}
 
-  # Either: write out a CSV file
-  if request.GET[ "q" ] == "1": #{
-    rc=""
-    response = HttpResponse(mimetype='text/csv')
-    response['Content-Disposition'] = 'attachment; filename=%s.csv' % request.GET["i"]
-    writer = csv.writer(response)
+  if selected_output_type == output_type_pdf: rc="<br/>"
 
-    text = text.replace("<p>","")
-    text = text.replace("</p>","")
-    text = text.replace("<strong>","")
-    text = text.replace("</strong>","")
-    text = text.replace("<em>","")
-    text = text.replace("</em>","")
-    text = text.replace('<span style="text-decoration: underline;">',"")
-    text = text.replace("</span>","")
-    text = text.replace("<i>","")
-    text = text.replace("</i>","")
-    text = text.replace("<ul>","")
-    text = text.replace("</ul>","")
-    text = text.replace("<li>","")
-    text = text.replace("</li>","")
-    text = text.replace("<ol>","")
-    text = text.replace("</ol>","")
-    text = text.replace('<span style="text-decoration: line-through;">',"")
-    text = text.replace("&nbsp;","")
-    
-    writer.writerow([text])
-    writer.writerows([data])
+  if book_id and selected_output_type: #{
+
+    # Either: write out a CSV file
+    if selected_output_type == output_type_csv: #{
+      return downloadcsv( request )
+    #}
+
+    # Or: write out a PDF
+    # (WARNING: this section currently fails with an ImportError)
+    elif selected_output_type == output_type_pdf: #{
+
+      # Gather the data into a text field
+      (data, text) = get_text_for_pdf( book_id, rc )
+
+      response = HttpResponse(mimetype='application/pdf')
+      response['Content-Disposition'] = 'attachment; filename=%s.pdf' % request.GET["i"]
+
+      from reportlab.pdfgen.canvas import Canvas
+      from reportlab.lib.styles import getSampleStyleSheet
+      from reportlab.lib.units import inch
+      from reportlab.platypus import Paragraph,Frame,Spacer
+      styles = getSampleStyleSheet()
+      styleN = styles['Normal']
+      styleH = styles['Heading1']
+      story = []
+      
+      story.append(Paragraph("<i>%s</i>%s" % (data[0].evidence, data[0].author_title),styleH))
+      story.append(Spacer(inch * .5, inch * .5))
+      story.append(Paragraph(text,styleN))
+      buffer = StringIO()
+      p = Canvas(buffer)
+      f = Frame(inch, inch, 6.3*inch, 9.8*inch, showBoundary=0)
+      f.addFromList(story,p)
+      p.save()
+      
+      pdf = buffer.getvalue()
+      buffer.close()
+      response.write(pdf)
+    #}
   #}
-
-  # Or: write out a PDF
-  elif request.GET[ "q" ] == "2": #{
-    response = HttpResponse(mimetype='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename=%s.pdf' % request.GET["i"]
-
-    from reportlab.pdfgen.canvas import Canvas
-    from reportlab.lib.styles import getSampleStyleSheet
-    from reportlab.lib.units import inch
-    from reportlab.platypus import Paragraph,Frame,Spacer
-    styles = getSampleStyleSheet()
-    styleN = styles['Normal']
-    styleH = styles['Heading1']
-    story = []
-    
-    story.append(Paragraph("<i>%s</i>%s" % (data[0].evidence, data[0].author_title),styleH))
-    story.append(Spacer(inch * .5, inch * .5))
-    story.append(Paragraph(text,styleN))
-    buffer = StringIO()
-    p = Canvas(buffer)
-    f = Frame(inch, inch, 6.3*inch, 9.8*inch, showBoundary=0)
-    f.addFromList(story,p)
-    p.save()
-    
-    pdf = buffer.getvalue()
-    buffer.close()
-    response.write(pdf)
-  #}
-
-  else:
-    pass
 
   return response
 #}
@@ -891,6 +862,14 @@ def extract_from_result( resultset, add_punctuation = True ): #{
       notes_on_evidence += '.'
   #}
 
+  # ownership
+  ownership = ''
+  if resultset.has_key('own'): #{
+    ownership = trim( resultset['own'] )
+    if ownership.endswith( '<p>&nbsp;</p>' ): #{ no need for lots of whitespace
+      ownership = ownership[ 0 : 0 - len( '<p>&nbsp;</p>' ) ]
+    #}
+  #}
 
   # image data
   images = []
@@ -930,9 +909,30 @@ def extract_from_result( resultset, add_punctuation = True ): #{
     #}
   #}
 
+  # contents (as a string)
+  contents = ""
+  if resultset.has_key( 'contents' ): #{
+    contents_list = resultset[ 'contents' ]
+    for content in contents_list: #{
+      if contents != "": contents += newline 
+      contents += content
+    #}
+  #}
+
+  # content URLs (as a single string)
+  content_urls = ""
+  if resultset.has_key( 'content_urls' ): #{
+    content_urls = resultset[ 'content_urls' ]
+    for content in content_urls: #{
+      if content_urls != "": content_urls += newline 
+      content_urls += content
+    #}
+  #}
+
   return (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
           evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-          pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images)
+          pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
+          ownership, contents, content_urls)
 
 #}
 #--------------------------------------------------------------------------------
@@ -974,7 +974,7 @@ def get_photo_evidence( id, images, evidence_code, evidence_desc ): #{
 ## with some adaptation by Sue B.
 
 def pagination( rows_found, current_row, rows_per_page=None, pagination_change_link = '', \
-                link_for_print_button = '' ): #{
+                link_for_print_button = '', link_for_download_button = '' ): #{
 
   html = newline  # we'll build up all the pagination links in the 'html' string
 
@@ -1225,6 +1225,14 @@ def pagination( rows_found, current_row, rows_per_page=None, pagination_change_l
     html += '</a>' + newline
   #}
 
+  if link_for_download_button and not printing: #{
+    html += space
+    html += '<a href="%s" target="_blank" ' % link_for_download_button
+    html += ' class="go_to_page" title="Download current page of results">' + newline
+    html += 'Download' + newline
+    html += '</a>' + newline
+  #}
+
   if not printing: html += '</p>' + newline
   html += '</div><!--class:pagination-->' + newline
   html += newline
@@ -1351,7 +1359,8 @@ def get_shelfmark_sortfields(): #{
 #--------------------------------------------------------------------------------
 
 def get_date_sortfields(): #{
-  sortfields = [ 'dt asc' ] # date as string
+  sortfields = [ 'datesort asc', # date converted to numbers as best we can
+                 'dt asc' ]      # date as string
   return sortfields
 #}
 #--------------------------------------------------------------------------------
@@ -1642,6 +1651,35 @@ def get_link_for_print_button( request ): #{
 #}
 #--------------------------------------------------------------------------------
 
+def get_link_for_download_button( request, field_to_search = '', search_term = '' ): #{
+
+  if not editable: return '' # POSSIBLY TEMPORARY!!! Restrict this functionality to the project editors
+
+  if printing: return ''  # don't display buttons in printed output
+
+  new_search = "" 
+  delim = "?"
+  # Preserve any existing parameters
+  # apart from ones passed in to this function, which override GET.
+  if request.GET: #{  # 
+    for k, v in request.GET.items(): #{
+      if field_to_search and k == 'field_to_search': continue
+      if search_term and k == 'search_term': continue
+
+      new_search += delim
+      new_search += "%s=%s" % (k, quote( v.encode( 'utf-8' )))
+      if delim == "?": delim = "&"
+    #}
+  #}
+
+  if field_to_search and search_term:
+    new_search += '%s%s=%s' % (delim, field_to_search, search_term.encode( 'utf-8' ))
+
+  href = '%s/downloadcsv/%s' % ( baseurl, new_search )
+  return href
+#}
+#--------------------------------------------------------------------------------
+
 def get_category_counts(): #{
 
   facet = True
@@ -1687,65 +1725,91 @@ def downloadcsv( request, pagename = 'download' ): #{
 
   response=None
   data=[]
-  text=""
-  
-  rc="\r\n"
-  if request.GET[ "q" ] == "2": rc="<br/>"
 
-  # Gather the data into a text field
+  data.append( [] ) # add a new empty row
+
+  data[0].append( 'Book ID' )
+  data[0].append( 'Provenance' )
+  data[0].append( 'Modern location1' )
+  data[0].append( 'Modern location2' )
+  data[0].append( 'Shelfmark1' )
+  data[0].append( 'Shelfmark2' )
+  data[0].append( 'Evidence code' )
+  data[0].append( 'Evidence desc' )
+  data[0].append( 'Suggestion of contents' )
+  data[0].append( 'Date of work' )
+  data[0].append( 'Pressmark' )
+  data[0].append( 'Medieval catalogue' )
+  data[0].append( '?' )
+  data[0].append( 'General notes' )
+  data[0].append( 'Notes on evidence' )
+  data[0].append( 'Ownership' )
+  data[0].append( 'Contents' )
+  data[0].append( 'URLs' )
+  data[0].append( 'Images'  )
+  
   if request.GET: #{
 
-    data = Book.objects.filter( id = request.GET["i"] )
+    (resultsets, number_of_records, 
+    field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
-    text =  "Provenance: %s%s"      % (data[0].provenance, rc)
-    text += "Location: %s, %s%s"    % (data[0].modern_location_2, data[0].modern_location_1, rc)
-    text += "Shelfmark: %s %s%s"    % (data[0].shelfmark_1, data[0].shelfmark_2, rc)
-    text += "Author/Title: %s %s%s" % (data[0].evidence, data[0].author_title, rc)
+    if number_of_records > 0 : #{
+      # Start loop through result sets
+      for i in xrange( 0, len( resultsets ) ): #{
 
-    if data[0].date:
-      text += "Date: %s%s" % (data[0].date, rc)
-    
-    if data[0].pressmark:
-      text += "Pressmark: %s%s" % (data[0].pressmark, rc)
-    
-    if data[0].medieval_catalogue:
-      text += "Medieval Catalogue: %s%s" % (data[0].medieval_catalogue, rc)
-    
-    if data[0].ownership:
-      text += "Ownership: %s%s" % (data[0].ownership, rc)
-    
-    if data[0].notes.strip('" \n\r'):
-      text += "Notes: %s" % (data[0].notes.strip('" \n\r'))
+        # Get the data from the Solr result set
+        (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
+        evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
+        pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
+        ownership, contents, content_urls) = extract_from_result( resultsets[i] )
+
+        data.append( [] ) # add a new empty row
+        j = i + 1
+
+        data[j].append( id )
+        data[j].append( strip_formatting_tags(  provenance ) )
+        data[j].append( strip_formatting_tags(  modern_location1 ) )
+        data[j].append( strip_formatting_tags(  modern_location2 ) )
+        data[j].append( strip_formatting_tags(  shelfmark1 ) )
+        data[j].append( strip_formatting_tags(  shelfmark2 ) )
+        data[j].append( strip_formatting_tags(  evidence_code ) )
+        data[j].append( strip_formatting_tags(  evidence_desc ) )
+        data[j].append( strip_formatting_tags(  suggestion_of_contents ) )
+        data[j].append( strip_formatting_tags(  date_of_work ) )
+        data[j].append( strip_formatting_tags(  pressmark ) )
+        data[j].append( strip_formatting_tags(  medieval_catalogue ) )
+        data[j].append( strip_formatting_tags(  unknown ) )
+        data[j].append( strip_formatting_tags(  general_notes ) )
+        data[j].append( strip_formatting_tags(  notes_on_evidence ) )
+        data[j].append( strip_formatting_tags(  ownership ) )
+        data[j].append( strip_formatting_tags(  contents ) )
+        data[j].append( strip_formatting_tags(  content_urls ) )
+
+        image_string = ''
+        if len( images ) > 0: #{
+          for image_tuple in images: #{
+            if image_string > '': image_string += newline
+            if len( image_tuple ) >= 1: image_string += image_tuple[ 0 ]
+            if len( image_tuple ) >= 2: image_string += newline + image_tuple[ 1 ]
+            if len( image_tuple ) >= 3: image_string += newline + image_tuple[ 2 ]
+          #}
+        #}
+
+        data[j].append( image_string )
+
+      #} # end loop through result sets
+    #}
   #}
 
-  # Either: write out a CSV file
-  if request.GET[ "q" ] == "1": #{
-    rc=""
-    response = HttpResponse(mimetype='text/csv')
-    response['Content-Disposition'] = 'attachment; filename=%s.csv' % request.GET["i"]
-    writer = csv.writer(response)
+  # Write out a CSV file
 
-    text = text.replace("<p>","")
-    text = text.replace("</p>","")
-    text = text.replace("<strong>","")
-    text = text.replace("</strong>","")
-    text = text.replace("<em>","")
-    text = text.replace("</em>","")
-    text = text.replace('<span style="text-decoration: underline;">',"")
-    text = text.replace("</span>","")
-    text = text.replace("<i>","")
-    text = text.replace("</i>","")
-    text = text.replace("<ul>","")
-    text = text.replace("</ul>","")
-    text = text.replace("<li>","")
-    text = text.replace("</li>","")
-    text = text.replace("<ol>","")
-    text = text.replace("</ol>","")
-    text = text.replace('<span style="text-decoration: line-through;">',"")
-    text = text.replace("&nbsp;","")
-    
-    writer.writerow([text])
-    writer.writerows([data])
+  response = HttpResponse(mimetype='text/csv')
+  response['Content-Disposition'] = 'attachment; filename=mlgb.csv' 
+
+  writer = csv.writer(response)
+  
+  for row in data: #{
+    writer.writerow( [ cell.encode( 'utf8' ) for cell in row ] )
   #}
 
   return response
@@ -1792,22 +1856,28 @@ def basic_solr_query( request ): #{
     else: #{
 
       if field_to_search.lower()=='author_title':
-        solr_query ="authortitle:%s" % solr_query
+        solr_query = "authortitle:%s" % solr_query
 
       elif field_to_search.lower()=='modern_library':
-        solr_query ="library:%s" % solr_query
+        solr_query = "library:%s" % solr_query
 
       elif field_to_search.lower()=='medieval_library':
-        solr_query ="provenance:%s" % solr_query
+        solr_query = "provenance:%s" % solr_query
 
       elif field_to_search.lower()=='location':  
-        solr_query ="location:%s" % solr_query
+        solr_query = "location:%s" % solr_query
 
       elif field_to_search.lower()=='shelfmark':
-        solr_query ="shelfmarks:%s" % solr_query
+        solr_query = "shelfmarks:%s" % solr_query
+
+      elif field_to_search.lower()=='id':
+        solr_query = "id:%s" % solr_query
+
+      elif field_to_search.lower() in [ 'ml1_initial', 'ml2_initial', 'pr_initial' ]:
+        solr_query = "%s:%s" % (field_to_search.lower(), solr_query)
 
       else:
-        solr_query ="text:%s" % solr_query
+        solr_query = "text:%s" % solr_query
 
     #}
     
@@ -1891,8 +1961,8 @@ def display_as_treeview( one_row, first_record = False, \
   # Get the data from the Solr result set
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images) = \
-  extract_from_result( one_row )
+  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
+  ownership, contents, content_urls) = extract_from_result( one_row )
 
   # Get photos if any
   link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
@@ -2059,8 +2129,9 @@ def display_as_table( one_row, expand_2nd_tablerow, first_record = False, \
   # Get the data from the Solr result set
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images) = \
-  extract_from_result( one_row, False ) # here False means 'don't add punctuation'
+  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
+  ownership, contents, content_urls) = extract_from_result( one_row, False ) # here False means 'don't 
+                                                                             # add punctuation'
 
   unformatted_provenance = extract_unformatted_provenance( one_row ) # no italics etc
 
@@ -2479,6 +2550,8 @@ def get_sortfields(): #{
     order_by = default_order_by
 
   sortfields = possible_sortfields[ order_by ]
+
+  sortfields.append( 'id asc' )
   return sortfields
 #}
 #--------------------------------------------------------------------------------
@@ -2491,8 +2564,8 @@ def get_headings_from_sort_order( one_row ):  #{
   # Get the data from the Solr result set
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
-  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images) = \
-  extract_from_result( one_row )
+  pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
+  ownership, contents, content_urls) = extract_from_result( one_row )
 
   sort = order_by
   if not sort: sort = default_order_by 
@@ -2558,4 +2631,62 @@ def reset_output_style_if_necessary(): #{
     output_style = default_output_style
   #}
 #}
+#--------------------------------------------------------------------------------
+
+def strip_formatting_tags( text ): #{
+
+  if not isinstance( text, (str,unicode) ): return ''
+
+  text = text.replace( "<p>",  newline )
+  text = text.replace( "</p>", newline )
+  text = text.replace( "<strong>",  "" )
+  text = text.replace( "</strong>", "" )
+  text = text.replace( "<em>",      "" )
+  text = text.replace( "</em>",     "" )
+  text = text.replace( '<span style="text-decoration: underline;">',    "" )
+  text = text.replace( '<span style="text-decoration: line-through;">', "" )
+  text = text.replace( "</span>", "" )
+  text = text.replace( "<i>",     "" )
+  text = text.replace( "</i>",    "" )
+  text = text.replace( "<ul>",    "" )
+  text = text.replace( "</ul>",   "" )
+  text = text.replace( "<li>",    " * " )
+  text = text.replace( "</li>",   "" )
+  text = text.replace( "<ol>",    "" )
+  text = text.replace( "</ol>",   "" )
+  text = text.replace( "&nbsp;",  " " )
+  return text
+#}
+#--------------------------------------------------------------------------------
+
+def get_text_for_pdf( book_id, rc = "<br/>" ): #{
+
+  data = []
+  text = ""
+
+  data = Book.objects.filter( id = book_id )
+
+  text =  "Provenance: %s%s"      % (data[0].provenance, rc)
+  text += "Location: %s, %s%s"    % (data[0].modern_location_2, data[0].modern_location_1, rc)
+  text += "Shelfmark: %s %s%s"    % (data[0].shelfmark_1, data[0].shelfmark_2, rc)
+  text += "Author/Title: %s %s%s" % (data[0].evidence, data[0].author_title, rc)
+
+  if data[0].date:
+    text += "Date: %s%s" % (data[0].date, rc)
+  
+  if data[0].pressmark:
+    text += "Pressmark: %s%s" % (data[0].pressmark, rc)
+  
+  if data[0].medieval_catalogue:
+    text += "Medieval Catalogue: %s%s" % (data[0].medieval_catalogue, rc)
+  
+  if data[0].ownership:
+    text += "Ownership: %s%s" % (data[0].ownership, rc)
+  
+  if data[0].notes.strip('" \n\r'):
+    text += "Notes: %s" % (data[0].notes.strip('" \n\r'))
+
+  return (data, text)
+#}
+# end get_text_for_pdf
 #--------------------------------------------------------------------------------
