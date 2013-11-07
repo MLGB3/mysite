@@ -1800,6 +1800,8 @@ def downloadcsv( request, pagename = 'download' ): #{
   for char in search_term: #{
     if char.isalnum(): label += char
   #}
+  if len( label ) > 30: # getting a bit too long
+    label = label[ 0 : 30 ]
   if label: label = '-' + label
 
   response = HttpResponse( mimetype='text/csv' )
@@ -2639,8 +2641,8 @@ def strip_formatting_tags( text ): #{
   text = text.replace( newline,  " " )
   text = text.replace( "\r",  " " )
 
-  text = text.replace( "<p>",  "" )
-  text = text.replace( "</p>", " " )
+  text = text.replace( "<p>",  " " )
+  text = text.replace( "</p>", "  " )
   text = text.replace( "<strong>",  "" )
   text = text.replace( "</strong>", "" )
   text = text.replace( "<em>",      "" )
@@ -2649,6 +2651,7 @@ def strip_formatting_tags( text ): #{
   text = text.replace( "</sub>",    " " )
   text = text.replace( "<sup>",     " " )
   text = text.replace( "</sup>",    " " )
+  text = text.replace( "<span>",    " " )
   text = text.replace( '<span style="text-decoration: underline;">',    "" )
   text = text.replace( '<span style="text-decoration: line-through;">', "" )
   text = text.replace( "</span>", "" )
@@ -2661,10 +2664,14 @@ def strip_formatting_tags( text ): #{
   text = text.replace( "<ol>",    "" )
   text = text.replace( "</ol>",   " " )
   text = text.replace( "&nbsp;",  " " )
+  text = text.replace( "<br>",    "  " )
+  text = text.replace( "<br />",  "  " )
+  text = text.replace( "<div>",    " " )
+  text = text.replace( "</div>",    " " )
+  text = text.replace( "</a>",    " " )
 
-  # Strip out HTML/XML comments giving formatting instructions, 
-  # some of which are very long indeed
-  tags = [ '<!--', '<span ', '<div ', '<p ']
+  # Strip out HTML/XML comments giving formatting instructions etc. 
+  tags = [ '<!--', '<span ', '<div ', '<p ', '<a ' ]
   for tag_start in tags: #{
     if tag_start == '<!--':
       tag_end = '-->'
