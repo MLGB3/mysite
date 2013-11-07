@@ -913,20 +913,14 @@ def extract_from_result( resultset, add_punctuation = True ): #{
   contents = ""
   if resultset.has_key( 'contents' ): #{
     contents_list = resultset[ 'contents' ]
-    for content in contents_list: #{
-      if contents != "": contents += newline 
-      contents += content
-    #}
+    contents = newline.join( contents_list )
   #}
 
   # content URLs (as a single string)
   content_urls = ""
   if resultset.has_key( 'content_urls' ): #{
-    content_urls = resultset[ 'content_urls' ]
-    for content in content_urls: #{
-      if content_urls != "": content_urls += newline 
-      content_urls += content
-    #}
+    content_urls_list = resultset[ 'content_urls' ]
+    content_urls = newline.join( content_urls_list )
   #}
 
   return (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
