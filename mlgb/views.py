@@ -1667,7 +1667,8 @@ def get_link_for_download_button( request, field_to_search = '', search_term = '
   #}
 
   if field_to_search and search_term:
-    new_search += '%s%s=%s' % (delim, field_to_search, search_term.encode( 'utf-8' ))
+    new_search += '%sfield_to_search=%s&search_term=%s' \
+                % (delim, field_to_search, search_term.encode( 'utf-8' ))
 
   href = '%s/downloadcsv/%s' % ( baseurl, new_search )
   return href
@@ -1724,12 +1725,12 @@ def downloadcsv( request, pagename = 'download' ): #{
 
   data[0].append( 'Book ID' )
   data[0].append( 'Provenance' )
-  data[0].append( 'Modern location1' )
-  data[0].append( 'Modern location2' )
-  data[0].append( 'Shelfmark1' )
-  data[0].append( 'Shelfmark2' )
+  data[0].append( 'Modern location 1' )
+  data[0].append( 'Modern location 2' )
+  data[0].append( 'Shelfmark 1' )
+  data[0].append( 'Shelfmark 2' )
   data[0].append( 'Evidence code' )
-  data[0].append( 'Evidence desc' )
+  data[0].append( 'Evidence description' )
   data[0].append( 'Suggestion of contents' )
   data[0].append( 'Date of work' )
   data[0].append( 'Pressmark' )
@@ -1755,7 +1756,7 @@ def downloadcsv( request, pagename = 'download' ): #{
         (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
         evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
         pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-        ownership, contents, content_urls) = extract_from_result( resultsets[i] )
+        ownership, contents, content_urls) = extract_from_result( resultsets[i], False )
 
         data.append( [] ) # add a new empty row
         j = i + 1
@@ -1782,10 +1783,9 @@ def downloadcsv( request, pagename = 'download' ): #{
         image_string = ''
         if len( images ) > 0: #{
           for image_tuple in images: #{
-            if image_string > '': image_string += newline
+            if image_string > '': image_string += ' ' 
             if len( image_tuple ) >= 1: image_string += image_tuple[ 0 ]
             if len( image_tuple ) >= 2: image_string += newline + image_tuple[ 1 ]
-            if len( image_tuple ) >= 3: image_string += newline + image_tuple[ 2 ]
           #}
         #}
 
@@ -1796,9 +1796,14 @@ def downloadcsv( request, pagename = 'download' ): #{
   #}
 
   # Write out a CSV file
+  label = ''
+  for char in search_term: #{
+    if char.isalnum(): label += char
+  #}
+  if label: label = '-' + label
 
-  response = HttpResponse(mimetype='text/csv')
-  response['Content-Disposition'] = 'attachment; filename=mlgb.csv' 
+  response = HttpResponse( mimetype='text/csv' )
+  response['Content-Disposition'] = 'attachment; filename=MLGB%s.csv' % label
 
   writer = csv.writer(response)
   
@@ -2631,24 +2636,59 @@ def strip_formatting_tags( text ): #{
 
   if not isinstance( text, (str,unicode) ): return ''
 
-  text = text.replace( "<p>",  newline )
-  text = text.replace( "</p>", newline )
+  text = text.replace( newline,  " " )
+  text = text.replace( "\r",  " " )
+
+  text = text.replace( "<p>",  "" )
+  text = text.replace( "</p>", " " )
   text = text.replace( "<strong>",  "" )
   text = text.replace( "</strong>", "" )
   text = text.replace( "<em>",      "" )
   text = text.replace( "</em>",     "" )
+  text = text.replace( "<sub>",     " " )
+  text = text.replace( "</sub>",    " " )
+  text = text.replace( "<sup>",     " " )
+  text = text.replace( "</sup>",    " " )
   text = text.replace( '<span style="text-decoration: underline;">',    "" )
   text = text.replace( '<span style="text-decoration: line-through;">', "" )
   text = text.replace( "</span>", "" )
   text = text.replace( "<i>",     "" )
   text = text.replace( "</i>",    "" )
   text = text.replace( "<ul>",    "" )
-  text = text.replace( "</ul>",   "" )
+  text = text.replace( "</ul>",   " " )
   text = text.replace( "<li>",    " * " )
   text = text.replace( "</li>",   "" )
   text = text.replace( "<ol>",    "" )
-  text = text.replace( "</ol>",   "" )
+  text = text.replace( "</ol>",   " " )
   text = text.replace( "&nbsp;",  " " )
+
+  # Strip out HTML/XML comments giving formatting instructions, 
+  # some of which are very long indeed
+  tags = [ '<!--', '<span ', '<div ', '<p ']
+  for tag_start in tags: #{
+    if tag_start == '<!--':
+      tag_end = '-->'
+    else:
+      tag_end = '>'
+
+    while tag_start in text: #{
+      before_unwanted_section = ''
+      after_unwanted_section = ''
+
+      unwanted_section_start = text.find( tag_start )
+      if unwanted_section_start > 0:
+        before_unwanted_section = text[ 0 : unwanted_section_start ]
+
+      unwanted_section_end = text.find( tag_end, unwanted_section_start )
+      unwanted_section_end += len( tag_end )
+      if unwanted_section_end < len( text ):
+        after_unwanted_section = text[ unwanted_section_end : ]
+
+      text = before_unwanted_section + after_unwanted_section
+    #}
+  #}
+
+  text = text.strip()
   return text
 #}
 #--------------------------------------------------------------------------------
