@@ -14,6 +14,9 @@ tab = '\t'
 newline = '\n'
 carriage_return = '\r'
 
+number_of_digits = 4
+start_of_century_marker = 9999
+
 ##=====================================================================================
 
 def rewriteDataFile(): #{
@@ -66,20 +69,20 @@ def get_update_statement( book_id, date_string ): #{
 
   new_value = ''
   numeric_chars = ''
-  number_of_digits = 4
+  step = 0
 
-  roman_dict = { 'vi'  : '0500',
-                 'vii' : '0600',
-                 'viii': '0700', 
-                 'ix'  : '0800', 
-                 'x'   : '0900',
-                 'xi'  : '1000', 
-                 'xii' : '1100', 
-                 'xiii': '1200', 
-                 'xiv' : '1300', 
-                 'xv'  : '1400', 
-                 'xvi' : '1500', 
-                 'xvii': '1600' }
+  roman_dict = { 'vi'  : '0501', # adding 1 will allow 'start of century' values to come first
+                 'vii' : '0601',
+                 'viii': '0701', 
+                 'ix'  : '0801', 
+                 'x'   : '0901',
+                 'xi'  : '1001', 
+                 'xii' : '1101', 
+                 'xiii': '1201', 
+                 'xiv' : '1301', 
+                 'xv'  : '1401', 
+                 'xvi' : '1501', 
+                 'xvii': '1601' }
 
   # Get rid of a few strings that might give the wrong result
   date_string = date_string.replace ( '(fols. 1--130)', '' )
@@ -110,32 +113,93 @@ def get_update_statement( book_id, date_string ): #{
   date_string = date_string.replace ( ' 11 July', '' )
   date_string = date_string.replace ( '12. Nov.', '' )
   date_string = date_string.replace ( 'GW 2880', '' )
+  date_string = date_string.replace ( '1295--96', '1295' )
+  date_string = date_string.replace ( '1280--90', '1280' )
 
   # Try and set parts of centuries (first quarter, etc)
-  date_string = date_string.replace ( ' in', ' 0010 ' )
-  date_string = date_string.replace ( 'in.', ' 0010 ' )
+  # Note: 'in' means '1st half of the century' and 'ex' means 'second half of the century'
+  # And so do '1' and '2'.
 
-  date_string = date_string.replace ( ' 1/4', ' 0025 ' )
-  date_string = date_string.replace ( 'i1/4', 'i 0025 ' )
+  # First try and get things into a consistent format
+  date_string = date_string.replace ( 'i1/4', 'i FIRSTQUARTER' )
+  date_string = date_string.replace ( 'i2/4', 'i SECONDQUARTER' )
+  date_string = date_string.replace ( 'i 1/4', 'i FIRSTQUARTER' )
+  date_string = date_string.replace ( 'i 2/4', 'i SECONDQUARTER' )
 
-  date_string = date_string.replace ( ' 2/4', ' 0045 ' )
-  date_string = date_string.replace ( 'i2/4', 'i 0045 ' )
+  date_string = date_string.replace ( 'x1/4', 'x FIRSTQUARTER' )
+  date_string = date_string.replace ( 'x2/4', 'x SECONDQUARTER' )
+  date_string = date_string.replace ( 'x 1/4', 'x FIRSTQUARTER' )
+  date_string = date_string.replace ( 'x 2/4', 'x SECONDQUARTER' )
 
-  date_string = date_string.replace ( 'med.', ' 0050 ' )
-  date_string = date_string.replace ( ' med', ' 0050 ' )
-  date_string = date_string.replace ( '(med', ' 0050 ' )
+  date_string = date_string.replace ( 'v1/4', 'v FIRSTQUARTER' )
+  date_string = date_string.replace ( 'v2/4', 'v SECONDQUARTER' )
+  date_string = date_string.replace ( 'v 1/4', 'v FIRSTQUARTER' )
+  date_string = date_string.replace ( 'v 2/4', 'v SECONDQUARTER' )
 
-  date_string = date_string.replace ( ' 3/4', ' 0075 ' )
-  date_string = date_string.replace ( 'i3/4', 'i 0075 ' )
-  date_string = date_string.replace ( ' 4/4', ' 0090 ' )
-  date_string = date_string.replace ( 'i4/4', 'i 0090 ' )
+  date_string = date_string.replace ( 'i1', 'i in' )
+  date_string = date_string.replace ( 'i2', 'i ex' )
+  date_string = date_string.replace ( 'i 1', 'i in' )
+  date_string = date_string.replace ( 'i 2', 'i ex' )
 
-  date_string = date_string.replace ( 'ex.', ' 0099 ' )
-  date_string = date_string.replace ( ' ex', ' 0099 ' )
+  date_string = date_string.replace ( 'x1', 'x in' )
+  date_string = date_string.replace ( 'x2', 'x ex' )
+  date_string = date_string.replace ( 'x 1', 'x in' )
+  date_string = date_string.replace ( 'x 2', 'x ex' )
+
+  date_string = date_string.replace ( 'v1', 'v in' )
+  date_string = date_string.replace ( 'v2', 'v ex' )
+  date_string = date_string.replace ( 'v 1', 'v in' )
+  date_string = date_string.replace ( 'v 2', 'v ex' )
+
+  date_string = date_string.replace( 'FIRSTQUARTER', ' 1/4 ' )
+  date_string = date_string.replace( 'SECONDQUARTER', ' 2/4 ' )
+
+  #============================
+  # Now change words to numbers
+  #============================
+
+  # First quarter of century
+  date_string = date_string.replace ( ' 1/4', ' %s ' % start_of_century_marker  )  # to be replaced later
+
+  # First half of century
+  date_string = date_string.replace ( ' in', ' %s ' % start_of_century_marker )
+  date_string = date_string.replace ( 'in.', ' %s ' % start_of_century_marker )
+
+
+  # Second quarter of century
+  date_string = date_string.replace ( ' 2/4', ' 26 ' )
+  date_string = date_string.replace ( 'i2/4', 'i 26 ' )
+
+  # Middle of century
+  date_string = date_string.replace ( 'med.', ' 50 ' )
+  date_string = date_string.replace ( ' med', ' 50 ' )
+  date_string = date_string.replace ( '(med', ' 50 ' )
+
+  # Second half of century
+  date_string = date_string.replace ( 'ex.', ' 51 ' )
+  date_string = date_string.replace ( ' ex', ' 51 ' )
+
+  # Third quarter of century
+  date_string = date_string.replace ( ' 3/4', ' 52 ' )
+  date_string = date_string.replace ( 'i3/4', 'i 52 ' )
+
+  # Fourth quarter of century
+  date_string = date_string.replace ( ' 4/4', ' 76 ' )
+  date_string = date_string.replace ( 'i4/4', 'i 76 ' )
+
 
   # If we replace them in this order, hopefully it will come out right!
   roman_list = [ 'ix', 'xvii', 'xvi', 'xv', 'xiv', 'xiii', 'xii', 'xi', 'x', 'viii', 'vii', 'vi' ]
 
+  # First make all the dates the same case (lower case)
+  for roman_numeral in roman_list: #{
+    upper_numeral = roman_numeral.upper()
+    if upper_numeral in date_string: #{
+      date_string = date_string.replace( upper_numeral, roman_numeral )
+    #}
+  #}
+
+  # Now, actually convert Roman numerals to modern numbers
   for roman_numeral in roman_list: #{
     if roman_numeral in date_string: #{
       if roman_dict.has_key( roman_numeral ): #{
@@ -156,22 +220,12 @@ def get_update_statement( book_id, date_string ): #{
       numeric_chars = "%s%s" % (numeric_chars, one_char)
     #}
     else: #{
-
-      if numeric_chars: #{
-        numeric_chars = numeric_chars.rjust( number_of_digits, '0' )
-        new_value = "%s%s | " % (new_value, numeric_chars)
-        numeric_chars = ''
-      #}
-
+      new_value, numeric_chars, step = finish_processing_number( new_value, numeric_chars, step )
       if one_char == ' ': new_value = "%s%s" % (new_value, one_char)
     #}
   #}
 
-  if numeric_chars: #{ # add any numbers left over at the end
-    numeric_chars = numeric_chars.rjust( number_of_digits, '0' )
-    new_value = "%s%s | " % (new_value, numeric_chars)
-    numeric_chars = ''
-  #}
+  new_value, numeric_chars, step = finish_processing_number( new_value, numeric_chars, step )
 
   while ' ' + ' ' in new_value: #{  # convert double spaces into single ones
     new_value = new_value.replace( ' ' + ' ', ' ' )
@@ -191,6 +245,48 @@ def get_update_statement( book_id, date_string ): #{
   return new_value
 #}
 
+##=====================================================================================
+def finish_processing_number( value, numeric_chars, step ): #{
+
+  if numeric_chars: #{
+    step += 1
+
+    print "'%s'" % value
+    print numeric_chars
+
+    value = value.strip()
+    if value.isdigit():
+      intval = int( value )
+    else:
+      intval = 0
+    number = int( numeric_chars )
+
+    if step == 1: #{
+      value = numeric_chars.rjust( number_of_digits, '0' )
+    #}
+
+    elif step == 2 and (number < 100 or number == start_of_century_marker): #{
+      if number == start_of_century_marker:
+        new_number = intval - 1
+      else:
+        new_number = intval + number
+      value = "%d" % new_number
+      value = value.rjust( number_of_digits, '0' )
+    #}
+
+    elif step == 2 and intval > 500 and number >= intval+100: #{
+      value = "%s99%d" % (value[ 0:2 ], number)
+    #}
+
+    else: #{
+      numeric_chars = numeric_chars.rjust( number_of_digits, '0' )
+      value = "%s%s | " % (value, numeric_chars)
+    #}
+    numeric_chars = ''
+  #}
+
+  return value, numeric_chars, step
+#}
 ##=====================================================================================
 
 if __name__ == '__main__':
