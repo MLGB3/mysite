@@ -54,7 +54,10 @@ two_spaces = space + space
 #--------------------------------------------------------------------------------
 ## This sets up the data for the Home page
 
-def index( request, pagename = 'home' ): #{
+def index( request, pagename = 'home', called_by_editable_page = False ): #{
+
+  if called_by_editable_page: enable_edit()
+  else: disable_edit()
 
   (medieval_library_count, modern_library_count, location_count) = get_category_counts()
 
@@ -78,9 +81,18 @@ def index( request, pagename = 'home' ): #{
 ## This sets up the data for the Home page in 'editable' mode
 
 def index_e( request, pagename = 'home' ): #{
+  return index( request, pagename, True )
+#}
+#--------------------------------------------------------------------------------
+## This changes links to exclude the 'editable' part of the URL  
 
-  enable_edit()
-  return index( request, pagename )
+def disable_edit(): #{
+
+  global editable
+  editable = False
+
+  global baseurl
+  baseurl = '/mlgb'
 #}
 #--------------------------------------------------------------------------------
 ## This changes links to include the 'editable' part of the URL  
@@ -99,7 +111,10 @@ def enable_edit(): #{
 # or cities. Each item in the list links through to the search results function, i.e. mlgb().
 # In other words, a search will be run based on the name of the medieval library, etc.
 
-def category( request, pagename = 'category' ): #{
+def category( request, pagename = 'category', called_by_editable_page = False ): #{
+
+  if called_by_editable_page: enable_edit()
+  else: disable_edit()
 
   # Get the facet counts for the appropriate category from Solr
   field_to_search = get_value_from_GET( request, 'field_to_search', default_value = 'medieval_library' )
@@ -218,14 +233,16 @@ def category( request, pagename = 'category' ): #{
 #--------------------------------------------------------------------------------
 
 def category_e( request, pagename = 'category' ): #{
-  enable_edit()
-  return category( request, pagename )
+  return category( request, pagename, True )
 #}
 #--------------------------------------------------------------------------------
 
 # The function mlgb() sets up display of search results
 
-def mlgb( request, pagename = 'results' ): #{
+def mlgb( request, pagename = 'results', called_by_editable_page = False ): #{
+
+  if called_by_editable_page: enable_edit()
+  else: disable_edit()
 
   global printing # are we about to print this page, or view it in onscreen mode?
   printing = False
@@ -353,14 +370,16 @@ def mlgb( request, pagename = 'results' ): #{
 # end function mlgb() (search results)
 #--------------------------------------------------------------------------------
 def mlgb_e( request, pagename = 'results' ): #{
-  enable_edit()
-  return mlgb( request, pagename )
+  return mlgb( request, pagename, True )
 #}
 #--------------------------------------------------------------------------------
 
 # Function book() calls up the detail page for one single book.
 
-def book( request, book_id, pagename = 'book' ): #{
+def book( request, book_id, pagename = 'book', called_by_editable_page = False ): #{
+
+  if called_by_editable_page: enable_edit()
+  else: disable_edit()
 
   try:
     bk = Book.objects.get( pk = book_id )
@@ -404,14 +423,16 @@ def book( request, book_id, pagename = 'book' ): #{
 # end function book()
 #--------------------------------------------------------------------------------
 def book_e( request, book_id, pagename = 'book' ): #{
-  enable_edit()
-  return book( request, book_id, pagename )
+  return book( request, book_id, pagename, True )
 #}
 #--------------------------------------------------------------------------------
 
 # The function browse() allows browsing by modern location and shelfmark
 
-def browse( request, letter = 'A', pagename = 'browse' ): #{
+def browse( request, letter = 'A', pagename = 'browse', called_by_editable_page = False ): #{
+
+  if called_by_editable_page: enable_edit()
+  else: disable_edit()
 
   global printing # are we about to print this page, or view it in onscreen mode?
   printing = False
@@ -603,8 +624,7 @@ def browse( request, letter = 'A', pagename = 'browse' ): #{
 # end function browse()
 #--------------------------------------------------------------------------------
 def browse_e( request, letter = 'A', pagename = 'browse' ): #{
-  enable_edit()
-  return browse( request, letter, pagename )
+  return browse( request, letter, pagename, True )
 #}
 #--------------------------------------------------------------------------------
 
@@ -716,7 +736,7 @@ def download( request, pagename = 'download' ): #{
 # end download
 #--------------------------------------------------------------------------------
 
-def about( request, pagename = 'about' ): #{
+def about( request, pagename = 'about', called_by_editable_page = False ): #{
 
   t = loader.get_template('mlgb/about.html')
 
@@ -730,8 +750,7 @@ def about( request, pagename = 'about' ): #{
 #--------------------------------------------------------------------------------
 
 def about_e( request, pagename = 'about' ): #{
-  enable_edit()
-  return about( request, pagename )
+  return about( request, pagename, True )
 #}
 #--------------------------------------------------------------------------------
 #============== End of top-level functions called directly from URL =============
