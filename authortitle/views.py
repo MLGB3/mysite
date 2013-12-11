@@ -36,6 +36,7 @@ def browse( request, letter = 'A', pagename = 'index', called_by_editable_page =
   t = loader.get_template('authortitle/index%s.html' % letter )
 
   c = Context( {
+      'pagename'         : pagename,
       'editable'         : editable,
       'letter'           : letter,
   } )
