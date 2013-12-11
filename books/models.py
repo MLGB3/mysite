@@ -92,6 +92,7 @@ class Book(models.Model):
     date = models.CharField(max_length=100, blank=True)
     pressmark = models.TextField(blank=True)
     medieval_catalogue = models.CharField(max_length=50, blank=True)
+    medieval_catalogue_notes = models.CharField(max_length=255, blank=True)
     unknown = models.CharField(verbose_name='Query',max_length=50, blank=True)
     ownership = models.TextField(blank=True)
     notes = models.TextField(blank=True)
@@ -166,6 +167,7 @@ class RawBook(models.Model):
     date = models.CharField(max_length=50, blank=True)
     pressmark = models.TextField(blank=True)
     medieval_catalogue = models.CharField(max_length=50, blank=True)
+    medieval_catalogue_notes = models.CharField(max_length=255, blank=True)
     unknown = models.CharField(max_length=50, blank=True)
     notes = models.TextField(blank=True)
     def __unicode__(self):

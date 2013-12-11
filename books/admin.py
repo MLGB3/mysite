@@ -17,6 +17,7 @@ class BooksAdmin(admin.ModelAdmin):
                'date',
                'pressmark',
                'medieval_catalogue',
+               'medieval_catalogue_notes',
                'unknown',
                'ownership',
                'notes',
@@ -31,7 +32,8 @@ class BooksAdmin(admin.ModelAdmin):
                      'evidence',
                      'author_title',
                      'date',
-                     'medieval_catalogue' )
+                     'medieval_catalogue',
+                     'medieval_catalogue_notes' )
 
     list_filter = [ 'provenance',
                     'modern_location_1',
@@ -43,7 +45,8 @@ class BooksAdmin(admin.ModelAdmin):
                       'date',
                       'ownership',
                       'notes',
-                      'medieval_catalogue' ]
+                      'medieval_catalogue',
+                      'medieval_catalogue_notes' ]
 
     list_per_page = 15
     ordering = fields
