@@ -53,7 +53,7 @@ def browse_e( request, letter = 'A', pagename = 'index' ): #{
 
 # The function medieval_catalogues() allows browsing of the index by medieval document
 
-def medieval_catalogues( request, cat = '', pagename = 'index', called_by_editable_page = False ): #{
+def medieval_catalogues( request, cat = '', pagename = 'cats', called_by_editable_page = False ): #{
 
   # The call to 'enable edit' is just so that they can (eventually) navigate from the main site to
   # the index and then back again, without losing their 'editability' setting on the way.
@@ -83,7 +83,7 @@ def medieval_catalogues( request, cat = '', pagename = 'index', called_by_editab
 #}
 # end function medieval_catalogues()
 #--------------------------------------------------------------------------------
-def medieval_catalogues_e( request, cat = 'A', pagename = 'index' ): #{
+def medieval_catalogues_e( request, cat = '', pagename = 'cats' ): #{
   return medieval_catalogues( request, cat, pagename, True )
 #}
 #--------------------------------------------------------------------------------
