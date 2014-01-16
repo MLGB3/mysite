@@ -17,6 +17,7 @@ from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
 from django.core.urlresolvers import reverse
 from django.utils.html import escape
+from django.db import connection
 from urllib import quote, unquote
 import csv
 from cStringIO import StringIO
@@ -25,6 +26,7 @@ from cStringIO import StringIO
 
 editable = False
 baseurl="/mlgb"
+medieval_catalogue_url = "/authortitle/medieval_catalogues"
 
 facet=False
 default_rows_per_page = 500
@@ -398,6 +400,12 @@ def book( request, book_id, pagename = 'book', called_by_editable_page = False )
   except Book.DoesNotExist:
     raise Http404
 
+  # If one or more medieval catalogues have been entered, link to them.
+  if bk.medieval_catalogue: #{
+    bk.medieval_catalogue += get_links_from_book_to_catalogues( bk.id )
+  #}
+
+
   # See if they have entered a search to get here.
   # If so, allow them to repeat it.
   search_term = get_value_from_GET( request, 'search_term' )
@@ -416,6 +424,8 @@ def book( request, book_id, pagename = 'book', called_by_editable_page = False )
                  'page_size': page_size,
                  'page_sizes': get_page_sizes(),
                  'default_rows_per_page': str( default_rows_per_page ),
+                 'order_options': get_order_change_field( 'any', '', False ),
+                 'output_styles': get_output_style_change_field( False ),
                  'evidence_desc': evidence_desc  } )
 
   return HttpResponse(t.render(c))
@@ -2749,4 +2759,55 @@ def get_text_for_pdf( book_id, rc = "<br/>" ): #{
   return (data, text)
 #}
 # end get_text_for_pdf
+#--------------------------------------------------------------------------------
+
+def get_links_from_book_to_catalogues( book_id ): #{
+
+  the_cursor = connection.cursor()
+
+  statement  = 'select distinct v.document_code, v.document_code_sort, v.document_name, '
+  statement += ' v.doc_group_type_name, v.doc_group_name ' 
+  statement += ' from index_mlgb_links l, index_medieval_documents_view v ' 
+  statement += ' where v.document_code = l.document_code '
+  statement += ' and l.mlgb_book_id = %d ' % book_id
+  statement += ' order by document_code_sort'
+
+  the_cursor.execute( statement )
+  link_results = the_cursor.fetchall()
+  num_links = len( link_results )
+
+  link_string = ''
+  plural = ''
+  if num_links > 1: plural = 's'
+  if num_links > 0: link_string += '<br><br>Further details of medieval catalogue%s: ' % plural
+  if num_links > 1: link_string += '<ul>'
+
+  for row in link_results: #{
+    document_code       = row[ 0 ]
+    document_code_sort  = row[ 1 ]
+    document_name       = row[ 2 ]
+    doc_group_type_name = row[ 3 ]
+    doc_group_name      = row[ 4 ]
+
+    catalogue_desc = doc_group_type_name + ': ' + doc_group_name + ': ' + document_name
+    catalogue_desc = escape( catalogue_desc )
+
+    if num_links > 1: link_string += '<li>'
+
+    url = medieval_catalogue_url
+    if editable: url = '/e' + url
+
+    link_string += '<a href="%s/%s/" ' % (url, document_code)
+    link_string += ' title="Medieval catalogue %s">' % document_code
+    link_string += document_code + '. ' + catalogue_desc
+    link_string += '</a>'
+
+    if num_links > 1: link_string += '</li>'
+  #}
+
+  if num_links > 1: link_string += '</ul>'
+
+  return link_string
+#}
+# end get_links_from_book_to_catalogues
 #--------------------------------------------------------------------------------
