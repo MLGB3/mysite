@@ -6,7 +6,7 @@ version = open(os.path.join("version.txt")).read().strip()
 setup(
     name='mysite',
     version=version,
-    packages=['mysite'],
+    packages=[''],
     include_package_data=True,
     license='BSD License',
     description='A django product',
