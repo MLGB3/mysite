@@ -61,12 +61,19 @@ def medieval_catalogues( request, cat = '', pagename = 'cats', called_by_editabl
   else: disable_edit()
 
   sort_by_date = False
+  display_decodes = False
 
-  if not cat.isalnum(): 
+  if not cat.isalnum(): #{
     cat = ''
-  elif cat == 'bydate':
+  #}
+  elif cat == 'bydate': #{
     cat = ''
     sort_by_date = True
+  #}
+  elif cat == 'decode': #{
+    cat = ''
+    display_decodes = True
+  #}
   else: 
     cat = cat.upper()
 
@@ -76,6 +83,8 @@ def medieval_catalogues( request, cat = '', pagename = 'cats', called_by_editabl
     t = loader.get_template('authortitle/catalogue%s.html' % cat )
   elif sort_by_date:
     t = loader.get_template('authortitle/cataloguelistbydate.html' )
+  elif display_decodes:
+    t = loader.get_template('authortitle/decode.html' )
   else:
     t = loader.get_template('authortitle/cataloguelist.html' )
 
