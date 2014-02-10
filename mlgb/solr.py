@@ -37,6 +37,8 @@ import urllib
 
 from base64 import encodestring
 
+from config import solr_base
+
 
 class SolrException(Exception):
     """ An exception thrown by solr connections """
@@ -54,7 +56,7 @@ class SolrException(Exception):
 
 
 class SolrConnection:
-  def __init__(self, host='localhost:8180', solrBase='/solr', username=None, password=None, persistent=True, postHeaders={}):
+  def __init__(self, host='localhost:8180', solrBase=solr_base, username=None, password=None, persistent=True, postHeaders={}):
     self.host = host
     self.solrBase = solrBase
     self.persistent = persistent

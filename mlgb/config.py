@@ -1,7 +1,7 @@
 from mysite.books.models import Book
 
 solr_host='localhost:8180'
-solr_base='/solr'
+solr_base='/solr/books'
 solr_uname='solradmin'
 solr_pswd='blessing'
 solr_commit='false'
