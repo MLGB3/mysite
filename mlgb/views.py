@@ -388,7 +388,7 @@ def book( request, book_id, pagename = 'book', called_by_editable_page = False )
 
     ev = {}
     evidence_code = bk.evidence
-    evidence_desc = 'no evidence'
+    evidence_desc = 'Inferred'
 
     try:
       ev = Evidence.objects.get( evidence = evidence_code )
