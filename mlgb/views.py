@@ -1,5 +1,6 @@
 """
-# Main setup script for all MLGB front end web pages
+# Main setup script for all MLGB front end web pages derived from the database of books.
+# For author/title index, including medieval catalogues, see the 'authortitle' directory.
 
 # An early version was written by Xiaofeng Yang, 2009-2010
 # but this was very, very thoroughly rewritten by Sushila Burgess 2013-2014.
@@ -112,7 +113,7 @@ def enable_edit(): #{
 #--------------------------------------------------------------------------------
 
 # The function category() displays a list of medieval libraries, modern libraries
-# or cities. Each item in the list links through to the search results function, i.e. mlgb().
+# or cities. Each item in the list links through to the search results function, i.e. results().
 # In other words, a search will be run based on the name of the medieval library, etc.
 
 def category( request, pagename = 'category', called_by_editable_page = False ): #{
@@ -241,9 +242,9 @@ def category_e( request, pagename = 'category' ): #{
 #}
 #--------------------------------------------------------------------------------
 
-# The function mlgb() sets up display of search results
+# The function results() sets up display of search results
 
-def mlgb( request, pagename = 'results', called_by_editable_page = False ): #{
+def results( request, pagename = 'results', called_by_editable_page = False ): #{
 
   if called_by_editable_page: enable_edit()
   else: disable_edit()
@@ -371,10 +372,10 @@ def mlgb( request, pagename = 'results', called_by_editable_page = False ): #{
   return HttpResponse( t.render( c ) )
 
 #}
-# end function mlgb() (search results)
+# end function results() 
 #--------------------------------------------------------------------------------
-def mlgb_e( request, pagename = 'results' ): #{
-  return mlgb( request, pagename, True )
+def results_e( request, pagename = 'results' ): #{
+  return results( request, pagename, True )
 #}
 #--------------------------------------------------------------------------------
 
