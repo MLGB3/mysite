@@ -1,11 +1,11 @@
 from django.db import models
 from django.db.models import permalink
 from django.contrib import admin
-from mysite.mlgb.mlgb import *
+from mysite.mlgbUtils import *
 
 #========================================================================
 
-x=MLGB()
+utils = mlgbUtils()
 
 #========================================================================
 
@@ -126,7 +126,7 @@ class Contains(models.Model):
     urls = models.CharField(max_length=255,blank=True)
     def __unicode__(self):
         #return self.contains
-        return x.stripoffHtml(self.contains)
+        return utils.stripoffHtml(self.contains)
 
     class Meta:
         ordering = ['contains']
