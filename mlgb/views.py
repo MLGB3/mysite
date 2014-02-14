@@ -1,26 +1,28 @@
 """
 # Main setup script for all MLGB front end web pages
 
-# Originally written in 'vile' mode by the diabolical Xiaofeng Yang, 2009-2010
-# but very, very thoroughly rewritten by Sushila Burgess 2013.
+# An early version was written by Xiaofeng Yang, 2009-2010
+# but this was very, very thoroughly rewritten by Sushila Burgess 2013-2014.
 """
 #--------------------------------------------------------------------------------
 
-from mysite.books.models import *
-from mysite.feeds.models import Photo
-from django.utils import simplejson
-from mysite.mlgb.MLGBsolr import *
-from mysite.mlgb.config import *
-from mysite.apache.settings import MEDIA_URL
-from django.template import Context, loader
-from django.http import HttpResponse,Http404,HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render_to_response
+from django.template          import Context, loader
+from django.http              import HttpResponse,Http404,HttpResponseRedirect
+from django.shortcuts         import get_object_or_404, render_to_response
 from django.core.urlresolvers import reverse
-from django.utils.html import escape
-from django.db import connection
-from urllib import quote, unquote
+from django.utils             import simplejson
+from django.utils.html        import escape
+from django.db                import connection
+from urllib                   import quote, unquote
+from cStringIO                import StringIO
+
 import csv
-from cStringIO import StringIO
+
+from mysite.config          import *
+from mysite.MLGBsolr        import *
+from mysite.apache.settings import MEDIA_URL
+from mysite.books.models    import *
+from mysite.feeds.models    import Photo
 
 #--------------------------------------------------------------------------------
 

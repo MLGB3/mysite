@@ -10,9 +10,11 @@ class MLGBsolr:
         self.connstatus = False
         self.req        = None
 
-    def solrconn( self ):
+    def solrconn( self, core = 'books' ):
         try:
-            self.conn = SolrConnection( host=solr_host, solrBase=solr_base, \
+            solr_base_and_core = "%s/%s" % (solr_base, core)
+
+            self.conn = SolrConnection( host=solr_host, solrBase=solr_base_and_core, \
                                         username=solr_uname, password=solr_pswd )
             self.connstatus=True
             return True
