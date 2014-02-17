@@ -1,6 +1,6 @@
 from mysite.books.models import *
 from django.contrib import admin
-from mysite.feeds.models import *
+#from mysite.feeds.models import *
 
 #=================================================
 
@@ -86,11 +86,20 @@ class ContainsAdmin(admin.ModelAdmin):
 #=================================================
 
 
+class PhotoAdmin(admin.ModelAdmin):
+
+    ordering = ['title']
+    search_fields = ['title', 'caption']
+
+#=================================================
+
+
 admin.site.register(Book,BooksAdmin)
 admin.site.register(Provenance)
 admin.site.register(Modern_location_1,Booksml1Admin)
 admin.site.register(Modern_location_2,Booksml2Admin)
 admin.site.register(Evidence,EvidenceAdmin)
 admin.site.register(Contains,ContainsAdmin)
+admin.site.register(Photo, PhotoAdmin)
 
 

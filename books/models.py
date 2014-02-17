@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models import permalink
 from django.contrib import admin
+
+from mysite.books.photo import ThumbnailImageField # this was in feeds.models
 from mysite.mlgbUtils import *
 
 #========================================================================
@@ -40,6 +42,7 @@ class Modern_location_1(models.Model):
     
     def __unicode__(self):
         return self.modern_location_1
+
     class Meta:
         ordering = ('modern_location_1',)
         verbose_name='Current Location, Place'
@@ -52,8 +55,10 @@ class Modern_location_2(models.Model):
 
     modern_location_2 = models.CharField(verbose_name='Library', max_length=50)
     abbr = models.CharField(max_length=5,blank=True)
+
     def __unicode__(self):
         return self.modern_location_2
+
     class Meta:
         ordering = ('modern_location_2',)
         verbose_name='Current Location, Library'
@@ -70,11 +75,13 @@ class Evidence(models.Model):
 
     def __unicode__(self):
         return self.evidence
+
     class Meta:
         ordering = ('evidence',)
+
     @permalink 
     def get_absolute_url(self):
-        return ('item_detail',None,{'object_id':self.id})        
+        return ( 'item_detail', None, { 'object_id': self.id } )        
 
 #========================================================================
         
@@ -101,19 +108,28 @@ class Book(models.Model):
     shelfmark_sort = models.CharField( max_length=255,blank=True )
 
     #---------------------------------------------------------
+
     def shelfmark(self):
         return ("%s %s" % (self.shelfmark_1, self.shelfmark_2))
+
     shelfmark.short_description = 'Shelfmark'
+
     #---------------------------------------------------------
+
     def modern_location(self):
         return ("%s, %s" % (self.modern_location_1, self.modern_location_2))
+
     modern_location.short_description = 'Modern Location'
+
     #---------------------------------------------------------
+
     class Meta:
         ordering = ['provenance', 'modern_location_1', 'modern_location_2', 'shelfmark_1', 'shelfmark_2', 'evidence', 'author_title']
+
     @permalink 
     def get_absolute_url(self) :
         return ('item_detail',None,{'object_id':self.id})
+
     def __unicode__(self):
         return '%s %s %s %s%s' % (self.provenance,self.shelfmark_1,self.shelfmark_2,self.evidence,self.author_title)
 
@@ -124,6 +140,7 @@ class Contains(models.Model):
     book_id = models.ForeignKey(Book)
     contains = models.TextField(verbose_name='Content',blank=True)
     urls = models.CharField(max_length=255,blank=True)
+
     def __unicode__(self):
         #return self.contains
         return utils.stripoffHtml(self.contains)
@@ -139,6 +156,31 @@ class Contains(models.Model):
 
 
 #========================================================================
+
+class Photo(models.Model) :
+
+    item = models.ForeignKey( Book )
+    title = models.CharField( max_length=100 )
+    image = ThumbnailImageField( upload_to='photos' )
+    caption = models.CharField( max_length=250, blank=True )
+
+    class Meta:
+        ordering = ['title']
+
+    def __unicode__( self) :
+        return self.title
+
+    @permalink
+    def get_absolute_url(self) :
+        return ( 'photo_detail', None, { 'object_id': self.id } )
+
+#=================================================
+
+class PhotoInline(admin.StackedInline) :
+    model = Photo
+    extra=1
+
+#=================================================
         
 class ContainsInline(admin.StackedInline) :
 
@@ -149,7 +191,7 @@ class ContainsInline(admin.StackedInline) :
         
 class ItemAdmin(admin.ModelAdmin) :
 
-    inlines = [ContainsInline]
+    inlines = [ContainsInline, PhotoInline]
 
 
 #========================================================================
@@ -170,6 +212,7 @@ class RawBook(models.Model):
     medieval_catalogue_notes = models.CharField(max_length=255, blank=True)
     unknown = models.CharField(max_length=50, blank=True)
     notes = models.TextField(blank=True)
+
     def __unicode__(self):
         return self.provenance,self.author_title
 
