@@ -16,7 +16,8 @@ urlpatterns = patterns('',
 
     ( r'^admin/',    include( admin.site.urls) ),
 
-    ( r'^feeds/',      include( 'mysite.feeds.urls' ) ),
+    ( r'^books/',    include( 'mysite.books.urls' ) ),
+    ( r'^e/books/',  include( 'mysite.books.urls' ) ),
 
     ( r'^authortitle/',     include( 'mysite.authortitle.urls' )),
     ( r'^e/authortitle/',   include( 'mysite.authortitle.urls_e' )),

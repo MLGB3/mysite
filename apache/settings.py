@@ -26,7 +26,7 @@ USE_I18N = True
 
 MEDIA_ROOT = '/opt/www/mlgb/media/'
 
-MEDIA_URL = '/feeds/media/'
+MEDIA_URL = '/books/media/'
 
 ADMIN_MEDIA_PREFIX = '/media/'
 
@@ -63,5 +63,4 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'mysite.books',
     'mysite.mlgb',
-    'mysite.feeds',
 )
