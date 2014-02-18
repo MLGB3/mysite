@@ -388,17 +388,6 @@ def book( request, book_id, pagename = 'book', called_by_editable_page = False )
   try:
     bk = Book.objects.get( pk = book_id )
 
-    ev = {}
-    evidence_code = bk.evidence
-    evidence_desc = 'Inferred'
-
-    try:
-      ev = Evidence.objects.get( evidence = evidence_code )
-      evidence_desc = ev.evidence_description
-
-    except Evidence.DoesNotExist:
-      pass
-
   except Book.DoesNotExist:
     raise Http404
 
@@ -428,7 +417,7 @@ def book( request, book_id, pagename = 'book', called_by_editable_page = False )
                  'default_rows_per_page': str( default_rows_per_page ),
                  'order_options': get_order_change_field( 'any', '', False ),
                  'output_styles': get_output_style_change_field( False ),
-                 'evidence_desc': evidence_desc  } )
+                 } )
 
   return HttpResponse(t.render(c))
 #}
