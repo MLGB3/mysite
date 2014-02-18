@@ -23,7 +23,6 @@ from mysite.config          import *
 from mysite.MLGBsolr        import *
 from mysite.apache.settings import MEDIA_URL
 from mysite.books.models    import *
-from mysite.feeds.models    import Photo
 
 #--------------------------------------------------------------------------------
 
