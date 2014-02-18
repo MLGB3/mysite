@@ -69,15 +69,23 @@ class Modern_location_2(models.Model):
 
 class Evidence(models.Model):
 
-    evidence = models.CharField(verbose_name='Evidence Code', max_length=2, unique=True,blank=True)
+    evidence = models.CharField(verbose_name='Evidence Type', max_length=2, unique=True, blank=True)
     evidence_description = models.CharField(max_length=200)
     notes = models.TextField(blank=True)
 
     def __unicode__(self):
-        return self.evidence
+        ev = self.evidence
+        ev = ev.strip()
+        if len( ev ) == 0:
+            evdesc = self.evidence_description
+        else:
+            evdesc = '%s: %s' % (ev, self.evidence_description)
+        return evdesc
 
     class Meta:
         ordering = ('evidence',)
+        verbose_name='Evidence Type'
+        verbose_name_plural='Evidence Types'
 
     @permalink 
     def get_absolute_url(self):
