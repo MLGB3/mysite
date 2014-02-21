@@ -241,9 +241,27 @@ def category_e( request, pagename = 'category' ): #{
 #}
 #--------------------------------------------------------------------------------
 
+def advanced_search( request, pagename = 'advancedsearch' ): #{
+
+  if request.GET: # a search has already been entered
+    return results( request, pagename, False, True )
+  else:
+    return advanced_search_form( request, pagename, False )
+#}
+#--------------------------------------------------------------------------------
+
+def advanced_search_e( request, pagename = 'advancedsearch' ): #{
+
+  if request.GET: # a search has already been entered
+    return results( request, pagename, True, True )
+  else:
+    return advanced_search_form( request, pagename, True )
+#}
+#--------------------------------------------------------------------------------
+
 # The function results() sets up display of search results
 
-def results( request, pagename = 'results', called_by_editable_page = False ): #{
+def results( request, pagename = 'results', called_by_editable_page = False, advanced_search = False ): #{
 
   if called_by_editable_page: enable_edit()
   else: disable_edit()
@@ -271,7 +289,10 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
   if request.GET: #{ # was a search term found in GET?
 
     # Check whether they are searching on a specific field
-    field_to_search = get_value_from_GET( request, "field_to_search" )
+    if advanced_search:
+      field_to_search = 'multiple'
+    else:
+      field_to_search = get_value_from_GET( request, "field_to_search" )
 
     # The field being searched may require a different order from the default,
     # or they may have chosen a different sort order themselves.
@@ -281,8 +302,12 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
     printing = get_value_from_GET( request, "printing", False )
 
     # Now run the Solr query
-    (resultsets, number_of_records, 
-     field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
+    if advanced_search:
+      (resultsets, number_of_records, 
+       field_to_search, search_term, solr_start, solr_rows, page_size ) = advanced_solr_query( request )
+    else:
+      (resultsets, number_of_records, 
+       field_to_search, search_term, solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
     # They may have chosen treeview, table or layout of original book
     # However, 'layout of original book' is only valid for ordering by provenance then location.
@@ -351,14 +376,10 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
     
   t = loader.get_template('mlgb/mlgb.html')
 
-  c = Context( {
+  template_vars = {
       'editable'         : editable,
       'result_string'    : result_string,
       'number_of_records': number_of_records,
-      'search_term'      : search_term,
-      'field_to_search'  : field_to_search,
-      'field_label'      : get_searchable_field_label( field_to_search ),
-      'searchable_fields': get_searchable_field_list(),
       'page_size'        : page_size,
       'page_sizes'       : get_page_sizes(),
       'default_rows_per_page': str( default_rows_per_page ),
@@ -366,7 +387,25 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
       'order_options'    : get_order_change_field( 'any', order_by, False ),
       'output_styles'    : get_output_style_change_field( False ),
       'printing'         : printing,
-  } )
+      'advanced_search'  : advanced_search,
+  }
+
+  if advanced_search: #{ # could be searching on multiple fields at once
+                         # pass all possible search fields, plus label and value if any, to template
+
+    form_fields_searched = simplejson.loads( search_term )
+    template_vars[ 'form_fields' ] = get_adv_search_form_fields_full( form_fields_searched )
+  #}
+
+  else: #{ # quick search i.e. only on one field at once (as in Home page)
+    template_vars[ 'searchable_fields'] = get_searchable_field_list()
+    template_vars[ 'field_to_search'  ] = field_to_search
+    template_vars[ 'field_label'      ] = get_searchable_field_label( field_to_search )
+    template_vars[ 'search_term'      ] = search_term
+  #}
+
+
+  c = Context( template_vars )
 
   return HttpResponse( t.render( c ) )
 
@@ -375,6 +414,35 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
 #--------------------------------------------------------------------------------
 def results_e( request, pagename = 'results' ): #{
   return results( request, pagename, True )
+#}
+#--------------------------------------------------------------------------------
+def advanced_search_form( request, pagename = 'advancedsearch', called_by_editable_page = False ): #{
+  
+  if called_by_editable_page: enable_edit()
+  else: disable_edit()
+
+  page_size = str( default_rows_per_page )
+
+  global output_style # 'treeview', 'table', or original print layout (subset of treeview)
+  output_style = default_output_style
+
+  global order_by
+  order_by = ''
+
+  t = loader.get_template('mlgb/advanced_search_form.html')
+
+  c = Context( {
+      'editable'             : editable,
+      'pagename'             : pagename,
+      'form_fields'          : get_adv_search_form_fields_full(),
+      'page_size'            : page_size,
+      'page_sizes'           : get_page_sizes(),
+      'default_rows_per_page': str( default_rows_per_page ),
+      'order_options'        : get_order_change_field( 'any', order_by, False ),
+      'output_styles'        : get_output_style_change_field( False ),
+  } )
+
+  return HttpResponse(t.render(c))
 #}
 #--------------------------------------------------------------------------------
 
@@ -1294,10 +1362,114 @@ def get_searchable_field_list(): #{
 
   fields = [ { ""                : 'All fields' },
              { 'author_title'    : 'Author/Title' },
-             { 'location'        : 'Location' },
              { 'medieval_library': 'Medieval Library' },
+             { 'location'        : 'Modern Location' },
              { 'modern_library'  : 'Modern Library/Institution' },
              { 'shelfmark'       : 'Shelfmark' } ]
+
+  return fields
+#}
+#--------------------------------------------------------------------------------
+
+def get_advanced_search_form_fields(): #{
+
+  fields = [ 
+    'author_title'      ,
+    'medieval_library'  ,
+    'location'          ,
+    'modern_library'    ,
+    'shelfmark'         ,
+    'evidence_code'     ,
+    'evidence_notes'    ,
+    'contents'          ,
+    'pressmark'         ,
+    'medieval_catalogue',
+    'ownership'         ,
+    'general_notes'     ,
+    'printed_book'      ,
+    'id'                ,
+  ]
+
+  return fields
+#}
+#--------------------------------------------------------------------------------
+
+def get_advanced_search_field_labels(): #{
+
+  field_labels = {
+    'author_title'      : 'Author/Title' ,
+    'medieval_library'  : 'Medieval Library' ,
+    'location'          : 'Modern Location' ,
+    'modern_library'    : 'Modern Library/Institution' ,
+    'shelfmark'         : 'Shelfmark' ,
+    'evidence_code'     : 'Evidence type',
+    'evidence_notes'    : 'Notes on evidence',
+    'contents'          : 'Contents',
+    'pressmark'         : 'Pressmark',
+    'medieval_catalogue': 'Medieval catalogue code',
+    'ownership'         : 'Ownership',
+    'general_notes'     : 'General notes',
+    'printed_book'      : 'Printed book',
+    'id'                : 'Book ID',
+  }
+
+  return field_labels
+#}
+#--------------------------------------------------------------------------------
+
+def get_adv_search_form_fields_with_label(): #{
+
+  fieldnames = get_advanced_search_form_fields()
+  labels = get_advanced_search_field_labels()
+
+  labelled_fields = []
+
+  for fieldname in fieldnames: #{
+    label = ''
+    if labels.has_key( fieldname ): label = labels[ fieldname ]
+    labelled_fields.append( [ fieldname, label ] )
+  #}
+
+  return labelled_fields
+#}
+#--------------------------------------------------------------------------------
+
+def get_adv_search_form_fields_full( form_fields_searched = {} ): #{
+
+  form_fields_labelled = get_adv_search_form_fields_with_label()
+  form_fields_full = []
+
+  for field_info in form_fields_labelled: #{
+    fieldname = field_info[ 0 ]
+    label = field_info[ 1 ]
+    value = ''
+    if form_fields_searched.has_key( fieldname ):
+      value = form_fields_searched[ fieldname ]
+    form_fields_full.append( [ fieldname, label, value ] )
+  #}
+
+  return form_fields_full
+#}
+#--------------------------------------------------------------------------------
+
+def get_form_to_solr_field_dict(): #{
+
+  fields = { 
+    'author_title'      : 'authortitle' ,
+    'medieval_library'  : 'provenance' ,
+    'location'          : 'location' ,
+    'modern_library'    : 'library' ,
+    'shelfmark'         : 'shelfmarks',  
+    'evidence_code'     : 'ev',
+    'evidence_notes'    : 'evidence_notes',
+    'contents'          : 'contents',
+    'pressmark'         : 'pressmark',
+    'medieval_catalogue': 'medieval_catalogue',
+    'ownership'         : 'own',
+    'general_notes'     : 'nt',
+    'printed_book'      : 'pr_bk',
+    'id'                : 'id',
+  }
 
   return fields
 #}
@@ -1838,7 +2010,7 @@ def downloadcsv( request, pagename = 'download' ): #{
 # end downloadcsv
 #--------------------------------------------------------------------------------
 
-# Run a *basic* Solr query( i.e. on a single search term)
+# Run a *basic* Solr query (i.e. on a single search term)
 # and return results, number of records, field to search, search term, start row 
 # and page size both as an integer (solr_rows) and as a string (page_size).
 
@@ -1934,6 +2106,92 @@ def basic_solr_query( request ): #{
            field_to_search, search_term, solr_start, solr_rows, page_size )
 #}
 # end function basic_solr_query()
+#--------------------------------------------------------------------------------
+
+# Run an *advanced* Solr query (i.e. on a combination of multiple search terms)
+# and return same output as basic Solr query.
+
+def advanced_solr_query( request ): #{
+
+  resultsets = []
+  number_of_records = 0
+
+  field_to_search = "multiple"
+  selection       = ""
+
+  solr_start      = ""
+  page_size       = ""
+  solr_query      = ""
+  solr_sort       = ""
+  solr_rows       = ""
+
+  searchable_fields = get_form_to_solr_field_dict()
+  selections = []
+
+  template_vars = {} # storing these variables will help us refine the query from the 'Results' template
+
+  if request.GET: #{
+    
+    # Set page size
+    page_size = get_value_from_GET( request, "page_size" ) 
+    if page_size.isdigit():
+      solr_rows = int( page_size )
+    else: 
+      solr_rows=Book.objects.count()
+    
+    # Set start row (e.g. on page 1 = 0)
+    solr_start = get_value_from_GET( request, "start", 0 ) 
+
+    # Set sort field
+    sortfields = get_sortfields()
+    solr_sort = ", ".join( sortfields )
+  
+    # Set search terms
+    for form_field, solr_field in searchable_fields.items(): #{
+
+      # Look for search term for all possible fields in GET
+      selection = get_value_from_GET( request, form_field )
+      if not selection or selection == '*': continue
+
+      # Store field names/values searched for later use in 'Refine Search' functionality.
+      template_vars[ form_field ] = selection
+
+      # Construct Solr query
+      selection = escape_for_solr( selection )
+      if ' ' in selection:
+        selection = '(%s)' % selection
+      selection = '%s:%s' % (solr_field, selection)
+
+      selections.append( selection )
+    #}
+
+    if len( selections ) > 0:
+      solr_query = ' AND '.join( selections )
+    else:
+      solr_query = '*:*'
+
+    # Run the Solr query
+    s_para={'q'    : solr_query,
+            'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
+            'start': solr_start, 
+            'rows' : solr_rows,
+            'sort' : solr_sort}
+
+    r = MLGBsolr()
+
+    r.solrresults( s_para, Facet=facet )
+
+    if r.connstatus and r.s_result: #{ #did we retrieve a result?
+
+      resultsets = r.s_result.get( 'docs' )
+      number_of_records = r.s_result.get( 'numFound' )
+    #}
+  #} # end of check on whether a search term was found in GET
+
+  return ( resultsets, number_of_records, 
+           field_to_search, simplejson.dumps( template_vars ), solr_start, solr_rows, page_size )
+#}
+# end function advanced_solr_query()
 #--------------------------------------------------------------------------------
 
 def get_treeview_formatting(): #{

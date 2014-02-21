@@ -5,6 +5,7 @@ from django.conf import settings
 urlpatterns = patterns('',
     ( r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT} ),
     ( r'^$',                           'mysite.mlgb.views.results' ),
+    ( r'^advancedsearch/',             'mysite.mlgb.views.advanced_search' ),
     ( r'^fulltext/',                   'mysite.mlgb.views.fulltext' ),
     ( r'^download/',                   'mysite.mlgb.views.download' ),
     ( r'^downloadcsv/',                'mysite.mlgb.views.downloadcsv' ),
