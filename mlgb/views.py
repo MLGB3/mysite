@@ -396,6 +396,7 @@ def results( request, pagename = 'results', called_by_editable_page = False, adv
     form_fields_searched = simplejson.loads( search_term )
     template_vars[ 'form_fields' ] = get_adv_search_form_fields_full( form_fields_searched )
     template_vars[ 'printed_book_radio_options' ] = printed_book_radio_options()
+    template_vars[ 'evidence_dropdown_options' ] = evidence_search_options()
   #}
 
   else: #{ # quick search i.e. only on one field at once (as in Home page)
@@ -449,6 +450,7 @@ def advanced_search_form( request, pagename = 'advancedsearch', called_by_editab
       'order_options'        : get_order_change_field( 'any', order_by, False ),
       'output_styles'        : get_output_style_change_field( False ),
       'printed_book_radio_options': printed_book_radio_options(),
+      'evidence_dropdown_options':  evidence_search_options(),
       'empty_form'           : True,
   } )
 
@@ -906,6 +908,7 @@ def extract_from_result( resultset, add_punctuation = True ): #{
 
   # evidence code
   evidence_code = trim( resultset['ev'] )
+  if evidence_code == 'blank': evidence_code = ''
   # evidence desc
   evidence_desc = trim( resultset['evdesc'], False )
   
@@ -3076,6 +3079,31 @@ def printed_book_radio_options(): #{
   options = [ [ "printed_book_any", "", "Any" ],
               [ "printed_book_yes", "1", "Only printed" ],
               [ "printed_book_no",  "0", "Not printed" ] ]
+  return options
+#}
+#--------------------------------------------------------------------------------
+
+def evidence_search_options(): #{ # slightly different from raw values in table
+                                  # as we want to be able to search on blank codes,
+                                  # so we convert empty strings to the word 'blank'
+  options = []
+  options.append( [ "", "Any" ] )
+
+  the_cursor = connection.cursor()
+
+  statement = "select evidence, evidence_description from books_evidence order by evidence"
+  the_cursor.execute( statement )
+  results = the_cursor.fetchall()
+
+  for row in results: #{
+    evcode = row[ 0 ]
+    evdesc = row[ 1 ]
+    if evcode.strip() == "": evcode = "blank"
+    evdesc = "%s: %s" % (evcode, evdesc)
+
+    options.append( [ evcode, evdesc ] )
+  #}
+  
   return options
 #}
 #--------------------------------------------------------------------------------
