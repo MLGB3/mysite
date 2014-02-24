@@ -388,11 +388,11 @@ def results( request, pagename = 'results', called_by_editable_page = False, adv
       'output_styles'    : get_output_style_change_field( False ),
       'printing'         : printing,
       'advanced_search'  : advanced_search,
+      'empty_form'       : False,
   }
 
   if advanced_search: #{ # could be searching on multiple fields at once
                          # pass all possible search fields, plus label and value if any, to template
-
     form_fields_searched = simplejson.loads( search_term )
     template_vars[ 'form_fields' ] = get_adv_search_form_fields_full( form_fields_searched )
   #}
@@ -403,6 +403,13 @@ def results( request, pagename = 'results', called_by_editable_page = False, adv
     template_vars[ 'field_label'      ] = get_searchable_field_label( field_to_search )
     template_vars[ 'search_term'      ] = search_term
   #}
+
+  get_everything = False
+  if advanced_search:
+    if len( form_fields_searched ) == 0: get_everything = True
+  else:
+    if search_term == '*': get_everything = True
+  template_vars[ 'get_everything' ] = get_everything
 
 
   c = Context( template_vars )
@@ -440,6 +447,7 @@ def advanced_search_form( request, pagename = 'advancedsearch', called_by_editab
       'default_rows_per_page': str( default_rows_per_page ),
       'order_options'        : get_order_change_field( 'any', order_by, False ),
       'output_styles'        : get_output_style_change_field( False ),
+      'empty_form'           : True,
   } )
 
   return HttpResponse(t.render(c))
