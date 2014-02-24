@@ -395,6 +395,7 @@ def results( request, pagename = 'results', called_by_editable_page = False, adv
                          # pass all possible search fields, plus label and value if any, to template
     form_fields_searched = simplejson.loads( search_term )
     template_vars[ 'form_fields' ] = get_adv_search_form_fields_full( form_fields_searched )
+    template_vars[ 'printed_book_radio_options' ] = printed_book_radio_options()
   #}
 
   else: #{ # quick search i.e. only on one field at once (as in Home page)
@@ -447,6 +448,7 @@ def advanced_search_form( request, pagename = 'advancedsearch', called_by_editab
       'default_rows_per_page': str( default_rows_per_page ),
       'order_options'        : get_order_change_field( 'any', order_by, False ),
       'output_styles'        : get_output_style_change_field( False ),
+      'printed_book_radio_options': printed_book_radio_options(),
       'empty_form'           : True,
   } )
 
@@ -1417,7 +1419,7 @@ def get_advanced_search_field_labels(): #{
     'medieval_catalogue': 'Medieval catalogue code',
     'ownership'         : 'Ownership',
     'general_notes'     : 'General notes',
-    'printed_book'      : 'Printed book',
+    'printed_book'      : 'Type of book (print/MS)',
     'id'                : 'Book ID',
   }
 
@@ -1475,7 +1477,7 @@ def get_form_to_solr_field_dict(): #{
     'medieval_catalogue': 'medieval_catalogue',
     'ownership'         : 'own',
     'general_notes'     : 'nt',
-    'printed_book'      : 'pr_bk',
+    'printed_book'      : 'printed_book',
     'id'                : 'id',
   }
 
@@ -2168,6 +2170,7 @@ def advanced_solr_query( request ): #{
       selection = escape_for_solr( selection )
       if ' ' in selection:
         selection = '(%s)' % selection
+     
       selection = '%s:%s' % (solr_field, selection)
 
       selections.append( selection )
@@ -3067,4 +3070,12 @@ def get_links_from_book_to_catalogues( book_id ): #{
   return link_string
 #}
 # end get_links_from_book_to_catalogues
+#--------------------------------------------------------------------------------
+
+def printed_book_radio_options(): #{
+  options = [ [ "printed_book_any", "", "Any" ],
+              [ "printed_book_yes", "1", "Only printed" ],
+              [ "printed_book_no",  "0", "Not printed" ] ]
+  return options
+#}
 #--------------------------------------------------------------------------------
