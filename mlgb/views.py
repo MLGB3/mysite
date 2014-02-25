@@ -485,6 +485,19 @@ def book( request, book_id, pagename = 'book', called_by_editable_page = False )
   
   t = loader.get_template('mlgb/mlgb_detail.html')
 
+  # Apart from 'id' and 'object', most of the following context variables are to do with the
+  # 'Search Again' box that appears on the right of the book record. This can repeat 
+  # either a 'quick search' or advanced search, so we need to set variables for both types of search.
+
+  advanced_search = False
+  form_fields = []
+
+  if field_to_search == 'multiple': #{
+    advanced_search = True
+    form_fields_searched = simplejson.loads( search_term )
+    form_fields = get_adv_search_form_fields_full( form_fields_searched )
+  #}
+ 
   c = Context( { 'id': book_id, 
                  'object': bk,
                  'pagename': pagename,
@@ -497,6 +510,11 @@ def book( request, book_id, pagename = 'book', called_by_editable_page = False )
                  'default_rows_per_page': str( default_rows_per_page ),
                  'order_options': get_order_change_field( 'any', '', False ),
                  'output_styles': get_output_style_change_field( False ),
+                 'advanced_search': advanced_search,
+                 'form_fields': form_fields,
+                 'printed_book_radio_options': printed_book_radio_options(),
+                 'evidence_dropdown_options':  evidence_search_options(),
+                 'empty_form': False,
                  } )
 
   return HttpResponse(t.render(c))
