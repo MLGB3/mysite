@@ -1428,10 +1428,10 @@ def get_advanced_search_form_fields(): #{
 def get_advanced_search_field_labels(): #{
 
   field_labels = {
-    'author_title'      : 'Author/Title' ,
-    'medieval_library'  : 'Medieval Library' ,
-    'location'          : 'Modern Location' ,
-    'modern_library'    : 'Modern Library/Institution' ,
+    'author_title'      : 'Author/title' ,
+    'medieval_library'  : 'Medieval library' ,
+    'location'          : 'Modern location' ,
+    'modern_library'    : 'Modern library/institution' ,
     'shelfmark'         : 'Shelfmark' ,
     'evidence_code'     : 'Evidence type',
     'evidence_notes'    : 'Notes on evidence',
@@ -1440,7 +1440,7 @@ def get_advanced_search_field_labels(): #{
     'medieval_catalogue': 'Medieval catalogue code',
     'ownership'         : 'Ownership',
     'general_notes'     : 'General notes',
-    'printed_book'      : 'Type of book (print/MS)',
+    'printed_book'      : 'Type of book',
     'id'                : 'Book ID',
   }
 
@@ -2398,8 +2398,12 @@ def display_as_treeview( one_row, first_record = False, \
     detail_text += space
   #}
 
-  if not printing:
-    detail_text += '<img src="/mlgb/media/img/detail.gif" alt="detail" border="0" />'
+  if not printing: #{
+    detail_text += '<img src="/mlgb/media/img/tiny-manicule-right.jpg" height="16px"'
+    detail_text += ' alt="Pointing hand linking to book detail record.'
+    detail_text += ' (Manicule image courtesy of Attitude Design.)" '
+    detail_text += ' border="0" />'
+  #}
   detail_text += '</a>' + newline
   detail_text += '<!-- end booklink -->' + newline
 
@@ -3095,7 +3099,7 @@ def get_links_from_book_to_catalogues( book_id ): #{
 
 def printed_book_radio_options(): #{
   options = [ [ "printed_book_any", "", "Any" ],
-              [ "printed_book_yes", "1", "Only printed" ],
+              [ "printed_book_yes", "1", "Printed" ],
               [ "printed_book_no",  "0", "Not printed" ] ]
   return options
 #}
