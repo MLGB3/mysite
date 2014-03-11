@@ -22,8 +22,8 @@ class MLGBsolr:
             #print "solr connection error!"
             return False
         
-    def solrquery( self, para ):
-        if self.solrconn():
+    def solrquery( self, para, core = 'books' ):
+        if self.solrconn( core ):
             try:
                 self.search = self.conn.search( para )
                 self.connstatus=True
@@ -32,8 +32,8 @@ class MLGBsolr:
                 #print "solr query failed!"
                 return False
             
-    def solrresults( self, para, Facet = False ):
-        if self.solrquery( para ):
+    def solrresults( self, para, Facet = False, core = 'books' ):
+        if self.solrquery( para, core ):
             rsp = simplejson.loads( self.search )
 
             s_numFound = rsp[ 'response' ].get( 'numFound', None )

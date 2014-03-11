@@ -2124,7 +2124,7 @@ def basic_solr_query( request ): #{
 
     r = MLGBsolr()
 
-    r.solrresults( s_para, Facet=facet )
+    r.solrresults( s_para, facet, 'books' )
 
     if r.connstatus and r.s_result: #{ #did we retrieve a result?
 
