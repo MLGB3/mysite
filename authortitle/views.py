@@ -10,13 +10,22 @@ from django.core.urlresolvers import reverse
 from django.utils.html import escape
 from urllib import quote, unquote
 
-from mysite.mlgb.views import get_link_for_print_button, get_value_from_GET, default_rows_per_page
+from mysite.config     import *
+from mysite.MLGBsolr   import *
+from mysite.mlgb.views import get_link_for_print_button, \
+                              get_value_from_GET, \
+                              default_rows_per_page, \
+                              escape_for_solr
 
 #--------------------------------------------------------------------------------
 
 printing = False
 editable = False
 baseurl="/authortitle"
+default_order_by = "id"
+
+facet = False
+
 newline = '\n'
 
 #================= Top-level functions, called directly from URL ================
@@ -176,6 +185,48 @@ def cat_source_e( request, source = '', loc = '', pagename = 'cats' ): #{
   return cat_source( request, source, loc, pagename, True )
 #}
 #--------------------------------------------------------------------------------
+
+# The function results() is called either from Quick Search or from Advanced Search
+
+def results( request, pagename = 'results', called_by_editable_page = False ): #{
+
+  # Set editability status
+  if called_by_editable_page: enable_edit()
+  else: disable_edit()
+
+  # Set printing status
+  global printing 
+  printing = False
+  printing = get_value_from_GET( request, "printing", False )
+
+
+  (resultsets, number_of_records, field_to_search, search_term, \
+  solr_start, solr_rows, page_size ) = basic_solr_query( request )
+
+  t = loader.get_template( 'authortitle/results.html' )
+
+  c = Context( {
+      'pagename'         : pagename,
+      'editable'         : editable,
+      'results'          : resultsets,
+      'printing'         : printing,
+      'print_link'       : get_link_for_print_button( request ),
+      'default_rows_per_page': default_rows_per_page,
+      'number_of_records': number_of_records,
+      'field_to_search': field_to_search,
+      'search_term': search_term,
+      'results': resultsets
+  } )
+
+  return HttpResponse( t.render( c ) )
+
+#}
+# end function results()
+#--------------------------------------------------------------------------------
+def results_e( request, pagename = 'results' ): #{
+  return results( request, pagename, True )
+#}
+#--------------------------------------------------------------------------------
 #================ End top-level functions called directly from URL ==============
 #--------------------------------------------------------------------------------
 
@@ -200,4 +251,66 @@ def enable_edit(): #{
   global baseurl
   baseurl = '/e/authortitle'
 #}
+#--------------------------------------------------------------------------------
+# Run a *basic* Solr query (i.e. on a single search term) against default field of 'catalogues' core
+
+def basic_solr_query( request ): #{
+
+  resultsets = []
+  number_of_records = 0
+  field_to_search = search_term = solr_start = page_size = solr_query = solr_sort = solr_rows = ""
+
+  if request.GET: #{ # was a search term found in GET?
+
+    # Get search term, records per page, start row and "order by" from GET
+    search_term = get_value_from_GET( request, 'search_term' )
+    if not search_term: search_term = '*'
+
+    page_size = get_value_from_GET( request, "page_size", str( default_rows_per_page ) ) 
+    solr_start = get_value_from_GET( request, "start", 0 ) 
+
+    order_by = get_value_from_GET( request, "order_by", default_order_by )
+    if order_by == default_order_by:  # add other options later
+      solr_sort = order_by + " asc"  
+
+    # Construct Solr query
+    solr_query = escape_for_solr( search_term )
+    if ' ' in solr_query:
+      solr_query = '(%s)' % solr_query
+
+    if search_term=='*' or search_term=='':
+      solr_query='*:*'
+    else: 
+      solr_query = "text:%s" % solr_query
+
+    
+    # Set page size
+    if page_size.isdigit():
+      solr_rows = int( page_size )
+    else: 
+      solr_rows = default_rows_per_page
+    
+
+    # Run the Solr query
+    s_para={'q'    : solr_query,
+            'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
+            'start': solr_start, 
+            'rows' : solr_rows,
+            'sort' : solr_sort}
+
+    r = MLGBsolr()
+
+    r.solrresults( s_para, facet, 'catalogues' )
+
+    if r.connstatus and r.s_result: #{ #did we retrieve a result?
+
+      resultsets = r.s_result.get( 'docs' )
+      number_of_records = r.s_result.get( 'numFound' )
+    #}
+  #} # end of check on whether a search term was found in GET
+
+  return ( resultsets, number_of_records, 
+           field_to_search, search_term, solr_start, solr_rows, page_size )
+#}
+# end function basic_solr_query()
 #--------------------------------------------------------------------------------
