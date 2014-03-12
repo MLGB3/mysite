@@ -500,7 +500,7 @@ def get_result_string_by_author_title( results ): #{
 
       if s_role_in_book: html += s_role_in_book + ' '
 
-      if s_title_of_book and s_title_of_book != s_xref_title_of_book:
+      if s_title_of_book and s_title_of_book.strip() != s_xref_title_of_book.strip():
         html += s_title_of_book
 
       if s_book_biblio_line: html += ": " + s_book_biblio_line
