@@ -22,11 +22,12 @@ from mysite.mlgb.views import get_link_for_print_button, \
 printing = False
 editable = False
 baseurl="/authortitle"
-default_order_by = "id"
+default_order_by = "solr_id_sort"
 
 facet = False
 
 newline = '\n'
+right_arrow = '&rarr;'
 
 #================= Top-level functions, called directly from URL ================
 #--------------------------------------------------------------------------------
@@ -199,23 +200,27 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
   printing = False
   printing = get_value_from_GET( request, "printing", False )
 
-
+  # Run the Solr query
   (resultsets, number_of_records, field_to_search, search_term, \
   solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
+  # Format the results into an HTML string ready for display
+  order_by = get_value_from_GET( request, "order_by", default_order_by )
+  result_string = get_result_string( resultsets, order_by )
+
+  # Pass HTML string and other data to the template for display
   t = loader.get_template( 'authortitle/results.html' )
 
   c = Context( {
       'pagename'         : pagename,
       'editable'         : editable,
-      'results'          : resultsets,
+      'results'          : result_string,
       'printing'         : printing,
       'print_link'       : get_link_for_print_button( request ),
       'default_rows_per_page': default_rows_per_page,
       'number_of_records': number_of_records,
       'field_to_search': field_to_search,
       'search_term': search_term,
-      'results': resultsets
   } )
 
   return HttpResponse( t.render( c ) )
@@ -270,8 +275,30 @@ def basic_solr_query( request ): #{
     solr_start = get_value_from_GET( request, "start", 0 ) 
 
     order_by = get_value_from_GET( request, "order_by", default_order_by )
-    if order_by == default_order_by:  # add other options later
+
+    if order_by == default_order_by:
       solr_sort = order_by + " asc"  
+
+    elif order_by == "catalogue_type":
+      sort_list = [ "s_library_type asc", 
+                    "s_library_loc asc", 
+                    "s_document_code_sort_asc",
+                    "s_seqno_in_doc_sort asc",
+                    "solr_id_sort asc" ]
+      solr_sort = ", ".join( sort_list )
+
+    elif order_by == "catalogue_date":
+      sort_list = [ "d_document_start asc",
+                    "d_document_end asc",
+                    "s_library_type asc", 
+                    "s_library_loc asc", 
+                    "s_document_code_sort_asc",
+                    "s_seqno_in_doc_sort asc",
+                    "solr_id_sort asc" ]
+      solr_sort = ", ".join( sort_list )
+
+    else:
+      solr_sort = default_order_by + " asc"  
 
     # Construct Solr query
     solr_query = escape_for_solr( search_term )
@@ -313,4 +340,209 @@ def basic_solr_query( request ): #{
            field_to_search, search_term, solr_start, solr_rows, page_size )
 #}
 # end function basic_solr_query()
+#--------------------------------------------------------------------------------
+
+def extract_from_result( record ): #{
+
+  solr_id = record[ "id" ]
+  solr_id_sort = record[ "solr_id_sort" ]
+
+  sql_entry_id         = record.get( "sql_entry_id", "" )
+  sql_entry_book_count = record.get( "sql_entry_book_count", "" )
+  sql_copy_count       = record.get( "sql_copy_count", "" )
+
+  # from the 'entries' table 
+  s_entry_name         = record.get( "s_entry_name", "" )
+  s_entry_xref_name    = record.get( "s_entry_xref_name", "" )
+  s_author_name        = record.get( "s_author_name", "" )
+  s_entry_biblio_line  = record.get( "s_entry_biblio_line", "" )
+  s_entry_biblio_block = record.get( "s_entry_biblio_block", "" )
+
+  # from the 'books' table 
+  s_title_of_book      = record.get( "s_title_of_book", "" )
+  s_xref_title_of_book = record.get( "s_xref_title_of_book", "" )
+  s_role_in_book       = record.get( "s_role_in_book", "" )
+  s_problem            = record.get( "s_problem", "" )
+  s_book_biblio_line   = record.get( "s_book_biblio_line", "" )
+
+  # from the 'copies' table 
+  s_copy_code          = record.get( "s_copy_code", "" )
+  s_copy_notes         = record.get( "s_copy_notes", "" )
+  s_printed_yn         = record.get( "s_printed_yn", "" )
+  s_survives_yn        = record.get( "s_survives_yn", "" )
+  s_uncertain_yn       = record.get( "s_uncertain_yn", "" )
+  s_duplicate_title_yn = record.get( "s_duplicate_title_yn", "" )
+
+  # from the 'documents' table 
+  s_document_code      = record.get( "s_document_code", "" )
+  s_document_code_sort = record.get( "s_document_code_sort", "" )
+  s_seqno_in_document  = record.get( "s_seqno_in_document", "" )
+  s_seqno_in_doc_sort  = record.get( "s_seqno_in_doc_sort", "" )
+  s_document_name      = record.get( "s_document_name", "" )
+  d_document_start     = record.get( "d_document_start", "" )
+  d_document_end       = record.get( "d_document_end", "" )
+  s_document_type      = record.get( "s_document_type", "" )
+  # doc_group_type_name 
+  s_library_type       = record.get( "s_library_type", "" )
+  # doc_group_name 
+  s_library_loc        = record.get( "s_library_loc", "" )
+
+  return (solr_id, 
+         solr_id_sort, 
+         sql_entry_id, 
+         sql_entry_book_count, 
+         sql_copy_count, 
+         s_entry_name, 
+         s_entry_xref_name, 
+         s_author_name, 
+         s_entry_biblio_line, 
+         s_entry_biblio_block, 
+         s_title_of_book, 
+         s_xref_title_of_book, 
+         s_role_in_book, 
+         s_problem, 
+         s_book_biblio_line, 
+         s_copy_code, 
+         s_copy_notes, 
+         s_printed_yn, 
+         s_survives_yn, 
+         s_uncertain_yn, 
+         s_duplicate_title_yn, 
+         s_document_code, 
+         s_document_code_sort, 
+         s_seqno_in_document, 
+         s_seqno_in_doc_sort, 
+         s_document_name, 
+         d_document_start, 
+         d_document_end, 
+         s_document_type, 
+         s_library_type, 
+         s_library_loc)
+#}
+# end function extract_from_result()
+#--------------------------------------------------------------------------------
+
+def get_result_string( results, order_by ): #{
+
+  if len( results ) == 0: return '<p>No matches found.</p>' + newline
+
+  if order_by == 'catalogue_type':
+    return get_result_string_by_catalogue_type( results )
+  elif order_by == 'catalogue_date':
+    return get_result_string_by_catalogue_date( results )
+  else:
+    return get_result_string_by_author_title( results )
+#}
+# end function get_result_string()
+#--------------------------------------------------------------------------------
+
+def get_result_string_by_author_title( results ): #{
+
+  html = '<ul><!-- start list of entries -->' + newline 
+
+  prev_entry_id = ''
+  prev_entry_book_count = ''
+  prev_copy_code = ''
+   
+  for row in results: #{
+
+    new_entry = False
+    new_book = False
+
+    (solr_id, solr_id_sort, 
+    sql_entry_id, sql_entry_book_count, sql_copy_count, s_entry_name, s_entry_xref_name, 
+    s_author_name, s_entry_biblio_line, s_entry_biblio_block, s_title_of_book, s_xref_title_of_book, 
+    s_role_in_book, s_problem, s_book_biblio_line, s_copy_code, s_copy_notes, s_printed_yn, 
+    s_survives_yn, s_uncertain_yn, s_duplicate_title_yn, s_document_code, s_document_code_sort, 
+    s_seqno_in_document, s_seqno_in_doc_sort, s_document_name, d_document_start, d_document_end, 
+    s_document_type, s_library_type, s_library_loc) = extract_from_result( row )
+
+    if sql_entry_id != prev_entry_id: #{
+      new_entry = True
+      new_book = True
+    #}
+    elif sql_entry_id == prev_entry_id and sql_entry_book_count != prev_entry_book_count: #{
+      new_book = True
+    #}
+
+    if new_entry: #{
+      if prev_entry_id: #{
+        html += '</ul><!-- end copy list -->' + newline
+        html += '</ul><!-- end book list -->' + newline
+        html += '</li><!-- end entry -->' + newline
+      #}
+
+      html += newline + '<li><!-- start entry -->' + newline
+
+      html += s_entry_name
+      if s_entry_xref_name: html +=  ' %s %s' % (right_arrow, s_entry_xref_name) 
+
+      if s_entry_biblio_line: html += s_entry_biblio_line + newline 
+
+      if s_entry_biblio_block: #{
+        html += '<div>'
+        html += s_entry_biblio_block 
+        html += '</div>' + newline 
+      #}
+
+      html += '<ul><!-- start book list -->' + newline
+    #}
+
+    if new_book: #{
+      prev_copy_code = ''
+      if not new_entry: #{
+        html += '</ul><!-- end copy list -->' + newline
+        html += '</li><!-- end book -->' + newline
+      #}
+      html += '<li><!-- start book -->' + newline
+
+      if s_problem: html += s_problem + ' '
+
+      if s_role_in_book: html += s_role_in_book + ' '
+
+      if s_title_of_book and s_title_of_book != s_xref_title_of_book:
+        html += s_title_of_book
+
+      if s_book_biblio_line: html += ": " + s_book_biblio_line
+
+      if s_xref_title_of_book: html += "%s %s" % (right_arrow, s_xref_title_of_book)
+
+      html += '<ul><!-- start list of copies -->' + newline
+    #}
+
+    if sql_copy_count: #{
+      if s_copy_code != prev_copy_code: #{
+
+        html += '<li><!-- start copy -->' + newline
+        html += '<!-- ADD MLGB LINKS HERE -->' + newline
+
+        html += s_copy_code
+        if s_copy_notes: html += ' %s' % s_copy_notes
+        html += newline
+
+        if s_library_type: html += ' %s' % s_library_type
+        if s_library_loc: #{
+          if not s_library_type.endswith( s_library_loc ): # e.g HENRY DE KIRKESTEDE gets repeated twice
+            html +=  ': %s' % s_library_loc 
+        #}
+        if s_document_name: html += ': %s' % s_document_name
+        html += newline
+
+        html += '</li><!-- end copy -->' + newline
+      #}
+    #}
+      
+    prev_entry_id = sql_entry_id
+    prev_entry_book_count = sql_entry_book_count
+    prev_copy_code = s_copy_code
+  #}
+
+  html += '</ul><!-- end copy list -->' + newline
+  html += '</ul><!-- end book list -->' + newline
+  html += '</li><!-- end entry -->' + newline
+  html +=  '</ul><!-- end tree -->' + newline 
+
+  return html
+#}
+# end get_result_string_by_author_title()
 #--------------------------------------------------------------------------------
