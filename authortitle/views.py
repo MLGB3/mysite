@@ -14,6 +14,10 @@ from mysite.config     import *
 from mysite.MLGBsolr   import *
 from mysite.mlgb.views import get_link_for_print_button, \
                               get_value_from_GET, \
+                              pagination, \
+                              get_pagination_change_link, \
+                              get_link_for_print_button, \
+                              get_link_for_download_button, \
                               default_rows_per_page, \
                               escape_for_solr
 
@@ -204,9 +208,23 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
   (resultsets, number_of_records, field_to_search, search_term, \
   solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
+  pagination_change_link = get_pagination_change_link( request, number_of_records, solr_rows )
+
+  pag = pagination( rows_found = number_of_records, \
+                    current_row = solr_start, \
+                    rows_per_page = solr_rows, \
+                    # re-enable later? -- pagination_change_link = pagination_change_link, \
+                    link_for_print_button = get_link_for_print_button( request ),
+                    link_for_download_button = get_link_for_download_button( request ) )
+
+
   # Format the results into an HTML string ready for display
   order_by = get_value_from_GET( request, "order_by", default_order_by )
   result_string = get_result_string( resultsets, order_by )
+
+  result_string = pag + '<p />' + result_string 
+  if number_of_records > solr_rows: # repeat pagination at the bottom
+    result_string += '<p />' + pag
 
   # Pass HTML string and other data to the template for display
   t = loader.get_template( 'authortitle/results.html' )
