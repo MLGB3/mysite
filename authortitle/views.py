@@ -12,18 +12,13 @@ from urllib import quote, unquote
 
 from mysite.config     import *
 from mysite.MLGBsolr   import *
-from mysite.mlgb.views import get_link_for_print_button, \
-                              get_value_from_GET, \
-                              pagination, \
-                              get_pagination_change_link, \
-                              get_link_for_print_button, \
-                              get_link_for_download_button, \
-                              default_rows_per_page, \
-                              escape_for_solr
+
+import mysite.mlgb.views as mv
 
 #--------------------------------------------------------------------------------
 
 printing = False
+
 editable = False
 baseurl="/authortitle"
 default_order_by = "solr_id_sort"
@@ -47,7 +42,7 @@ def browse( request, letter = '', pagename = 'index', called_by_editable_page = 
 
   global printing # are we about to print this page, or view it in onscreen mode?
   printing = False
-  printing = get_value_from_GET( request, "printing", False )
+  printing = mv.get_value_from_GET( request, "printing", False )
 
   if letter != '' and not letter.isalpha(): letter = 'A'
   letter = letter.upper()
@@ -61,9 +56,9 @@ def browse( request, letter = '', pagename = 'index', called_by_editable_page = 
       'editable'         : editable,
       'letter'           : letter,
       'printing'         : printing,
-      'print_link'       : get_link_for_print_button( request ),
+      'print_link'       : mv.get_link_for_print_button( request ),
       'called_by_collapsible_page': True,
-      'default_rows_per_page': default_rows_per_page,
+      'default_rows_per_page': mv.default_rows_per_page,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -87,7 +82,7 @@ def medieval_catalogues( request, cat = '', pagename = 'cats', called_by_editabl
 
   global printing # are we about to print this page, or view it in onscreen mode?
   printing = False
-  printing = get_value_from_GET( request, "printing", False )
+  printing = mv.get_value_from_GET( request, "printing", False )
 
   sort_by_date = False
   display_decodes = False
@@ -126,9 +121,9 @@ def medieval_catalogues( request, cat = '', pagename = 'cats', called_by_editabl
       'editable'  : editable,
       'cat'       : cat,
       'printing'  : printing,
-      'print_link': get_link_for_print_button( request ),
+      'print_link': mv.get_link_for_print_button( request ),
       'called_by_collapsible_page': called_by_collapsible_page,
-      'default_rows_per_page': default_rows_per_page,
+      'default_rows_per_page': mv.default_rows_per_page,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -153,7 +148,7 @@ def cat_source( request, source = '', loc = '', pagename = 'cats', called_by_edi
 
   global printing # are we about to print this page, or view it in onscreen mode?
   printing = False
-  printing = get_value_from_GET( request, "printing", False )
+  printing = mv.get_value_from_GET( request, "printing", False )
 
   if not source.isalpha(): #{
     source = ''
@@ -177,8 +172,8 @@ def cat_source( request, source = '', loc = '', pagename = 'cats', called_by_edi
       'source'    : source,
       'location'  : loc,
       'printing'  : printing,
-      'print_link': get_link_for_print_button( request ),
-      'default_rows_per_page': default_rows_per_page,
+      'print_link': mv.get_link_for_print_button( request ),
+      'default_rows_per_page': mv.default_rows_per_page,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -202,24 +197,25 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
   # Set printing status
   global printing 
   printing = False
-  printing = get_value_from_GET( request, "printing", False )
+  printing = mv.get_value_from_GET( request, "printing", False )
+
+  # See if you are doing quick or advanced search
+  search_type = mv.get_value_from_GET( request, "search_type", "quick" )
 
   # Run the Solr query
-  (resultsets, number_of_records, field_to_search, search_term, \
+  (resultsets, number_of_records, search_term, \
   solr_start, solr_rows, page_size ) = basic_solr_query( request )
 
-  pagination_change_link = get_pagination_change_link( request, number_of_records, solr_rows )
+  mv.printing = printing
 
-  pag = pagination( rows_found = number_of_records, \
-                    current_row = solr_start, \
-                    rows_per_page = solr_rows, \
-                    # re-enable later? -- pagination_change_link = pagination_change_link, \
-                    link_for_print_button = get_link_for_print_button( request ),
-                    link_for_download_button = get_link_for_download_button( request ) )
-
+  pag = mv.pagination( rows_found = number_of_records, \
+                       current_row = solr_start, \
+                       rows_per_page = solr_rows, \
+                       link_for_print_button = mv.get_link_for_print_button( request ),
+                       link_for_download_button = mv.get_link_for_download_button( request ) )
 
   # Format the results into an HTML string ready for display
-  order_by = get_value_from_GET( request, "order_by", default_order_by )
+  order_by = mv.get_value_from_GET( request, "order_by", default_order_by )
   result_string = get_result_string( resultsets, order_by )
 
   result_string = pag + '<p />' + result_string 
@@ -234,10 +230,10 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
       'editable'         : editable,
       'results'          : result_string,
       'printing'         : printing,
-      'print_link'       : get_link_for_print_button( request ),
-      'default_rows_per_page': default_rows_per_page,
+      'print_link'       : mv.get_link_for_print_button( request ),
+      'default_rows_per_page': mv.default_rows_per_page,
       'number_of_records': number_of_records,
-      'field_to_search': field_to_search,
+      'search_type': search_type,
       'search_term': search_term,
   } )
 
@@ -281,23 +277,23 @@ def basic_solr_query( request ): #{
 
   resultsets = []
   number_of_records = 0
-  field_to_search = search_term = solr_start = page_size = solr_query = solr_sort = solr_rows = ""
+  search_term = solr_start = page_size = solr_query = solr_sort = solr_rows = ""
 
   if request.GET: #{ # was a search term found in GET?
 
     # Get search term, records per page, start row and "order by" from GET
-    search_term = get_value_from_GET( request, 'search_term' )
+    search_term = mv.get_value_from_GET( request, 'search_term' )
     if not search_term: search_term = '*'
 
-    page_size = get_value_from_GET( request, "page_size", str( default_rows_per_page ) ) 
-    solr_start = get_value_from_GET( request, "start", 0 ) 
+    page_size = mv.get_value_from_GET( request, "page_size", str( mv.default_rows_per_page ) ) 
+    solr_start = mv.get_value_from_GET( request, "start", 0 ) 
 
-    order_by = get_value_from_GET( request, "order_by", default_order_by )
+    order_by = mv.get_value_from_GET( request, "order_by", default_order_by )
 
     if order_by == default_order_by:
       solr_sort = order_by + " asc"  
 
-    elif order_by == "catalogue_type":
+    elif order_by == "catalogue_provenance":
       sort_list = [ "s_library_type asc", 
                     "s_library_loc asc", 
                     "s_document_code_sort_asc",
@@ -319,7 +315,7 @@ def basic_solr_query( request ): #{
       solr_sort = default_order_by + " asc"  
 
     # Construct Solr query
-    solr_query = escape_for_solr( search_term )
+    solr_query = mv.escape_for_solr( search_term )
     if ' ' in solr_query:
       solr_query = '(%s)' % solr_query
 
@@ -333,7 +329,7 @@ def basic_solr_query( request ): #{
     if page_size.isdigit():
       solr_rows = int( page_size )
     else: 
-      solr_rows = default_rows_per_page
+      solr_rows = mv.default_rows_per_page
     
 
     # Run the Solr query
@@ -355,7 +351,7 @@ def basic_solr_query( request ): #{
   #} # end of check on whether a search term was found in GET
 
   return ( resultsets, number_of_records, 
-           field_to_search, search_term, solr_start, solr_rows, page_size )
+           search_term, solr_start, solr_rows, page_size )
 #}
 # end function basic_solr_query()
 #--------------------------------------------------------------------------------
@@ -442,10 +438,10 @@ def extract_from_result( record ): #{
 
 def get_result_string( results, order_by ): #{
 
-  if len( results ) == 0: return '<p>No matches found.</p>' + newline
+  if len( results ) == 0: return '<p></p>' + newline
 
-  if order_by == 'catalogue_type':
-    return get_result_string_by_catalogue_type( results )
+  if order_by == 'catalogue_provenance':
+    return get_result_string_by_catalogue_provenance( results )
   elif order_by == 'catalogue_date':
     return get_result_string_by_catalogue_date( results )
   else:
@@ -460,6 +456,7 @@ def get_result_string_by_author_title( results ): #{
 
   prev_entry_id = ''
   prev_entry_book_count = ''
+  prev_title_of_book = ''
   prev_copy_code = ''
    
   for row in results: #{
@@ -495,7 +492,7 @@ def get_result_string_by_author_title( results ): #{
       html += s_entry_name
       if s_entry_xref_name: html +=  ' %s %s' % (right_arrow, s_entry_xref_name) 
 
-      if s_entry_biblio_line: html += s_entry_biblio_line + newline 
+      if s_entry_biblio_line: html += ': ' + s_entry_biblio_line + newline 
 
       if s_entry_biblio_block: #{
         html += '<div>'
@@ -510,9 +507,15 @@ def get_result_string_by_author_title( results ): #{
       prev_copy_code = ''
       if not new_entry: #{
         html += '</ul><!-- end copy list -->' + newline
-        html += '</li><!-- end book -->' + newline
+        if prev_title_of_book: html += '</li><!-- end book -->' + newline
       #}
-      html += '<li><!-- start book -->' + newline
+
+      # check if the entry refers to a book title rather than an author
+      if s_title_of_book.strip() == s_entry_name.strip(): # just a dummy book record
+        s_title_of_book = ''
+      
+      if s_title_of_book.strip(): html += '<li><!-- start book -->' + newline
+      prev_title_of_book = s_title_of_book.strip()
 
       if s_problem: html += s_problem + ' '
 
