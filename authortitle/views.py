@@ -18,14 +18,18 @@ import mysite.mlgb.views as mv
 #--------------------------------------------------------------------------------
 
 printing = False
-
 editable = False
+
 baseurl="/authortitle"
+medieval_catalogues_url = "/authortitle/medieval_catalogues"
+mlgb_book_url = '/mlgb/book'
+
 default_order_by = "solr_id_sort"
 
 facet = False
 
 newline = '\n'
+carriage_return = '\r'
 right_arrow = '&rarr;'
 
 #================= Top-level functions, called directly from URL ================
@@ -388,6 +392,8 @@ def extract_from_result( record ): #{
   s_duplicate_title_yn = record.get( "s_duplicate_title_yn", "" )
 
   # from the 'documents' table 
+  # and 'document groups' table (normally institution location e.g. Canterbury)
+  # and 'document group types' table (institition type e.g. A for Augustinians)
   s_document_code      = record.get( "s_document_code", "" )
   s_document_code_sort = record.get( "s_document_code_sort", "" )
   s_seqno_in_document  = record.get( "s_seqno_in_document", "" )
@@ -400,6 +406,13 @@ def extract_from_result( record ): #{
   s_library_type       = record.get( "s_library_type", "" )
   # doc_group_name 
   s_library_loc        = record.get( "s_library_loc", "" )
+  # doc_group_type_code 
+  s_library_type_code  = record.get( "s_library_type_code", "" )
+  # doc_group_id 
+  s_library_loc_id     = record.get( "s_library_loc_id", "" )
+
+  # from the 'MLGB links' table 
+  s_mlgb_book_id       = record.get( "s_mlgb_book_id", [] ) # MLGB book ID is multi-valued, just in case
 
   return (solr_id, 
          solr_id_sort, 
@@ -431,7 +444,11 @@ def extract_from_result( record ): #{
          d_document_end, 
          s_document_type, 
          s_library_type, 
-         s_library_loc)
+         s_library_loc,
+         s_library_type_code,
+         s_library_loc_id,
+         s_mlgb_book_id,
+         )
 #}
 # end function extract_from_result()
 #--------------------------------------------------------------------------------
@@ -470,7 +487,8 @@ def get_result_string_by_author_title( results ): #{
     s_role_in_book, s_problem, s_book_biblio_line, s_copy_code, s_copy_notes, s_printed_yn, 
     s_survives_yn, s_uncertain_yn, s_duplicate_title_yn, s_document_code, s_document_code_sort, 
     s_seqno_in_document, s_seqno_in_doc_sort, s_document_name, d_document_start, d_document_end, 
-    s_document_type, s_library_type, s_library_loc) = extract_from_result( row )
+    s_document_type, s_library_type, s_library_loc, s_library_type_code, s_library_loc_id,
+    s_mlgb_book_id ) = extract_from_result( row )
 
     if sql_entry_id != prev_entry_id: #{
       new_entry = True
@@ -489,16 +507,8 @@ def get_result_string_by_author_title( results ): #{
 
       html += newline + '<li><!-- start entry -->' + newline
 
-      html += s_entry_name
-      if s_entry_xref_name: html +=  ' %s %s' % (right_arrow, s_entry_xref_name) 
-
-      if s_entry_biblio_line: html += ': ' + s_entry_biblio_line + newline 
-
-      if s_entry_biblio_block: #{
-        html += '<div>'
-        html += s_entry_biblio_block 
-        html += '</div>' + newline 
-      #}
+      html += get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
+                                      s_entry_biblio_line, s_entry_biblio_block )
 
       html += '<ul><!-- start book list -->' + newline
     #}
@@ -517,16 +527,8 @@ def get_result_string_by_author_title( results ): #{
       if s_title_of_book.strip(): html += '<li><!-- start book -->' + newline
       prev_title_of_book = s_title_of_book.strip()
 
-      if s_problem: html += s_problem + ' '
-
-      if s_role_in_book: html += s_role_in_book + ' '
-
-      if s_title_of_book and s_title_of_book.strip() != s_xref_title_of_book.strip():
-        html += s_title_of_book
-
-      if s_book_biblio_line: html += ": " + s_book_biblio_line
-
-      if s_xref_title_of_book: html += "%s %s" % (right_arrow, s_xref_title_of_book)
+      html += get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_role_in_book, \
+                                                s_problem, s_book_biblio_line )
 
       html += '<ul><!-- start list of copies -->' + newline
     #}
@@ -535,19 +537,25 @@ def get_result_string_by_author_title( results ): #{
       if s_copy_code != prev_copy_code: #{
 
         html += '<li><!-- start copy -->' + newline
-        html += '<!-- ADD MLGB LINKS HERE -->' + newline
 
-        html += s_copy_code
-        if s_copy_notes: html += ' %s' % s_copy_notes
-        html += newline
+        html += get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, \
+                                 s_entry_name, s_title_of_book )
 
-        if s_library_type: html += ' %s' % s_library_type
-        if s_library_loc: #{
-          if not s_library_type.endswith( s_library_loc ): # e.g HENRY DE KIRKESTEDE gets repeated twice
-            html +=  ': %s' % s_library_loc 
+        html += newline + '<ul>' + newline
+
+        if s_library_type: #{
+          html += '<li>From %s' % s_library_type
+          if s_library_loc: #{
+            if not s_library_type.endswith( s_library_loc ): # e.g HENRY DE KIRKESTEDE gets repeated twice
+              html +=  ': %s' % s_library_loc 
+          #}
+          if s_document_name: html += ': %s' % s_document_name
+          html += '</li>' + newline
         #}
-        if s_document_name: html += ': %s' % s_document_name
-        html += newline
+
+        html += get_flags_string( s_survives_yn, s_printed_yn, s_uncertain_yn, s_duplicate_title_yn )
+
+        html += newline + '</ul>' + newline
 
         html += '</li><!-- end copy -->' + newline
       #}
@@ -566,4 +574,108 @@ def get_result_string_by_author_title( results ): #{
   return html
 #}
 # end get_result_string_by_author_title()
+#--------------------------------------------------------------------------------
+
+def get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
+                                      s_entry_biblio_line, s_entry_biblio_block ): #{
+  html = s_entry_name
+
+  if s_entry_xref_name: html += ' %s %s' % (right_arrow, s_entry_xref_name) 
+
+  if s_entry_biblio_line: html += ': ' + s_entry_biblio_line + newline 
+
+  if s_entry_biblio_block: #{
+    html += '<div>'
+    html += s_entry_biblio_block 
+    html += '</div>' + newline 
+  #}
+
+  return html
+#}
+# end get_entry_name_and_biblio_string()
+#--------------------------------------------------------------------------------
+
+def get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_role_in_book, \
+                                      s_problem, s_book_biblio_line ): #{
+
+  html = ''
+
+  if s_problem: html += s_problem + ' '
+
+  if s_role_in_book: html += s_role_in_book + ' '
+
+  if s_title_of_book and s_title_of_book.strip() != s_xref_title_of_book.strip():
+    html += s_title_of_book
+
+  if s_book_biblio_line: html += ": " + s_book_biblio_line
+
+  if s_xref_title_of_book: html += "%s %s" % (right_arrow, s_xref_title_of_book)
+
+  return html
+#}
+# end get_entry_name_and_biblio_string()
+#--------------------------------------------------------------------------------
+
+def get_flags_string( s_survives_yn, s_printed_yn, s_uncertain_yn, s_duplicate_title_yn ): #{
+  html = ''
+
+  if s_survives_yn == 'y':
+    html += '<li>Surviving book</li>' + newline
+
+  if s_printed_yn == 'y':
+    html += '<li>Printed book</li>' + newline
+
+  if s_uncertain_yn == 'y':
+    html += '<li>Uncertain identification</li>' + newline
+
+  if s_duplicate_title_yn == 'y':
+    html += '<li>Could refer to one of several works with the same title</li>' + newline
+
+  return html
+#}
+# end get_flags_string()
+#--------------------------------------------------------------------------------
+
+def get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, s_entry_name, s_title_of_book ): #{
+
+  html = ''
+  editable_link = ''
+  if editable: editable_link = '/e'
+
+  hover_title = s_entry_name
+  if s_title_of_book.strip() and s_title_of_book.strip() != s_entry_name.strip():
+    hover_title += ' -- %s' % s_title_of_book
+
+  hover_title = hover_title.replace( '<i>', '' )
+  hover_title = hover_title.replace( '</i>', '' )
+  hover_title = hover_title.replace( '"', "'" )
+
+  onclick_title = hover_title.replace( newline, ' ' )
+  onclick_title = onclick_title.replace( carriage_return, '' )
+  onclick_title = onclick_title.replace( "'", "\\'" )
+
+  # Either start a link to the MLGB book record...
+  for book_id in s_mlgb_book_id: #{
+    html += '<a href="%s%s/%s/" ' % (editable_link, mlgb_book_url, book_id) 
+    html += ' title="%s: full details of book" ' % hover_title  
+    html += ' class="link_from_index_to_book">' 
+    html += s_copy_code
+    html += '</a> '
+  #}
+
+  # Or start a span which you can hover over and get a bit more info.
+  if not html: #{
+    html += '<span title="%s" class="index_catalogue_entry" ' % hover_title 
+    html += ' onclick="alert(' + "'" + onclick_title + "'" + ')">'
+    html += s_copy_code 
+    html += '</span>'
+  #}
+
+  # Add description/notes if there are any, 
+  # e.g. 'sermones Ailmeri prioris in glosis' or '(1 copy) = K5.7'
+  if s_copy_notes.strip(): html += ' %s' % s_copy_notes
+
+  return html
+#}
+# end get_copy_string()
 #--------------------------------------------------------------------------------
