@@ -222,9 +222,9 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
   order_by = mv.get_value_from_GET( request, "order_by", default_order_by )
   result_string = get_result_string( resultsets, order_by )
 
-  result_string = pag + '<p />' + result_string 
+  result_string = pag + newline + '<p></p>' + newline + result_string 
   if number_of_records > solr_rows: # repeat pagination at the bottom
-    result_string += '<p />' + pag
+    result_string += newline + '<p></p>' + newline + pag
 
   # Pass HTML string and other data to the template for display
   t = loader.get_template( 'authortitle/results.html' )
@@ -233,6 +233,7 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
       'pagename'         : pagename,
       'editable'         : editable,
       'results'          : result_string,
+      'order_by'         : order_by,
       'printing'         : printing,
       'print_link'       : mv.get_link_for_print_button( request ),
       'default_rows_per_page': mv.default_rows_per_page,
@@ -300,20 +301,20 @@ def basic_solr_query( request ): #{
     elif order_by == "catalogue_provenance":
       sort_list = [ "s_library_type asc", 
                     "s_library_loc asc", 
-                    "s_document_code_sort_asc",
+                    "s_document_code_sort asc",
                     "s_seqno_in_doc_sort asc",
                     "solr_id_sort asc" ]
-      solr_sort = ", ".join( sort_list )
+      solr_sort = ",".join( sort_list )
 
     elif order_by == "catalogue_date":
       sort_list = [ "d_document_start asc",
                     "d_document_end asc",
                     "s_library_type asc", 
                     "s_library_loc asc", 
-                    "s_document_code_sort_asc",
+                    "s_document_code_sort asc",
                     "s_seqno_in_doc_sort asc",
                     "solr_id_sort asc" ]
-      solr_sort = ", ".join( sort_list )
+      solr_sort = ",".join( sort_list )
 
     else:
       solr_sort = default_order_by + " asc"  
@@ -469,7 +470,7 @@ def get_result_string( results, order_by ): #{
 
 def get_result_string_by_author_title( results ): #{
 
-  html = '<ul><!-- start list of entries -->' + newline 
+  html = '<ul><!-- start list of author/title entries -->' + newline 
 
   prev_entry_id = ''
   prev_entry_book_count = ''
@@ -500,12 +501,12 @@ def get_result_string_by_author_title( results ): #{
 
     if new_entry: #{
       if prev_entry_id: #{
-        html += '</ul><!-- end copy list -->' + newline
+        html += '</ul><!-- end catalogue entry list -->' + newline
         html += '</ul><!-- end book list -->' + newline
-        html += '</li><!-- end entry -->' + newline
+        html += '</li><!-- end author/title entry -->' + newline
       #}
 
-      html += newline + '<li><!-- start entry -->' + newline
+      html += newline + '<li><!-- start author/title entry -->' + newline
 
       html += get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
                                       s_entry_biblio_line, s_entry_biblio_block )
@@ -516,7 +517,7 @@ def get_result_string_by_author_title( results ): #{
     if new_book: #{
       prev_copy_code = ''
       if not new_entry: #{
-        html += '</ul><!-- end copy list -->' + newline
+        html += '</ul><!-- end catalogue entry list -->' + newline
         if prev_title_of_book: html += '</li><!-- end book -->' + newline
       #}
 
@@ -530,13 +531,13 @@ def get_result_string_by_author_title( results ): #{
       html += get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_role_in_book, \
                                                 s_problem, s_book_biblio_line )
 
-      html += '<ul><!-- start list of copies -->' + newline
+      html += '<ul><!-- start list of catalogue entries -->' + newline
     #}
 
     if sql_copy_count: #{
       if s_copy_code != prev_copy_code: #{
 
-        html += '<li><!-- start copy -->' + newline
+        html += '<li><!-- start catalogue entry -->' + newline
 
         html += get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, \
                                  s_entry_name, s_title_of_book )
@@ -544,12 +545,10 @@ def get_result_string_by_author_title( results ): #{
         html += newline + '<ul>' + newline
 
         if s_library_type: #{
-          html += '<li>From %s' % s_library_type
-          if s_library_loc: #{
-            if not s_library_type.endswith( s_library_loc ): # e.g HENRY DE KIRKESTEDE gets repeated twice
-              html +=  ': %s' % s_library_loc 
-          #}
-          if s_document_name: html += ': %s' % s_document_name
+          html += '<li>From ' 
+          html += get_library_link( s_library_type_code, s_library_type, s_library_loc_id, s_library_loc )
+          if s_document_code and s_document_name: 
+            html += ': %s' % get_document_link( s_document_code, s_document_name )
           html += '</li>' + newline
         #}
 
@@ -557,7 +556,7 @@ def get_result_string_by_author_title( results ): #{
 
         html += newline + '</ul>' + newline
 
-        html += '</li><!-- end copy -->' + newline
+        html += '</li><!-- end catalogue entry -->' + newline
       #}
     #}
       
@@ -566,14 +565,131 @@ def get_result_string_by_author_title( results ): #{
     prev_copy_code = s_copy_code
   #}
 
-  html += '</ul><!-- end copy list -->' + newline
+  html += '</ul><!-- end catalogue entry list -->' + newline
   html += '</ul><!-- end book list -->' + newline
-  html += '</li><!-- end entry -->' + newline
-  html +=  '</ul><!-- end tree -->' + newline 
+  html += '</li><!-- end author/title entry -->' + newline
+  html +=  '</ul><!-- end author/title list -->' + newline 
 
   return html
 #}
 # end get_result_string_by_author_title()
+#--------------------------------------------------------------------------------
+
+def get_result_string_by_catalogue_provenance( results ): #{
+
+  html = '<ul><!-- start list of library types (A) -->' + newline 
+
+  prev_library = ''
+  prev_document_code = ''
+  prev_copy_code = ''
+   
+  for row in results: #{
+
+    new_library = False
+    new_document_code = False
+
+    (solr_id, solr_id_sort, 
+    sql_entry_id, sql_entry_book_count, sql_copy_count, s_entry_name, s_entry_xref_name, 
+    s_author_name, s_entry_biblio_line, s_entry_biblio_block, s_title_of_book, s_xref_title_of_book, 
+    s_role_in_book, s_problem, s_book_biblio_line, s_copy_code, s_copy_notes, s_printed_yn, 
+    s_survives_yn, s_uncertain_yn, s_duplicate_title_yn, s_document_code, s_document_code_sort, 
+    s_seqno_in_document, s_seqno_in_doc_sort, s_document_name, d_document_start, d_document_end, 
+    s_document_type, s_library_type, s_library_loc, s_library_type_code, s_library_loc_id,
+    s_mlgb_book_id ) = extract_from_result( row )
+
+    curr_library = s_library_type + s_library_loc
+    if curr_library != prev_library: #{
+      new_library = True
+      new_document_code = True
+    #}
+    elif curr_library == prev_library and s_document_code != prev_document_code: #{
+      new_document_code = True
+    #}
+
+    if new_library: #{
+      if prev_library: #{
+        html += '</ul><!-- end list of catalogue entries (C) -->' + newline
+        html += '</ul><!-- end document list (B) -->' + newline
+        html += '</li><!-- end library list-item (A) -->' + newline
+      #}
+
+      html += newline + '<li><!-- start library list-item (A) -->' + newline
+
+      html += get_library_link( s_library_type_code, s_library_type, s_library_loc_id, s_library_loc )
+
+      html += newline + '<ul><!-- start document list (B) -->' + newline
+    #}
+
+    if new_document_code: #{
+      prev_copy_code = ''
+      if not new_library: #{
+        html += newline + '</ul><!-- end list of catalogue entries (C) -->' + newline
+        html += newline + '</li><!-- end document list-item (B) -->' + newline
+      #}
+
+      html += newline + '<li><!-- start document list-item( B) -->' + newline
+
+      if s_document_code and s_document_name: 
+        html += get_document_link( s_document_code, s_document_name )
+      else:
+        html += '[no document found]'
+
+      html += newline + '<ul><!-- start list of catalogue entries (C) -->' + newline
+    #}
+
+    if sql_copy_count: #{
+      if s_copy_code != prev_copy_code: #{
+
+        html += newline + '<li><!-- start catalogue entry list-item (C) -->' + newline
+
+        html += get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, \
+                                 s_entry_name, s_title_of_book )
+
+        html += '<br />'
+
+        html += get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
+                                                  s_entry_biblio_line, s_entry_biblio_block )
+
+        # check if the entry refers to a book title rather than an author
+        if s_title_of_book.strip() == s_entry_name.strip(): # just a dummy book record
+          s_title_of_book = ''
+        
+        if s_title_of_book and not s_entry_biblio_block: html += '<br />'
+
+        html += get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_role_in_book, \
+                                                s_problem, s_book_biblio_line )
+
+
+        html += newline + '<ul><!-- further details list (D) -->' + newline
+        html += get_flags_string( s_survives_yn, s_printed_yn, s_uncertain_yn, s_duplicate_title_yn )
+        html += newline + '</ul><!-- end further details list (D) -->' + newline
+
+        html += newline + '</li><!-- end catalogue entry list-item (C) -->' + newline
+      #}
+    #}
+      
+    prev_library = curr_library
+    prev_document_code = s_document_code
+    prev_copy_code = s_copy_code
+  #}
+
+  html += newline
+  html += '</ul><!-- end list of catalogue entries (C) -->' + newline
+  html += '</ul><!-- end list of documents (B) -->' + newline
+  html += '</li><!-- end library list-item (A) -->' + newline
+  html +=  '</ul><!-- end list of libraries (A) -->' + newline 
+
+  return html
+#}
+# end get_result_string_by_catalogue_provenance()
+#--------------------------------------------------------------------------------
+
+def get_result_string_by_catalogue_date( results ): #{
+
+  html = ''
+  return html
+#}
+# end get_result_string_by_catalogue_date()
 #--------------------------------------------------------------------------------
 
 def get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
@@ -587,7 +703,8 @@ def get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
   if s_entry_biblio_block: #{
     html += '<div>'
     html += s_entry_biblio_block 
-    html += '</div>' + newline 
+    html += '</div>' 
+    html += newline 
   #}
 
   return html
@@ -613,7 +730,7 @@ def get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_r
 
   return html
 #}
-# end get_entry_name_and_biblio_string()
+# end get_book_title_and_biblio_string()
 #--------------------------------------------------------------------------------
 
 def get_flags_string( s_survives_yn, s_printed_yn, s_uncertain_yn, s_duplicate_title_yn ): #{
@@ -678,4 +795,43 @@ def get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, s_entry_name, s_
   return html
 #}
 # end get_copy_string()
+#--------------------------------------------------------------------------------
+
+def get_library_link( library_type_code, library_type_name, library_loc_id, library_loc_name ): #{
+
+  if not library_type_code or not library_type_name: 
+    return '[no catalogue details found]'
+
+  html = ''
+  editable_link = ''
+  if editable: editable_link = '/e'
+
+  library_type_url = "%s%s/source/%s/" % (editable_link, medieval_catalogues_url, library_type_code)
+
+  html += '<a href="%s" title="%s">%s</a>' % (library_type_url, library_type_name, library_type_name)
+
+  if library_loc_id and library_loc_name: #{
+    if not library_type_name.endswith( library_loc_name ): #{ e.g HENRY DE KIRKESTEDE gets repeated twice
+      library_loc_url = "%s%s/" % (library_type_url, library_loc_id)
+      html +=  ': <a href="%s" title="%s">%s</a>' % (library_loc_url, library_loc_name, library_loc_name)
+    #}
+  #}
+  return html
+#}
+#--------------------------------------------------------------------------------
+
+def get_document_link( document_code, document_name ): #{
+
+  if not document_code or not document_name: return ''
+
+  html = ''
+  editable_link = ''
+  if editable: editable_link = '/e'
+
+  url = "%s%s/%s/" % (editable_link, medieval_catalogues_url, document_code)
+
+  html += '<a href="%s" title="%s">%s</a>' % (url, document_name, document_name)
+
+  return html
+#}
 #--------------------------------------------------------------------------------
