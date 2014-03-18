@@ -378,6 +378,7 @@ def extract_from_result( record ): #{
   s_author_name        = record.get( "s_author_name", "" )
   s_entry_biblio_line  = record.get( "s_entry_biblio_line", "" )
   s_entry_biblio_block = record.get( "s_entry_biblio_block", "" )
+  s_entry_letter       = record.get( "s_entry_letter", "" )
 
   # from the 'books' table 
   s_title_of_book      = record.get( "s_title_of_book", "" )
@@ -451,6 +452,7 @@ def extract_from_result( record ): #{
          s_library_type_code,
          s_library_loc_id,
          s_mlgb_book_id,
+         s_entry_letter,
          )
 #}
 # end function extract_from_result()
@@ -491,7 +493,7 @@ def get_result_string_by_author_title( results ): #{
     s_survives_yn, s_uncertain_yn, s_duplicate_title_yn, s_document_code, s_document_code_sort, 
     s_seqno_in_document, s_seqno_in_doc_sort, s_document_name, d_document_start, d_document_end, 
     s_document_type, s_library_type, s_library_loc, s_library_type_code, s_library_loc_id,
-    s_mlgb_book_id ) = extract_from_result( row )
+    s_mlgb_book_id, s_entry_letter ) = extract_from_result( row )
 
     if sql_entry_id != prev_entry_id: #{
       new_entry = True
@@ -508,10 +510,11 @@ def get_result_string_by_author_title( results ): #{
         html += '</li><!-- end author/title entry -->' + newline
       #}
 
-      html += newline + '<li><!-- start author/title entry -->' + newline
+      html += newline + '<li class="medieval_cat_result"><!-- start author/title entry -->' + newline
 
       html += get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
-                                                s_entry_biblio_line, s_entry_biblio_block )
+                                                s_entry_biblio_line, s_entry_biblio_block, \
+                                                sql_entry_id, s_entry_letter )
 
       html += '<ul><!-- start book list -->' + newline
     #}
@@ -527,7 +530,7 @@ def get_result_string_by_author_title( results ): #{
       if s_title_of_book.strip() == s_entry_name.strip(): # just a dummy book record
         s_title_of_book = ''
       
-      if s_title_of_book.strip(): html += '<li><!-- start book -->' + newline
+      if s_title_of_book.strip(): html += '<li class="medieval_cat_result"><!-- start book -->' + newline
       prev_title_of_book = s_title_of_book.strip()
 
       html += get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_role_in_book, \
@@ -539,7 +542,7 @@ def get_result_string_by_author_title( results ): #{
     if sql_copy_count: #{
       if s_copy_code != prev_copy_code: #{
 
-        html += '<li><!-- start catalogue entry -->' + newline
+        html += '<li class="medieval_cat_result"><!-- start catalogue entry -->' + newline
 
         html += get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, \
                                  s_entry_name, s_title_of_book )
@@ -597,7 +600,7 @@ def get_result_string_by_catalogue_provenance( results ): #{
     s_survives_yn, s_uncertain_yn, s_duplicate_title_yn, s_document_code, s_document_code_sort, 
     s_seqno_in_document, s_seqno_in_doc_sort, s_document_name, d_document_start, d_document_end, 
     s_document_type, s_library_type, s_library_loc, s_library_type_code, s_library_loc_id,
-    s_mlgb_book_id ) = extract_from_result( row )
+    s_mlgb_book_id, s_entry_letter ) = extract_from_result( row )
 
     curr_library = s_library_type + s_library_loc
     if curr_library != prev_library: #{
@@ -615,7 +618,7 @@ def get_result_string_by_catalogue_provenance( results ): #{
         html += '</li><!-- end library list-item (A) -->' + newline
       #}
 
-      html += newline + '<li><!-- start library list-item (A) -->' + newline
+      html += newline + '<li class="medieval_cat_result"><!-- start library list-item (A) -->' + newline
 
       html += get_library_link( s_library_type_code, s_library_type, s_library_loc_id, s_library_loc )
 
@@ -629,7 +632,7 @@ def get_result_string_by_catalogue_provenance( results ): #{
         html += newline + '</li><!-- end document list-item (B) -->' + newline
       #}
 
-      html += newline + '<li><!-- start document list-item( B) -->' + newline
+      html += newline + '<li class="medieval_cat_result"><!-- start document list-item( B) -->' + newline
 
       if s_document_code and s_document_name: 
         html += get_document_link( s_document_code, s_document_name )
@@ -642,15 +645,21 @@ def get_result_string_by_catalogue_provenance( results ): #{
     if sql_copy_count: #{
       if s_copy_code != prev_copy_code: #{
 
-        html += newline + '<li><!-- start catalogue entry list-item (C) -->' + newline
+        html += newline + '<li class="medieval_cat_result"><!-- start catalogue entry list-item (C) -->' 
+        html += newline
+
+        hover_library = s_library_type 
+        if not s_library_type.endswith( s_library_loc ): 
+          hover_library += ': %s' % s_library_loc
 
         html += get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, \
-                                 s_entry_name, s_title_of_book )
+                                 hover_library, s_document_name )
 
         html += '<br />'
 
         html += get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
-                                                  s_entry_biblio_line, s_entry_biblio_block )
+                                                  s_entry_biblio_line, s_entry_biblio_block,\
+                                                  sql_entry_id, s_entry_letter )
 
         # check if the entry refers to a book title rather than an author
         if s_title_of_book.strip() == s_entry_name.strip(): # just a dummy book record
@@ -695,15 +704,24 @@ def get_result_string_by_catalogue_date( results ): #{
 #--------------------------------------------------------------------------------
 
 def get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
-                                      s_entry_biblio_line, s_entry_biblio_block ): #{
-  html = s_entry_name
+                                      s_entry_biblio_line, s_entry_biblio_block,\
+                                      sql_entry_id, s_entry_letter ): #{
+
+  if s_entry_letter == 'I/J': s_entry_letter = 'IJ'
+
+  entry_href = '%s/browse/%s/#entry%s_anchor' % (baseurl, s_entry_letter, sql_entry_id)
+  html = '<a href="%s" title="%s">' % (entry_href, s_entry_name)
+  html += s_entry_name
+  html += '</a>'
 
   if s_entry_xref_name: html += ' %s %s' % (right_arrow, s_entry_xref_name) 
 
   if s_entry_biblio_line: html += ': ' + s_entry_biblio_line + newline 
 
   if s_entry_biblio_block: #{
-    if len( s_entry_biblio_block ) > biblio_block_line_length: # show up to 1 line of block
+    display_chars = s_entry_biblio_block.replace( '<span class="biblio_block">', "" )
+    display_chars = display_chars.replace( '</span>', "" )
+    if len( display_chars ) > biblio_block_line_length: # show up to 1 line of block
       show_biblio_block = False
     else:
       show_biblio_block = True
@@ -747,8 +765,10 @@ def get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, 
       html += ' class="manicule" onclick="expand_collapse_biblio_block_%s()" >' % solr_id
       html += mv.manicule_pointing_right_img( pointing_at )
       html += '</button>' + newline
+      html += '<br />' + newline
       html += '<div id="biblio_block_%s" style="display:none">' % solr_id
       html += s_entry_biblio_block 
+      html += '<p></p>' + newline
       html += '</div>' 
       html += newline 
     #}
@@ -800,15 +820,16 @@ def get_flags_string( s_survives_yn, s_printed_yn, s_uncertain_yn, s_duplicate_t
 # end get_flags_string()
 #--------------------------------------------------------------------------------
 
-def get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, s_entry_name, s_title_of_book ): #{
+def get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, \
+                     hover_title_part_1 = '', hover_title_part_2 = '' ): #{
 
   html = ''
   editable_link = ''
   if editable: editable_link = '/e'
 
-  hover_title = s_entry_name
-  if s_title_of_book.strip() and s_title_of_book.strip() != s_entry_name.strip():
-    hover_title += ' -- %s' % s_title_of_book
+  hover_title = hover_title_part_1
+  if hover_title_part_2.strip() and hover_title_part_2.strip() != hover_title_part_1.strip():
+    hover_title += ' -- %s' % hover_title_part_2
 
   hover_title = hover_title.replace( '<i>', '' )
   hover_title = hover_title.replace( '</i>', '' )
@@ -821,7 +842,7 @@ def get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, s_entry_name, s_
   # Either start a link to the MLGB book record...
   for book_id in s_mlgb_book_id: #{
     html += '<a href="%s%s/%s/" ' % (editable_link, mlgb_book_url, book_id) 
-    html += ' title="%s: full details of book" ' % hover_title  
+    html += ' title="Further details of book" '
     html += ' class="link_from_index_to_book">' 
     html += s_copy_code
     html += '</a> '
