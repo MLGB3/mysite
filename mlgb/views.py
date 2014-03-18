@@ -2399,10 +2399,7 @@ def display_as_treeview( one_row, first_record = False, \
   #}
 
   if not printing: #{
-    detail_text += '<img src="/mlgb/media/img/tiny-manicule-right.jpg" height="16px"'
-    detail_text += ' alt="Pointing hand linking to book detail record.'
-    detail_text += ' (Manicule image courtesy of Attitude Design.)" '
-    detail_text += ' border="0" />'
+    detail_text += manicule_pointing_right_img() 
   #}
   detail_text += '</a>' + newline
   detail_text += '<!-- end booklink -->' + newline
@@ -3127,5 +3124,31 @@ def evidence_search_options(): #{ # slightly different from raw values in table
   #}
   
   return options
+#}
+#--------------------------------------------------------------------------------
+
+def manicule_pointing_right_img( pointing_at = 'book detail record' ): #{
+
+  return manicule_img( 'right', pointing_at )
+#}
+#--------------------------------------------------------------------------------
+
+def manicule_pointing_down_img( pointing_at = 'book detail record' ): #{
+
+  return manicule_img( 'down', pointing_at )
+#}
+#--------------------------------------------------------------------------------
+
+def manicule_img( direction = 'right', pointing_at = 'book detail record' ): #{
+
+  img_height = 28
+  if direction == 'down': img_height = 55
+
+  img_text =  '<img src="/mlgb/media/img/tiny-manicule-%s.jpg" ' % direction
+  img_text += ' class="manicule" height="%dpx" ' % img_height
+  img_text += ' alt="Pointing hand linking to %s' % pointing_at
+  img_text += ' (drawn by MLGB team member Sushila Burgess)" '
+  img_text += ' border="0" />'
+  return img_text
 #}
 #--------------------------------------------------------------------------------
