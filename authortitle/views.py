@@ -32,6 +32,8 @@ newline = '\n'
 carriage_return = '\r'
 right_arrow = '&rarr;'
 
+biblio_block_line_length = 100 
+
 #================= Top-level functions, called directly from URL ================
 #--------------------------------------------------------------------------------
 
@@ -508,8 +510,8 @@ def get_result_string_by_author_title( results ): #{
 
       html += newline + '<li><!-- start author/title entry -->' + newline
 
-      html += get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
-                                      s_entry_biblio_line, s_entry_biblio_block )
+      html += get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
+                                                s_entry_biblio_line, s_entry_biblio_block )
 
       html += '<ul><!-- start book list -->' + newline
     #}
@@ -647,7 +649,7 @@ def get_result_string_by_catalogue_provenance( results ): #{
 
         html += '<br />'
 
-        html += get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
+        html += get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
                                                   s_entry_biblio_line, s_entry_biblio_block )
 
         # check if the entry refers to a book title rather than an author
@@ -692,7 +694,7 @@ def get_result_string_by_catalogue_date( results ): #{
 # end get_result_string_by_catalogue_date()
 #--------------------------------------------------------------------------------
 
-def get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
+def get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
                                       s_entry_biblio_line, s_entry_biblio_block ): #{
   html = s_entry_name
 
@@ -701,10 +703,55 @@ def get_entry_name_and_biblio_string( s_entry_name, s_entry_xref_name, \
   if s_entry_biblio_line: html += ': ' + s_entry_biblio_line + newline 
 
   if s_entry_biblio_block: #{
-    html += '<div>'
-    html += s_entry_biblio_block 
-    html += '</div>' 
-    html += newline 
+    if len( s_entry_biblio_block ) > biblio_block_line_length: # show up to 1 line of block
+      show_biblio_block = False
+    else:
+      show_biblio_block = True
+
+    if show_biblio_block: #{
+      html += newline + '<div>'
+      html += s_entry_biblio_block 
+      html += '</div>' + newline
+    #}
+    else: #{
+      pointing_at = 'bibliographical details'
+
+      html += newline + '<script type="text/javascript">' + newline
+      html += "function expand_collapse_biblio_block_%s() {" % solr_id
+      html += newline
+      html += '  var the_block = document.getElementById( "biblio_block_%s" );' % solr_id
+      html += newline
+      html += '  var the_button = document.getElementById( "biblio_button_%s" );' % solr_id
+      html += newline
+      html += '  if( the_block.style.display == "block" ) {'
+      html += newline
+      html += '    the_block.style.display = "none";'
+      html += newline
+      html += "    the_button.innerHTML = '%s';" % mv.manicule_pointing_right_img( pointing_at )
+      html += newline
+      html += '  }'
+      html += newline
+      html += '  else {'
+      html += newline
+      html += '    the_block.style.display = "block";'
+      html += newline
+      html += "    the_button.innerHTML = '%s';" % mv.manicule_pointing_down_img( pointing_at )
+      html += newline
+      html += '  }'
+      html += newline
+      html += '}'
+      html += newline 
+      html += '</script>' + newline
+
+      html += '<button id="biblio_button_%s" ' % solr_id
+      html += ' class="manicule" onclick="expand_collapse_biblio_block_%s()" >' % solr_id
+      html += mv.manicule_pointing_right_img( pointing_at )
+      html += '</button>' + newline
+      html += '<div id="biblio_block_%s" style="display:none">' % solr_id
+      html += s_entry_biblio_block 
+      html += '</div>' 
+      html += newline 
+    #}
   #}
 
   return html
