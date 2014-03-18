@@ -678,6 +678,19 @@ def get_result_string_by_catalogue_provenance( results ): #{
         html += newline + '</li><!-- end catalogue entry list-item (C) -->' + newline
       #}
     #}
+    else: #{  # just a cross-reference entry
+      html += newline + '<li class="medieval_cat_result"><!-- start cross-reference entry (C) -->' 
+      html += newline
+      html += get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
+                                                s_entry_biblio_line, s_entry_biblio_block,\
+                                                sql_entry_id, s_entry_letter )
+      if s_title_of_book.strip() == s_entry_name.strip(): # just a dummy book record
+        s_title_of_book = ''
+      if s_title_of_book and not s_entry_biblio_block: html += '<br />'
+      html += get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_role_in_book, \
+                                              s_problem, s_book_biblio_line )
+      html += newline + '</li><!-- end cross-reference entry (C) -->' + newline
+    #}
       
     prev_library = curr_library
     prev_document_code = s_document_code
@@ -868,7 +881,7 @@ def get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, \
 def get_library_link( library_type_code, library_type_name, library_loc_id, library_loc_name ): #{
 
   if not library_type_code or not library_type_name: 
-    return '[no catalogue details found]'
+    return '[no library found]'
 
   html = ''
   editable_link = ''
