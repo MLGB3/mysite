@@ -3,6 +3,8 @@
 """
 #--------------------------------------------------------------------------------
 
+import math
+
 from django.template import Context, loader
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
@@ -25,6 +27,22 @@ medieval_catalogues_url = "/authortitle/medieval_catalogues"
 mlgb_book_url = '/mlgb/book'
 
 default_order_by = "solr_id_sort"
+
+catalogue_provenance_sort_list = [ "s_library_type asc", 
+                                   "s_library_loc asc", 
+                                   "s_document_code_sort asc",
+                                   "s_seqno_in_doc_sort asc",
+                                   "s_copy_code asc",
+                                   "solr_id_sort asc" ]
+
+catalogue_date_sort_list = [ "d_document_start asc",
+                             "d_document_end asc",
+                             "s_library_type asc", 
+                             "s_library_loc asc", 
+                             "s_document_code_sort asc",
+                             "s_seqno_in_doc_sort asc",
+                             "s_copy_code asc",
+                             "solr_id_sort asc" ]
 
 facet = False
 
@@ -301,22 +319,10 @@ def basic_solr_query( request ): #{
       solr_sort = order_by + " asc"  
 
     elif order_by == "catalogue_provenance":
-      sort_list = [ "s_library_type asc", 
-                    "s_library_loc asc", 
-                    "s_document_code_sort asc",
-                    "s_seqno_in_doc_sort asc",
-                    "solr_id_sort asc" ]
-      solr_sort = ",".join( sort_list )
+      solr_sort = ",".join( catalogue_provenance_sort_list )
 
     elif order_by == "catalogue_date":
-      sort_list = [ "d_document_start asc",
-                    "d_document_end asc",
-                    "s_library_type asc", 
-                    "s_library_loc asc", 
-                    "s_document_code_sort asc",
-                    "s_seqno_in_doc_sort asc",
-                    "solr_id_sort asc" ]
-      solr_sort = ",".join( sort_list )
+      solr_sort = ",".join( catalogue_date_sort_list )
 
     else:
       solr_sort = default_order_by + " asc"  
@@ -403,8 +409,17 @@ def extract_from_result( record ): #{
   s_seqno_in_document  = record.get( "s_seqno_in_document", "" )
   s_seqno_in_doc_sort  = record.get( "s_seqno_in_doc_sort", "" )
   s_document_name      = record.get( "s_document_name", "" )
+
+  # these fields are for SORTING on, e.g. '12th century' has a start year of 1198
+  # and 'late 12th century' has a start year of 1199.
   d_document_start     = record.get( "d_document_start", "" )
   d_document_end       = record.get( "d_document_end", "" )
+
+  # these fields are for SEARCHING on or displaying
+  s_document_start_year     = record.get( "s_document_start_year", "" )
+  s_document_end_year       = record.get( "s_document_end_year", "" )
+  s_document_date_in_words  = record.get( "s_document_date_in_words", "" )
+
   s_document_type      = record.get( "s_document_type", "" )
   # doc_group_type_name 
   s_library_type       = record.get( "s_library_type", "" )
@@ -453,6 +468,9 @@ def extract_from_result( record ): #{
          s_library_loc_id,
          s_mlgb_book_id,
          s_entry_letter,
+         s_document_start_year,
+         s_document_end_year,
+         s_document_date_in_words,
          )
 #}
 # end function extract_from_result()
@@ -493,7 +511,8 @@ def get_result_string_by_author_title( results ): #{
     s_survives_yn, s_uncertain_yn, s_duplicate_title_yn, s_document_code, s_document_code_sort, 
     s_seqno_in_document, s_seqno_in_doc_sort, s_document_name, d_document_start, d_document_end, 
     s_document_type, s_library_type, s_library_loc, s_library_type_code, s_library_loc_id,
-    s_mlgb_book_id, s_entry_letter ) = extract_from_result( row )
+    s_mlgb_book_id, s_entry_letter, s_document_start_year, s_document_end_year, 
+    s_document_date_in_words) = extract_from_result( row )
 
     if sql_entry_id != prev_entry_id: #{
       new_entry = True
@@ -553,7 +572,7 @@ def get_result_string_by_author_title( results ): #{
           html += '<li>From ' 
           html += get_library_link( s_library_type_code, s_library_type, s_library_loc_id, s_library_loc )
           if s_document_code and s_document_name: 
-            html += ': %s' % get_document_link( s_document_code, s_document_name )
+            html += ': %s' % get_document_link( s_document_code, s_document_name, s_document_type )
           html += '</li>' + newline
         #}
 
@@ -600,7 +619,8 @@ def get_result_string_by_catalogue_provenance( results ): #{
     s_survives_yn, s_uncertain_yn, s_duplicate_title_yn, s_document_code, s_document_code_sort, 
     s_seqno_in_document, s_seqno_in_doc_sort, s_document_name, d_document_start, d_document_end, 
     s_document_type, s_library_type, s_library_loc, s_library_type_code, s_library_loc_id,
-    s_mlgb_book_id, s_entry_letter ) = extract_from_result( row )
+    s_mlgb_book_id, s_entry_letter, s_document_start_year, s_document_end_year, 
+    s_document_date_in_words) = extract_from_result( row )
 
     curr_library = s_library_type + s_library_loc
     if curr_library != prev_library: #{
@@ -635,7 +655,7 @@ def get_result_string_by_catalogue_provenance( results ): #{
       html += newline + '<li class="medieval_cat_result"><!-- start document list-item( B) -->' + newline
 
       if s_document_code and s_document_name: 
-        html += get_document_link( s_document_code, s_document_name )
+        html += get_document_link( s_document_code, s_document_name, s_document_type )
       else:
         html += '[no document found]'
 
@@ -711,10 +731,179 @@ def get_result_string_by_catalogue_provenance( results ): #{
 def get_result_string_by_catalogue_date( results ): #{
 
   html = ''
+
+  html = '<ul><!-- start list of centuries (A) -->' + newline 
+
+  prev_century = ''
+  prev_document_code = ''
+  prev_copy_code = ''
+   
+  for row in results: #{
+
+    new_century = False
+    new_document_code = False
+
+    (solr_id, solr_id_sort, 
+    sql_entry_id, sql_entry_book_count, sql_copy_count, s_entry_name, s_entry_xref_name, 
+    s_author_name, s_entry_biblio_line, s_entry_biblio_block, s_title_of_book, s_xref_title_of_book, 
+    s_role_in_book, s_problem, s_book_biblio_line, s_copy_code, s_copy_notes, s_printed_yn, 
+    s_survives_yn, s_uncertain_yn, s_duplicate_title_yn, s_document_code, s_document_code_sort, 
+    s_seqno_in_document, s_seqno_in_doc_sort, s_document_name, d_document_start, d_document_end, 
+    s_document_type, s_library_type, s_library_loc, s_library_type_code, s_library_loc_id,
+    s_mlgb_book_id, s_entry_letter, s_document_start_year, s_document_end_year, 
+    s_document_date_in_words) = extract_from_result( row )
+    curr_century = get_century_from_date( d_document_start )
+    if curr_century != prev_century: #{
+      new_century = True
+      new_document_code = True
+    #}
+    elif curr_century == prev_century and s_document_code != prev_document_code: #{
+      new_document_code = True
+    #}
+
+    if new_century: #{
+      if prev_century: #{
+        html += '</table><!-- end list of catalogue entries (C) -->' + newline
+        html += '</ul><!-- end document list (B) -->' + newline
+        html += '</li><!-- end century list-item (A) -->' + newline
+      #}
+
+      html += newline + '<li class="medieval_cat_result"><!-- start century list-item (A) -->' + newline
+
+      html += '<h3>' + get_century_desc( curr_century ) + '</h3>'
+
+      html += newline + '<ul><!-- start document list (B) -->' + newline
+    #}
+
+    if new_document_code: #{
+      prev_copy_code = ''
+      if not new_century: #{
+        html += newline + '</table><!-- end list of catalogue entries (C) -->' + newline
+        html += newline + '</li><!-- end document list-item (B) -->' + newline
+      #}
+
+      html += newline + '<li class="medieval_cat_result"><!-- start document list-item( B) -->' + newline
+
+      if s_document_code and s_document_name:  #{
+        html += get_library_link( s_library_type_code, s_library_type, s_library_loc_id, s_library_loc )
+        html += ': ' + get_document_link( s_document_code, s_document_name, s_document_type )
+      #}
+      else:
+        html += '[no document found]'
+
+      html += newline + '<table class="century">'
+      html += '<!-- start list of catalogue entries (C) -->' + newline
+    #}
+
+    if sql_copy_count: #{
+      if s_copy_code != prev_copy_code: #{
+
+        html += newline 
+        html += '<tr><!-- start catalogue entry table row (C) -->' 
+
+        # Summary of date
+        html += '<td class="medieval_cat_result"><em>'
+        html += s_document_date_in_words
+        html += '</em></td>'
+        html += newline
+
+        # Copy code, copy notes, author/title, bibliography
+        html += '<td class="medieval_cat_result">'
+        html += newline
+
+        hover_library = s_library_type 
+        if not s_library_type.endswith( s_library_loc ): 
+          hover_library += ': %s' % s_library_loc
+
+        html += get_copy_string( s_copy_code, s_copy_notes, s_mlgb_book_id, \
+                                 hover_library, s_document_name )
+
+        html += '<br />'
+
+        html += get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
+                                                  s_entry_biblio_line, s_entry_biblio_block,\
+                                                  sql_entry_id, s_entry_letter )
+
+        # check if the entry refers to a book title rather than an author
+        if s_title_of_book.strip() == s_entry_name.strip(): # just a dummy book record
+          s_title_of_book = ''
+        
+        if s_title_of_book and not s_entry_biblio_block: html += '<br />'
+
+        html += get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_role_in_book, \
+                                                s_problem, s_book_biblio_line )
+
+
+        html += newline + '<ul><!-- further details list (D) -->' + newline
+        html += get_flags_string( s_survives_yn, s_printed_yn, s_uncertain_yn, s_duplicate_title_yn )
+        html += newline + '</ul><!-- end further details list (D) -->' + newline
+
+        html += newline + '</td></tr><!-- end catalogue entry row (C) -->' + newline
+      #}
+    #}
+    else: #{  # just a cross-reference entry
+      html += newline 
+      html += '<tr><td></td><td class="medieval_cat_result">'
+      html += '<!-- start cross-reference entry (C) -->' 
+      html += newline
+      html += get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
+                                                s_entry_biblio_line, s_entry_biblio_block,\
+                                                sql_entry_id, s_entry_letter )
+      if s_title_of_book.strip() == s_entry_name.strip(): # just a dummy book record
+        s_title_of_book = ''
+      if s_title_of_book and not s_entry_biblio_block: html += '<br />'
+      html += get_book_title_and_biblio_string( s_title_of_book, s_xref_title_of_book, s_role_in_book, \
+                                              s_problem, s_book_biblio_line )
+      html += newline + '</td></tr><!-- end cross-reference entry (C) -->' + newline
+    #}
+      
+    prev_century = curr_century
+    prev_document_code = s_document_code
+    prev_copy_code = s_copy_code
+  #}
+
+  html += newline
+  html += '</table><!-- end list of catalogue entries (C) -->' + newline
+  html += '</ul><!-- end list of documents (B) -->' + newline
+  html += '</li><!-- end century list-item (A) -->' + newline
+  html +=  '</ul><!-- end list of centuries (A) -->' + newline 
+
   return html
 #}
 # end get_result_string_by_catalogue_date()
 #--------------------------------------------------------------------------------
+
+def get_century_from_date( date_string ): #{
+
+  the_year = ''
+  date_string = str( date_string )
+
+  if len( date_string ) >= 4: the_year = date_string[ 0 : 4 ]
+  if not the_year.isdigit(): return 'undated'
+
+  if the_year.startswith( '0' ): the_year = the_year[ 1 : ]
+  century = int( math.floor( int( the_year ) / 100 ) + 1 )
+
+  return str( century )
+#}
+#--------------------------------------------------------------------------------
+
+def get_century_desc( century ): #{
+
+  if century.isdigit(): #{
+    if int( century ) >= 20: #{ # undated documents are sorted to the end
+      century_desc = 'Undated'
+    #}
+    else: #{
+      century_desc = '%sth century' % century
+    #}
+  #}
+  elif century.lower() == 'undated': #{
+    century_desc = 'Undated'
+  #}
+  return century_desc
+#}
+##=====================================================================================
 
 def get_entry_name_and_biblio_string( solr_id, s_entry_name, s_entry_xref_name, \
                                       s_entry_biblio_line, s_entry_biblio_block,\
@@ -901,7 +1090,7 @@ def get_library_link( library_type_code, library_type_name, library_loc_id, libr
 #}
 #--------------------------------------------------------------------------------
 
-def get_document_link( document_code, document_name ): #{
+def get_document_link( document_code, document_name, s_document_type = '' ): #{
 
   if not document_code or not document_name: return ''
 
@@ -912,6 +1101,11 @@ def get_document_link( document_code, document_name ): #{
   url = "%s%s/%s/" % (editable_link, medieval_catalogues_url, document_code)
 
   html += '<a href="%s" title="%s">%s</a>' % (url, document_name, document_name)
+
+  # Was going to show document type, but that's unnecessary (it's already given in document name)
+  #if s_document_type and s_document_type != 'undefined': #{
+    #html += ' [type of list: %s]' % s_document_type
+  #}
 
   return html
 #}
