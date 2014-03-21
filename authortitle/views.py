@@ -44,6 +44,28 @@ catalogue_date_sort_list = [ "d_document_start asc",
                              "s_copy_code asc",
                              "solr_id_sort asc" ]
 
+searchable_fields = [ 
+
+  { "fieldname": "text", "label": "All fields", "info": "", "value": "" },
+
+  { "fieldname": "t_author", "label": "Author", "info": "", "value": "" }, 
+
+  { "fieldname": "t_title", "label": "Title of book", "info": "", "value": "" },
+
+  { "fieldname": "t_bibliography", "label": "Bibliographical details", "info": "", "value": "" },
+
+  { "fieldname": "t_library", "label": "Catalogue provenance", 
+    "info": "Typically library type and location, e.g. Benedictines Peterborough", "value": "" },
+
+  { "fieldname": "t_document", "label": "Document name", "info": "", "value": "" },
+
+  # The next 2 fields do not map directly to ones in the Solr index.
+  # We'll use them to query on s_document_start/end_year
+  { "fieldname": "q_earliest_year", "label": "From", "info": "", "value": "" }, 
+
+  { "fieldname": "q_latest_year", "label": "To", "info": "", "value": "" },
+]
+
 facet = False
 
 newline = '\n'
@@ -228,7 +250,7 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
 
   # Run the Solr query
   (resultsets, number_of_records, search_term, \
-  solr_start, solr_rows, page_size ) = basic_solr_query( request )
+  solr_start, solr_rows, page_size ) = solr_query( request )
 
   mv.printing = printing
 
@@ -260,6 +282,7 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
       'number_of_records': number_of_records,
       'search_type': search_type,
       'search_term': search_term,
+      'advanced_search_fields': searchable_fields,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -298,21 +321,36 @@ def enable_edit(): #{
 #--------------------------------------------------------------------------------
 # Run a *basic* Solr query (i.e. on a single search term) against default field of 'catalogues' core
 
-def basic_solr_query( request ): #{
+def solr_query( request ): #{
+
+  global searchable_fields # this is used in advanced search
+  for field in searchable_fields: 
+    field[ "value" ] = "" # initialise every field value to blank
 
   resultsets = []
   number_of_records = 0
+  search_type = ""
   search_term = solr_start = page_size = solr_query = solr_sort = solr_rows = ""
 
   if request.GET: #{ # was a search term found in GET?
+    #=====================================================================
+    # Get search type, records per page, start row and "order by" from GET
+    #=====================================================================
+    # Set search type (quick or advanced)
+    search_type = mv.get_value_from_GET( request, 'search_type', 'quick' )
+    if search_type not in [ 'quick', 'advanced' ]: search_type = 'quick'
 
-    # Get search term, records per page, start row and "order by" from GET
-    search_term = mv.get_value_from_GET( request, 'search_term' )
-    if not search_term: search_term = '*'
-
+    # Set page size
     page_size = mv.get_value_from_GET( request, "page_size", str( mv.default_rows_per_page ) ) 
+    if page_size.isdigit():
+      solr_rows = int( page_size )
+    else: 
+      solr_rows = mv.default_rows_per_page
+
+    # Set start page
     solr_start = mv.get_value_from_GET( request, "start", 0 ) 
 
+    # Set "order by"
     order_by = mv.get_value_from_GET( request, "order_by", default_order_by )
 
     if order_by == default_order_by:
@@ -327,25 +365,61 @@ def basic_solr_query( request ): #{
     else:
       solr_sort = default_order_by + " asc"  
 
+    #=====================
     # Construct Solr query
-    solr_query = mv.escape_for_solr( search_term )
-    if ' ' in solr_query:
-      solr_query = '(%s)' % solr_query
+    #=====================
+    if search_type == 'quick': #{ # search on all fields via the single form field 'search_term'
+      search_term = mv.get_value_from_GET( request, 'search_term' )
+      if not search_term: search_term = '*'
+      solr_query = mv.escape_for_solr( search_term )
+      if ' ' in solr_query:
+        solr_query = '(%s)' % solr_query
 
-    if search_term=='*' or search_term=='':
-      solr_query='*:*'
-    else: 
-      solr_query = "text:%s" % solr_query
+      if search_term=='*' or search_term=='':
+        solr_query='*:*'
+      else: 
+        solr_query = "text:%s" % solr_query
+    #}
+
+    else: #{ # advanced search on any combination of multiple searchable fields
+      fields_searched = []
+      for field in searchable_fields: #{
+        fieldname = field[ "fieldname" ]
+        fieldval = mv.get_value_from_GET( request, fieldname, "" )
+        if fieldval == '*': fieldval = ''
+        field[ "value" ] = fieldval
+
+        if fieldval: #{ # they entered a query on this field
+          if fieldname in [ "q_earliest_year", "q_latest_year" ]: #{
+            pass # construct a range query here
+          #}
+          else: #{
+            fieldval = mv.escape_for_solr( fieldval )
+            if ' ' in fieldval:
+              fieldval = '(%s)' % fieldval
+            fields_searched.append( "%s:%s" % (fieldname, fieldval))
+          #}
+        #}
+      #}
+
+      if len( fields_searched ) > 0: 
+        solr_query = " AND ".join( fields_searched )
+      else: #{
+        solr_query='*:*'
+        for field in searchable_fields: #{
+          fieldname = field[ "fieldname" ]
+          if fieldname == 'text': #{
+            field[ "value" ] = "*"
+            break
+          #}
+        #}
+      #}
+    #}
 
     
-    # Set page size
-    if page_size.isdigit():
-      solr_rows = int( page_size )
-    else: 
-      solr_rows = mv.default_rows_per_page
-    
-
+    #===================
     # Run the Solr query
+    #===================
     s_para={'q'    : solr_query,
             'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
             'start': solr_start, 
@@ -363,10 +437,13 @@ def basic_solr_query( request ): #{
     #}
   #} # end of check on whether a search term was found in GET
 
+  #===================
+  # Return the results
+  #===================
   return ( resultsets, number_of_records, 
            search_term, solr_start, solr_rows, page_size )
 #}
-# end function basic_solr_query()
+# end function solr_query()
 #--------------------------------------------------------------------------------
 
 def extract_from_result( record ): #{
