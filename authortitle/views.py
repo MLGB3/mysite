@@ -19,6 +19,8 @@ import mysite.mlgb.views as mv
 
 #--------------------------------------------------------------------------------
 
+solr_query = '' # for debugging
+
 printing = False
 editable = False
 
@@ -55,15 +57,15 @@ searchable_fields = [
   { "fieldname": "t_bibliography", "label": "Bibliographical details", "info": "", "value": "" },
 
   { "fieldname": "t_library", "label": "Catalogue provenance", 
-    "info": "Typically library type and location, e.g. Benedictines Peterborough", "value": "" },
+    "info": "E.g. 'Benedictines Peterborough' or 'Henry de Kirkestede'", "value": "" },
 
   { "fieldname": "t_document", "label": "Document name", "info": "", "value": "" },
 
   # The next 2 fields do not map directly to ones in the Solr index.
   # We'll use them to query on s_document_start/end_year
-  { "fieldname": "q_earliest_year", "label": "From", "info": "", "value": "" }, 
+  { "fieldname": "q_earliest_year", "label": "Catalogue date from", "info": "", "value": "" }, 
 
-  { "fieldname": "q_latest_year", "label": "To", "info": "", "value": "" },
+  { "fieldname": "q_latest_year", "label": "Catalogue date to", "info": "", "value": "" },
 ]
 
 facet = False
@@ -250,7 +252,7 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
 
   # Run the Solr query
   (resultsets, number_of_records, search_term, \
-  solr_start, solr_rows, page_size ) = solr_query( request )
+  solr_start, solr_rows, page_size ) = run_solr_query( request )
 
   mv.printing = printing
 
@@ -283,6 +285,7 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
       'search_type': search_type,
       'search_term': search_term,
       'advanced_search_fields': searchable_fields,
+      'solr_query': solr_query,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -319,9 +322,12 @@ def enable_edit(): #{
   baseurl = '/e/authortitle'
 #}
 #--------------------------------------------------------------------------------
-# Run a *basic* Solr query (i.e. on a single search term) against default field of 'catalogues' core
+# Either run a basic Solr query (i.e. on a single search term) against default field of 'catalogues' core
+# Or run an *advanced* Solr query (i.e. on a multiple search terms)
 
-def solr_query( request ): #{
+def run_solr_query( request ): #{
+
+  global solr_query # for debugging
 
   global searchable_fields # this is used in advanced search
   for field in searchable_fields: 
@@ -391,7 +397,10 @@ def solr_query( request ): #{
 
         if fieldval: #{ # they entered a query on this field
           if fieldname in [ "q_earliest_year", "q_latest_year" ]: #{
-            pass # construct a range query here
+            if fieldval.isdigit(): #{
+              query_clause = get_date_range_query( fieldname, fieldval )
+              if query_clause: fields_searched.append( query_clause )
+            #}
           #}
           else: #{
             fieldval = mv.escape_for_solr( fieldval )
@@ -443,7 +452,32 @@ def solr_query( request ): #{
   return ( resultsets, number_of_records, 
            search_term, solr_start, solr_rows, page_size )
 #}
-# end function solr_query()
+# end function run_solr_query()
+#--------------------------------------------------------------------------------
+def get_date_range_query( fieldname, fieldval ): #{
+
+  # E.g. if required range = 1420-1460:
+
+  # document start <= 1460,  i.e. document START:[ * TO required END]
+
+  # document end   >= 1420,  i.e. document END:[ required START to *]
+
+  q = ''
+
+  if len( fieldval ) < 4: fieldval = fieldval.rjust( 4, '0' )
+
+  if fieldname == 'q_earliest_year': #{ # required START
+    q = 's_document_end_year:["%s" TO *]' % fieldval
+  #}
+
+  elif fieldname == 'q_latest_year': #{ # required END
+    q = 's_document_start_year:[* TO "%s"]' % fieldval
+  #}
+
+  return q
+#}
+
+# end function get_date_range_query()
 #--------------------------------------------------------------------------------
 
 def extract_from_result( record ): #{
