@@ -3141,13 +3141,13 @@ def manicule_pointing_down_img( pointing_at = 'book detail record' ): #{
 
 def manicule_img( direction = 'right', pointing_at = 'book detail record' ): #{
 
-  img_height = 28
-  if direction == 'down': img_height = 55
+  img_height = 20
+  if direction == 'down': img_height = 38
 
   img_text =  '<img src="/mlgb/media/img/tiny-manicule-%s.jpg" ' % direction
   img_text += ' class="manicule" height="%dpx" ' % img_height
   img_text += ' alt="Pointing hand linking to %s' % pointing_at
-  img_text += ' (drawn by MLGB team member Sushila Burgess)" '
+  img_text += ' (manicule image courtesy of Cristina Willoughby)" '
   img_text += ' border="0" />'
   return img_text
 #}
