@@ -3056,6 +3056,7 @@ def get_links_from_book_to_catalogues( book_id ): #{
 
   the_cursor.execute( statement )
   link_results = the_cursor.fetchall()
+  the_cursor.close()
   num_links = len( link_results )
 
   link_string = ''
@@ -3113,6 +3114,7 @@ def evidence_search_options(): #{ # slightly different from raw values in table
   statement = "select evidence, evidence_description from books_evidence order by evidence"
   the_cursor.execute( statement )
   results = the_cursor.fetchall()
+  the_cursor.close()
 
   for row in results: #{
     evcode = row[ 0 ]
