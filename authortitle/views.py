@@ -5,12 +5,13 @@
 
 import math
 
-from django.template import Context, loader
-from django.http import HttpResponse,Http404,HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render_to_response
+from django.template          import Context, loader
+from django.http              import HttpResponse,Http404,HttpResponseRedirect
+from django.shortcuts         import get_object_or_404, render_to_response
 from django.core.urlresolvers import reverse
-from django.utils.html import escape
-from urllib import quote, unquote
+from django.utils.html        import escape
+from django.db                import connection
+from urllib                   import quote, unquote
 
 from mysite.config     import *
 from mysite.MLGBsolr   import *
@@ -59,13 +60,18 @@ searchable_fields = [
   { "fieldname": "t_library", "label": "Catalogue provenance", 
     "info": "E.g. 'Benedictines Peterborough' or 'Henry de Kirkestede'", "value": "" },
 
-  { "fieldname": "t_document", "label": "Document name", "info": "", "value": "" },
+  { "fieldname": "t_document", "label": "Description of document",  "value": "", "info": 
+    "E.g. 'Books read in the refectory, 13th century'. Includes document date or 'undated'." },
+
+  { "fieldname": "s_document_type", "label": "Type of document",  "value": "", "info": "" },
 
   # The next 2 fields do not map directly to ones in the Solr index.
   # We'll use them to query on s_document_start/end_year
-  { "fieldname": "q_earliest_year", "label": "Catalogue date from", "info": "", "value": "" }, 
+  { "fieldname": "q_earliest_year", "label": "Start of required date range", "value": "", 
+    "info": "Enter a 3- or 4-figure year to find documents wholly or partly within date range." }, 
 
-  { "fieldname": "q_latest_year", "label": "Catalogue date to", "info": "", "value": "" },
+  { "fieldname": "q_latest_year", "label": "End of required date range",  "value": "", 
+    "info": "Enter a 3- or 4-figure year to find documents wholly or partly within date range." },
 ]
 
 facet = False
@@ -107,6 +113,7 @@ def browse( request, letter = '', pagename = 'index', called_by_editable_page = 
       'print_link'       : mv.get_link_for_print_button( request ),
       'called_by_collapsible_page': True,
       'default_rows_per_page': mv.default_rows_per_page,
+      'advanced_search_fields': searchable_fields,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -172,6 +179,7 @@ def medieval_catalogues( request, cat = '', pagename = 'cats', called_by_editabl
       'print_link': mv.get_link_for_print_button( request ),
       'called_by_collapsible_page': called_by_collapsible_page,
       'default_rows_per_page': mv.default_rows_per_page,
+      'advanced_search_fields': searchable_fields,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -222,6 +230,7 @@ def cat_source( request, source = '', loc = '', pagename = 'cats', called_by_edi
       'printing'  : printing,
       'print_link': mv.get_link_for_print_button( request ),
       'default_rows_per_page': mv.default_rows_per_page,
+      'advanced_search_fields': searchable_fields,
   } )
 
   return HttpResponse( t.render( c ) )
@@ -270,6 +279,16 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
   if number_of_records > solr_rows: # repeat pagination at the bottom
     result_string += newline + '<p></p>' + newline + pag
 
+  # Get a list of document types for a dropdown list
+  doctypes = [ "" ]
+  the_cursor = connection.cursor()
+  statement = "select distinct document_type from index_medieval_documents order by document_type"
+  the_cursor.execute( statement )
+  sql_doctypes = the_cursor.fetchall()
+  for sql_row in sql_doctypes:
+    doctypes.append( sql_row[ 0 ] )
+  the_cursor.close()
+
   # Pass HTML string and other data to the template for display
   t = loader.get_template( 'authortitle/results.html' )
 
@@ -285,6 +304,7 @@ def results( request, pagename = 'results', called_by_editable_page = False ): #
       'search_type': search_type,
       'search_term': search_term,
       'advanced_search_fields': searchable_fields,
+      'doctype_dropdown_options': doctypes,
       'solr_query': solr_query,
   } )
 
@@ -404,8 +424,12 @@ def run_solr_query( request ): #{
           #}
           else: #{
             fieldval = mv.escape_for_solr( fieldval )
-            if ' ' in fieldval:
-              fieldval = '(%s)' % fieldval
+            if ' ' in fieldval: #{
+              if fieldname == 's_document_type': # string not text
+                fieldval = '"%s"' % fieldval
+              else:
+                fieldval = '(%s)' % fieldval
+            #}
             fields_searched.append( "%s:%s" % (fieldname, fieldval))
           #}
         #}
