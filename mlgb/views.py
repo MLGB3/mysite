@@ -1042,10 +1042,16 @@ def extract_from_result( resultset, add_punctuation = True ): #{
     content_urls = newline.join( content_urls_list )
   #}
 
+  # notes on provenance
+  prov_notes = ""
+  if resultset.has_key( 'prov_notes' ): #{
+    prov_notes = trim( resultset[ 'prov_notes' ] )
+  #}
+
   return (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
           evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
           pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-          ownership, contents, content_urls)
+          ownership, contents, content_urls, prov_notes)
 
 #}
 #--------------------------------------------------------------------------------
@@ -1981,7 +1987,7 @@ def downloadcsv( request, pagename = 'download' ): #{
         (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
         evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
         pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-        ownership, contents, content_urls) = extract_from_result( resultsets[i], False )
+        ownership, contents, content_urls, prov_notes) = extract_from_result( resultsets[i], False )
 
         data.append( [] ) # add a new empty row
         j = i + 1
@@ -2275,7 +2281,7 @@ def display_as_treeview( one_row, first_record = False, \
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
   pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-  ownership, contents, content_urls) = extract_from_result( one_row )
+  ownership, contents, content_urls, prov_notes) = extract_from_result( one_row )
 
   # Get photos if any
   link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
@@ -2301,8 +2307,13 @@ def display_as_treeview( one_row, first_record = False, \
       html += end_inner_and_outer_sections
     html += newline
     html += start_outer_section + newline
+    if heading1 == provenance and prov_notes != "" and not printing: 
+      html += prov_notes_button( id )
     html += '<span class="outerhead" title="expand/collapse this section">%s</span>' % heading1
-    html += '<!-- end "outer head" span -->' + newline + start_collapsible_list
+    html += '<!-- end "outer head" span -->' + newline 
+    if heading1 == provenance and prov_notes != "": 
+      html += prov_notes_div( id, prov_notes )
+    html += start_collapsible_list
   #}
 
   if prev_heading_2 <> heading2: #{ # change in heading 2
@@ -2444,8 +2455,8 @@ def display_as_table( one_row, expand_2nd_tablerow, first_record = False, \
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
   pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-  ownership, contents, content_urls) = extract_from_result( one_row, False ) # here False means 'don't 
-                                                                             # add punctuation'
+  ownership, contents, content_urls, prov_notes) \
+  = extract_from_result( one_row, False ) # here False means 'don't add punctuation'
 
   unformatted_provenance = extract_unformatted_provenance( one_row ) # no italics etc
 
@@ -2460,9 +2471,13 @@ def display_as_table( one_row, expand_2nd_tablerow, first_record = False, \
 
     html += newline + "<h3>" + newline
     html += '<p>'
+    if heading == provenance and prov_notes != "" and not printing: 
+      html += prov_notes_button( id )
     html += heading
     html += '</p>'
     html += newline + "</h3>" + newline
+    if heading == provenance and prov_notes != "": 
+      html += prov_notes_div( id, prov_notes, True )
     html += start_results_table( field_to_search )
     prev_heading_1 = heading
   #}
@@ -2879,7 +2894,7 @@ def get_headings_from_sort_order( one_row ):  #{
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
   pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-  ownership, contents, content_urls) = extract_from_result( one_row )
+  ownership, contents, content_urls, prov_notes) = extract_from_result( one_row )
 
   sort = order_by
   if not sort: sort = default_order_by 
@@ -3154,5 +3169,63 @@ def manicule_img( direction = 'right', pointing_at = 'book detail record' ): #{
   img_text += ' (manicule image courtesy of Cristina Willoughby)" '
   img_text += ' border="0" />'
   return img_text
+#}
+#--------------------------------------------------------------------------------
+
+def prov_notes_button( first_book_id, pointing_at = 'further details of provenance' ): #{
+
+  lines = [ newline ]
+
+  lines.append( '<script type="text/javascript">' )
+  lines.append( "function expand_collapse_prov_notes_%s() {" % first_book_id )
+  lines.append( '  var the_div = document.getElementById( "prov_notes_%s" );' % first_book_id )
+  lines.append( '  var the_button = document.getElementById( "prov_notes_button_%s" );' % first_book_id )
+  lines.append( '  if( the_div.style.display == "block" ) {' )
+  lines.append( '    the_div.style.display = "none";' )
+  lines.append( "    the_button.innerHTML = '%s';" % manicule_pointing_right_img( pointing_at ) )
+  lines.append( '  }' )
+  lines.append( '  else {' )
+  lines.append( '    the_div.style.display = "block";' )
+  lines.append( "    the_button.innerHTML = '%s';" % manicule_pointing_down_img( pointing_at ) )
+  lines.append( '  }' )
+  lines.append( '}' )
+  lines.append( '</script>' )
+
+  lines.append( '<button id="prov_notes_button_%s" ' % first_book_id )
+  lines.append( ' class="manicule" onclick="expand_collapse_prov_notes_%s()" >' % first_book_id )
+  lines.append( manicule_pointing_right_img( pointing_at ) )
+  lines.append( '</button>' )
+
+  lines.append( newline  )
+
+  return newline.join( lines )
+#}
+#--------------------------------------------------------------------------------
+
+def prov_notes_div( first_book_id, prov_notes, add_blank_line = False ): #{
+
+  lines = [ newline ]
+
+  prov_notes = prov_notes.strip()
+  if prov_notes.startswith( '<p>' ) and prov_notes.endswith( '</p>' ): #{
+    prov_notes = prov_notes.replace( '<p>', '', 1 )
+    prov_notes = prov_notes[ 0 : -4 ]
+  #}
+
+  if printing:
+    display_style = 'block'
+  else:
+    display_style = 'none'
+
+  lines.append( '<div id="prov_notes_%s" style="display:%s" class="prov_notes">' \
+                % (first_book_id, display_style) )
+  lines.append( prov_notes )
+  lines.append( '</div>'  )
+
+  if add_blank_line: lines.append( '<p></p>' )
+
+  lines.append( newline  )
+
+  return newline.join( lines )
 #}
 #--------------------------------------------------------------------------------
