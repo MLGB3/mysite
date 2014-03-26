@@ -61,7 +61,8 @@ searchable_fields = [
     "info": "E.g. 'Benedictines Peterborough' or 'Henry de Kirkestede'", "value": "" },
 
   { "fieldname": "t_document", "label": "Description of document",  "value": "", "info": 
-    "E.g. 'Books read in the refectory, 13th century'. Includes document date or 'undated'." },
+    "E.g. 'Books read in the refectory, 13th cent'." \
+    + " Description includes either an indication of document date or the word 'undated'." },
 
   { "fieldname": "s_document_type", "label": "Type of document",  "value": "", "info": "" },
 
