@@ -1078,6 +1078,8 @@ def get_photo_evidence( id, images, evidence_code, evidence_desc ): #{
     link_to_photos += '<a href="%s" rel="lightbox%s" title="%s" class="evidence">%s</a>' \
     % (image_url, id, image_title, evidence_code)
     link_to_photos += newline
+
+    if printing: break # no need to show multiple links in a printed document
   #}
 
   return link_to_photos
