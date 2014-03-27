@@ -1048,6 +1048,18 @@ def extract_from_result( resultset, add_punctuation = True ): #{
     prov_notes = trim( resultset[ 'prov_notes' ] )
   #}
 
+  # cells
+  prov_cells = ""
+  if resultset.has_key( 'prov_cells' ): #{
+    prov_cells = trim( resultset[ 'prov_cells' ] )
+  #}
+
+  # bundle provenance notes and cells together for ease of handling
+  if prov_notes and prov_cells:
+    prov_notes += newline + prov_cells
+  elif prov_cells and not prov_notes:
+    prov_notes = prov_cells
+
   return (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
           evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
           pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
