@@ -557,7 +557,7 @@ def browse( request, letter = 'A', pagename = 'browse', called_by_editable_page 
   # Set default field to search, records per page and start row, 
   # for use in pagination and 'search again' functionality.
   search_term = ''
-  solr_field_to_search = 'ml1_initial'
+  solr_field_to_search = 'pr_initial'
   page_size = str( default_rows_per_page )
   solr_start = 0
 
@@ -572,7 +572,9 @@ def browse( request, letter = 'A', pagename = 'browse', called_by_editable_page 
 
     # They may also have chosen to browse by a different sort field
     field_to_search = get_value_from_GET( request, "field_to_search", field_to_search ) 
-    if field_to_search == 'modern_library':
+    if field_to_search == 'location':
+      solr_field_to_search = 'ml1_initial'
+    elif field_to_search == 'modern_library':
       solr_field_to_search = 'ml2_initial'
     elif field_to_search == 'medieval_library':
       solr_field_to_search = 'pr_initial'
