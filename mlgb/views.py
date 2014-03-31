@@ -1048,12 +1048,16 @@ def extract_from_result( resultset, add_punctuation = True ): #{
   prov_notes = ""
   if resultset.has_key( 'prov_notes' ): #{
     prov_notes = trim( resultset[ 'prov_notes' ] )
+    prov_notes = prov_notes.replace( '<p>&nbsp;</p>', '' ) # suppress empty paragraphs
+    prov_notes = prov_notes.strip()
   #}
 
   # cells
   prov_cells = ""
   if resultset.has_key( 'prov_cells' ): #{
     prov_cells = trim( resultset[ 'prov_cells' ] )
+    prov_cells = prov_cells.replace( '<p>&nbsp;</p>', '' ) # suppress empty paragraphs
+    prov_cells = prov_cells.strip()
   #}
 
   # bundle provenance notes and cells together for ease of handling
