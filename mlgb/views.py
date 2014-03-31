@@ -1892,7 +1892,7 @@ def get_link_for_print_button( request ): #{
 
 def get_link_for_download_button( request, field_to_search = '', search_term = '' ): #{
 
-  if not editable: return '' # POSSIBLY TEMPORARY!!! Restrict this functionality to the project editors
+  #if not editable: return '' # POSSIBLY TEMPORARY!!! Restrict this functionality to the project editors
 
   if printing: return ''  # don't display buttons in printed output
 
