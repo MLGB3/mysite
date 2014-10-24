@@ -7,8 +7,8 @@ By Sushila Burgess
 
 import sys
 
-input_filename = "/usr/share/mysite/books/sql/shelfmarks_alpha_sort.txt" 
-output_filename = "/usr/share/mysite/books/sql/shelfmarks_numeric_sort.sql" 
+input_filename = "/home/mlgb/sites/mlgb/mysite/books/sql/shelfmarks_alpha_sort.txt" 
+output_filename = "/home/mlgb/sites/mlgb/mysite/books/sql/shelfmarks_numeric_sort.sql" 
 
 tab = '\t'
 newline = '\n'

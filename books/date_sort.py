@@ -7,8 +7,8 @@ By Sushila Burgess
 
 import sys
 
-input_filename = "/usr/share/mysite/books/sql/dates_alpha_sort.txt" 
-output_filename = "/usr/share/mysite/books/sql/dates_numeric_sort.sql" 
+input_filename = "/home/mlgb/sites/mlgb/mysite/books/sql/dates_alpha_sort.txt" 
+output_filename = "/home/mlgb/sites/mlgb/mysite/books/sql/dates_numeric_sort.sql" 
 
 tab = '\t'
 newline = '\n'

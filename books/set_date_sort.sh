@@ -8,7 +8,7 @@ then
   exit
 fi
 
-cd /usr/share/mysite/books
+cd /home/mlgb/sites/mlgb/mysite/books
 
 mysql -umlgbAdmin -p"$pw" mlgb --skip-column-names > sql/dates_alpha_sort.txt <<EndOfSQLStatement
   select id, coalesce( date, '' )
