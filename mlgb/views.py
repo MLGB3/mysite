@@ -21,7 +21,7 @@ import csv
 
 from mysite.config          import *
 from mysite.MLGBsolr        import *
-from mysite.apache.settings import MEDIA_URL
+from mysite.settings import MEDIA_URL
 from mysite.books.models    import *
 
 #--------------------------------------------------------------------------------
@@ -3247,3 +3247,4 @@ def prov_notes_div( first_book_id, prov_notes, add_blank_line = False ): #{
   return newline.join( lines )
 #}
 #--------------------------------------------------------------------------------
+
