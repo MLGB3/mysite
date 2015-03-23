@@ -1,0 +1,6437 @@
+168	
+460	
+888	
+912	
+998	
+1008	
+1090	
+1175	
+1650	
+1799	
+1889	
+1890	
+2394	
+2396	
+2434	
+2863	
+2992	
+3528	
+3685	
+3763	
+3807	
+4149	
+4262	
+4422	
+4424	
+4453	
+4529	
+4531	
+4538	
+4564	
+4565	
+4596	
+4618	
+4628	
+4742	
+4744	
+4810	
+4814	
+4898	
+4919	
+5032	
+5045	
+5047	
+5113	
+5150	
+5162	
+5164	
+5166	
+5229	
+5244	
+5260	
+5262	
+5284	
+5300	
+5339	
+5450	
+5545	
+5592	
+5597	
+5645	
+5781	
+5869	
+6298	
+6323	
+6426	
+6428	
+6454	
+6466	
+6469	
+6470	
+6471	
+6495	
+6512	
+6513	
+6514	
+3285	 Antwerp 1530, etc.
+5698	 s. xiii (c. 1250)
+1436	(1) s. x/xi, (2) s. xi/xii
+6239	(fols. 1--130) s. xiii, (fols. 131--179) s. xiv2
+6144	(fols. 1--183) s. xiii, (fols. 184ff.) s. xiv
+6093	(fols. 33r--56r) s. xii; s. xiii
+2380	(s. xv)
+4804	(vols. 1--2) s. xv in., (vol. 3) s. xiv/xv
+5246	1) 1496, 2) 1492, 3) 1494, Venice
+1956	1) 1499, Cologne; 2) 1493, Strasbourg
+3850	1) 1508, Paris; 2) 1505, Deventer 
+4272	1) 1513, Paris; 2 & 3) s. a., Paris
+6035	1) A. D. 1251; 2) s. xiii ex.
+2603	1) s. xii, 2) s. xiv ex./xv
+2616	1) s. xiv, 2) s. xv
+3054	1) s. xv ex., 2) s. a. et l. (Strasbourg, c. 1473)
+5340	1) s. xv in., 2 & 3) s. xiii
+2594	1) s. xv; 2) a. d. 1443
+2500	1) Venice 1486; 2) Venice 1502
+5484	1109--1110
+2531	1191--1192
+1692	1193
+3534	1291
+5485	1302--1303(?) 
+3876	1311
+1624	1316
+4558	1340--1350
+5681	1373/74
+1914	1380
+2666	1381
+6382	1381
+5651	1383--1384
+2021	1386
+2930	1389 (?) (except, perhaps, art. 1)
+3400	1391
+4218	1393
+2887	1400
+4010	1400
+5504	1400--1405
+6359	1401
+3363	1408
+2895	1411
+6008	1411
+6509	1417 A.D.
+5358	1422
+5359	1422
+5787	1424
+4238	1430
+3793	1432
+5604	1432
+5605	1432
+2204	1438
+5911	1440
+4290	1444 (Cologne)
+2136	1448
+4252	1448--1455
+4183	1449
+5305	1449
+3601	1452
+2589	1455
+4257	1459--1460
+5647	1460--1461
+5608	1463
+5913	1463 (Decollatio s. Iohannis)
+5644	1469, Rome
+5312	1472--1473, Venice
+5316	1473
+4274	1473, Rome
+5187	1474, Harvest-time
+5194	1474--1475
+5145	1476, Milan
+5593	1476, Milan
+2334	1477, Venice
+4323	1478, Paris
+2335	1478, Venice
+5588	1480, Gouda
+5454	1480, Strasbourg
+3557	1480, Venice
+6361	1480, Venice
+6362	1480, Venice
+2328	1481, Cologne
+2332	1481, Nuremberg
+4308	1481, Venice
+2372	1482, Gouda
+1960	1482, Oxford
+1675	1482, Westminster
+1646	1483 (Urach)
+5313	1483, Cologne
+4316	1483, Rome
+3842	1484, Venice
+5673	1485, Antwerp, etc.
+5433	1485, Brescia
+5492	1485, Louvain
+3032	1485, Venice
+2506	1485, Venice, etc.
+3849	1486, Basel
+3844	1486, Strasbourg
+4236	1486, Venice
+5495	1486?, London (W. de Machlinia)
+5543	1488, Basel
+3847	1488, Cologne
+4306	1488, Louvain
+1935	1489
+1958	1489, Venice
+1942	1490
+5376	1490, Strasbourg
+4824	1490, Venice
+5453	1490, Venice
+3702	1491
+3768	1492
+5360	1492/93, Westminster
+2014	1493, Basel (J. Amorbach)
+5311	1493, Nuremberg
+5206	1493, Strasbourg
+5375	1493, Westminster (W. de Worde)
+4597	1494
+3040	1494, Basel
+5714	1494, Basel
+2333	1494, Nuremberg
+5710	1494, Nuremberg (Koberger)
+5209	1494, Westminster (W. de Worde)
+1215	1495
+4497	1495, Lyon
+2485	1495, Westminster
+3327	1496, Nuremberg
+4235	1496, Reggio
+5706	1496, Strasbourg (Martin Flach)
+1825	1496, Venice
+1361	1497
+4595	1497
+6312	1497, Augsburg (A. & J. Schensperger)
+1855	1497, Lyon
+5662	1497, Lyon
+2491	1497, Nuremberg
+4237	1497, Paris
+5500	1497, Paris
+2015	1497, Venice
+2494	1497, Venice 
+4652	1497, Venice 
+5405	1497, Venice
+6337	1497, Venice
+2018	1498, Basel
+5199	1498, Basel
+5702	1498, Basel
+2344	1498, Lyon
+1957	1498, Nuremberg (A. Koberger)
+4392	1498, Venice
+1338	1499
+3535	1499, Lyon
+3592	1499, Nuremberg
+5587	1499, Paris (Gering & Rembolt)
+6317	1501, Cologne
+5369	1501, Hagenau
+1887	1501, Paris
+4317	1501, Paris
+5715	1501, Strasbourg
+5372	1502
+5189	1502, Basel
+5510	1502, Basel (Kessler)
+5716	1502, Lyon (J. Hugnetan; N. Wolff)
+4488	1502, Paris
+3326	1502, Strasbourg
+1860	1504, Rouen
+1947	1505, London
+3846	1506, Basel
+5590	1506, Paris (J. Barbier)
+1949	1506, Venice
+5413	1506, Venice
+5724	1506, Venice
+5646	1507, Lyon
+5253	1508, Lyon
+1961	1508, Paris
+3355	1508, Paris
+2016	1508, Paris (J. Petit)
+5908	1509, Paris (B. Rembolt)
+3566	1510, Paris
+4440	1510, Paris
+5733	1510, Paris
+5265	1510, Paris (Ascensius)
+1820	1511, Lyon
+1673	1511, Rouen
+2472	1512, Paris
+5255	1513, Strasbourg
+3011	1514
+5347	1514, Paris
+5623	1514, Paris; on vellum
+4784	1515, Basel
+5620	1515, Basel
+3288	1516
+5397	1516
+4344	1516, Basel
+5753	1516, Lyon
+3325	1516, Westminster (Wynkyn de Worde)
+3010	1517
+2375	1517, Alcalá
+5302	1517, London (preface dated) (R. Pynson)
+5240	1517, Paris
+5473	1517, Venice
+4437	1519, London (Richard Pynson)
+1959	1519, Lyon (31 Aug.)
+4445	1519, Paris
+5261	1519, Paris
+1902	1520, Paris
+5428	1522, Paris, and s. xvi in.
+3320	1523
+4023	1523
+5589	1523
+5254	1523, Basel
+5348	1523, London; Basel, 1501
+5368	1523, Paris (Ascensius)
+2351	1524, Basel
+2350	1524, Cologne
+5425	1524, Venice
+5426	1525, Basel
+6321	1525, Nuremberg
+5701	1526, Cologne
+2321	1527, Basel
+3015	1527, Lyon
+5719	1527, Paris
+1948	1527, Paris (N. Savetier)
+5707	1528, Cologne
+5431	1528, Paris
+3591	1529, Cologne
+5141	1529, Cologne
+5783	1531
+5193	1531, Cologne
+5362	1534--1535, London (Copland)
+5336	1535, London
+4916	1539, Basel
+2811	818
+137	818 AD
+5748	890--897?
+306	?
+314	?
+1223	?
+5679	?
+2140	? s. xi ex. 
+5989	A. D. 1231
+5238	A. D. 1297
+6012	A. D. 1404 (?; v. fol. 34r)
+4909	A. D. 1414
+4277	A. D. 1441
+4276	A. D. 1444
+5876	A. D. 1444
+4289	A. D. 1453
+5862	A. D. 1455
+4930	A. D. 1489
+5071	a. xiii
+559	A.D. 1167
+542	A.D. 1179
+350	A.D. 1295--96
+961	A.D. 1318
+933	A.D. 1344
+748	A.D. 1356
+296	A.D. 1368
+1013	A.D. 1380
+502	A.D. 1381
+1010	A.D. 1385
+230	A.D. 1390
+6464	A.D. 1396--s. xv/xvi
+964	A.D. 1432
+968	A.D. 1432
+985	A.D. 1438
+586	A.D. 1441
+990	A.D. 1458
+246	A.D. 1461
+1015	A.D. 1473
+1171	A.D. 1477--78
+506	A.D. 1479
+886	A.D. 1480
+212	A.D. 1481
+278	A.D. 1483
+279	A.D. 1491
+496	A.D. 1502
+203	A.D. 1527
+225	Abingdon, A.D. 1528
+250	Abingdon, A.D. 1528
+5607	AD 1457--61
+4503	AD 1489
+5669	after A. D. 1474
+2371	Alcalá 1517
+3769	Antwerp, 1487; Speyer, 1487; Cologne, c. 1481
+3801	April 1485
+3224	Basel  (H. Gorichen) 1498
+2502	Basel (Adam Petri) 1515 (21. August)
+2341	Basel (Amerbach) 1488
+2489	Basel (J. Amerbach) 1498--1502
+2503	Basel (J. Froben) 1517
+2511	Basel (Jo. Amerbach) 1488
+2486	Basel (Johannes Amerbach) 1495
+2474	Basel (L. Hornken) 1516
+2354	Basel (M. Furter) 1517
+2640	Basel 1485
+2510	Basel 1486
+2498	Basel 1486 (fin. post festum s. Katherine)
+2342	Basel 1489
+2483	Basel 1489
+3372	Basel 1491
+2463	Basel 1494
+2469	Basel 1495
+3281	Basel 1513
+2641	Basel 1521
+2352	Basel 1527
+3283	Basel 1532
+2481	Basel 1534
+2343	Basel ante A.D. 1492
+3979	Basel, 1494
+6498	Basel, 1498)
+6499	Basel, 1501/2)
+3975	Basel, 1519
+377	Basel, A.D. 1489
+578	Basel, A.D. 1502
+289	Basel, A.D. 1516
+228	Basel, A.D. 1532
+1082	Basel, A.D. 1541
+2499	Basel, not after 1491
+5144	before 11 July 1486, Basel
+2824	Bologna (Iohann Schreiber) 1481
+268	Brescia, A.D. 1495
+594	c. 1135
+2832	c. 1200
+4963	c. 1200
+5535	c. 1200
+489	c. 1280--90
+3938	c. 1316
+6507	c. 1380
+5692	c. 1400
+5247	c. 1410--1420
+4249	c. 1430--1460
+2527	c. 1470
+5396	c. 1490, Caxton
+4433	c. 1521
+6515	c.1140
+6517	c.1150--60
+6510	c.1160
+6511	c.1160
+6488	c.1400
+2900	Cologne 1475
+2329	Cologne 1479
+2330	Cologne 1480
+2645	Cologne 1487
+2490	Cologne 1520
+2497	Cologne 1532
+3013	Cologne 1533
+3014	Cologne 1533
+2331	Cologne c.1475
+3990	Cologne, 1485
+4153	Cologne, 1487
+3792	Cologne, 1507
+3980	Cologne, 1532 (Johannes Soter)
+572	Cologne, A.D. 1508, etc.
+4165	Cologne, s. a. (H. Quentell)
+2346	Deventer 1484
+6438	Deventer, A.D. 1481
+323	Deventer, A.D. [c. 1484--5]
+2482	Fano (Hieronymus Soncinus) 1507
+891	Florence, A.D. 1492
+908	Hagenau, A.D. 1521
+3284	Leipzig 1529
+2879	Leyden 1497
+2822	London (Richard Pynson) 1497
+3279	London 1523
+566	London, A.D. 1497, etc.
+445	London, A.D. 1499
+510	London, A.D. 1507
+3848	London, s. a. 
+3006	London, s. a., etc.
+3046	Louvain 1475
+2525	Louvain 1483
+2347	Louvain 1486
+3052	Louvain 1488
+4154	Louvain, s. a.
+2493	Lyon (J. Cleyn) 1513 (15. Kal. Martii)
+3007	Lyon (Jacob Saccon) 1518
+3234	Lyon 1497
+2492	Lyon 1502
+2643	Lyon 1508
+3053	Lyon 1508
+2471	Lyon 1520
+3976	Lyon, 1498
+3978	Lyon, 1505 (Nic. de Benedictis)
+3947	Lyon, 1520
+571	Lyon, A.D. 1506
+573	Lyon, A.D. 1511
+6429	Lyon, A.D. 1511
+997	Lyon, A.D. 1515
+226	Lyon, A.D. 1537
+5907	Mainz, 1466
+3051	Milan 1477
+3041	Milan 1490
+6436	n.d.
+304	Naples, A.D. 1476
+2507	Nuremberg (Koberger) 1481
+2644	Nuremberg 1477
+2324	Nuremberg 1481 
+2488	Nuremberg 1485
+2837	Nuremberg 1492
+3319	Nuremberg 1493
+3324	Nuremberg 1496
+2853	Nuremberg 1500
+4180	Nuremberg, 1487
+3895	Nuremberg, 1491
+4167	Nuremberg, 1493
+4011	Nuremberg, 1494
+171	Nuremberg, 1497
+909	Nuremberg, A.D. 1474
+887	Nuremberg, A.D. 1481
+302	Nuremberg, A.D. 1488
+993	Nuremberg, A.D. 1492
+2348	Oxford 1481
+2349	Oxford 1483
+3047	Oxford 1483
+5766	Oxford, 1482
+851	Oxford, A.D. 1481
+408	Oxford, not after A.D. 1483
+561	Padua, [A.D. 1475]
+3008	Paris (Ascensius) 1521
+2504	Paris (B. Rembolt) 1520
+2496	Paris (Badius Acensius) 1529 
+2495	Paris (Badius Ascensius) 1515 (14. Kal. Iul.)
+2922	Paris (Guillaume Boisson), s. xvi in.
+2509	Paris (H. Stephanus) 1509
+2935	Paris (J. Barbier) 1508
+2487	Paris (J. Petit per m. Andream Bocard) 1498
+2480	Paris (J. Petit) 1513
+5815	Paris (Rembolt), 1514
+3994	Paris ,1501
+2529	Paris 1478
+2370	Paris 1489
+2977	Paris 1494
+2345	Paris 1501
+3048	Paris 1501
+3365	Paris 1501
+3056	Paris 1502
+2501	Paris 1507
+3354	Paris 1508
+3505	Paris 1509
+2353	Paris 1512
+2477	Paris 1512
+2475	Paris 1517 
+3233	Paris 1519
+2476	Paris 1521
+2478	Paris 1530
+3012	Paris 1531
+3009	Paris 1532
+430	Paris A.D. 1501
+507	Paris A.D. 1512
+452	Paris A.D. 1517
+3322	Paris c. 1492
+3977	Paris, 1505
+3993	Paris, 1508
+3864	Paris, 1511, etc.
+3961	Paris, 1519
+5799	Paris, 1523
+410	Paris, A.D. 1477
+807	Paris, A.D. 1478
+575	Paris, A.D. 1497/8
+576	Paris, A.D. 1498, etc.
+983	Paris, A.D. 1503
+1014	Paris, A.D. 1503
+850	Paris, A.D. 1505
+577	Paris, A.D. 1512
+995	Paris, A.D. 1512
+732	Paris, A.D. 1514, etc.
+229	Paris, A.D. 1516
+6475	Paris, A.D. 1516 (?)
+992	Paris, A.D. 1518
+290	Paris, A.D. 1519
+996	Paris, A.D. 1519
+574	Paris, A.D. 1534
+6503	Paris, AD 1501
+2479	Paris, s. a.
+5784	Paris, s. a.
+2636	Pforzheim 1506
+2637	Rome 1481
+4003	Rouen, 1512
+852	Rouen, c. A.D. 1507
+5909	Rouen, s. a. 
+952	s
+4645	s xii ex.
+3230	s xii--xiii
+4062	s xiii
+1472	s.  xii
+6346	s. ???
+5367	s. a., Basel (N. Kesler), not later than 1494
+5491	s. a., Cologne & Strasbourg
+4582	s. a., London (R. Pynson)
+4773	s. a., Paris
+5709	s. a., Paris
+4246	s. a., Paris (pref. dated 1512)
+5422	s. a., Paris (T. Kerver)
+5530	s. a., Speyer (Petrus Drach)
+384	s. ii in.--xii ex
+360	s. ix
+568	s. ix
+694	s. ix
+712	s. ix
+1286	s. ix
+1359	s. ix
+1503	s. ix
+1603	s. ix
+2387	s. ix
+2545	s. ix
+3064	s. ix
+3917	s. ix
+5096	s. ix
+5776	s. ix
+5982	s. ix
+1063	s. ix ex
+1345	s. ix ex.
+1412	s. ix ex.
+5981	s. ix ex.
+6411	s. ix ex.
+6013	s. ix ex. (890--897)
+5736	s. ix ex. (890--897?)
+687	s. ix in
+1583	s. ix, x
+1660	s. ix, xii--xv
+6017	s. ix--x
+2921	s. ix--xi
+5112	s. ix--xi
+5727	s. ix--xi
+2395	s. ix--xvi
+620	s. ix/x
+697	s. ix/x
+1407	s. ix/x
+5750	s. ix/x
+5928	s. ix/x
+6302	s. ix/x
+688	s. ix/x--xiii
+193	s. ix2
+1402	s. vi
+2467	s. vii
+2934	s. vii
+1997	s. vii/viii
+2048	s. vii/viii
+2296	s. vii/viii
+2386	s. vii/viii
+3297	s. vii/viii
+3298	s. vii/viii
+3299	s. vii/viii
+5941	s. vii/viii
+5942	s. vii/viii
+1366	s. viii
+1479	s. viii
+1489	s. viii
+1612	s. viii
+1996	s. viii
+2008	s. viii
+2047	s. viii
+2167	s. viii
+2388	s. viii
+2428	s. viii
+5728	s. viii
+5804	s. viii
+5960	s. viii
+6018	s. viii
+1448	s. viii ex.
+1521	s. viii ex.
+3103	s. viii ex.
+3724	s. viii ex.
+1067	s. viii in
+3593	s. viii in.
+3723	s. viii in.
+3904	s. viii in.
+32	s. viii, x
+2707	s. viii--x
+1055	s. viii--xi
+1393	s. viii/ix
+1579	s. viii/ix
+6020	s. viii/ix
+1594	s. viii/ix (c. 800)
+40	s. x
+50	s. x
+88	s. x
+92	s. x
+115	s. x
+796	s. x
+1036	s. x
+1057	s. x
+1061	s. x
+1076	s. x
+1135	s. x
+1267	s. x
+1410	s. x
+1425	s. x
+1430	s. x
+1434	s. x
+1438	s. x
+1440	s. x
+1441	s. x
+1462	s. x
+1475	s. x
+1476	s. x
+1484	s. x
+1492	s. x
+1554	s. x
+1876	s. x
+2215	s. x
+2690	s. x
+2725	s. x
+2762	s. x
+2766	s. x
+2793	s. x
+2899	s. x
+2924	s. x
+3268	s. x
+3278	s. x
+3290	s. x
+3473	s. x
+3923	s. x
+4472	s. x
+4965	s. x
+5068	s. x
+5072	s. x
+5084	s. x
+5132	s. x
+5483	s. x
+5556	s. x
+5741	s. x
+5742	s. x
+5744	s. x
+5756	s. x
+5761	s. x
+5765	s. x
+5771	s. x
+5920	s. x
+5968	s. x
+6207	s. x
+6214	s. x
+6491	s. x
+2727	s. x & xi
+3267	s. x & xi
+3262	s. x (966)
+1172	s. x ex
+16	s. x ex.
+1208	s. x ex.
+1456	s. x ex.
+1910	s. x ex.
+2695	s. x ex.
+2699	s. x ex.
+3287	s. x ex.
+4764	s. x ex.
+4928	s. x ex.
+5106	s. x ex.
+5125	s. x ex.
+5126	s. x ex.
+5183	s. x ex.
+5220	s. x ex.
+5661	s. x ex.
+5712	s. x ex.
+5779	s. x ex.
+6192	s. x ex.
+1268	s. x ex. (with additions s. xv and xvi).
+447	s. x in
+1508	s. x in.
+1519	s. x in.
+2102	s. x in.
+2420	s. x in.
+5780	s. x in.
+5993	s. x in.
+1962	s. x in. (c.934--37)
+790	s. x in.--xiv
+6015	s. x med.
+5478	s. x, x--xv
+1495	s. x, xi
+1515	s. x, xiv
+52	s. x--xi
+215	s. x--xi
+220	s. x--xi
+844	s. x--xi
+2563	s. x--xi
+2787	s. x--xi
+5953	s. x--xi
+747	s. x--xii
+3853	s. x--xii
+223	s. x/xi
+335	s. x/xi
+382	s. x/xi
+1068	s. x/xi
+1152	s. x/xi
+1482	s. x/xi
+1952	s. x/xi
+3492	s. x/xi
+3681	s. x/xi
+5097	s. x/xi
+5725	s. x/xi
+5749	s. x/xi
+6307	s. x/xi
+6457	s. x/xi
+5922	s. x/xi & xi2
+1324	s. x/xi (c. 1000)
+3899	s. x/xi [and xii]
+5937	s. x/xi, xii in.
+5752	s. x1
+3	s. xi
+4	s. xi
+6	s. xi
+7	s. xi
+8	s. xi
+10	s. xi
+35	s. xi
+36	s. xi
+43	s. xi
+53	s. xi
+54	s. xi
+70	s. xi
+112	s. xi
+113	s. xi
+140	s. xi
+151	s. xi
+186	s. xi
+234	s. xi
+357	s. xi
+358	s. xi
+395	s. xi
+625	s. xi
+627	s. xi
+628	s. xi
+645	s. xi
+720	s. xi
+751	s. xi
+759	s. xi
+797	s. xi
+840	s. xi
+944	s. xi
+1080	s. xi
+1116	s. xi
+1231	s. xi
+1232	s. xi
+1237	s. xi
+1238	s. xi
+1251	s. xi
+1258	s. xi
+1270	s. xi
+1298	s. xi
+1299	s. xi
+1349	s. xi
+1350	s. xi
+1351	s. xi
+1352	s. xi
+1354	s. xi
+1365	s. xi
+1377	s. xi
+1387	s. xi
+1396	s. xi
+1397	s. xi
+1399	s. xi
+1437	s. xi
+1460	s. xi
+1480	s. xi
+1498	s. xi
+1527	s. xi
+1542	s. xi
+1574	s. xi
+1577	s. xi
+1626	s. xi
+1712	s. xi
+1848	s. xi
+2005	s. xi
+2081	s. xi
+2433	s. xi
+2541	s. xi
+2682	s. xi
+2683	s. xi
+2684	s. xi
+2710	s. xi
+2711	s. xi
+2717	s. xi
+2728	s. xi
+2729	s. xi
+2745	s. xi
+2790	s. xi
+2791	s. xi
+2813	s. xi
+3038	s. xi
+3162	s. xi
+3168	s. xi
+3207	s. xi
+3589	s. xi
+3901	s. xi
+3905	s. xi
+3906	s. xi
+4242	s. xi
+4675	s. xi
+4772	s. xi
+4777	s. xi
+4947	s. xi
+5061	s. xi
+5111	s. xi
+5214	s. xi
+5217	s. xi
+5282	s. xi
+5448	s. xi
+5726	s. xi
+5786	s. xi
+5819	s. xi
+5880	s. xi
+5890	s. xi
+5918	s. xi
+5919	s. xi
+5923	s. xi
+5924	s. xi
+5925	s. xi
+5929	s. xi
+5932	s. xi
+5939	s. xi
+5940	s. xi
+5943	s. xi
+5950	s. xi
+5951	s. xi
+5952	s. xi
+5956	s. xi
+5973	s. xi
+6019	s. xi
+6021	s. xi
+6022	s. xi
+6024	s. xi
+6025	s. xi
+6071	s. xi
+6398	s. xi
+6443	s. xi
+2779	s. xi & xii
+5729	s. xi & xii in.
+1911	s. xi & xiii
+5930	s. xi (1064?)
+2	s. xi (? 3rd quarter)
+2681	s. xi (? 3rd quarter)
+4469	s. xi (after 1030)
+6000	s. xi (pp. 1--8 s. xi ex., s. xi/xii)
+9	s. xi 1, xi 2
+6427	s. xi 2/4
+2709	s. xi 3/4
+721	s. xi ex
+1070	s. xi ex
+1162	s. xi ex
+379	s. xi ex, xii in
+15	s. xi ex.
+30	s. xi ex.
+134	s. xi ex.
+143	s. xi ex.
+145	s. xi ex.
+1210	s. xi ex.
+1236	s. xi ex.
+1541	s. xi ex.
+1974	s. xi ex.
+1999	s. xi ex.
+2146	s. xi ex.
+2147	s. xi ex.
+2148	s. xi ex.
+2150	s. xi ex.
+2154	s. xi ex.
+2158	s. xi ex.
+2159	s. xi ex.
+2174	s. xi ex.
+2183	s. xi ex.
+2184	s. xi ex.
+2186	s. xi ex.
+2191	s. xi ex.
+2295	s. xi ex.
+2449	s. xi ex.
+2466	s. xi ex.
+2694	s. xi ex.
+2705	s. xi ex.
+2956	s. xi ex.
+3260	s. xi ex.
+3606	s. xi ex.
+3607	s. xi ex.
+3616	s. xi ex.
+3909	s. xi ex.
+4677	s. xi ex.
+4946	s. xi ex.
+4948	s. xi ex.
+4951	s. xi ex.
+4953	s. xi ex.
+4956	s. xi ex.
+4962	s. xi ex.
+4967	s. xi ex.
+4972	s. xi ex.
+4977	s. xi ex.
+5051	s. xi ex.
+5079	s. xi ex.
+5095	s. xi ex.
+5139	s. xi ex.
+5219	s. xi ex.
+5754	s. xi ex.
+5773	s. xi ex.
+5915	s. xi ex.
+6002	s. xi ex.
+6014	s. xi ex.
+2038	s. xi ex. (1081--1095)
+2151	s. xi ex. (1088--1093)
+1785	s. xi ex. (?AD 1086)
+1197	s. xi ex. (pt. I), s. xiii (pt. III), s. xii (pt. 
+1235	s. xi ex., s. xii ex.
+2229	s. xi ex.--xii
+5131	s. xi ex.--xii in.
+2172	s. xi ex.--xv
+2844	s. xi ex./xii in.
+214	s. xi in
+217	s. xi in
+231	s. xi in
+245	s. xi in
+848	s. xi in
+750	s. xi in.
+1234	s. xi in.
+1265	s. xi in.
+1497	s. xi in.
+2383	s. xi in.
+2430	s. xi in.
+2462	s. xi in.
+2919	s. xi in.
+3249	s. xi in.
+3256	s. xi in.
+3257	s. xi in.
+3259	s. xi in.
+3263	s. xi in.
+4769	s. xi in.
+5014	s. xi in.
+5271	s. xi in.
+5449	s. xi in.
+5740	s. xi in.
+5745	s. xi in.
+5747	s. xi in.
+5762	s. xi in.
+5791	s. xi in.
+5792	s. xi in.
+5800	s. xi in. 
+5802	s. xi in.
+5803	s. xi in.
+5984	s. xi in.
+6027	s. xi in.
+6112	s. xi in.
+1230	s. xi in. (? 1012 x 1023)
+2897	s. xi in.--xii in.
+5775	s. xi in.--xii in.
+3270	s. xi in.--xvi in.
+31	s. xi med.
+2153	s. xi med.
+2712	s. xi med.
+3261	s. xi med.
+3280	s. xi med.
+5731	s. xi med.
+2412	s. xi med. (c. 1049)
+4845	s. xi or xii
+2937	s. xi, xii
+6352	s. xi, xiv
+102	s. xi--xii
+718	s. xi--xii
+1261	s. xi--xii
+1400	s. xi--xii
+1509	s. xi--xii
+1526	s. xi--xii
+3023	s. xi--xii
+5224	s. xi--xii 
+5927	s. xi--xii
+3916	s. xi--xii in.
+4111	s. xi--xii in.
+356	s. xi--xiii
+1611	s. xi--xiii (or s. xii, xiii?)
+523	s. xi--xiii in
+127	s. xi/xii
+243	s. xi/xii
+808	s. xi/xii
+828	s. xi/xii
+829	s. xi/xii
+830	s. xi/xii
+1029	s. xi/xii
+1043	s. xi/xii
+1056	s. xi/xii
+1124	s. xi/xii
+1256	s. xi/xii
+1313	s. xi/xii
+1344	s. xi/xii
+1371	s. xi/xii
+1405	s. xi/xii
+1429	s. xi/xii
+1447	s. xi/xii
+1486	s. xi/xii
+1487	s. xi/xii
+1578	s. xi/xii
+1584	s. xi/xii
+1685	s. xi/xii
+2598	s. xi/xii
+2614	s. xi/xii
+2808	s. xi/xii
+2825	s. xi/xii
+3095	s. xi/xii
+3717	s. xi/xii
+3753	s. xi/xii
+4767	s. xi/xii
+4809	s. xi/xii
+4848	s. xi/xii
+4943	s. xi/xii
+4952	s. xi/xii
+4954	s. xi/xii
+4955	s. xi/xii
+4957	s. xi/xii
+4976	s. xi/xii
+5013	s. xi/xii
+5140	s. xi/xii
+5793	s. xi/xii
+3926	s. xi/xii (c. 1100)
+5243	s. xi/xii, xii, [ix]
+2713	s. xi/xii--xii
+5629	s. xi/xii--xiii
+593	s. xi2
+4514	s. xi2
+5842	s. xi2
+33	s. xi3/4
+14	s. xii
+23	s. xii
+27	s. xii
+34	s. xii
+48	s. xii
+55	s. xii
+58	s. xii
+59	s. xii
+60	s. xii
+61	s. xii
+62	s. xii
+63	s. xii
+66	s. xii
+67	s. xii
+68	s. xii
+69	s. xii
+71	s. xii
+72	s. xii
+73	s. xii
+77	s. xii
+78	s. xii
+79	s. xii
+83	s. xii
+87	s. xii
+89	s. xii
+99	s. xii
+103	s. xii
+106	s. xii 
+111	s. xii
+114	s. xii
+123	s. xii
+129	s. xii
+130	s. xii
+131	s. xii
+132	s. xii
+133	s. xii
+150	s. xii
+160	s. xii
+161	s. xii
+174	s. xii
+200	s. xii
+222	s. xii
+241	s. xii
+244	s. xii
+253	s. xii
+337	s. xii
+341	s. xii
+345	s. xii
+363	s. xii
+367	s. xii
+378	s. xii
+380	s. xii
+419	s. xii
+420	s. xii
+423	s. xii
+443	s. xii
+458	s. xii
+472	s. xii
+473	s. xii
+481	s. xii
+482	s. xii
+485	s. xii
+486	s. xii
+515	s. xii
+518	s. xii
+519	s. xii
+522	s. xii
+533	s. xii
+536	s. xii
+537	s. xii
+544	s. xii
+545	s. xii
+570	s. xii
+584	s. xii
+589	s. xii
+606	s. xii
+617	s. xii
+618	s. xii
+619	s. xii
+621	s. xii
+646	s. xii
+652	s. xii
+653	s. xii
+654	s. xii
+655	s. xii
+656	s. xii
+657	s. xii
+658	s. xii
+660	s. xii
+662	s. xii
+666	s. xii
+667	s. xii
+668	s. xii
+669	s. xii
+671	s. xii
+678	s. xii
+681	s. xii
+689	s. xii
+715	s. xii
+722	s. xii
+723	s. xii
+731	s. xii
+733	s. xii
+735	s. xii
+739	s. xii
+753	s. xii
+757	s. xii
+774	s. xii
+791	s. xii
+799	s. xii
+806	s. xii
+812	s. xii
+816	s. xii
+818	s. xii
+824	s. xii
+826	s. xii
+831	s. xii
+832	s. xii
+833	s. xii
+834	s. xii
+835	s. xii
+836	s. xii
+839	s. xii
+843	s. xii
+845	s. xii
+849	s. xii
+854	s. xii
+859	s. xii
+862	s. xii
+863	s. xii
+865	s. xii
+869	s. xii
+875	s. xii
+876	s. xii
+957	s. xii
+963	s. xii
+982	s. xii
+984	s. xii
+1026	s. xii
+1027	s. xii
+1028	s. xii
+1030	s. xii
+1035	s. xii
+1042	s. xii
+1045	s. xii
+1047	s. xii
+1049	s. xii
+1071	s. xii
+1083	s. xii
+1085	s. xii
+1086	s. xii
+1087	s. xii
+1092	s. xii
+1093	s. xii
+1095	s. xii
+1097	s. xii
+1098	s. xii
+1099	s. xii
+1101	s. xii
+1102	s. xii
+1105	s. xii
+1106	s. xii
+1108	s. xii
+1109	s. xii
+1112	s. xii
+1113	s. xii
+1120	s. xii
+1121	s. xii
+1122	s. xii
+1123	s. xii
+1126	s. xii
+1127	s. xii
+1133	s. xii
+1134	s. xii
+1136	s. xii
+1145	s. xii
+1146	s. xii
+1147	s. xii
+1148	s. xii
+1154	s. xii
+1161	s. xii
+1164	s. xii
+1173	s. xii
+1195	s. xii
+1209	s. xii
+1216	s. xii
+1218	s. xii
+1228	s. xii
+1239	s. xii
+1241	s. xii
+1242	s. xii
+1243	s. xii
+1244	s. xii
+1246	s. xii
+1250	s. xii
+1253	s. xii
+1255	s. xii
+1257	s. xii
+1262	s. xii
+1263	s. xii
+1271	s. xii
+1276	s. xii
+1277	s. xii
+1283	s. xii
+1292	s. xii
+1300	s. xii
+1301	s. xii
+1304	s. xii
+1318	s. xii
+1319	s. xii
+1326	s. xii
+1328	s. xii
+1333	s. xii
+1341	s. xii
+1357	s. xii
+1360	s. xii
+1362	s. xii
+1375	s. xii
+1380	s. xii
+1391	s. xii
+1411	s. xii
+1444	s. xii
+1449	s. xii
+1457	s. xii
+1466	s. xii
+1481	s. xii
+1483	s. xii
+1491	s. xii
+1500	s. xii
+1505	s. xii
+1513	s. xii
+1520	s. xii
+1528	s. xii
+1544	s. xii
+1548	s. xii
+1562	s. xii
+1563	s. xii
+1588	s. xii
+1592	s. xii
+1602	s. xii
+1604	s. xii
+1630	s. xii
+1653	s. xii
+1654	s. xii
+1682	s. xii
+1697	s. xii
+1703	s. xii
+1707	s. xii
+1708	s. xii
+1714	s. xii
+1718	s. xii
+1720	s. xii
+1725	s. xii
+1726	s. xii
+1730	s. xii 
+1735	s. xii
+1739	s. xii
+1746	s. xii
+1755	s. xii
+1760	s. xii
+1761	s. xii
+1762	s. xii
+1764	s. xii
+1767	s. xii
+1789	s. xii
+1798	s. xii
+1803	s. xii
+1807	s. xii
+1819	s. xii
+1845	s. xii
+1895	s. xii
+1898	s. xii
+1904	s. xii
+1905	s. xii
+1908	s. xii
+1909	s. xii
+1913	s. xii
+1916	s. xii
+1918	s. xii
+1924	s. xii
+1926	s. xii
+1950	s. xii
+1953	s. xii
+1967	s. xii
+1973	s. xii
+1977	s. xii
+1979	s. xii
+1987	s. xii
+1993	s. xii
+1994	s. xii
+2003	s. xii
+2006	s. xii
+2011	s. xii
+2054	s. xii
+2055	s. xii
+2104	s. xii
+2179	s. xii
+2222	s. xii
+2299	s. xii
+2303	s. xii
+2366	s. xii
+2367	s. xii
+2369	s. xii
+2374	s. xii
+2389	s. xii
+2397	s. xii
+2399	s. xii
+2401	s. xii
+2429	s. xii 
+2438	s. xii
+2441	s. xii
+2444	s. xii
+2446	s. xii
+2448	s. xii
+2455	s. xii
+2456	s. xii
+2534	s. xii
+2540	s. xii
+2543	s. xii
+2544	s. xii
+2547	s. xii
+2549	s. xii
+2555	s. xii
+2566	s. xii
+2585	s. xii
+2587	s. xii
+2632	s. xii
+2633	s. xii
+2659	s. xii
+2675	s. xii
+2676	s. xii
+2693	s. xii
+2708	s. xii
+2722	s. xii
+2730	s. xii
+2731	s. xii
+2733	s. xii
+2734	s. xii
+2735	s. xii
+2736	s. xii
+2737	s. xii
+2738	s. xii
+2741	s. xii
+2742	s. xii
+2743	s. xii
+2744	s. xii
+2746	s. xii
+2747	s. xii
+2748	s. xii
+2749	s. xii
+2752	s. xii
+2753	s. xii
+2754	s. xii
+2755	s. xii
+2761	s. xii
+2763	s. xii
+2776	s. xii
+2780	s. xii
+2784	s. xii
+2788	s. xii
+2789	s. xii
+2792	s. xii
+2800	s. xii
+2803	s. xii
+2804	s. xii
+2805	s. xii
+2806	s. xii
+2807	s. xii
+2815	s. xii
+2831	s. xii
+2833	s. xii
+2846	s. xii
+2849	s. xii
+2851	s. xii
+2854	s. xii
+2857	s. xii
+2862	s. xii
+2867	s. xii
+2869	s. xii
+2873	s. xii
+2890	s. xii
+2893	s. xii
+2894	s. xii
+2905	s. xii
+2915	s. xii
+2916	s. xii
+2917	s. xii
+2933	s. xii
+2940	s. xii
+2946	s. xii
+2950	s. xii
+2953	s. xii
+2955	s. xii
+2959	s. xii
+2960	s. xii
+2963	s. xii
+2964	s. xii
+2989	s. xii
+2990	s. xii
+3026	s. xii 
+3057	s. xii
+3058	s. xii
+3060	s. xii
+3061	s. xii
+3062	s. xii
+3063	s. xii
+3065	s. xii
+3069	s. xii
+3070	s. xii
+3071	s. xii
+3072	s. xii
+3074	s. xii
+3075	s. xii
+3076	s. xii
+3080	s. xii
+3082	s. xii
+3083	s. xii
+3084	s. xii
+3086	s. xii
+3087	s. xii
+3090	s. xii
+3096	s. xii
+3098	s. xii
+3104	s. xii
+3105	s. xii
+3106	s. xii
+3110	s. xii
+3111	s. xii
+3113	s. xii
+3119	s. xii
+3121	s. xii
+3122	s. xii
+3123	s. xii
+3130	s. xii
+3134	s. xii
+3139	s. xii
+3143	s. xii
+3161	s. xii
+3163	s. xii
+3166	s. xii
+3169	s. xii
+3170	s. xii
+3171	s. xii
+3172	s. xii
+3181	s. xii
+3203	s. xii
+3204	s. xii
+3206	s. xii
+3208	s. xii
+3209	s. xii
+3210	s. xii
+3213	s. xii
+3214	s. xii
+3229	s. xii
+3239	s. xii
+3246	s. xii
+3250	s. xii
+3251	s. xii
+3271	s. xii
+3310	s. xii
+3317	s. xii
+3328	s. xii
+3330	s. xii
+3341	s. xii 
+3342	s. xii
+3349	s. xii
+3353	s. xii
+3362	s. xii
+3364	s. xii
+3383	s. xii
+3385	s. xii
+3394	s. xii
+3406	s. xii
+3408	s. xii
+3411	s. xii
+3414	s. xii
+3420	s. xii
+3426	s. xii
+3427	s. xii
+3428	s. xii
+3433	s. xii
+3434	s. xii
+3436	s. xii
+3439	s. xii
+3440	s. xii
+3441	s. xii
+3444	s. xii
+3453	s. xii
+3454	s. xii
+3456	s. xii
+3458	s. xii
+3461	s. xii
+3462	s. xii
+3463	s. xii
+3465	s. xii
+3466	s. xii
+3467	s. xii
+3486	s. xii
+3488	s. xii
+3493	s. xii
+3498	s. xii
+3499	s. xii
+3500	s. xii
+3502	s. xii
+3503	s. xii
+3506	s. xii
+3509	s. xii
+3510	s. xii
+3518	s. xii
+3521	s. xii
+3522	s. xii
+3523	s. xii
+3524	s. xii
+3526	s. xii
+3527	s. xii
+3539	s. xii
+3546	s. xii
+3551	s. xii
+3552	s. xii
+3559	s. xii
+3563	s. xii
+3564	s. xii
+3565	s. xii
+3573	s. xii
+3576	s. xii
+3577	s. xii
+3578	s. xii
+3619	s. xii
+3628	s. xii
+3644	s. xii
+3649	s. xii
+3652	s. xii
+3661	s. xii
+3671	s. xii
+3674	s. xii
+3675	s. xii
+3677	s. xii
+3679	s. xii
+3680	s. xii
+3684	s. xii
+3688	s. xii
+3693	s. xii
+3701	s. xii
+3703	s. xii
+3707	s. xii
+3726	s. xii
+3727	s. xii
+3728	s. xii
+3729	s. xii
+3733	s. xii
+3736	s. xii
+3737	s. xii
+3755	s. xii
+3756	s. xii
+3824	s. xii
+3839	s. xii
+3859	s. xii
+3882	s. xii
+3884	s. xii
+3887	s. xii
+3902	s. xii
+3912	s. xii
+3928	s. xii
+3933	s. xii
+3934	s. xii
+3941	s. xii
+3945	s. xii
+3954	s. xii
+3969	s. xii
+3982	s. xii
+4008	s. xii
+4027	s. xii
+4033	s. xii
+4035	s. xii
+4045	s. xii
+4046	s. xii
+4051	s. xii
+4054	s. xii
+4057	s. xii
+4081	s. xii
+4087	s. xii
+4091	s. xii
+4096	s. xii
+4187	s. xii
+4194	s. xii
+4196	s. xii
+4265	s. xii
+4270	s. xii
+4283	s. xii
+4294	s. xii
+4304	s. xii
+4313	s. xii
+4315	s. xii
+4319	s. xii
+4321	s. xii
+4322	s. xii
+4338	s. xii
+4339	s. xii
+4345	s. xii
+4359	s. xii
+4362	s. xii
+4365	s. xii
+4397	s. xii
+4415	s. xii
+4423	s. xii
+4425	s. xii
+4426	s. xii
+4427	s. xii
+4432	s. xii
+4434	s. xii
+4444	s. xii
+4461	s. xii
+4504	s. xii
+4505	s. xii
+4506	s. xii
+4507	s. xii
+4508	s. xii
+4509	s. xii
+4510	s. xii
+4512	s. xii
+4519	s. xii
+4520	s. xii
+4522	s. xii
+4527	s. xii
+4550	s. xii
+4560	s. xii
+4562	s. xii
+4579	s. xii
+4581	s. xii
+4583	s. xii
+4585	s. xii
+4587	s. xii
+4589	s. xii
+4590	s. xii
+4591	s. xii
+4593	s. xii
+4599	s. xii
+4602	s. xii
+4606	s. xii
+4608	s. xii
+4617	s. xii
+4626	s. xii
+4636	s. xii
+4641	s. xii
+4643	s. xii
+4646	s. xii
+4648	s. xii
+4649	s. xii
+4650	s. xii
+4651	s. xii
+4654	s. xii
+4655	s. xii
+4657	s. xii
+4658	s. xii
+4661	s. xii
+4666	s. xii
+4673	s. xii
+4687	s. xii
+4689	s. xii
+4695	s. xii
+4697	s. xii
+4698	s. xii
+4701	s. xii
+4707	s. xii
+4709	s. xii
+4710	s. xii
+4711	s. xii
+4712	s. xii
+4713	s. xii
+4714	s. xii
+4715	s. xii
+4716	s. xii
+4717	s. xii
+4720	s. xii
+4721	s. xii
+4722	s. xii
+4723	s. xii
+4724	s. xii
+4725	s. xii
+4726	s. xii
+4727	s. xii
+4728	s. xii
+4730	s. xii
+4731	s. xii
+4733	s. xii
+4734	s. xii
+4735	s. xii
+4737	s. xii
+4743	s. xii
+4754	s. xii
+4771	s. xii
+4776	s. xii
+4793	s. xii
+4801	s. xii
+4805	s. xii
+4806	s. xii
+4815	s. xii
+4828	s. xii
+4847	s. xii
+4852	s. xii
+4853	s. xii
+4869	s. xii
+4871	s. xii
+4872	s. xii
+4876	s. xii
+4886	s. xii
+4887	s. xii
+4890	s. xii
+4894	s. xii
+4895	s. xii
+4896	s. xii
+4897	s. xii
+4901	s. xii
+4904	s. xii
+4931	s. xii
+4942	s. xii
+4944	s. xii
+4966	s. xii
+4969	s. xii
+4970	s. xii
+4978	s. xii
+4981	s. xii
+4988	s. xii
+5017	s. xii
+5034	s. xii
+5035	s. xii
+5066	s. xii
+5087	s. xii
+5105	s. xii
+5114	s. xii
+5158	s. xii
+5171	s. xii
+5181	s. xii
+5182	s. xii
+5212	s. xii
+5216	s. xii
+5225	s. xii
+5256	s. xii
+5268	s. xii
+5273	s. xii
+5274	s. xii
+5314	s. xii
+5321	s. xii
+5327	s. xii
+5328	s. xii
+5455	s. xii
+5462	s. xii
+5465	s. xii
+5466	s. xii
+5467	s. xii
+5468	s. xii
+5469	s. xii
+5470	s. xii
+5482	s. xii
+5516	s. xii
+5523	s. xii
+5526	s. xii
+5528	s. xii
+5529	s. xii
+5539	s. xii
+5540	s. xii
+5551	s. xii
+5570	s. xii
+5581	s. xii
+5584	s. xii
+5602	s. xii
+5639	s. xii
+5654	s. xii
+5663	s. xii
+5684	s. xii
+5693	s. xii
+5713	s. xii
+5718	s. xii
+5720	s. xii
+5722	s. xii
+5738	s. xii
+5746	s. xii
+5760	s. xii
+5768	s. xii
+5770	s. xii
+5777	s. xii
+5794	s. xii
+5795	s. xii
+5797	s. xii
+5816	s. xii
+5832	s. xii
+5839	s. xii
+5854	s. xii
+5855	s. xii
+5861	s. xii
+5863	s. xii
+5867	s. xii
+5874	s. xii
+5877	s. xii
+5885	s. xii
+5900	s. xii
+5906	s. xii
+5935	s. xii
+5945	s. xii 
+5969	s. xii
+5970	s. xii
+5971	s. xii
+5974	s. xii
+5979	s. xii
+5983	s. xii
+5985	s. xii
+5986	s. xii
+5998	s. xii
+6010	s. xii
+6016	s. xii
+6023	s. xii
+6051	s. xii
+6072	s. xii
+6098	s. xii
+6188	s. xii
+6225	s. xii
+6250	s. xii
+6261	s. xii
+6285	s. xii
+6287	s. xii
+6291	s. xii
+6314	s. xii
+6327	s. xii
+6360	s. xii
+6399	s. xii
+6407	s. xii
+6410	s. xii
+6413	s. xii
+6417	s. xii
+6418	s. xii
+6422	s. xii
+6423	s. xii
+6458	s. xii
+6468	s. xii
+6474	s. xii
+6480	s. xii
+3571	s. xii & xiii
+3572	s. xii & xiii
+4020	s. xii & xiii
+4405	s. xii & xiii
+4900	s. xii & xiii
+2716	s. xii & xiv
+4130	s. xii & xiv 
+4193	s. xii & xiv 
+5565	s. xii & xiv 
+1971	s. xii & xv
+1765	s. xii (1147--1176)
+1766	s. xii (1147--1176)
+1768	s. xii (1147--1176)
+1769	s. xii (1147--1176)
+1770	s. xii (1147--1176)
+1771	s. xii (1147--1176)
+4912	s. xii (1167--1183)
+5959	s. xii (fols. 37--67, 94--101) & s. xiii
+4986	s. xii (in.)
+2967	s. xii (Kalendar), xiii in., xv
+4446	s. xii (med.)
+4502	s. xii (Paschal table drawn up A.D. 1132)
+4699	s. xii (s. xiii in.?)
+5683	s. xii (written for, and probably at St. Omer's)
+238	s. xii 1
+700	s. xii 1
+734	s. xii 1
+6504	s. xii 1
+672	s. xii 2
+674	s. xii 2
+596	s. xii 2/4
+651	s. xii 2/4
+736	s. xii 2/4
+2535	s. xii 2/4
+483	s. xii 3/4
+541	s. xii 3/4
+679	s. xii 3/4
+3561	s. xii 3/4
+465	s. xii 4/4
+3471	s. xii and xii/xiii
+1989	s. xii and xiii
+236	s. xii ex
+242	s. xii ex
+390	s. xii ex
+392	s. xii ex
+414	s. xii ex
+421	s. xii ex
+425	s. xii ex
+459	s. xii ex
+499	s. xii ex
+504	s. xii ex
+517	s. xii ex
+540	s. xii ex
+551	s. xii ex
+552	s. xii ex
+560	s. xii ex
+614	s. xii ex
+632	s. xii ex
+696	s. xii ex
+716	s. xii ex
+730	s. xii ex
+782	s. xii ex
+855	s. xii ex
+856	s. xii ex
+857	s. xii ex
+861	s. xii ex
+864	s. xii ex
+866	s. xii ex
+868	s. xii ex
+878	s. xii ex
+879	s. xii ex
+1039	s. xii ex
+1058	s. xii ex
+1118	s. xii ex
+1119	s. xii ex
+1138	s. xii ex
+1140	s. xii ex
+4438	s. xii ex
+4498	s. xii ex
+5848	s. xii ex
+6005	s. xii ex--xiii in.
+224	s. xii ex-xiv
+45	s. xii ex.
+49	s. xii ex.
+57	s. xii ex.
+85	s. xii ex.
+118	s. xii ex.
+119	s. xii ex.
+176	s. xii ex.
+319	s. xii ex.
+373	s. xii ex.
+493	s. xii ex.
+1219	s. xii ex.
+1222	s. xii ex.
+1233	s. xii ex.
+1240	s. xii ex.
+1254	s. xii ex.
+1296	s. xii ex.
+1310	s. xii ex.
+1311	s. xii ex.
+1435	s. xii ex.
+1598	s. xii ex.
+1600	s. xii ex.
+1613	s. xii ex.
+1667	s. xii ex.
+1668	s. xii ex.
+1679	s. xii ex.
+1713	s. xii ex.
+1719	s. xii ex.
+1721	s. xii ex.
+1724	s. xii ex.
+1733	s. xii ex.
+1778	s. xii ex.
+1864	s. xii ex.
+1875	s. xii ex.
+2001	s. xii ex.
+2002	s. xii ex.
+2010	s. xii ex.
+2035	s. xii ex.
+2036	s. xii ex.
+2043	s. xii ex.
+2050	s. xii ex.
+2056	s. xii ex.
+2057	s. xii ex.
+2058	s. xii ex.
+2059	s. xii ex.
+2060	s. xii ex.
+2062	s. xii ex.
+2069	s. xii ex.
+2070	s. xii ex.
+2073	s. xii ex.
+2076	s. xii ex.
+2079	s. xii ex.
+2088	s. xii ex.
+2089	s. xii ex.
+2091	s. xii ex.
+2093	s. xii ex.
+2094	s. xii ex.
+2095	s. xii ex.
+2096	s. xii ex.
+2097	s. xii ex.
+2101	s. xii ex.
+2106	s. xii ex.
+2171	s. xii ex.
+2175	s. xii ex.
+2188	s. xii ex.
+2208	s. xii ex.
+2216	s. xii ex.
+2217	s. xii ex.
+2227	s. xii ex.
+2263	s. xii ex.
+2302	s. xii ex.
+2322	s. xii ex.
+2356	s. xii ex.
+2358	s. xii ex.
+2359	s. xii ex.
+2363	s. xii ex.
+2378	s. xii ex.
+2415	s. xii ex.
+2518	s. xii ex.
+2548	s. xii ex.
+2565	s. xii ex.
+2570	s. xii ex.
+2576	s. xii ex.
+2580	s. xii ex.
+2680	s. xii ex.
+2719	s. xii ex.
+2724	s. xii ex.
+2732	s. xii ex.
+2759	s. xii ex.
+2796	s. xii ex.
+2797	s. xii ex.
+2830	s. xii ex.
+2836	s. xii ex.
+2856	s. xii ex.
+2861	s. xii ex.
+2866	s. xii ex.
+2983	s. xii ex.
+3024	s. xii ex.
+3037	s. xii ex.
+3066	s. xii ex.
+3088	s. xii ex.
+3099	s. xii ex.
+3100	s. xii ex.
+3101	s. xii ex.
+3102	s. xii ex.
+3109	s. xii ex.
+3133	s. xii ex.
+3142	s. xii ex.
+3150	s. xii ex.
+3180	s. xii ex.
+3184	s. xii ex.
+3194	s. xii ex.
+3212	s. xii ex.
+3221	s. xii ex.
+3232	s. xii ex.
+3241	s. xii ex.
+3248	s. xii ex.
+3311	s. xii ex.
+3337	s. xii ex.
+3345	s. xii ex.
+3356	s. xii ex.
+3357	s. xii ex.
+3360	s. xii ex.
+3386	s. xii ex.
+3405	s. xii ex.
+3412	s. xii ex.
+3416	s. xii ex.
+3422	s. xii ex.
+3438	s. xii ex.
+3459	s. xii ex.
+3464	s. xii ex.
+3479	s. xii ex.
+3481	s. xii ex.
+3496	s. xii ex.
+3497	s. xii ex.
+3540	s. xii ex.
+3547	s. xii ex.
+3570	s. xii ex.
+3574	s. xii ex.
+3582	s. xii ex.
+3618	s. xii ex.
+3635	s. xii ex.
+3638	s. xii ex.
+3664	s. xii ex.
+3665	s. xii ex.
+3667	s. xii ex.
+3670	s. xii ex.
+3719	s. xii ex.
+3730	s. xii ex.
+3731	s. xii ex.
+3738	s. xii ex.
+3749	s. xii ex.
+3751	s. xii ex.
+3825	s. xii ex.
+3915	s. xii ex.
+3939	s. xii ex.
+3953	s. xii ex.
+3958	s. xii ex.
+3959	s. xii ex.
+4024	s. xii ex.
+4028	s. xii ex.
+4034	s. xii ex.
+4068	s. xii ex.
+4186	s. xii ex.
+4188	s. xii ex.
+4198	s. xii ex.
+4205	s. xii ex.
+4310	s. xii ex.
+4312	s. xii ex.
+4329	s. xii ex.
+4363	s. xii ex.
+4511	s. xii ex.
+4515	s. xii ex.
+4518	s. xii ex.
+4548	s. xii ex.
+4549	s. xii ex.
+4568	s. xii ex.
+4574	s. xii ex.
+4577	s. xii ex.
+4586	s. xii ex.
+4607	s. xii ex.
+4620	s. xii ex.
+4623	s. xii ex.
+4625	s. xii ex.
+4627	s. xii ex.
+4644	s. xii ex.
+4691	s. xii ex.
+4694	s. xii ex.
+4779	s. xii ex.
+4817	s. xii ex.
+4821	s. xii ex.
+4822	s. xii ex.
+4934	s. xii ex.
+4937	s. xii ex.
+4958	s. xii ex.
+5028	s. xii ex.
+5029	s. xii ex.
+5030	s. xii ex.
+5109	s. xii ex.
+5148	s. xii ex.
+5149	s. xii ex.
+5447	s. xii ex.
+5518	s. xii ex.
+5547	s. xii ex.
+5560	s. xii ex.
+5582	s. xii ex.
+5591	s. xii ex.
+5598	s. xii ex.
+5626	s. xii ex.
+5638	s. xii ex.
+5659	s. xii ex.
+5690	s. xii ex.
+5711	s. xii ex.
+5767	s. xii ex.
+5796	s. xii ex.
+5798	s. xii ex.
+5843	s. xii ex.
+5857	s. xii ex.
+5875	s. xii ex.
+5897	s. xii ex.
+5947	s. xii ex.
+5967	s. xii ex.
+5995	s. xii ex.
+6009	s. xii ex.
+6079	s. xii ex.
+6105	s. xii ex.
+6194	s. xii ex.
+6195	s. xii ex.
+6215	s. xii ex.
+6233	s. xii ex.
+6253	s. xii ex.
+6259	s. xii ex.
+6300	s. xii ex. 
+6301	s. xii ex.
+6325	s. xii ex.
+6326	s. xii ex.
+6351	s. xii ex.
+6375	s. xii ex.
+6391	s. xii ex.
+6396	s. xii ex.
+6400	s. xii ex.
+6409	s. xii ex.
+6414	s. xii ex.
+6431	s. xii ex.
+6439	s. xii ex.
+6444	s. xii ex.
+6452	s. xii ex.
+6472	s. xii ex.
+6516	s. xii ex.
+3477	s. xii ex. & xii/xiii
+4127	s. xii ex. & xiii
+4874	s. xii ex. (1167--1183)
+6288	s. xii ex. (1170)
+3346	s. xii ex. (or s. xii/xiii?)
+3403	s. xii ex. or xiii in. 
+3900	s. xii ex., ix in.
+5975	s. xii ex., perhaps s. xii/xiii
+1610	s. xii ex., xiii
+4485	s. xii ex., xiii
+5503	s. xii ex.--xiii
+5599	s. xii ex.--xiii
+5808	s. xii ex.--xiii
+2439	s. xii ex.--xiii in.
+3484	s. xii ex.--xiii in.
+3516	s. xii ex.--xiii in.
+4253	s. xii ex.--xiii in.
+5994	s. xii ex.--xiii in.
+6269	s. xii ex.--xiii in.
+6316	s. xii ex.--xiii in.
+6353	s. xii ex.--xiii in.
+149	s. xii ex.--xiv
+4692	s. xii ex./ xiii in.
+1992	s. xii ex./xiii in.
+2952	s. xii ex./xiii in.
+3739	s. xii ex./xiii in.
+4533	s. xii ex./xiii in. & xiv (gloss)
+3476	s. xii ex.; xii
+188	s. xii in
+684	s. xii in
+1040	s. xii in
+1072	s. xii in
+1081	s. xii in
+1103	s. xii in
+1128	s. xii in
+1149	s. xii in
+1150	s. xii in
+1168	s. xii in
+1174	s. xii in
+1177	s. xii in
+1178	s. xii in
+4766	s. xii in
+6497	s. xii in
+12	s. xii in.
+26	s. xii in.
+166	s. xii in.
+169	s. xii in.
+361	s. xii in.
+362	s. xii in.
+364	s. xii in.
+365	s. xii in.
+366	s. xii in.
+368	s. xii in.
+746	s. xii in.
+1211	s. xii in.
+1259	s. xii in.
+1266	s. xii in.
+1274	s. xii in.
+1315	s. xii in.
+1364	s. xii in.
+1571	s. xii in.
+1596	s. xii in.
+1687	s. xii in.
+1709	s. xii in.
+1710	s. xii in.
+1728	s. xii in.
+1736	s. xii in.
+1737	s. xii in.
+1742	s. xii in.
+1743	s. xii in.
+1750	s. xii in.
+1753	s. xii in.
+1847	s. xii in.
+1980	s. xii in.
+1981	s. xii in.
+2028	s. xii in.
+2105	s. xii in.
+2145	s. xii in.
+2155	s. xii in.
+2163	s. xii in.
+2176	s. xii in.
+2189	s. xii in.
+2207	s. xii in.
+2210	s. xii in.
+2211	s. xii in.
+2212	s. xii in.
+2213	s. xii in.
+2214	s. xii in.
+2218	s. xii in.
+2219	s. xii in.
+2220	s. xii in.
+2221	s. xii in.
+2223	s. xii in.
+2239	s. xii in.
+2300	s. xii in.
+2301	s. xii in.
+2305	s. xii in.
+2318	s. xii in.
+2320	s. xii in.
+2361	s. xii in.
+2424	s. xii in.
+2573	s. xii in.
+2574	s. xii in.
+2605	s. xii in.
+2691	s. xii in.
+2703	s. xii in.
+2828	s. xii in.
+2943	s. xii in.
+2944	s. xii in.
+3108	s. xii in.
+3358	s. xii in.
+3542	s. xii in.
+3545	s. xii in.
+3613	s. xii in.
+3655	s. xii in.
+3740	s. xii in.
+3744	s. xii in.
+3898	s. xii in.
+3913	s. xii in.
+3914	s. xii in.
+3918	s. xii in.
+3920	s. xii in.
+3922	s. xii in.
+3936	s. xii in.
+3937	s. xii in.
+4269	s. xii in.
+4471	s. xii in.
+4656	s. xii in.
+4659	s. xii in.
+4660	s. xii in.
+4663	s. xii in.
+4664	s. xii in.
+4693	s. xii in.
+4718	s. xii in.
+4719	s. xii in.
+4732	s. xii in.
+4768	s. xii in.
+4775	s. xii in.
+4785	s. xii in.
+4786	s. xii in.
+4787	s. xii in.
+4788	s. xii in.
+4790	s. xii in.
+4813	s. xii in.
+4849	s. xii in.
+4907	s. xii in.
+4911	s. xii in.
+4914	s. xii in.
+4945	s. xii in.
+4964	s. xii in.
+4968	s. xii in.
+4973	s. xii in.
+4982	s. xii in.
+4983	s. xii in.
+4984	s. xii in.
+4987	s. xii in.
+4989	s. xii in.
+5000	s. xii in.
+5001	s. xii in.
+5011	s. xii in.
+5036	s. xii in.
+5038	s. xii in.
+5039	s. xii in.
+5041	s. xii in.
+5042	s. xii in.
+5077	s. xii in.
+5081	s. xii in.
+5082	s. xii in.
+5083	s. xii in.
+5085	s. xii in.
+5086	s. xii in.
+5090	s. xii in.
+5091	s. xii in.
+5093	s. xii in.
+5094	s. xii in.
+5098	s. xii in.
+5099	s. xii in.
+5100	s. xii in.
+5101	s. xii in.
+5115	s. xii in.
+5118	s. xii in.
+5121	s. xii in.
+5122	s. xii in.
+5157	s. xii in.
+5160	s. xii in.
+5161	s. xii in.
+5163	s. xii in.
+5165	s. xii in.
+5278	s. xii in.
+5283	s. xii in.
+5479	s. xii in.
+5699	s. xii in.
+5700	s. xii in.
+5703	s. xii in.
+5704	s. xii in.
+5705	s. xii in.
+5708	s. xii in.
+5778	s. xii in.
+5805	s. xii in.
+5835	s. xii in.
+5846	s. xii in.
+5856	s. xii in.
+5916	s. xii in.
+5931	s. xii in. 
+5934	s. xii in.
+5948	s. xii in.
+5949	s. xii in.
+5954	s. xii in.
+5955	s. xii in.
+5976	s. xii in.
+5987	s. xii in.
+5988	s. xii in.
+5990	s. xii in.
+6103	s. xii in.
+6113	s. xii in.
+6114	s. xii in.
+6115	s. xii in.
+6304	s. xii in.
+6309	s. xii in.
+6389	s. xii in.
+6412	s. xii in.
+6416	s. xii in.
+4036	s. xii in. & xiii 
+3741	s. xii in. (cf. Aberdeen MS. 4)
+3611	s. xii in. (fols. 1--43)--xii ex.
+1308	s. xii in. (or ex.?)
+4959	s. xii in., s. xi ex.
+1830	s. xii in.--xii
+5117	s. xii in.--xii 
+5009	s. xii in.--xii ex.
+5177	s. xii in.--xii ex.
+329	s. xii in.--xii med.
+2100	s. xii in.--xiii
+3908	s. xii in.--xiii 
+386	s. xii in.--xiii in
+5044	s. xii in.; (fols. 1--24, 227--229) s. xiii 
+539	s. xii med
+605	s. xii med
+676	s. xii med
+801	s. xii med
+838	s. xii med
+1170	s. xii med
+6483	s. xii med
+6490	s. xii med
+162	s. xii med.
+1740	s. xii med.
+1741	s. xii med.
+1745	s. xii med.
+1747	s. xii med.
+1751	s. xii med.
+1757	s. xii med.
+2063	s. xii med.
+2139	s. xii med.
+2144	s. xii med.
+2842	s. xii med.
+3525	s. xii med.
+3562	s. xii med.
+3610	s. xii med.
+3648	s. xii med.
+3650	s. xii med.
+3662	s. xii med.
+3663	s. xii med.
+3676	s. xii med.
+3678	s. xii med.
+3690	s. xii med.
+3694	s. xii med.
+3704	s. xii med.
+3706	s. xii med.
+3987	s. xii med.
+4816	s. xii med.
+4994	s. xii med.
+5050	s. xii med.
+5136	s. xii med.
+5769	s. xii med.
+6054	s. xii med.
+6063	s. xii med.
+6104	s. xii med.
+1754	s. xii med. (1147--1176)
+1715	s. xii med. (c. 1140)
+5067	s. xii med. (fols. 105--118 supplied in s. xv)
+4811	s. xii med. (inferred from Add. ch. 19590)
+3642	s. xii med., ex.
+1306	s. xii, s. xv in.
+1317	s. xii, xiii
+1490	s. xii, xiii
+1622	s. xii, xiii
+3374	s. xii, xiii
+4217	s. xii, xiii
+4605	s. xii, xiii
+4883	s. xii, xiii
+5221	s. xii, xiii
+5330	s. xii, xiii
+5569	s. xii, xiii
+5571	s. xii, xiii
+5574	s. xii, xiii
+5575	s. xii, xiii
+5576	s. xii, xiii
+5577	s. xii, xiii
+5579	s. xii, xiii
+5580	s. xii, xiii
+5618	s. xii, xiii
+5917	s. xii, xiii
+2945	s. xii, xiii in.
+1589	s. xii, xiii, xiv
+4490	s. xii, xiii, xiv 
+4642	s. xii, xiii, xv
+5739	s. xii, xiii, xv--xvi
+2936	s. xii, xiv
+1917	s. xii, xv
+4360	s. xii, xv (fols. 1--3, 141--152)
+494	s. xii--xii/xiii
+182	s. xii--xiii
+383	s. xii--xiii
+418	s. xii--xiii
+478	s. xii--xiii
+480	s. xii--xiii
+529	s. xii--xiii
+534	s. xii--xiii
+535	s. xii--xiii
+538	s. xii--xiii
+557	s. xii--xiii
+673	s. xii--xiii
+714	s. xii--xiii
+717	s. xii--xiii
+776	s. xii--xiii
+870	s. xii--xiii
+1064	s. xii--xiii
+1104	s. xii--xiii
+1417	s. xii--xiii
+1427	s. xii--xiii
+1629	s. xii--xiii
+1664	s. xii--xiii
+1744	s. xii--xiii
+1749	s. xii--xiii
+1839	s. xii--xiii
+1842	s. xii--xiii
+1900	s. xii--xiii
+2550	s. xii--xiii
+2608	s. xii--xiii
+2662	s. xii--xiii
+2882	s. xii--xiii
+2988	s. xii--xiii
+3030	s. xii--xiii
+3164	s. xii--xiii
+3173	s. xii--xiii
+3190	s. xii--xiii
+3205	s. xii--xiii
+3443	s. xii--xiii
+3584	s. xii--xiii
+3699	s. xii--xiii
+3708	s. xii--xiii
+3837	s. xii--xiii
+3948	s. xii--xiii
+3965	s. xii--xiii
+4019	s. xii--xiii
+4234	s. xii--xiii
+4399	s. xii--xiii
+4622	s. xii--xiii
+4631	s. xii--xiii
+4706	s. xii--xiii
+4881	s. xii--xiii
+4902	s. xii--xiii
+5480	s. xii--xiii
+5603	s. xii--xiii
+5992	s. xii--xiii
+6324	s. xii--xiii
+6336	s. xii--xiii
+6393	s. xii--xiii
+6476	s. xii--xiii
+530	s. xii--xiii in
+4835	s. xii--xiii in.
+5168	s. xii--xiii in.
+437	s. xii--xiv
+564	s. xii--xiv
+580	s. xii--xiv
+780	s. xii--xiv
+980	s. xii--xiv
+1006	s. xii--xiv
+1395	s. xii--xiv
+3273	s. xii--xiv
+3590	s. xii--xiv
+4144	s. xii--xiv 
+5147	s. xii--xiv 
+6383	s. xii--xiv
+2553	s. xii--xiv in.
+3988	s. xii--xiv in.
+2865	s. xii--xiv/xv
+1048	s. xii--xv
+1812	s. xii--xv
+3167	s. xii--xv
+3247	s. xii--xv
+4133	s. xii--xv
+2602	s. xii-xiii
+233	s. xii-xiii ex
+6293	s. xii-xiii in.
+108	s. xii/xiii
+159	s. xii/xiii
+165	s. xii/xiii
+183	s. xii/xiii
+343	s. xii/xiii
+385	s. xii/xiii
+387	s. xii/xiii
+391	s. xii/xiii
+464	s. xii/xiii
+531	s. xii/xiii
+532	s. xii/xiii
+600	s. xii/xiii
+601	s. xii/xiii
+629	s. xii/xiii
+663	s. xii/xiii
+692	s. xii/xiii
+699	s. xii/xiii
+701	s. xii/xiii
+729	s. xii/xiii
+745	s. xii/xiii
+798	s. xii/xiii
+867	s. xii/xiii
+885	s. xii/xiii
+915	s. xii/xiii
+972	s. xii/xiii
+1018	s. xii/xiii
+1073	s. xii/xiii
+1110	s. xii/xiii
+1117	s. xii/xiii
+1131	s. xii/xiii
+1132	s. xii/xiii
+1137	s. xii/xiii
+1139	s. xii/xiii
+1153	s. xii/xiii
+1217	s. xii/xiii
+1272	s. xii/xiii
+1340	s. xii/xiii
+1373	s. xii/xiii 
+1451	s. xii/xiii 
+1494	s. xii/xiii 
+1525	s. xii/xiii
+1553	s. xii/xiii
+1631	s. xii/xiii
+1656	s. xii/xiii
+1711	s. xii/xiii
+1738	s. xii/xiii
+1862	s. xii/xiii
+1883	s. xii/xiii
+1893	s. xii/xiii
+1951	s. xii/xiii
+2046	s. xii/xiii
+2098	s. xii/xiii
+2138	s. xii/xiii
+2225	s. xii/xiii
+2232	s. xii/xiii
+2253	s. xii/xiii
+2254	s. xii/xiii
+2276	s. xii/xiii
+2277	s. xii/xiii
+2297	s. xii/xiii
+2556	s. xii/xiii 
+2579	s. xii/xiii
+2581	s. xii/xiii
+2584	s. xii/xiii
+2593	s. xii/xiii
+2596	s. xii/xiii
+2613	s. xii/xiii
+2627	s. xii/xiii
+2786	s. xii/xiii
+2823	s. xii/xiii
+2855	s. xii/xiii
+3034	s. xii/xiii
+3081	s. xii/xiii
+3236	s. xii/xiii
+3242	s. xii/xiii
+3264	s. xii/xiii
+3309	s. xii/xiii
+3312	s. xii/xiii
+3396	s. xii/xiii 
+3397	s. xii/xiii
+3410	s. xii/xiii 
+3429	s. xii/xiii 
+3435	s. xii/xiii
+3475	s. xii/xiii
+3491	s. xii/xiii
+3556	s. xii/xiii
+3721	s. xii/xiii
+3732	s. xii/xiii
+3907	s. xii/xiii
+4040	s. xii/xiii
+4042	s. xii/xiii
+4047	s. xii/xiii
+4128	s. xii/xiii
+4197	s. xii/xiii
+4199	s. xii/xiii
+4200	s. xii/xiii
+4204	s. xii/xiii
+4366	s. xii/xiii
+4452	s. xii/xiii
+4456	s. xii/xiii
+4474	s. xii/xiii
+4544	s. xii/xiii
+4552	s. xii/xiii
+4601	s. xii/xiii
+4672	s. xii/xiii
+4685	s. xii/xiii
+4702	s. xii/xiii
+4825	s. xii/xiii
+4829	s. xii/xiii
+4877	s. xii/xiii
+4891	s. xii/xiii
+4903	s. xii/xiii
+4999	s. xii/xiii
+5053	s. xii/xiii
+5059	s. xii/xiii
+5076	s. xii/xiii
+5172	s. xii/xiii
+5222	s. xii/xiii
+5233	s. xii/xiii 
+5272	s. xii/xiii
+5279	s. xii/xiii
+5281	s. xii/xiii
+5308	s. xii/xiii
+5317	s. xii/xiii
+5324	s. xii/xiii
+5456	s. xii/xiii
+5458	s. xii/xiii
+5509	s. xii/xiii
+5519	s. xii/xiii
+5534	s. xii/xiii
+5563	s. xii/xiii
+5572	s. xii/xiii 
+5578	s. xii/xiii
+5619	s. xii/xiii
+5730	s. xii/xiii
+5743	s. xii/xiii
+5813	s. xii/xiii
+5824	s. xii/xiii
+6003	s. xii/xiii
+6087	s. xii/xiii
+6299	s. xii/xiii
+6315	s. xii/xiii
+6366	s. xii/xiii
+6380	s. xii/xiii
+6481	s. xii/xiii
+2230	s. xii/xiii & xii ex. (Aelred)
+1295	s. xii/xiii (c. 1200)
+1353	s. xii/xiii (c. 1200)
+1758	s. xii/xiii (c. 1200)
+1804	s. xii/xiii (c. 1200)
+2552	s. xii/xiii (c. 1200)
+2840	s. xii/xiii (c. 1200)
+3028	s. xii/xiii (c. 1200)
+3318	s. xii/xiii (c. 1200)
+3361	s. xii/xiii (c. 1200)
+3580	s. xii/xiii (c. 1200)
+3983	s. xii/xiii (c. 1200)
+4026	s. xii/xiii (c. 1200)
+4614	s. xii/xiii (c. 1200)
+4621	s. xii/xiii (c. 1200)
+4629	s. xii/xiii (c. 1200)
+4758	s. xii/xiii (c. 1200)
+4850	s. xii/xiii (c. 1200)
+5567	s. xii/xiii (c. 1200)
+5601	s. xii/xiii (c. 1200)
+5230	s. xii/xiii in.
+5936	s. xii/xiii in.
+1543	s. xii/xiii--xiii
+6229	s. xii/xiii; s. xii ex.
+4678	s. xii/xiv
+4991	s. xii1
+4998	s. xii1
+2099	s. xii1 (arts. 2, 3) & s. xii med. (art. 1) 
+1634	s. xii2
+2278	s. xii2
+4043	s. xii2
+5549	s. xii2
+5564	s. xii2
+5583	s. xii2
+5845	s. xii2
+6004	s. xii2, xiii
+6235	s. xii2--xiii in.
+3035	s. xii3/4
+3495	s. xii? and xi
+18	s. xiii
+20	s. xiii
+22	s. xiii
+44	s. xiii
+47	s. xiii
+51	s. xiii
+64	s. xiii
+107	s. xiii
+128	s. xiii
+141	s. xiii
+144	s. xiii
+152	s. xiii
+157	s. xiii
+190	s. xiii
+216	s. xiii
+232	s. xiii
+240	s. xiii
+248	s. xiii
+275	s. xiii
+276	s. xiii
+285	s. xiii
+311	s. xiii
+315	s. xiii
+321	s. xiii
+324	s. xiii
+325	s. xiii
+326	s. xiii
+342	s. xiii
+346	s. xiii
+349	s. xiii
+352	s. xiii
+393	s. xiii
+394	s. xiii
+399	s. xiii
+407	s. xiii
+417	s. xiii
+440	s. xiii
+441	s. xiii
+442	s. xiii
+466	s. xiii
+469	s. xiii
+470	s. xiii
+476	s. xiii
+490	s. xiii
+509	s. xiii
+514	s. xiii
+516	s. xiii
+524	s. xiii
+525	s. xiii
+526	s. xiii
+528	s. xiii
+547	s. xiii
+548	s. xiii
+549	s. xiii
+553	s. xiii
+555	s. xiii
+569	s. xiii
+602	s. xiii
+603	s. xiii
+608	s. xiii
+609	s. xiii
+610	s. xiii
+612	s. xiii
+630	s. xiii
+633	s. xiii
+647	s. xiii
+649	s. xiii
+650	s. xiii
+659	s. xiii
+661	s. xiii
+664	s. xiii
+665	s. xiii
+670	s. xiii
+675	s. xiii
+677	s. xiii
+680	s. xiii
+682	s. xiii
+683	s. xiii
+702	s. xiii
+705	s. xiii
+708	s. xiii
+724	s. xiii
+725	s. xiii
+737	s. xiii
+741	s. xiii
+744	s. xiii
+754	s. xiii
+756	s. xiii
+760	s. xiii
+771	s. xiii
+772	s. xiii
+773	s. xiii
+775	s. xiii
+778	s. xiii
+779	s. xiii
+781	s. xiii
+792	s. xiii
+793	s. xiii
+800	s. xiii
+813	s. xiii
+814	s. xiii
+819	s. xiii
+822	s. xiii
+841	s. xiii
+842	s. xiii
+847	s. xiii
+853	s. xiii
+873	s. xiii
+877	s. xiii
+890	s. xiii
+897	s. xiii
+898	s. xiii
+900	s. xiii
+902	s. xiii
+910	s. xiii
+914	s. xiii
+920	s. xiii
+921	s. xiii
+956	s. xiii
+960	s. xiii
+966	s. xiii
+976	s. xiii
+981	s. xiii
+1016	s. xiii
+1023	s. xiii
+1034	s. xiii
+1044	s. xiii
+1046	s. xiii
+1051	s. xiii
+1059	s. xiii
+1060	s. xiii
+1062	s. xiii
+1069	s. xiii
+1079	s. xiii
+1084	s. xiii
+1107	s. xiii
+1125	s. xiii
+1143	s. xiii
+1157	s. xiii
+1163	s. xiii
+1179	s. xiii
+1186	s. xiii
+1189	s. xiii
+1190	s. xiii
+1192	s. xiii
+1193	s. xiii
+1220	s. xiii
+1221	s. xiii
+1245	s. xiii
+1252	s. xiii
+1260	s. xiii
+1269	s. xiii
+1291	s. xiii
+1293	s. xiii
+1297	s. xiii
+1316	s. xiii
+1330	s. xiii
+1335	s. xiii
+1356	s. xiii
+1367	s. xiii
+1381	s. xiii
+1388	s. xiii
+1408	s. xiii
+1413	s. xiii
+1414	s. xiii
+1415	s. xiii
+1421	s. xiii
+1423	s. xiii
+1426	s. xiii
+1445	s. xiii 
+1450	s. xiii
+1452	s. xiii
+1458	s. xiii
+1461	s. xiii
+1468	s. xiii
+1470	s. xiii
+1471	s. xiii
+1473	s. xiii
+1493	s. xiii
+1504	s. xiii
+1510	s. xiii
+1514	s. xiii
+1518	s. xiii
+1522	s. xiii
+1523	s. xiii
+1524	s. xiii
+1529	s. xiii
+1533	s. xiii
+1537	s. xiii
+1539	s. xiii
+1546	s. xiii
+1547	s. xiii
+1556	s. xiii
+1558	s. xiii
+1561	s. xiii
+1566	s. xiii
+1567	s. xiii
+1572	s. xiii
+1585	s. xiii
+1587	s. xiii
+1590	s. xiii
+1597	s. xiii
+1601	s. xiii
+1605	s. xiii
+1608	s. xiii
+1614	s. xiii
+1625	s. xiii
+1635	s. xiii
+1636	s. xiii
+1639	s. xiii
+1640	s. xiii
+1641	s. xiii
+1642	s. xiii
+1643	s. xiii
+1644	s. xiii
+1645	s. xiii
+1649	s. xiii
+1655	s. xiii
+1657	s. xiii
+1663	s. xiii
+1677	s. xiii
+1684	s. xiii 
+1693	s. xiii
+1695	s. xiii
+1699	s. xiii 
+1700	s. xiii 
+1705	s. xiii
+1706	s. xiii
+1716	s. xiii
+1722	s. xiii
+1748	s. xiii
+1774	s. xiii
+1775	s. xiii
+1777	s. xiii
+1779	s. xiii
+1780	s. xiii
+1781	s. xiii
+1783	s. xiii
+1788	s. xiii
+1790	s. xiii
+1796	s. xiii
+1797	s. xiii
+1806	s. xiii
+1811	s. xiii
+1815	s. xiii
+1821	s. xiii
+1823	s. xiii
+1834	s. xiii
+1835	s. xiii
+1837	s. xiii
+1841	s. xiii
+1844	s. xiii
+1849	s. xiii
+1850	s. xiii
+1856	s. xiii
+1859	s. xiii
+1863	s. xiii
+1865	s. xiii
+1881	s. xiii
+1882	s. xiii
+1884	s. xiii
+1896	s. xiii
+1897	s. xiii
+1899	s. xiii
+1901	s. xiii
+1907	s. xiii
+1925	s. xiii
+1930	s. xiii
+1932	s. xiii
+1940	s. xiii
+1954	s. xiii
+1964	s. xiii
+1969	s. xiii
+2007	s. xiii
+2012	s. xiii
+2026	s. xiii
+2030	s. xiii
+2033	s. xiii
+2034	s. xiii
+2039	s. xiii 
+2040	s. xiii
+2045	s. xiii
+2052	s. xiii
+2053	s. xiii
+2065	s. xiii
+2067	s. xiii
+2074	s. xiii
+2075	s. xiii
+2082	s. xiii
+2109	s. xiii
+2195	s. xiii
+2226	s. xiii
+2233	s. xiii
+2265	s. xiii
+2279	s. xiii
+2281	s. xiii
+2291	s. xiii
+2292	s. xiii
+2381	s. xiii
+2402	s. xiii
+2409	s. xiii
+2425	s. xiii
+2435	s. xiii
+2436	s. xiii
+2457	s. xiii
+2464	s. xiii
+2465	s. xiii
+2520	s. xiii
+2521	s. xiii
+2524	s. xiii
+2526	s. xiii
+2562	s. xiii
+2567	s. xiii
+2586	s. xiii
+2597	s. xiii
+2631	s. xiii
+2635	s. xiii
+2652	s. xiii
+2655	s. xiii
+2669	s. xiii
+2671	s. xiii
+2672	s. xiii
+2673	s. xiii
+2674	s. xiii
+2701	s. xiii
+2715	s. xiii
+2718	s. xiii
+2721	s. xiii 
+2726	s. xiii
+2739	s. xiii
+2785	s. xiii
+2802	s. xiii
+2814	s. xiii
+2821	s. xiii
+2826	s. xiii
+2850	s. xiii
+2858	s. xiii
+2864	s. xiii
+2871	s. xiii
+2878	s. xiii
+2883	s. xiii
+2884	s. xiii
+2891	s. xiii
+2902	s. xiii
+2938	s. xiii
+2939	s. xiii
+2948	s. xiii
+2970	s. xiii
+2971	s. xiii 
+2978	s. xiii
+2980	s. xiii
+2985	s. xiii
+2995	s. xiii
+2997	s. xiii
+3022	s. xiii
+3029	s. xiii
+3033	s. xiii
+3067	s. xiii
+3068	s. xiii
+3115	s. xiii
+3128	s. xiii
+3137	s. xiii 
+3155	s. xiii 
+3158	s. xiii
+3165	s. xiii
+3174	s. xiii
+3175	s. xiii
+3177	s. xiii
+3178	s. xiii
+3186	s. xiii
+3187	s. xiii
+3189	s. xiii
+3197	s. xiii
+3199	s. xiii
+3201	s. xiii
+3211	s. xiii
+3220	s. xiii
+3235	s. xiii
+3240	s. xiii
+3245	s. xiii
+3252	s. xiii
+3254	s. xiii
+3265	s. xiii
+3301	s. xiii
+3303	s. xiii
+3306	s. xiii
+3308	s. xiii
+3313	s. xiii
+3352	s. xiii
+3377	s. xiii
+3381	s. xiii
+3382	s. xiii
+3389	s. xiii
+3402	s. xiii
+3404	s. xiii
+3423	s. xiii
+3424	s. xiii
+3431	s. xiii
+3432	s. xiii
+3445	s. xiii
+3446	s. xiii
+3447	s. xiii
+3448	s. xiii
+3449	s. xiii
+3450	s. xiii
+3451	s. xiii
+3452	s. xiii
+3460	s. xiii
+3483	s. xiii
+3487	s. xiii
+3490	s. xiii
+3494	s. xiii
+3504	s. xiii
+3508	s. xiii
+3511	s. xiii
+3513	s. xiii
+3519	s. xiii
+3529	s. xiii
+3541	s. xiii
+3567	s. xiii
+3575	s. xiii
+3581	s. xiii
+3585	s. xiii
+3626	s. xiii
+3631	s. xiii
+3633	s. xiii
+3643	s. xiii
+3645	s. xiii
+3647	s. xiii
+3654	s. xiii
+3657	s. xiii
+3658	s. xiii
+3659	s. xiii
+3666	s. xiii
+3686	s. xiii
+3692	s. xiii
+3709	s. xiii
+3710	s. xiii
+3711	s. xiii
+3712	s. xiii
+3716	s. xiii
+3718	s. xiii
+3742	s. xiii
+3743	s. xiii
+3747	s. xiii
+3765	s. xiii
+3785	s. xiii
+3795	s. xiii
+3810	s. xiii
+3811	s. xiii
+3816	s. xiii
+3817	s. xiii
+3818	s. xiii
+3819	s. xiii
+3827	s. xiii
+3832	s. xiii
+3834	s. xiii
+3838	s. xiii
+3843	s. xiii
+3862	s. xiii
+3866	s. xiii
+3886	s. xiii
+3892	s. xiii
+3894	s. xiii
+3911	s. xiii
+3929	s. xiii 
+3931	s. xiii
+3932	s. xiii
+3955	s. xiii
+3967	s. xiii
+3984	s. xiii
+3985	s. xiii
+3986	s. xiii
+3991	s. xiii
+4006	s. xiii
+4015	s. xiii
+4016	s. xiii
+4022	s. xiii
+4029	s. xiii
+4030	s. xiii
+4041	s. xiii
+4055	s. xiii
+4056	s. xiii
+4059	s. xiii
+4060	s. xiii
+4061	s. xiii
+4069	s. xiii
+4075	s. xiii
+4076	s. xiii
+4078	s. xiii
+4084	s. xiii
+4095	s. xiii
+4100	s. xiii
+4109	s. xiii
+4137	s. xiii
+4155	s. xiii
+4164	s. xiii
+4176	s. xiii
+4192	s. xiii
+4216	s. xiii
+4220	s. xiii
+4223	s. xiii
+4227	s. xiii
+4231	s. xiii
+4266	s. xiii
+4267	s. xiii
+4285	s. xiii
+4286	s. xiii
+4318	s. xiii
+4320	s. xiii
+4326	s. xiii
+4328	s. xiii
+4336	s. xiii
+4337	s. xiii
+4346	s. xiii
+4357	s. xiii
+4361	s. xiii
+4402	s. xiii
+4406	s. xiii
+4407	s. xiii
+4417	s. xiii
+4419	s. xiii
+4420	s. xiii
+4421	s. xiii
+4431	s. xiii
+4435	s. xiii
+4439	s. xiii
+4441	s. xiii
+4448	s. xiii
+4451	s. xiii
+4455	s. xiii
+4457	s. xiii
+4460	s. xiii
+4466	s. xiii
+4473	s. xiii
+4476	s. xiii
+4479	s. xiii
+4483	s. xiii
+4486	s. xiii
+4491	s. xiii
+4492	s. xiii 
+4494	s. xiii
+4495	s. xiii
+4500	s. xiii
+4501	s. xiii
+4523	s. xiii
+4524	s. xiii
+4525	s. xiii
+4528	s. xiii
+4532	s. xiii
+4536	s. xiii
+4543	s. xiii
+4545	s. xiii 
+4546	s. xiii
+4551	s. xiii
+4555	s. xiii
+4556	s. xiii
+4557	s. xiii
+4559	s. xiii
+4561	s. xiii
+4563	s. xiii
+4566	s. xiii
+4567	s. xiii
+4569	s. xiii
+4570	s. xiii
+4572	s. xiii
+4575	s. xiii
+4576	s. xiii
+4578	s. xiii
+4584	s. xiii
+4603	s. xiii
+4615	s. xiii
+4633	s. xiii
+4634	s. xiii
+4637	s. xiii
+4640	s. xiii
+4665	s. xiii
+4671	s. xiii
+4676	s. xiii
+4679	s. xiii
+4680	s. xiii
+4681	s. xiii
+4684	s. xiii 
+4686	s. xiii
+4688	s. xiii
+4690	s. xiii
+4700	s. xiii
+4703	s. xiii
+4705	s. xiii
+4729	s. xiii
+4747	s. xiii
+4748	s. xiii
+4751	s. xiii
+4755	s. xiii
+4781	s. xiii
+4794	s. xiii
+4795	s. xiii
+4797	s. xiii
+4799	s. xiii
+4826	s. xiii 
+4831	s. xiii
+4832	s. xiii
+4854	s. xiii
+4856	s. xiii
+4857	s. xiii
+4860	s. xiii 
+4864	s. xiii
+4884	s. xiii
+4908	s. xiii
+4915	s. xiii
+4917	s. xiii
+4925	s. xiii
+4936	s. xiii
+4941	s. xiii
+4961	s. xiii
+4980	s. xiii
+4996	s. xiii
+4997	s. xiii
+5003	s. xiii
+5005	s. xiii
+5019	s. xiii
+5021	s. xiii
+5025	s. xiii
+5027	s. xiii
+5037	s. xiii
+5040	s. xiii
+5054	s. xiii
+5056	s. xiii
+5062	s. xiii
+5063	s. xiii
+5070	s. xiii
+5073	s. xiii
+5074	s. xiii
+5075	s. xiii
+5078	s. xiii
+5103	s. xiii
+5108	s. xiii
+5110	s. xiii
+5116	s. xiii
+5129	s. xiii
+5135	s. xiii
+5151	s. xiii
+5152	s. xiii
+5153	s. xiii
+5154	s. xiii
+5155	s. xiii
+5156	s. xiii
+5167	s. xiii
+5223	s. xiii
+5228	s. xiii
+5232	s. xiii
+5235	s. xiii
+5236	s. xiii
+5242	s. xiii
+5251	s. xiii
+5252	s. xiii
+5263	s. xiii
+5275	s. xiii
+5277	s. xiii
+5285	s. xiii
+5292	s. xiii
+5294	s. xiii
+5297	s. xiii
+5298	s. xiii
+5301	s. xiii
+5309	s. xiii
+5322	s. xiii
+5325	s. xiii
+5326	s. xiii
+5329	s. xiii
+5332	s. xiii
+5333	s. xiii
+5341	s. xiii
+5457	s. xiii
+5463	s. xiii
+5481	s. xiii
+5506	s. xiii
+5521	s. xiii
+5524	s. xiii
+5544	s. xiii
+5546	s. xiii
+5550	s. xiii
+5557	s. xiii
+5558	s. xiii
+5559	s. xiii
+5561	s. xiii
+5562	s. xiii
+5566	s. xiii
+5568	s. xiii
+5594	s. xiii
+5600	s. xiii
+5632	s. xiii
+5633	s. xiii
+5635	s. xiii
+5657	s. xiii
+5675	s. xiii
+5676	s. xiii
+5678	s. xiii
+5689	s. xiii
+5691	s. xiii
+5717	s. xiii
+5721	s. xiii
+5782	s. xiii
+5789	s. xiii
+5790	s. xiii
+5814	s. xiii
+5821	s. xiii
+5823	s. xiii
+5825	s. xiii
+5826	s. xiii
+5830	s. xiii
+5833	s. xiii
+5838	s. xiii
+5841	s. xiii
+5853	s. xiii
+5878	s. xiii
+5887	s. xiii
+5889	s. xiii
+5894	s. xiii
+5895	s. xiii
+5896	s. xiii
+5898	s. xiii
+5903	s. xiii
+5905	s. xiii
+5914	s. xiii
+5926	s. xiii
+5946	s. xiii
+5957	s. xiii
+5966	s. xiii
+5977	s. xiii
+5980	s. xiii
+5997	s. xiii
+6011	s. xiii
+6028	s. xiii
+6030	s. xiii
+6036	s. xiii
+6040	s. xiii
+6048	s. xiii
+6053	s. xiii
+6056	s. xiii
+6065	s. xiii
+6067	s. xiii
+6069	s. xiii
+6073	s. xiii
+6080	s. xiii
+6082	s. xiii
+6089	s. xiii
+6100	s. xiii
+6106	s. xiii
+6107	s. xiii
+6110	s. xiii
+6118	s. xiii
+6142	s. xiii
+6153	s. xiii
+6163	s. xiii
+6167	s. xiii
+6179	s. xiii
+6187	s. xiii
+6216	s. xiii
+6217	s. xiii
+6218	s. xiii
+6219	s. xiii
+6224	s. xiii
+6226	s. xiii
+6232	s. xiii 
+6234	s. xiii
+6236	s. xiii
+6258	s. xiii
+6264	s. xiii
+6270	s. xiii
+6272	s. xiii
+6276	s. xiii
+6277	s. xiii
+6278	s. xiii
+6280	s. xiii
+6328	s. xiii
+6330	s. xiii
+6331	s. xiii
+6341	s. xiii
+6342	s. xiii
+6371	s. xiii
+6390	s. xiii
+6392	s. xiii
+6394	s. xiii
+6403	s. xiii
+6404	s. xiii
+6421	s. xiii
+6430	s. xiii
+6441	s. xiii
+6442	s. xiii
+6445	s. xiii
+6448	s. xiii
+6449	s. xiii
+6450	s. xiii
+6456	s. xiii
+6459	s. xiii
+3339	s. xiii & xiv
+3595	s. xiii & xiv
+3748	s. xiii & xiv
+3752	s. xiii & xiv
+3942	s. xiii & xiv
+3957	s. xiii & xiv
+4418	s. xiii & xiv
+4459	s. xiii & xiv
+5304	s. xiii & xiv
+5502	s. xiii & xiv
+5963	s. xiii & xiv
+5357	s. xiii & xv
+4131	s. xiii (?)
+5520	s. xiii (?)
+1662	s. xiii (after 1248)
+3469	s. xiii (and in part xii)
+2975	s. xiii (c. 1260)
+1843	s. xiii (first half; after 1220)
+5517	s. xiii (Flemish) and s. xv
+3501	s. xiii (s. xii ex., in part?)
+6212	s. xiii 1
+6500	s. xiii 1
+3277	s. xiii 2
+3996	s. xiii 2/4
+6482	s. xiii 3/4
+3455	s. xiii and xii
+146	s. xiii ex
+155	s. xiii ex
+164	s. xiii ex
+179	s. xiii ex
+201	s. xiii ex
+235	s. xiii ex
+291	s. xiii ex
+398	s. xiii ex
+439	s. xiii ex
+450	s. xiii ex
+477	s. xiii ex
+562	s. xiii ex
+582	s. xiii ex
+623	s. xiii ex
+690	s. xiii ex
+711	s. xiii ex
+749	s. xiii ex
+872	s. xiii ex
+894	s. xiii ex
+913	s. xiii ex
+917	s. xiii ex
+930	s. xiii ex
+934	s. xiii ex
+935	s. xiii ex
+936	s. xiii ex
+938	s. xiii ex
+940	s. xiii ex
+941	s. xiii ex
+943	s. xiii ex
+954	s. xiii ex
+1037	s. xiii ex
+1074	s. xiii ex
+1114	s. xiii ex
+1184	s. xiii ex
+821	s. xiii ex--xiv in
+6425	s. xiii ex--xv
+301	s. xiii ex.
+322	s. xiii ex.
+330	s. xiii ex.
+347	s. xiii ex.
+372	s. xiii ex.
+1212	s. xiii ex.
+1227	s. xiii ex.
+1248	s. xiii ex.
+1281	s. xiii ex.
+1329	s. xiii ex.
+1334	s. xiii ex.
+1389	s. xiii ex.
+1474	s. xiii ex.
+1532	s. xiii ex.
+1540	s. xiii ex.
+1565	s. xiii ex.
+1586	s. xiii ex.
+1620	s. xiii ex.
+1627	s. xiii ex.
+1638	s. xiii ex.
+1689	s. xiii ex.
+1690	s. xiii ex.
+1694	s. xiii ex.
+1919	s. xiii ex.
+1928	s. xiii ex.
+2031	s. xiii ex.
+2037	s. xiii ex.
+2066	s. xiii ex.
+2107	s. xiii ex.
+2108	s. xiii ex.
+2115	s. xiii ex.
+2117	s. xiii ex.
+2131	s. xiii ex.
+2162	s. xiii ex.
+2173	s. xiii ex.
+2177	s. xiii ex.
+2196	s. xiii ex.
+2200	s. xiii ex.
+2201	s. xiii ex.
+2248	s. xiii ex.
+2250	s. xiii ex.
+2251	s. xiii ex.
+2252	s. xiii ex.
+2257	s. xiii ex.
+2264	s. xiii ex.
+2266	s. xiii ex.
+2267	s. xiii ex.
+2289	s. xiii ex.
+2294	s. xiii ex.
+2306	s. xiii ex.
+2307	s. xiii ex.
+2308	s. xiii ex.
+2309	s. xiii ex.
+2310	s. xiii ex.
+2317	s. xiii ex.
+2447	s. xiii ex.
+2558	s. xiii ex.
+2582	s. xiii ex.
+2590	s. xiii ex.
+2618	s. xiii ex.
+2650	s. xiii ex.
+2667	s. xiii ex.
+2928	s. xiii ex.
+2972	s. xiii ex.
+3031	s. xiii ex.
+3132	s. xiii ex.
+3153	s. xiii ex.
+3179	s. xiii ex.
+3192	s. xiii ex.
+3195	s. xiii ex.
+3196	s. xiii ex.
+3316	s. xiii ex.
+3329	s. xiii ex.
+3379	s. xiii ex.
+3390	s. xiii ex.
+3391	s. xiii ex.
+3395	s. xiii ex.
+3407	s. xiii ex.
+3409	s. xiii ex.
+3413	s. xiii ex.
+3478	s. xiii ex.
+3512	s. xiii ex.
+3537	s. xiii ex.
+3594	s. xiii ex.
+3640	s. xiii ex.
+3759	s. xiii ex.
+3875	s. xiii ex.
+3889	s. xiii ex.
+3963	s. xiii ex.
+4092	s. xiii ex.
+4126	s. xiii ex.
+4138	s. xiii ex.
+4148	s. xiii ex.
+4160	s. xiii ex.
+4162	s. xiii ex.
+4178	s. xiii ex.
+4222	s. xiii ex.
+4264	s. xiii ex.
+4377	s. xiii ex.
+4378	s. xiii ex.
+4384	s. xiii ex.
+4458	s. xiii ex.
+4475	s. xiii ex.
+4516	s. xiii ex.
+4613	s. xiii ex.
+4662	s. xiii ex.
+4683	s. xiii ex.
+4736	s. xiii ex.
+4756	s. xiii ex.
+4757	s. xiii ex.
+4760	s. xiii ex.
+4761	s. xiii ex.
+4774	s. xiii ex.
+4789	s. xiii ex.
+4844	s. xiii ex.
+4882	s. xiii ex.
+4906	s. xiii ex.
+4927	s. xiii ex.
+4929	s. xiii ex.
+5002	s. xiii ex.
+5010	s. xiii ex.
+5026	s. xiii ex.
+5043	s. xiii ex.
+5052	s. xiii ex.
+5057	s. xiii ex.
+5142	s. xiii ex.
+5174	s. xiii ex.
+5245	s. xiii ex.
+5289	s. xiii ex.
+5307	s. xiii ex.
+5320	s. xiii ex.
+5407	s. xiii ex.
+5427	s. xiii ex.
+5439	s. xiii ex.
+5461	s. xiii ex.
+5489	s. xiii ex.
+5658	s. xiii ex.
+5667	s. xiii ex.
+5680	s. xiii ex.
+5688	s. xiii ex.
+5695	s. xiii ex.
+5732	s. xiii ex.
+5873	s. xiii ex.
+5964	s. xiii ex.
+6037	s. xiii ex.
+6047	s. xiii ex.
+6049	s. xiii ex.
+6055	s. xiii ex.
+6057	s. xiii ex.
+6066	s. xiii ex.
+6075	s. xiii ex.
+6078	s. xiii ex.
+6097	s. xiii ex.
+6109	s. xiii ex.
+6122	s. xiii ex.
+6130	s. xiii ex.
+6139	s. xiii ex.
+6154	s. xiii ex.
+6155	s. xiii ex.
+6162	s. xiii ex.
+6166	s. xiii ex.
+6168	s. xiii ex.
+6175	s. xiii ex.
+6180	s. xiii ex.
+6183	s. xiii ex.
+6199	s. xiii ex.
+6205	s. xiii ex.
+6211	s. xiii ex.
+6221	s. xiii ex.
+6222	s. xiii ex.
+6223	s. xiii ex.
+6227	s. xiii ex.
+6231	s. xiii ex.
+6237	s. xiii ex.
+6241	s. xiii ex.
+6256	s. xiii ex.
+6262	s. xiii ex.
+6265	s. xiii ex.
+6281	s. xiii ex.
+6320	s. xiii ex.
+6368	s. xiii ex.
+6374	s. xiii ex.
+6381	s. xiii ex.
+6434	s. xiii ex.
+1284	s. xiii ex. & s. xv in.
+3489	s. xiii ex. & xiv
+3758	s. xiii ex. & xiv
+2000	s. xiii ex. and xv?
+1559	s. xiii ex., xiv in.
+2515	s. xiii ex., xiv, xv
+1784	s. xiii ex.--xiv
+2262	s. xiii ex.--xiv
+3746	s. xiii ex.--xiv
+5486	s. xiii ex.--xiv
+6204	s. xiii ex.--xiv
+4413	s. xiii ex.--xiv ex.
+546	s. xiii ex.--xv
+1833	s. xiii ex.--xv
+2364	s. xiii ex.--xv
+3369	s. xiii ex.--xv
+138	s. xiii ex.--xv in.
+181	s. xiii in
+239	s. xiii in
+286	s. xiii in
+381	s. xiii in
+400	s. xiii in
+403	s. xiii in
+471	s. xiii in
+492	s. xiii in
+503	s. xiii in
+520	s. xiii in
+521	s. xiii in
+527	s. xiii in
+543	s. xiii in
+550	s. xiii in
+554	s. xiii in
+556	s. xiii in
+558	s. xiii in
+631	s. xiii in
+648	s. xiii in
+706	s. xiii in
+710	s. xiii in
+713	s. xiii in
+777	s. xiii in
+825	s. xiii in
+858	s. xiii in
+860	s. xiii in
+919	s. xiii in
+1024	s. xiii in
+1038	s. xiii in
+1052	s. xiii in
+1065	s. xiii in
+1088	s. xiii in
+1094	s. xiii in
+1111	s. xiii in
+6485	s. xiii in
+6492	s. xiii in
+274	s. xiii in-xiv
+46	s. xiii in.
+105	s. xiii in.
+120	s. xiii in.
+177	s. xiii in.
+320	s. xiii in.
+351	s. xiii in.
+413	s. xiii in.
+491	s. xiii in.
+501	s. xiii in.
+1200	s. xiii in.
+1247	s. xiii in.
+1327	s. xiii in.
+1439	s. xiii in.
+1443	s. xiii in.
+1496	s. xiii in.
+1538	s. xiii in.
+1591	s. xiii in.
+1595	s. xiii in.
+1661	s. xiii in.
+1686	s. xiii in.
+1704	s. xiii in.
+1756	s. xiii in.
+1763	s. xiii in.
+1772	s. xiii in.
+1776	s. xiii in.
+1782	s. xiii in.
+1793	s. xiii in.
+1853	s. xiii in.
+1892	s. xiii in.
+1894	s. xiii in.
+1912	s. xiii in.
+1915	s. xiii in.
+2025	s. xiii in.
+2041	s. xiii in.
+2042	s. xiii in.
+2044	s. xiii in.
+2049	s. xiii in.
+2061	s. xiii in.
+2068	s. xiii in.
+2072	s. xiii in.
+2077	s. xiii in.
+2078	s. xiii in.
+2080	s. xiii in.
+2083	s. xiii in.
+2090	s. xiii in.
+2132	s. xiii in.
+2137	s. xiii in.
+2169	s. xiii in.
+2170	s. xiii in.
+2190	s. xiii in.
+2192	s. xiii in.
+2228	s. xiii in.
+2241	s. xiii in.
+2280	s. xiii in.
+2284	s. xiii in.
+2285	s. xiii in.
+2298	s. xiii in.
+2304	s. xiii in.
+2355	s. xiii in.
+2362	s. xiii in.
+2451	s. xiii in.
+2461	s. xiii in.
+2607	s. xiii in.
+2615	s. xiii in. 
+2617	s. xiii in.
+2677	s. xiii in.
+2782	s. xiii in.
+2783	s. xiii in.
+2834	s. xiii in.
+2876	s. xiii in.
+2942	s. xiii in.
+2949	s. xiii in.
+2951	s. xiii in.
+2957	s. xiii in.
+3017	s. xiii in.
+3027	s. xiii in.
+3089	s. xiii in.
+3129	s. xiii in.
+3149	s. xiii in.
+3157	s. xiii in.
+3160	s. xiii in.
+3176	s. xiii in.
+3231	s. xiii in.
+3238	s. xiii in.
+3243	s. xiii in.
+3253	s. xiii in.
+3294	s. xiii in.
+3307	s. xiii in.
+3359	s. xiii in.
+3384	s. xiii in.
+3401	s. xiii in.
+3417	s. xiii in.
+3437	s. xiii in.
+3457	s. xiii in.
+3480	s. xiii in.
+3543	s. xiii in.
+3560	s. xiii in.
+3579	s. xiii in.
+3617	s. xiii in.
+3621	s. xiii in.
+3622	s. xiii in.
+3623	s. xiii in.
+3624	s. xiii in.
+3625	s. xiii in.
+3634	s. xiii in.
+3653	s. xiii in.
+3656	s. xiii in.
+3660	s. xiii in.
+3735	s. xiii in.
+3787	s. xiii in.
+3790	s. xiii in.
+3813	s. xiii in.
+3823	s. xiii in.
+3869	s. xiii in.
+3879	s. xiii in.
+3919	s. xiii in.
+3964	s. xiii in.
+4017	s. xiii in.
+4025	s. xiii in.
+4044	s. xiii in.
+4049	s. xiii in.
+4052	s. xiii in.
+4053	s. xiii in.
+4189	s. xiii in.
+4201	s. xiii in.
+4202	s. xiii in.
+4203	s. xiii in.
+4206	s. xiii in.
+4207	s. xiii in.
+4208	s. xiii in.
+4209	s. xiii in.
+4215	s. xiii in.
+4240	s. xiii in.
+4280	s. xiii in.
+4291	s. xiii in.
+4416	s. xiii in.
+4467	s. xiii in.
+4470	s. xiii in.
+4499	s. xiii in.
+4540	s. xiii in.
+4547	s. xiii in.
+4573	s. xiii in.
+4580	s. xiii in.
+4588	s. xiii in.
+4592	s. xiii in.
+4598	s. xiii in.
+4612	s. xiii in.
+4619	s. xiii in.
+4630	s. xiii in.
+4635	s. xiii in.
+4668	s. xiii in.
+4669	s. xiii in.
+4670	s. xiii in.
+4674	s. xiii in.
+4682	s. xiii in.
+4739	s. xiii in.
+4741	s. xiii in.
+4746	s. xiii in.
+4749	s. xiii in.
+4759	s. xiii in.
+4762	s. xiii in.
+4763	s. xiii in.
+4765	s. xiii in.
+4818	s. xiii in.
+4836	s. xiii in.
+4837	s. xiii in.
+4858	s. xiii in.
+4873	s. xiii in.
+4875	s. xiii in.
+4926	s. xiii in.
+4932	s. xiii in.
+4939	s. xiii in.
+4940	s. xiii in.
+5018	s. xiii in.
+5020	s. xiii in.
+5022	s. xiii in.
+5023	s. xiii in.
+5024	s. xiii in.
+5058	s. xiii in.
+5064	s. xiii in.
+5069	s. xiii in.
+5124	s. xiii in.
+5134	s. xiii in.
+5249	s. xiii in.
+5276	s. xiii in.
+5288	s. xiii in.
+5442	s. xiii in.
+5488	s. xiii in.
+5555	s. xiii in.
+5573	s. xiii in.
+5606	s. xiii in.
+5610	s. xiii in.
+5670	s. xiii in.
+5737	s. xiii in.
+5822	s. xiii in.
+5827	s. xiii in.
+5828	s. xiii in.
+5829	s. xiii in.
+5831	s. xiii in.
+5834	s. xiii in.
+5851	s. xiii in.
+5870	s. xiii in.
+5938	s. xiii in.
+5958	s. xiii in.
+5962	s. xiii in.
+5965	s. xiii in.
+5972	s. xiii in.
+5996	s. xiii in.
+6070	s. xiii in.
+6077	s. xiii in.
+6119	s. xiii in.
+6176	s. xiii in.
+6177	s. xiii in.
+6184	s. xiii in.
+6189	s. xiii in.
+6197	s. xiii in.
+6228	s. xiii in.
+6242	s. xiii in.
+6244	s. xiii in.
+6251	s. xiii in.
+6290	s. xiii in.
+6311	s. xiii in.
+6339	s. xiii in.
+6348	s. xiii in.
+6373	s. xiii in.
+6395	s. xiii in.
+6455	s. xiii in.
+4300	s. xiii in. (? s. xii ex.)
+1282	s. xiii in. (A. D. 1201--05)
+2720	s. xiii in. (c. 1225)
+2904	s. xiii in. and xiii--xiv
+5625	s. xiii in., s. xiv, s. xiv ex.--xv in.
+6260	s. xiii in.--med.
+6193	s. xiii in.--xiii1
+310	s. xiii in.--xiv ex.
+1903	s. xiii in.--xv ex. and (Strasbourg), s. a.
+1866	s. xiii in.--xv in.
+937	s. xiii med
+945	s. xiii med
+946	s. xiii med
+6484	s. xiii med
+1463	s. xiii med.
+1723	s. xiii med. 
+1922	s. xiii med.
+2032	s. xiii med.
+2578	s. xiii med.
+2658	s. xiii med.
+4823	s. xiii med.
+5241	s. xiii med.
+5438	s. xiii med.
+5451	s. xiii med.
+5643	s. xiii med.
+6140	s. xiii med.
+6186	s. xiii med.
+6369	s. xiii med.
+1658	s. xiii med. (c. 1250)
+4184	s. xiii [and xv]
+4653	s. xiii, s. xii, s. xii in. (3 vols. in 1)
+3568	s. xiii, xii
+3517	s. xiii, xii2
+1322	s. xiii, xiv
+1965	s. xiii, xiv
+3378	s. xiii, xiv
+4385	s. xiii, xiv
+5280	s. xiii, xiv
+6297	s. xiii, xiv
+2557	s. xiii, xv 
+3973	s. xiii, xv
+4412	s. xiii--iv
+6137	s. xiii--xiii/xiv
+295	s. xiii--xiv
+305	s. xiii--xiv
+455	s. xiii--xiv
+615	s. xiii--xiv
+686	s. xiii--xiv
+693	s. xiii--xiv
+743	s. xiii--xiv
+761	s. xiii--xiv
+784	s. xiii--xiv
+785	s. xiii--xiv
+787	s. xiii--xiv
+788	s. xiii--xiv
+962	s. xiii--xiv
+1050	s. xiii--xiv
+1214	s. xiii--xiv
+1224	s. xiii--xiv
+1225	s. xiii--xiv
+1392	s. xiii--xiv
+1398	s. xiii--xiv
+1416	s. xiii--xiv
+1431	s. xiii--xiv
+1433	s. xiii--xiv
+1465	s. xiii--xiv
+1469	s. xiii--xiv
+1502	s. xiii--xiv
+1615	s. xiii--xiv
+1727	s. xiii--xiv
+1734	s. xiii--xiv
+1752	s. xiii--xiv
+1829	s. xiii--xiv
+1970	s. xiii--xiv
+1990	s. xiii--xiv
+2064	s. xiii--xiv
+2290	s. xiii--xiv
+2382	s. xiii--xiv
+3185	s. xiii--xiv
+3191	s. xiii--xiv
+3198	s. xiii--xiv
+3295	s. xiii--xiv
+3392	s. xiii--xiv
+3442	s. xiii--xiv
+3515	s. xiii--xiv
+3587	s. xiii--xiv
+3651	s. xiii--xiv
+3951	s. xiii--xiv
+3966	s. xiii--xiv
+4013	s. xiii--xiv 
+4179	s. xiii--xiv 
+4185	s. xiii--xiv 
+4190	s. xiii--xiv
+4239	s. xiii--xiv
+4373	s. xiii--xiv
+4738	s. xiii--xiv
+4753	s. xiii--xiv
+4905	s. xiii--xiv
+4922	s. xiii--xiv
+4971	s. xiii--xiv
+5293	s. xiii--xiv
+5295	s. xiii--xiv
+5429	s. xiii--xiv
+5440	s. xiii--xiv
+5446	s. xiii--xiv
+5452	s. xiii--xiv
+5475	s. xiii--xiv
+5616	s. xiii--xiv
+5617	s. xiii--xiv
+5637	s. xiii--xiv
+5655	s. xiii--xiv
+5666	s. xiii--xiv
+5682	s. xiii--xiv 
+5961	s. xiii--xiv
+6041	s. xiii--xiv 
+6081	s. xiii--xiv 
+6096	s. xiii--xiv 
+6275	s. xiii--xiv 
+6292	s. xiii--xiv 
+2205	s. xiii--xiv ex.
+6424	s. xiii--xiv ex.
+309	s. xiii--xiv in.
+1378	s. xiii--xiv in.
+1459	s. xiii--xiv in.
+4132	s. xiii--xiv in.
+2442	s. xiii--xiv--xv 
+348	s. xiii--xv
+401	s. xiii--xv
+1078	s. xiii--xv
+1617	s. xiii--xv
+1827	s. xiii--xv
+1982	s. xiii--xv 
+2414	s. xiii--xv
+2551	s. xiii--xv 
+2649	s. xiii--xv
+2927	s. xiii--xv
+2987	s. xiii--xv
+4230	s. xiii--xv
+4404	s. xiii--xv
+4820	s. xiii--xv
+4827	s. xiii--xv
+5198	s. xiii--xv
+5346	s. xiii--xv
+5541	s. xiii--xv
+4112	s. xiii-xiv
+1202	s. xiii. ?
+4113	s. xiii./xiv
+95	s. xiii/xiv
+158	s. xiii/xiv
+205	s. xiii/xiv
+318	s. xiii/xiv
+340	s. xiii/xiv
+415	s. xiii/xiv
+585	s. xiii/xiv
+691	s. xiii/xiv
+827	s. xiii/xiv
+899	s. xiii/xiv
+911	s. xiii/xiv
+916	s. xiii/xiv
+926	s. xiii/xiv
+928	s. xiii/xiv
+939	s. xiii/xiv
+942	s. xiii/xiv
+950	s. xiii/xiv
+1089	s. xiii/xiv
+1159	s. xiii/xiv
+1205	s. xiii/xiv
+1302	s. xiii/xiv
+1346	s. xiii/xiv
+1363	s. xiii/xiv
+1382	s. xiii/xiv
+1383	s. xiii/xiv
+1384	s. xiii/xiv
+1406	s. xiii/xiv
+1420	s. xiii/xiv
+1454	s. xiii/xiv
+1552	s. xiii/xiv 
+1564	s. xiii/xiv
+1607	s. xiii/xiv
+1759	s. xiii/xiv
+1795	s. xiii/xiv
+1852	s. xiii/xiv
+1983	s. xiii/xiv
+2051	s. xiii/xiv
+2112	s. xiii/xiv
+2114	s. xiii/xiv
+2116	s. xiii/xiv
+2119	s. xiii/xiv
+2121	s. xiii/xiv
+2127	s. xiii/xiv
+2129	s. xiii/xiv
+2181	s. xiii/xiv
+2274	s. xiii/xiv
+2283	s. xiii/xiv
+2286	s. xiii/xiv
+2316	s. xiii/xiv
+2376	s. xiii/xiv
+2404	s. xiii/xiv
+2583	s. xiii/xiv
+2595	s. xiii/xiv
+2620	s. xiii/xiv
+2621	s. xiii/xiv
+2968	s. xiii/xiv
+2981	s. xiii/xiv
+2982	s. xiii/xiv
+3036	s. xiii/xiv
+3146	s. xiii/xiv
+3147	s. xiii/xiv
+3182	s. xiii/xiv
+3200	s. xiii/xiv
+3302	s. xiii/xiv
+3305	s. xiii/xiv
+3347	s. xiii/xiv
+3393	s. xiii/xiv
+3549	s. xiii/xiv
+3609	s. xiii/xiv
+3627	s. xiii/xiv
+3630	s. xiii/xiv
+3632	s. xiii/xiv
+3715	s. xiii/xiv
+3770	s. xiii/xiv
+3883	s. xiii/xiv
+3888	s. xiii/xiv
+3925	s. xiii/xiv
+4014	s. xiii/xiv 
+4064	s. xiii/xiv 
+4074	s. xiii/xiv
+4097	s. xiii/xiv
+4101	s. xiii/xiv
+4107	s. xiii/xiv
+4122	s. xiii/xiv
+4140	s. xiii/xiv
+4141	s. xiii/xiv
+4150	s. xiii/xiv
+4268	s. xiii/xiv
+4288	s. xiii/xiv
+4600	s. xiii/xiv 
+4745	s. xiii/xiv 
+4780	s. xiii/xiv
+5049	s. xiii/xiv
+5159	s. xiii/xiv
+5175	s. xiii/xiv
+5334	s. xiii/xiv
+5723	s. xiii/xiv
+5757	s. xiii/xiv
+5759	s. xiii/xiv
+5785	s. xiii/xiv
+5881	s. xiii/xiv
+5933	s. xiii/xiv
+6059	s. xiii/xiv
+6060	s. xiii/xiv
+6086	s. xiii/xiv
+6101	s. xiii/xiv
+6123	s. xiii/xiv
+6124	s. xiii/xiv
+6129	s. xiii/xiv
+6133	s. xiii/xiv
+6156	s. xiii/xiv
+6191	s. xiii/xiv
+6203	s. xiii/xiv
+6206	s. xiii/xiv
+6210	s. xiii/xiv
+6220	s. xiii/xiv
+6247	s. xiii/xiv
+6248	s. xiii/xiv
+6252	s. xiii/xiv
+6266	s. xiii/xiv
+6273	s. xiii/xiv
+6282	s. xiii/xiv
+6295	s. xiii/xiv
+6363	s. xiii/xiv
+1303	s. xiii/xiv (c. 1300)
+1312	s. xiii/xiv (c. 1300)
+1535	s. xiii/xiv (c. 1300)
+1683	s. xiii/xiv (c. 1300)
+2723	s. xiii/xiv (c. 1300)
+2769	s. xiii/xiv (c. 1300)
+2986	s. xiii/xiv (c. 1300)
+3274	s. xiii/xiv (c. 1300)
+3275	s. xiii/xiv (c. 1300)
+4007	s. xiii/xiv (c. 1300)
+4350	s. xiii/xiv (c. 1300)
+4352	s. xiii/xiv (c. 1300)
+4554	s. xiii/xiv (c. 1300)
+5385	s. xiii/xiv (c. 1300)
+5445	s. xiii/xiv (c. 1300)
+3227	s. xiii/xiv (c. 1300), xv
+3215	s. xiii/xiv (c. 1300)--xv
+2670	s. xiii/xiv (c.1300)
+5697	s. xiii/xiv (c.1300)
+6001	s. xiii/xiv (fols. 51--120) & s. xiv
+2247	s. xiii/xiv (or s. xiii in.?)
+5476	s. xiii/xiv in. 
+4079	s. xiii/xiv--xiv ex.
+2622	s. xiii/xv
+2623	s. xiii/xv
+1717	s. xiii1
+2027	s. xiii1
+3725	s. xiii1
+6042	s. xiii1
+6493	s. xiii1
+2847	s. xiii2
+2880	s. xiii2
+3183	s. xiii2
+4480	s. xiii2
+5807	s. xiii2
+6076	s. xiii2
+1570	s. xiii3/4
+3474	s. xiii; xiv?; xii
+6202	s. xiiin.--xii ex.
+19	s. xiv
+65	s. xiv
+75	s. xiv
+81	s. xiv
+82	s. xiv
+84	s. xiv
+86	s. xiv
+91	s. xiv
+97	s. xiv
+98	s. xiv
+104	s. xiv
+116	s. xiv
+122	s. xiv
+124	s. xiv
+125	s. xiv
+148	s. xiv
+153	s. xiv
+175	s. xiv
+184	s. xiv
+185	s. xiv
+199	s. xiv
+204	s. xiv
+219	s. xiv
+249	s. xiv
+270	s. xiv
+272	s. xiv
+307	s. xiv
+308	s. xiv
+312	s. xiv
+317	s. xiv
+336	s. xiv
+344	s. xiv
+370	s. xiv
+402	s. xiv
+412	s. xiv
+416	s. xiv
+436	s. xiv
+438	s. xiv
+446	s. xiv
+454	s. xiv
+462	s. xiv
+463	s. xiv
+484	s. xiv
+487	s. xiv
+513	s. xiv
+565	s. xiv
+579	s. xiv
+583	s. xiv
+588	s. xiv
+592	s. xiv
+595	s. xiv
+598	s. xiv
+607	s. xiv
+622	s. xiv
+624	s. xiv
+626	s. xiv
+636	s. xiv
+637	s. xiv
+638	s. xiv
+639	s. xiv
+640	s. xiv
+642	s. xiv
+643	s. xiv
+644	s. xiv
+698	s. xiv
+704	s. xiv
+707	s. xiv
+709	s. xiv
+719	s. xiv
+738	s. xiv
+740	s. xiv
+742	s. xiv
+755	s. xiv
+764	s. xiv
+765	s. xiv
+768	s. xiv
+795	s. xiv
+810	s. xiv
+837	s. xiv
+871	s. xiv
+880	s. xiv
+881	s. xiv
+884	s. xiv
+892	s. xiv
+895	s. xiv
+901	s. xiv
+904	s. xiv
+906	s. xiv
+927	s. xiv
+931	s. xiv
+948	s. xiv
+951	s. xiv
+955	s. xiv
+958	s. xiv
+959	s. xiv
+978	s. xiv
+986	s. xiv
+1005	s. xiv
+1011	s. xiv
+1012	s. xiv
+1020	s. xiv
+1022	s. xiv
+1032	s. xiv
+1033	s. xiv
+1041	s. xiv
+1053	s. xiv
+1091	s. xiv
+1096	s. xiv
+1156	s. xiv
+1158	s. xiv
+1160	s. xiv
+1165	s. xiv
+1169	s. xiv
+1176	s. xiv
+1185	s. xiv
+1188	s. xiv
+1199	s. xiv
+1201	s. xiv
+1203	s. xiv
+1204	s. xiv
+1206	s. xiv
+1207	s. xiv
+1213	s. xiv
+1249	s. xiv
+1264	s. xiv
+1289	s. xiv
+1294	s. xiv
+1320	s. xiv
+1331	s. xiv
+1372	s. xiv
+1386	s. xiv
+1394	s. xiv
+1419	s. xiv
+1422	s. xiv
+1424	s. xiv
+1467	s. xiv
+1478	s. xiv
+1507	s. xiv
+1512	s. xiv
+1517	s. xiv
+1531	s. xiv
+1534	s. xiv
+1536	s. xiv
+1550	s. xiv
+1551	s. xiv
+1555	s. xiv
+1557	s. xiv
+1573	s. xiv
+1576	s. xiv
+1593	s. xiv
+1606	s. xiv
+1616	s. xiv
+1621	s. xiv
+1628	s. xiv
+1632	s. xiv
+1637	s. xiv
+1647	s. xiv
+1659	s. xiv
+1666	s. xiv
+1671	s. xiv
+1672	s. xiv
+1676	s. xiv
+1681	s. xiv
+1701	s. xiv
+1702	s. xiv
+1729	s. xiv
+1731	s. xiv
+1787	s. xiv 
+1791	s. xiv
+1794	s. xiv
+1822	s. xiv
+1824	s. xiv
+1840	s. xiv
+1854	s. xiv 
+1857	s. xiv
+1921	s. xiv 
+1923	s. xiv 
+1927	s. xiv 
+1946	s. xiv
+1955	s. xiv
+1968	s. xiv
+1972	s. xiv
+1984	s. xiv
+1988	s. xiv
+1998	s. xiv
+2020	s. xiv
+2029	s. xiv
+2085	s. xiv
+2086	s. xiv
+2087	s. xiv
+2092	s. xiv
+2103	s. xiv
+2118	s. xiv
+2122	s. xiv
+2123	s. xiv
+2125	s. xiv
+2128	s. xiv
+2130	s. xiv
+2133	s. xiv
+2134	s. xiv
+2135	s. xiv
+2141	s. xiv
+2152	s. xiv
+2164	s. xiv
+2166	s. xiv
+2168	s. xiv
+2178	s. xiv
+2197	s. xiv
+2198	s. xiv
+2203	s. xiv
+2206	s. xiv
+2209	s. xiv
+2224	s. xiv
+2234	s. xiv
+2235	s. xiv
+2236	s. xiv
+2237	s. xiv 
+2245	s. xiv
+2249	s. xiv
+2255	s. xiv
+2260	s. xiv
+2269	s. xiv
+2270	s. xiv
+2275	s. xiv
+2319	s. xiv
+2360	s. xiv
+2384	s. xiv
+2392	s. xiv
+2393	s. xiv
+2403	s. xiv
+2406	s. xiv
+2408	s. xiv
+2410	s. xiv
+2411	s. xiv
+2413	s. xiv
+2416	s. xiv
+2417	s. xiv
+2418	s. xiv
+2421	s. xiv
+2432	s. xiv
+2437	s. xiv
+2443	s. xiv
+2450	s. xiv
+2452	s. xiv
+2454	s. xiv
+2516	s. xiv
+2517	s. xiv
+2536	s. xiv
+2560	s. xiv
+2568	s. xiv
+2611	s. xiv
+2624	s. xiv
+2625	s. xiv
+2628	s. xiv
+2629	s. xiv
+2630	s. xiv
+2663	s. xiv
+2665	s. xiv
+2668	s. xiv
+2679	s. xiv
+2697	s. xiv
+2698	s. xiv
+2704	s. xiv
+2740	s. xiv
+2750	s. xiv
+2757	s. xiv
+2758	s. xiv
+2760	s. xiv
+2765	s. xiv
+2771	s. xiv
+2774	s. xiv
+2775	s. xiv
+2781	s. xiv
+2794	s. xiv
+2799	s. xiv
+2801	s. xiv
+2820	s. xiv
+2827	s. xiv
+2829	s. xiv
+2841	s. xiv
+2845	s. xiv
+2852	s. xiv
+2868	s. xiv
+2870	s. xiv
+2875	s. xiv
+2903	s. xiv
+2907	s. xiv
+2908	s. xiv
+2909	s. xiv
+2911	s. xiv
+2929	s. xiv
+2969	s. xiv
+2994	s. xiv
+3018	s. xiv
+3073	s. xiv
+3078	s. xiv
+3092	s. xiv
+3094	s. xiv
+3097	s. xiv
+3107	s. xiv
+3114	s. xiv
+3116	s. xiv
+3117	s. xiv
+3118	s. xiv
+3124	s. xiv
+3125	s. xiv
+3127	s. xiv
+3135	s. xiv
+3138	s. xiv
+3140	s. xiv
+3144	s. xiv
+3148	s. xiv
+3151	s. xiv
+3154	s. xiv
+3156	s. xiv
+3202	s. xiv
+3218	s. xiv
+3226	s. xiv
+3228	s. xiv
+3272	s. xiv
+3289	s. xiv
+3293	s. xiv
+3333	s. xiv
+3336	s. xiv
+3343	s. xiv 
+3344	s. xiv
+3348	s. xiv
+3366	s. xiv
+3375	s. xiv
+3387	s. xiv
+3388	s. xiv
+3398	s. xiv
+3399	s. xiv
+3418	s. xiv
+3419	s. xiv
+3421	s. xiv
+3472	s. xiv
+3532	s. xiv
+3555	s. xiv
+3583	s. xiv
+3602	s. xiv
+3608	s. xiv
+3614	s. xiv
+3615	s. xiv
+3620	s. xiv
+3629	s. xiv
+3641	s. xiv
+3668	s. xiv
+3672	s. xiv
+3687	s. xiv
+3691	s. xiv
+3705	s. xiv
+3713	s. xiv
+3714	s. xiv
+3720	s. xiv
+3722	s. xiv
+3750	s. xiv 
+3757	s. xiv 
+3762	s. xiv
+3799	s. xiv
+3806	s. xiv
+3815	s. xiv
+3820	s. xiv
+3821	s. xiv
+3829	s. xiv
+3830	s. xiv
+3833	s. xiv
+3854	s. xiv
+3860	s. xiv
+3871	s. xiv
+3890	s. xiv
+3903	s. xiv
+3935	s. xiv
+3944	s. xiv
+3949	s. xiv
+3950	s. xiv
+3956	s. xiv
+3971	s. xiv
+3974	s. xiv
+4038	s. xiv
+4065	s. xiv
+4066	s. xiv
+4067	s. xiv
+4070	s. xiv
+4073	s. xiv
+4077	s. xiv
+4080	s. xiv
+4082	s. xiv
+4083	s. xiv
+4088	s. xiv
+4093	s. xiv
+4094	s. xiv
+4099	s. xiv
+4102	s. xiv
+4103	s. xiv
+4105	s. xiv
+4106	s. xiv
+4108	s. xiv
+4110	s. xiv
+4116	s. xiv
+4118	s. xiv
+4120	s. xiv
+4124	s. xiv
+4125	s. xiv
+4135	s. xiv
+4139	s. xiv
+4143	s. xiv
+4145	s. xiv
+4151	s. xiv
+4152	s. xiv
+4156	s. xiv
+4157	s. xiv
+4159	s. xiv
+4211	s. xiv
+4214	s. xiv
+4221	s. xiv
+4226	s. xiv
+4244	s. xiv
+4287	s. xiv
+4292	s. xiv
+4327	s. xiv
+4348	s. xiv
+4349	s. xiv
+4351	s. xiv
+4353	s. xiv
+4354	s. xiv
+4355	s. xiv
+4367	s. xiv
+4369	s. xiv
+4370	s. xiv
+4371	s. xiv
+4372	s. xiv
+4374	s. xiv
+4375	s. xiv
+4376	s. xiv
+4379	s. xiv
+4380	s. xiv
+4381	s. xiv
+4382	s. xiv
+4386	s. xiv
+4388	s. xiv
+4390	s. xiv
+4395	s. xiv
+4400	s. xiv
+4401	s. xiv
+4410	s. xiv
+4442	s. xiv
+4450	s. xiv
+4464	s. xiv
+4477	s. xiv
+4481	s. xiv
+4496	s. xiv
+4517	s. xiv
+4526	s. xiv
+4534	s. xiv
+4535	s. xiv
+4541	s. xiv
+4542	s. xiv
+4553	s. xiv
+4604	s. xiv
+4609	s. xiv
+4610	s. xiv
+4611	s. xiv
+4667	s. xiv
+4704	s. xiv
+4791	s. xiv
+4807	s. xiv
+4808	s. xiv
+4863	s. xiv
+4865	s. xiv
+4866	s. xiv
+4892	s. xiv
+4893	s. xiv
+4913	s. xiv
+4920	s. xiv
+4993	s. xiv
+5007	s. xiv
+5088	s. xiv
+5089	s. xiv
+5119	s. xiv
+5127	s. xiv
+5138	s. xiv
+5143	s. xiv
+5146	s. xiv
+5170	s. xiv
+5173	s. xiv
+5184	s. xiv
+5203	s. xiv
+5227	s. xiv 
+5286	s. xiv
+5287	s. xiv
+5299	s. xiv
+5306	s. xiv
+5315	s. xiv
+5323	s. xiv
+5373	s. xiv
+5395	s. xiv
+5434	s. xiv
+5435	s. xiv
+5436	s. xiv
+5464	s. xiv
+5487	s. xiv
+5496	s. xiv
+5498	s. xiv
+5499	s. xiv
+5501	s. xiv
+5507	s. xiv
+5508	s. xiv
+5525	s. xiv
+5537	s. xiv
+5552	s. xiv
+5553	s. xiv
+5595	s. xiv
+5621	s. xiv
+5641	s. xiv
+5660	s. xiv
+5671	s. xiv
+5674	s. xiv
+5685	s. xiv
+5734	s. xiv 
+5774	s. xiv
+5788	s. xiv
+5837	s. xiv
+5840	s. xiv
+5844	s. xiv
+5849	s. xiv
+5850	s. xiv
+5852	s. xiv
+5868	s. xiv
+5871	s. xiv
+5879	s. xiv
+5883	s. xiv
+5888	s. xiv
+5921	s. xiv
+5944	s. xiv
+5978	s. xiv
+5991	s. xiv
+6034	s. xiv
+6039	s. xiv
+6044	s. xiv
+6050	s. xiv
+6062	s. xiv
+6083	s. xiv
+6084	s. xiv
+6095	s. xiv
+6099	s. xiv
+6111	s. xiv
+6116	s. xiv
+6117	s. xiv
+6125	s. xiv
+6126	s. xiv
+6128	s. xiv
+6131	s. xiv
+6132	s. xiv
+6135	s. xiv
+6143	s. xiv
+6145	s. xiv
+6147	s. xiv
+6149	s. xiv
+6150	s. xiv
+6151	s. xiv
+6152	s. xiv
+6158	s. xiv
+6161	s. xiv
+6164	s. xiv
+6169	s. xiv 
+6170	s. xiv
+6171	s. xiv
+6181	s. xiv
+6198	s. xiv
+6200	s. xiv
+6209	s. xiv
+6213	s. xiv
+6249	s. xiv
+6254	s. xiv
+6263	s. xiv
+6267	s. xiv
+6271	s. xiv
+6310	s. xiv
+6334	s. xiv
+6338	s. xiv 
+6347	s. xiv
+6358	s. xiv
+6370	s. xiv
+6372	s. xiv
+6379	s. xiv
+6386	s. xiv
+6387	s. xiv
+6388	s. xiv
+6415	s. xiv
+6432	s. xiv
+6433	s. xiv
+6435	s. xiv
+6437	s. xiv
+6440	s. xiv
+6447	s. xiv
+6461	s. xiv
+6462	s. xiv
+6467	s. xiv
+6486	s. xiv
+6487	s. xiv
+6494	s. xiv
+2768	s. xiv & xv
+3835	s. xiv & xv
+3851	s. xiv & xv
+4324	s. xiv & xv
+5596	s. xiv & xv
+2881	s. xiv (1303 Montpellier, date of writing)
+4085	s. xiv (according to N.R. Ker)
+1549	s. xiv (and xiii)
+4708	s. xiv (art. 1), s. xii (arts. 2--4) 
+4861	s. xiv (c. 1330--1345)
+3596	s. xiv (c. 1332), with later additions
+4408	s. xiv (med.?)
+428	s. xiv 1
+1669	s. xiv 2/4
+167	s. xiv ex
+218	s. xiv ex
+293	s. xiv ex
+298	s. xiv ex
+300	s. xiv ex
+435	s. xiv ex
+457	s. xiv ex
+611	s. xiv ex
+809	s. xiv ex
+811	s. xiv ex
+883	s. xiv ex
+922	s. xiv ex
+924	s. xiv ex
+929	s. xiv ex
+932	s. xiv ex
+953	s. xiv ex
+970	s. xiv ex
+975	s. xiv ex
+1001	s. xiv ex
+1003	s. xiv ex
+1100	s. xiv ex
+1141	s. xiv ex
+1183	s. xiv ex
+21	s. xiv ex.
+80	s. xiv ex.
+126	s. xiv ex.
+136	s. xiv ex.
+297	s. xiv ex.
+332	s. xiv ex.
+353	s. xiv ex.
+1305	s. xiv ex. 
+1401	s. xiv ex.
+1409	s. xiv ex.
+1488	s. xiv ex.
+1511	s. xiv ex.
+1530	s. xiv ex.
+1569	s. xiv ex.
+1582	s. xiv ex.
+1838	s. xiv ex.
+1851	s. xiv ex.
+1944	s. xiv ex.
+2022	s. xiv ex.
+2023	s. xiv ex.
+2084	s. xiv ex.
+2161	s. xiv ex.
+2180	s. xiv ex.
+2193	s. xiv ex.
+2194	s. xiv ex.
+2199	s. xiv ex.
+2231	s. xiv ex.
+2311	s. xiv ex.
+2700	s. xiv ex.
+2756	s. xiv ex.
+2810	s. xiv ex.
+2860	s. xiv ex.
+2889	s. xiv ex.
+2954	s. xiv ex.
+3131	s. xiv ex.
+3152	s. xiv ex.
+3255	s. xiv ex.
+3323	s. xiv ex.
+3548	s. xiv ex.
+3603	s. xiv ex.
+3696	s. xiv ex.
+3700	s. xiv ex.
+3786	s. xiv ex.
+3826	s. xiv ex.
+3828	s. xiv ex.
+3836	s. xiv ex.
+3861	s. xiv ex.
+3874	s. xiv ex.
+3910	s. xiv ex.
+3930	s. xiv ex.
+3943	s. xiv ex.
+3981	s. xiv ex.
+4104	s. xiv ex.
+4136	s. xiv ex.
+4142	s. xiv ex.
+4182	s. xiv ex.
+4271	s. xiv ex.
+4307	s. xiv ex.
+4482	s. xiv ex.
+4537	s. xiv ex.
+4696	s. xiv ex.
+4740	s. xiv ex.
+4842	s. xiv ex.
+4868	s. xiv ex. 
+4921	s. xiv ex.
+4938	s. xiv ex.
+4974	s. xiv ex.
+5190	s. xiv ex.
+5226	s. xiv ex.
+5296	s. xiv ex.
+5404	s. xiv ex.
+5474	s. xiv ex.
+5514	s. xiv ex.
+5515	s. xiv ex.
+5653	s. xiv ex.
+5686	s. xiv ex.
+5810	s. xiv ex.
+5811	s. xiv ex.
+5820	s. xiv ex.
+5886	s. xiv ex.
+6052	s. xiv ex.
+6058	s. xiv ex.
+6091	s. xiv ex.
+6136	s. xiv ex.
+6148	s. xiv ex.
+6172	s. xiv ex.
+6208	s. xiv ex.
+6305	s. xiv ex.
+6306	s. xiv ex.
+6340	s. xiv ex.
+6349	s. xiv ex.
+6356	s. xiv ex.
+6357	s. xiv ex.
+6367	s. xiv ex.
+6401	s. xiv ex.
+1279	s. xiv ex. (after 1395)
+4443	s. xiv ex. (c. 1388)
+4859	s. xiv ex. (c. 1390--1400)
+2440	s. xiv ex., & s. xiii
+6007	s. xiv ex., xv
+3321	s. xiv ex.---xv in.
+6453	s. xiv ex.--s. xv
+5505	s. xiv ex.--xvi (additions to 1559)
+3798	s. xiv ex./xv
+5497	s. xiv ex./xv
+154	s. xiv in
+163	s. xiv in
+172	s. xiv in
+227	s. xiv in
+424	s. xiv in
+461	s. xiv in
+467	s. xiv in
+613	s. xiv in
+635	s. xiv in
+641	s. xiv in
+786	s. xiv in
+804	s. xiv in
+823	s. xiv in
+882	s. xiv in
+893	s. xiv in
+896	s. xiv in
+903	s. xiv in
+918	s. xiv in
+949	s. xiv in
+1129	s. xiv in
+1130	s. xiv in
+3005	s. xiv in & xv ex.
+5208	s. xiv in (or s. xiv ex?)
+13	s. xiv in.
+191	s. xiv in.
+283	s. xiv in.
+587	s. xiv in.
+1278	s. xiv in.
+1288	s. xiv in.
+1309	s. xiv in.
+1323	s. xiv in.
+1369	s. xiv in.
+1385	s. xiv in.
+1404	s. xiv in.
+1428	s. xiv in.
+1464	s. xiv in.
+1485	s. xiv in.
+1499	s. xiv in.
+1560	s. xiv in.
+1568	s. xiv in.
+1580	s. xiv in.
+1633	s. xiv in.
+1651	s. xiv in.
+1674	s. xiv in.
+1732	s. xiv in.
+1885	s. xiv in.
+1936	s. xiv in.
+1941	s. xiv in.
+2110	s. xiv in.
+2111	s. xiv in.
+2113	s. xiv in.
+2120	s. xiv in.
+2124	s. xiv in.
+2126	s. xiv in.
+2142	s. xiv in.
+2143	s. xiv in.
+2149	s. xiv in.
+2156	s. xiv in.
+2157	s. xiv in.
+2160	s. xiv in.
+2165	s. xiv in.
+2182	s. xiv in.
+2187	s. xiv in.
+2202	s. xiv in.
+2256	s. xiv in.
+2258	s. xiv in.
+2259	s. xiv in.
+2261	s. xiv in.
+2268	s. xiv in.
+2271	s. xiv in.
+2272	s. xiv in.
+2273	s. xiv in.
+2282	s. xiv in.
+2287	s. xiv in.
+2293	s. xiv in.
+2357	s. xiv in.
+2365	s. xiv in.
+2391	s. xiv in.
+2657	s. xiv in.
+2692	s. xiv in.
+2819	s. xiv in.
+2888	s. xiv in.
+2991	s. xiv in.
+3000	s. xiv in.
+3003	s. xiv in.
+3188	s. xiv in.
+3225	s. xiv in.
+3376	s. xiv in.
+3380	s. xiv in. 
+3415	s. xiv in.
+3430	s. xiv in.
+3514	s. xiv in.
+3538	s. xiv in.
+3544	s. xiv in.
+3605	s. xiv in.
+3636	s. xiv in.
+3796	s. xiv in.
+3812	s. xiv in.
+3831	s. xiv in.
+3867	s. xiv in.
+3868	s. xiv in.
+3870	s. xiv in.
+3873	s. xiv in.
+3877	s. xiv in.
+3880	s. xiv in.
+3881	s. xiv in.
+3924	s. xiv in.
+3952	s. xiv in.
+3989	s. xiv in.
+3999	s. xiv in.
+4050	s. xiv in.
+4090	s. xiv in.
+4115	s. xiv in.
+4117	s. xiv in.
+4119	s. xiv in.
+4121	s. xiv in.
+4123	s. xiv in.
+4161	s. xiv in.
+4173	s. xiv in.
+4195	s. xiv in.
+4225	s. xiv in.
+4232	s. xiv in.
+4233	s. xiv in.
+4342	s. xiv in.
+4411	s. xiv in.
+4449	s. xiv in.
+4454	s. xiv in.
+4462	s. xiv in.
+4465	s. xiv in.
+4478	s. xiv in.
+4484	s. xiv in.
+4493	s. xiv in.
+4750	s. xiv in.
+4752	s. xiv in.
+4770	s. xiv in.
+4778	s. xiv in.
+4802	s. xiv in.
+4803	s. xiv in.
+4862	s. xiv in.
+4867	s. xiv in.
+4870	s. xiv in.
+4879	s. xiv in.
+4975	s. xiv in.
+4979	s. xiv in.
+4992	s. xiv in.
+4995	s. xiv in.
+5004	s. xiv in.
+5006	s. xiv in.
+5016	s. xiv in.
+5031	s. xiv in.
+5046	s. xiv in.
+5055	s. xiv in.
+5065	s. xiv in.
+5107	s. xiv in.
+5123	s. xiv in.
+5128	s. xiv in.
+5130	s. xiv in.
+5176	s. xiv in.
+5231	s. xiv in.
+5266	s. xiv in.
+5267	s. xiv in.
+5269	s. xiv in.
+5270	s. xiv in.
+5622	s. xiv in.
+5628	s. xiv in.
+5640	s. xiv in.
+5872	s. xiv in.
+5882	s. xiv in.
+5884	s. xiv in.
+5999	s. xiv in.
+6026	s. xiv in.
+6031	s. xiv in.
+6032	s. xiv in.
+6033	s. xiv in.
+6043	s. xiv in.
+6045	s. xiv in.
+6061	s. xiv in.
+6064	s. xiv in.
+6068	s. xiv in.
+6074	s. xiv in.
+6085	s. xiv in.
+6090	s. xiv in.
+6092	s. xiv in.
+6094	s. xiv in.
+6120	s. xiv in.
+6121	s. xiv in.
+6127	s. xiv in.
+6157	s. xiv in.
+6159	s. xiv in.
+6165	s. xiv in.
+6174	s. xiv in.
+6178	s. xiv in.
+6182	s. xiv in.
+6185	s. xiv in.
+6196	s. xiv in.
+6243	s. xiv in.
+6245	s. xiv in.
+6246	s. xiv in.
+6257	s. xiv in.
+6274	s. xiv in.
+6289	s. xiv in.
+6313	s. xiv in.
+6329	s. xiv in.
+6397	s. xiv in.
+3745	s. xiv in. & xv ex.
+1808	s. xiv in. (c. 1300 and s. xiv)
+508	s. xiv in.--xiv ex
+1196	s. xiv in.--xiv ex.
+6460	s. xiv in.--xiv ex.
+156	s. xiv in.--xv ex
+2243	s. xiv in.--xv in.
+783	s. xiv med
+923	s. xiv med
+1670	s. xiv med.
+1891	s. xiv med.
+3019	s. xiv med.
+4058	s. xiv med.
+6255	s. xiv med.
+6364	s. xiv med.
+3760	s. xiv med.--xiv ex.
+1698	s. xiv, and (fols. 219--228) s. xiii 
+1619	s. xiv, xii
+2445	s. xiv, xiii and xv 
+3814	s. xiv, xv
+3896	s. xiv, xv
+4487	s. xiv, xv
+4489	s. xiv, xv
+5493	s. xiv, xv
+5060	s. xiv--xiv ex.
+2619	s. xiv--xiv/xv
+2626	s. xiv--xiv/xv
+94	s. xiv--xv
+354	s. xiv--xv
+590	s. xiv--xv
+767	s. xiv--xv
+794	s. xiv--xv
+999	s. xiv--xv
+1814	s. xiv--xv
+1828	s. xiv--xv
+1831	s. xiv--xv
+1836	s. xiv--xv
+1861	s. xiv--xv
+1888	s. xiv--xv
+1966	s. xiv--xv
+2460	s. xiv--xv
+2559	s. xiv--xv
+2588	s. xiv--xv
+2592	s. xiv--xv
+2660	s. xiv--xv
+2714	s. xiv--xv
+2816	s. xiv--xv
+2885	s. xiv--xv
+3025	s. xiv--xv
+3266	s. xiv--xv
+3286	s. xiv--xv
+3368	s. xiv--xv
+3520	s. xiv--xv
+3554	s. xiv--xv
+3734	s. xiv--xv
+4147	s. xiv--xv
+4309	s. xiv--xv
+4639	s. xiv--xv
+4798	s. xiv--xv
+5512	s. xiv--xv
+5694	s. xiv--xv
+5758	s. xiv--xv
+5859	s. xiv--xv
+6283	s. xiv--xv
+6318	s. xiv--xv
+4990	s. xiv--xv in.
+1229	s. xiv--xvi
+3893	s. xiv--xvi
+173	s. xiv/xv
+187	s. xiv/xv
+339	s. xiv/xv
+359	s. xiv/xv
+404	s. xiv/xv
+453	s. xiv/xv
+616	s. xiv/xv
+703	s. xiv/xv
+727	s. xiv/xv
+874	s. xiv/xv
+925	s. xiv/xv
+947	s. xiv/xv
+965	s. xiv/xv
+1151	s. xiv/xv
+1166	s. xiv/xv
+1198	s. xiv/xv
+1325	s. xiv/xv
+1379	s. xiv/xv
+1477	s. xiv/xv
+2017	s. xiv/xv
+2019	s. xiv/xv
+2238	s. xiv/xv
+2240	s. xiv/xv
+2244	s. xiv/xv
+2246	s. xiv/xv
+2368	s. xiv/xv
+2419	s. xiv/xv
+2609	s. xiv/xv
+2898	s. xiv/xv
+3020	s. xiv/xv
+3093	s. xiv/xv
+3120	s. xiv/xv
+3530	s. xiv/xv
+3669	s. xiv/xv
+3683	s. xiv/xv
+3968	s. xiv/xv
+4048	s. xiv/xv
+4098	s. xiv/xv
+4224	s. xiv/xv
+4245	s. xiv/xv
+4282	s. xiv/xv
+4403	s. xiv/xv
+5008	s. xiv/xv
+5137	s. xiv/xv
+5258	s. xiv/xv
+5615	s. xiv/xv
+5636	s. xiv/xv
+5649	s. xiv/xv
+5652	s. xiv/xv
+5772	s. xiv/xv
+5847	s. xiv/xv
+6088	s. xiv/xv
+6138	s. xiv/xv
+6146	s. xiv/xv
+6173	s. xiv/xv
+6335	s. xiv/xv
+6350	s. xiv/xv
+6408	s. xiv/xv
+6477	s. xiv/xv
+4175	s. xiv/xv (c. 1400)
+4878	s. xiv/xv (c. 1400)
+4885	s. xiv/xv (c. 1400)
+5213	s. xiv/xv (c. 1400)
+5250	s. xiv/xv (c. 1400)
+5394	s. xiv/xv (c. 1400)
+5642	s. xiv/xv (c. 1400)
+3695	s. xiv1
+5410	s. xiv2
+17	s. xv
+24	s. xv
+25	s. xv
+28	s. xv
+76	s. xv
+90	s. xv
+93	s. xv
+96	s. xv
+100	s. xv
+101	s. xv
+117	s. xv
+139	s. xv
+189	s. xv
+192	s. xv
+202	s. xv
+206	s. xv
+208	s. xv
+209	s. xv
+247	s. xv
+251	s. xv
+252	s. xv
+269	s. xv
+271	s. xv
+277	s. xv
+284	s. xv
+287	s. xv
+292	s. xv
+294	s. xv
+303	s. xv
+313	s. xv
+316	s. xv
+328	s. xv
+331	s. xv
+334	s. xv
+338	s. xv
+388	s. xv
+396	s. xv
+406	s. xv
+426	s. xv
+427	s. xv
+431	s. xv
+432	s. xv
+448	s. xv
+451	s. xv
+456	s. xv
+475	s. xv
+505	s. xv
+511	s. xv
+512	s. xv
+581	s. xv
+591	s. xv
+599	s. xv
+604	s. xv
+634	s. xv
+695	s. xv
+726	s. xv
+728	s. xv
+752	s. xv
+758	S. XV
+763	s. xv
+766	s. xv
+769	s. xv
+770	s. xv
+802	s. xv
+803	s. xv
+815	s. xv
+820	s. xv
+846	s. xv
+889	s. xv
+974	s. xv
+977	s. xv
+988	s. xv
+1002	s. xv
+1004	s. xv
+1007	s. xv
+1009	s. xv
+1019	s. xv
+1021	s. xv
+1054	s. xv
+1075	s. xv
+1144	s. xv
+1155	s. xv
+1167	s. xv
+1180	s. xv
+1181	s. xv
+1182	s. xv
+1194	s. xv
+1273	s. xv
+1280	s. xv
+1287	s. xv
+1290	s. xv
+1336	s. xv
+1337	s. xv
+1339	s. xv
+1342	s. xv
+1370	s. xv
+1376	s. xv
+1390	s. xv
+1442	s. xv
+1446	s. xv
+1455	s. xv
+1516	s. xv
+1575	s. xv
+1599	s. xv
+1618	s. xv
+1652	s. xv
+1665	s. xv
+1680	s. xv
+1773	s. xv
+1802	s. xv
+1805	s. xv
+1809	s. xv
+1810	s. xv
+1813	s. xv
+1816	s. xv
+1818	s. xv
+1832	s. xv
+1867	s. xv
+1868	s. xv
+1869	s. xv
+1871	s. xv
+1873	s. xv
+1874	s. xv
+1877	s. xv
+1878	s. xv
+1879	s. xv
+1880	s. xv
+1920	s. xv
+1937	s. xv
+1939	s. xv
+1943	s. xv
+1945	s. xv
+1963	s. xv
+1978	s. xv
+1991	s. xv
+2004	s. xv
+2024	s. xv
+2242	s. xv
+2315	s. xv 
+2373	s. xv
+2377	s. xv
+2431	s. xv
+2453	s. xv
+2458	s. xv
+2513	s. xv
+2528	s. xv
+2537	s. xv
+2538	s. xv
+2542	s. xv
+2546	s. xv
+2554	s. xv
+2569	s. xv
+2571	s. xv
+2577	s. xv
+2591	s. xv
+2599	s. xv
+2600	s. xv
+2601	s. xv
+2604	s. xv
+2610	s. xv
+2612	s. xv
+2651	s. xv
+2656	s. xv
+2664	s. xv
+2678	s. xv
+2696	s. xv
+2702	s. xv
+2751	s. xv
+2764	s. xv
+2767	s. xv
+2770	s. xv
+2777	s. xv
+2778	s. xv
+2795	s. xv
+2812	s. xv
+2817	s. xv
+2839	s. xv
+2848	s. xv
+2874	s. xv
+2877	s. xv
+2910	s. xv
+2912	s. xv
+2913	s. xv
+2914	s. xv
+2918	s. xv
+2920	s. xv
+2925	s. xv
+2926	s. xv
+2947	s. xv
+2961	s. xv
+2962	s. xv
+2965	s. xv
+2966	s. xv
+2973	s. xv
+2976	s. xv
+2979	s. xv
+3001	s. xv
+3002	s. xv
+3016	s. xv
+3021	s. xv
+3059	s. xv
+3077	s. xv
+3079	s. xv
+3085	s. xv
+3091	s. xv
+3112	s. xv
+3126	s. xv
+3136	s. xv
+3141	s. xv
+3145	s. xv
+3159	s. xv
+3193	s. xv
+3217	s. xv
+3219	s. xv
+3222	s. xv
+3223	s. xv
+3244	s. xv
+3276	s. xv
+3291	s. xv
+3292	s. xv
+3300	s. xv 
+3304	s. xv
+3338	s. xv
+3351	s. xv
+3367	s. xv
+3371	s. xv
+3468	s. xv
+3531	s. xv
+3533	s. xv
+3536	s. xv
+3550	s. xv
+3569	s. xv
+3588	s. xv
+3600	s. xv
+3604	s. xv
+3612	s. xv
+3637	s. xv
+3639	s. xv
+3673	s. xv
+3689	s. xv 
+3754	s. xv
+3767	s. xv
+3771	s. xv
+3773	s. xv
+3774	s. xv
+3775	s. xv
+3777	s. xv
+3779	s. xv
+3781	s. xv
+3784	s. xv
+3788	s. xv
+3794	s. xv
+3797	s. xv
+3800	s. xv
+3809	s. xv
+3822	s. xv
+3852	s. xv
+3855	s. xv
+3856	s. xv
+3857	s. xv
+3858	s. xv
+3863	s. xv
+3885	s. xv
+3891	s. xv
+3927	s. xv
+3940	s. xv
+3946	s. xv
+3960	s. xv
+3962	s. xv
+3970	s. xv
+3972	s. xv
+3992	s. xv
+3995	s. xv
+3997	s. xv
+4000	s. xv
+4001	s. xv
+4002	s. xv
+4004	s. xv
+4005	s. xv
+4009	s. xv
+4012	s. xv
+4021	s. xv
+4063	s. xv 
+4071	s. xv
+4072	s. xv
+4089	s. xv
+4129	s. xv
+4134	s. xv
+4146	s. xv
+4158	s. xv
+4168	s. xv
+4174	s. xv
+4177	s. xv
+4191	s. xv
+4210	s. xv
+4219	s. xv
+4241	s. xv
+4243	s. xv
+4247	s. xv
+4250	s. xv
+4251	s. xv
+4254	s. xv
+4256	s. xv
+4258	s. xv
+4259	s. xv
+4260	s. xv
+4261	s. xv
+4263	s. xv
+4273	s. xv
+4275	s. xv
+4278	s. xv
+4279	s. xv
+4295	s. xv
+4301	s. xv
+4305	s. xv
+4311	s. xv
+4325	s. xv
+4330	s. xv
+4331	s. xv
+4332	s. xv
+4334	s. xv
+4335	s. xv
+4347	s. xv 
+4364	s. xv
+4383	s. xv 
+4389	s. xv
+4391	s. xv
+4393	s. xv
+4394	s. xv
+4396	s. xv
+4398	s. xv
+4409	s. xv
+4428	s. xv
+4430	s. xv
+4436	s. xv
+4447	s. xv
+4468	s. xv
+4513	s. xv
+4521	s. xv
+4571	s. xv
+4594	s. xv
+4616	s. xv
+4624	s. xv
+4632	s. xv
+4638	s. xv
+4792	s. xv
+4800	s. xv 
+4812	s. xv
+4819	s. xv
+4830	s. xv
+4839	s. xv
+4840	s. xv
+4843	s. xv
+4846	s. xv
+4851	s. xv
+4855	s. xv
+4880	s. xv
+4889	s. xv
+4899	s. xv
+4910	s. xv
+4918	s. xv
+4933	s. xv
+4935	s. xv
+4949	s. xv
+4985	s. xv
+5015	s. xv
+5033	s. xv
+5104	s. xv 
+5120	s. xv
+5133	s. xv
+5178	s. xv
+5180	s. xv
+5185	s. xv
+5186	s. xv
+5188	s. xv
+5191	s. xv
+5192	s. xv
+5195	s. xv
+5197	s. xv
+5200	s. xv
+5201	s. xv
+5202	s. xv 
+5204	s. xv
+5205	s. xv
+5207	s. xv
+5210	s. xv
+5211	s. xv
+5215	s. xv
+5218	s. xv
+5234	s. xv
+5237	s. xv
+5239	s. xv
+5248	s. xv
+5257	s. xv
+5259	s. xv
+5264	s. xv
+5290	s. xv
+5303	s. xv
+5331	s. xv
+5337	s. xv
+5342	s. xv
+5350	s. xv
+5352	s. xv
+5353	s. xv
+5354	s. xv
+5355	s. xv
+5356	s. xv
+5361	s. xv
+5363	s. xv
+5364	s. xv
+5365	s. xv
+5370	s. xv 
+5374	s. xv
+5378	s. xv
+5379	s. xv
+5380	s. xv
+5381	s. xv
+5382	s. xv
+5383	s. xv
+5384	s. xv
+5387	s. xv
+5388	s. xv
+5389	s. xv
+5390	s. xv
+5391	s. xv
+5393	s. xv
+5398	s. xv
+5400	s. xv
+5402	s. xv
+5403	s. xv
+5406	s. xv
+5409	s. xv
+5411	s. xv
+5412	s. xv
+5414	s. xv
+5417	s. xv
+5418	s. xv
+5419	s. xv
+5420	s. xv
+5421	s. xv
+5423	s. xv
+5424	s. xv
+5441	s. xv
+5443	s. xv
+5444	s. xv
+5460	s. xv
+5471	s. xv
+5477	s. xv
+5511	s. xv
+5522	s. xv
+5527	s. xv
+5531	s. xv
+5532	s. xv
+5533	s. xv
+5536	s. xv
+5538	s. xv
+5548	s. xv
+5586	s. xv
+5609	s. xv
+5613	s. xv 
+5624	s. xv
+5627	s. xv
+5631	s. xv
+5648	s. xv
+5650	s. xv
+5656	s. xv
+5664	s. xv
+5665	s. xv
+5668	s. xv
+5677	s. xv
+5687	s. xv
+5735	s. xv
+5755	s. xv
+5763	s. xv
+5818	s. xv
+5858	s. xv
+5864	s. xv
+5865	s. xv
+5866	s. xv
+5899	s. xv
+5901	s. xv
+5902	s. xv
+5904	s. xv
+5910	s. xv
+5912	s. xv
+6006	s. xv
+6038	s. xv
+6102	s. xv
+6134	s. xv
+6141	s. xv
+6160	s. xv
+6190	s. xv
+6201	s. xv
+6230	s. xv
+6238	s. xv
+6279	s. xv
+6286	s. xv 
+6294	s. xv
+6303	s. xv
+6308	s. xv
+6322	s. xv
+6333	s. xv
+6345	s. xv
+6354	s. xv
+6355	s. xv
+6365	s. xv
+6377	s. xv
+6385	s. xv
+6405	s. xv
+6419	s. xv
+6420	s. xv
+6446	s. xv
+6463	s. xv
+6465	s. xv
+6473	s. xv
+6501	s. xv
+6502	s. xv
+6506	s. xv
+6508	s. xv
+1846	s. xv & xii
+2993	s. xv (1440)
+2313	s. xv (1449 (art. 2))
+4281	s. xv (1450--1460)
+1870	s. xv (?in.)
+3761	s. xv (A. D. 1438)
+4796	s. xv (before 1456/1457)
+4333	s. xv (c. 1430 x 1440)
+4414	s. xv (c. 1442)
+4293	s. xv (c. 1452)
+4340	s. xv (Florence)
+4341	s. xv (Florentine)
+4296	s. xv (Italian)
+2009	s. xv and xiii/xiv 
+178	s. xv ex
+211	s. xv ex
+213	s. xv ex
+273	s. xv ex
+281	s. xv ex
+989	s. xv ex
+1031	s. xv ex
+1077	s. xv ex
+1115	s. xv ex
+1187	s. xv ex
+1191	s. xv ex
+355	s. xv ex.
+1453	s. xv ex.
+1826	s. xv ex.
+1858	s. xv ex.
+1906	s. xv ex.
+1931	s. xv ex.
+1933	s. xv ex.
+1934	s. xv ex.
+2398	s. xv ex.
+2514	s. xv ex.
+2522	s. xv ex.
+2838	s. xv ex.
+2859	s. xv ex.
+2872	s. xv ex.
+2984	s. xv ex.
+3004	s. xv ex.
+3258	s. xv ex.
+3282	s. xv ex.
+3331	s. xv ex.
+3335	s. xv ex.
+3780	s. xv ex.
+3804	s. xv ex.
+3998	s. xv ex.
+4228	s. xv ex.
+4229	s. xv ex.
+4343	s. xv ex.
+4429	s. xv ex.
+4782	s. xv ex.
+4783	s. xv ex.
+4950	s. xv ex.
+5102	s. xv ex.
+5310	s. xv ex.
+5318	s. xv ex.
+5335	s. xv ex.
+5338	s. xv ex.
+5386	s. xv ex.
+5401	s. xv ex.
+5415	s. xv ex.
+5432	s. xv ex.
+5542	s. xv ex.
+5554	s. xv ex.
+5630	s. xv ex.
+5764	s. xv ex.
+5893	s. xv ex.
+6296	s. xv ex.
+6343	s. xv ex.
+6344	s. xv ex.
+6376	s. xv ex.
+2923	s. xv ex. (1461--1465)
+1314	s. xv ex. (c. 1465)
+3776	s. xv ex. (c. 1480)
+5751	s. xv ex.--xvi med.
+282	s. xv in
+389	s. xv in
+422	s. xv in
+433	s. xv in
+449	s. xv in
+488	s. xv in
+597	s. xv in
+762	s. xv in
+805	s. xv in
+817	s. xv in
+973	s. xv in
+987	s. xv in
+1017	s. xv in
+1142	s. xv in
+121	s. xv in.
+135	s. xv in.
+299	s. xv in.
+327	s. xv in.
+371	s. xv in.
+1307	s. xv in.
+1623	s. xv in.
+1648	s. xv in.
+1817	s. xv in.
+1929	s. xv in. 
+1975	s. xv in. 
+2288	s. xv in. 
+2312	s. xv in. 
+2314	s. xv in.
+2385	s. xv in.
+2798	s. xv in.
+2809	s. xv in.
+2818	s. xv in.
+2896	s. xv in.
+2901	s. xv in.
+2931	s. xv in.
+2932	s. xv in.
+2941	s. xv in.
+2958	s. xv in.
+3269	s. xv in.
+3350	s. xv in.
+3425	s. xv in.
+3470	s. xv in.
+3597	s. xv in.
+3598	s. xv in.
+3599	s. xv in.
+3646	s. xv in.
+3682	s. xv in.
+3697	s. xv in.
+3698	s. xv in.
+3766	s. xv in.
+3782	s. xv in.
+3803	s. xv in.
+3805	s. xv in.
+3808	s. xv in.
+3840	s. xv in.
+3865	s. xv in.
+3872	s. xv in.
+3897	s. xv in.
+4032	s. xv in.
+4039	s. xv in.
+4086	s. xv in.
+4114	s. xv in.
+4163	s. xv in.
+4170	s. xv in.
+4171	s. xv in.
+4212	s. xv in.
+4213	s. xv in.
+4248	s. xv in.
+4255	s. xv in.
+4284	s. xv in.
+4303	s. xv in.
+4314	s. xv in.
+4356	s. xv in.
+4358	s. xv in.
+4368	s. xv in.
+4530	s. xv in.
+4539	s. xv in.
+4833	s. xv in.
+4834	s. xv in.
+4838	s. xv in.
+4841	s. xv in.
+4888	s. xv in.
+4923	s. xv in.
+4960	s. xv in.
+5012	s. xv in.
+5048	s. xv in.
+5080	s. xv in.
+5092	s. xv in.
+5349	s. xv in.
+5377	s. xv in.
+5392	s. xv in.
+5408	s. xv in.
+5472	s. xv in.
+5494	s. xv in.
+5513	s. xv in.
+5585	s. xv in.
+5611	s. xv in.
+5634	s. xv in.
+5672	s. xv in.
+5696	s. xv in.
+5806	s. xv in.
+5812	s. xv in.
+5860	s. xv in.
+5891	s. xv in.
+5892	s. xv in.
+6046	s. xv in.
+6108	s. xv in.
+6240	s. xv in.
+6268	s. xv in.
+6284	s. xv in.
+6319	s. xv in.
+6332	s. xv in.
+6384	s. xv in.
+6402	s. xv in.
+6451	s. xv in.
+3296	s. xv in. (1402/1403), Siena
+4463	s. xv in. (? 1419)
+3314	s. xv in. (c. 1422)
+5809	s. xv in. (c. 1432)
+3482	s. xv in. (Oxford)
+3485	s. xv in. (Oxford)
+2423	s. xv in.--xvi in.
+376	s. xv med
+429	s. xv med
+905	s. xv med
+907	s. xv med
+142	s. xv med.
+288	s. xv med.
+1418	s. xv med.
+1581	s. xv med.
+1886	s. xv med.
+2390	s. xv med.
+2400	s. xv med.
+2974	s. xv med.
+3553	s. xv med.
+3789	s. xv med.
+3791	s. xv med.
+4018	s. xv med.
+4302	s. xv med.
+5345	s. xv med.
+5371	s. xv med.
+5437	s. xv med.
+5459	s. xv med.
+5836	s. xv med.
+1358	s. xv med. (1450--60)
+3315	s. xv, xii, xiii
+1985	s. xv, xiv
+1976	s. xv, xiv and xiii
+2906	s. xv, xvi
+3878	s. xv--xv ex.
+2564	s. xv--xvi
+2575	s. xv--xvi
+3772	s. xv--xvi
+3778	s. xv--xvi
+3783	s. xv--xvi
+210	s. xv/xvi
+375	s. xv/xvi
+969	s. xv/xvi
+1696	s. xv/xvi
+1872	s. xv/xvi
+2379	s. xv/xvi
+5196	s. xv/xvi
+5366	s. xv/xvi
+5399	s. xv/xvi
+5614	s. xv/xvi
+5416	s. xv/xvi (c. 1500)
+1995	s. xv1
+3841	s. xv1
+474	s. xv2
+1343	s. xvi
+2523	s. xvi
+2530	s. xvi
+3334	s. xvi
+3845	s. xvi
+479	s. xvi in
+497	s. xvi in
+498	s. xvi in
+500	s. xvi in
+567	s. xvi in
+1066	s. xvi in
+1275	s. xvi in.
+1786	s. xvi in. 
+1938	s. xvi in.
+2407	s. xvi in.
+2561	s. xvi in.
+2634	s. xvi in.
+2653	s. xvi in.
+2654	s. xvi in. 
+3332	s. xvi in.
+3558	s. xvi in.
+4169	s. xvi in.
+5169	s. xvi in.
+5343	s. xvi in.
+5344	s. xvi in.
+5351	s. xvi in.
+5430	s. xvi in.
+5490	s. xvi in.
+6406	s. xvi in.
+5612	s. xvi in. (1498--1530)
+4172	s. xvi in. (between 1524 & 1530)
+2835	s. xvi in. (c. 1400)
+5801	s. xvi in. (c. 1501)
+5179	s. xvi in. (c. 1510)
+207	s. xvi med
+6489	s. xv–xv
+4387	s. [x;] xiv
+2996	s. [xiii and] xiv 
+1545	s.ix & x
+2886	s.l. et a.
+6478	s.l. et a.
+6479	s.l. et a.
+1609	s.x--xi
+1348	s.x/xi
+1403	s.xi/xii
+6496	s.xii
+1691	s.xii ex.
+4647	s.xii ex.--xiii
+170	s.xii in
+1432	s.xii/xiii
+1678	s.xii/xiii (c. 1200)
+194	s.xiii
+6505	s.xiii
+1347	s.xiii in.
+1285	s.xiii--xiv
+195	s.xiv
+221	s.xiv
+5319	Strasbourg (A. Rusch)
+2508	Strasbourg (Jo. Knoblouch) 1516
+2327	Strasbourg 1474
+2323	Strasbourg 1474--1477
+2519	Strasbourg 1482 or 1485
+2325	Strasbourg 1483
+2326	Strasbourg 1491
+2422	Strasbourg 1493
+2484	Strasbourg 1493--1494
+2470	Strasbourg 1495
+2998	Strasbourg 1495
+2642	Strasbourg c. 1487
+3764	Strasbourg, 1484 (J. de Grüningen) 
+3802	Strasbourg, 1495
+4181	Strasbourg, 1524
+405	Strassburg, A.D. 1495
+994	Strassburg, A.D. 1503, etc.
+2340	Treviso 1480
+147	Tubingen, 1498
+3044	Turin 1492, etc.
+2505	Venice (Bernardino di Tridino), etc., 1485
+2336	Venice (J. Herbort) 1481
+2468	Venice (Jensen) 1481
+2999	Venice (P. de Quarengis) 1516
+2426	Venice 12. Nov. 1493
+2337	Venice 1483
+2339	Venice 1483
+2646	Venice 1483
+2648	Venice 1487
+3049	Venice 1487
+3370	Venice 1487
+3043	Venice 1489
+3055	Venice 1489
+3045	Venice 1489, etc.
+3042	Venice 1490
+3050	Venice 1490
+2639	Venice 1493
+2638	Venice 1494
+3216	Venice 1494
+2512	Venice 1495
+3039	Venice 1495
+2338	Venice 1496
+2427	Venice 1500
+2473	Venice 1500, etc.
+2647	Venice 1502
+3373	Venice 1504
+2459	Venice 1509 and Paris 1515
+5817	Venice, 1475 (GW 2880)
+4166	Venice, 1489
+4031	Venice, 1496
+6029	Venice, 1496
+967	Venice, A.D. 1487
+991	Venice, A.D. 1493
+374	Venice, A.D. 1494
+468	Venice, A.D. 1495
+971	Venice, A.D. 1495
+1025	Venice, A.D. 1500
+4037	Westminster, 1495
+333	Westminster, A.D. 1495
+495	Westminster, A.D. 1495
+2606	xii med.
+979	[Brussels, c. 1480]
+1000	[Lyon, not after 1480]
+409	[Lyon, not after A.D. 1489]
+789	[Paris c. 1496]
+563	[Paris, c. A.D. 1493]
+180	[s.l. et a.]
+444	[Speyer], A.D. 1489

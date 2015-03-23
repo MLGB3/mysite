@@ -1,0 +1,6437 @@
+2	Ii. 2. 4	 	
+3	Ii. 2. 11	 	
+4	41	 	
+6	191	 	
+7	196	 	
+8	201 fols. 179--272	 	
+9	419	 	
+10	421	 	
+12	O. 10. 23	 	
+13	Advocates	 	18.5.1
+14	97	 	
+15	3501 fols. 0--7	 	
+16	3501 fols. 8--130	 	
+17	3502	 	
+18	3503	 	
+19	3504	 	
+20	3508	 	
+21	3509	 	
+22	3510	 	
+23	3512	 	
+24	3513	 	
+25	3516	 	
+26	3518	 	
+27	3520	 	
+28	3548(D)	 	
+30	Additional	 	28188
+31	Additional	 	62104
+32	Cotton Tiberius	 	B.v fol. 75
+33	Cotton	 	Vitellius A. vii fols. 1--112
+34	Cotton	 	Vespasian D. xv fols. 2--67
+35	Cotton	 	Cleopatra B. xiii fols. 1--58
+36	Harley	 	863
+40	149 fols. 1--138	 	
+43	489	 	
+44	Lat.	 	24
+45	Auct.	 	D.1.7
+46	Auct.	 	D.1.9
+47	Auct.	 	D.1.12
+48	Auct.	 	D.1.13
+49	Auct.	 	D.2.8
+50	Auct.	 	D.2.16
+51	Auct.	 	D.3.10
+52	Auct.	 	D.infra 2.9
+53	Auct.	 	F.1.15
+54	Auct.	 	F.3.6
+55	Auct.	 	F.3.7
+57	Bodley	 	93
+58	Bodley	 	94
+59	Bodley	 	135
+60	Bodley	 	137
+61	Bodley	 	147
+62	Bodley	 	148
+63	Bodley	 	149
+64	Bodley	 	150
+65	Bodley	 	162
+66	Bodley	 	190
+67	Bodley	 	193
+68	Bodley	 	201
+69	Bodley	 	206
+70	Bodley	 	229
+71	Bodley	 	230
+72	Bodley	 	237
+73	Bodley	 	239
+75	Bodley	 	256
+76	Bodley	 	268
+77	Bodley	 	272
+78	Bodley	 	273
+79	Bodley	 	274
+80	Bodley	 	279
+81	Bodley	 	286
+82	Bodley	 	287
+83	Bodley	 	289
+84	Bodley	 	290
+85	Bodley	 	291
+86	Bodley	 	293
+87	Bodley	 	301
+88	Bodley	 	311
+89	Bodley	 	314
+90	Bodley	 	315
+91	Bodley	 	318
+92	Bodley	 	319
+93	Bodley	 	320
+94	Bodley	 	333
+95	Bodley	 	335
+96	Bodley	 	338
+97	Bodley	 	377
+98	Bodley	 	380
+99	Bodley	 	382
+100	Bodley	 	389
+101	Bodley	 	393
+102	Bodley	 	394
+103	Bodley	 	449
+104	Bodley	 	463
+105	Bodley	 	473
+106	Bodley	 	479
+107	Bodley	 	482
+108	Bodley	 	494
+111	Bodley	 	691
+112	Bodley	 	707
+113	Bodley	 	708
+114	Bodley	 	717
+115	Bodley	 	718
+116	Bodley	 	720
+117	Bodley	 	722
+118	Bodley	 	725
+119	Bodley	 	732
+120	Bodley	 	734
+121	Bodley	 	736
+122	Bodley	 	738
+123	Bodley	 	739
+124	Bodley	 	744
+125	Bodley	 	748
+126	Bodley	 	749
+127	Bodley	 	783
+128	Bodley	 	786
+129	Bodley	 	792
+130	Bodley	 	804
+131	Bodley	 	808
+132	Bodley	 	810
+133	Bodley	 	813
+134	Bodley	 	815
+135	Bodley	 	829
+136	Bodley	 	830
+137	Bodley	 	849
+138	Bodley	 	859
+139	Bodley	 	865 fols. 1--88
+140	Bodley	 	865 fols. 89--115
+141	Bodley	 	Or. 135
+142	Wood	 	empt. 15
+143	Lat. bib.	 	d. 10
+144	6	 	
+145	lat.	 	14782
+146	593	 	
+147	Inc. 1344 (pr. bk)	 	
+148	53	 	
+149	92	 	
+150	134	 	
+151	160	 	
+152	459	 	
+153	12	 	
+154	437	 	
+155	454	 	
+156	10	 	
+157	81	 	
+158	168	 	
+159	600 fols. 1--51	 	
+160	Advocates	 	18.5.16
+161	21	 	
+162	f091 RAB	 	
+163	Add.	 	39758
+164	Add.	 	47170
+165	Cotton	 	Julius A. xi fols. 3--112
+166	Cotton	 	Tiberius C. i fols. 2--42
+167	Cotton	 	Claudius A. v fols. 2--45
+168	Cotton	 	Otho A. xvii
+169	Harley	 	3097
+170	Harley	 	3667
+171	A.3.f.3 (pr. bk)	 	
+172	5	 	
+173	9	 	
+174	191	 	
+175	198, 198b	 	
+176	202	 	
+177	335 fols. 229--277	 	
+178	360 fols. 119--158	 	
+179	473	 	
+180	(pr. bk)	 	
+181	59	 	
+182	60	 	
+183		 	
+184	Barlow	 	22
+185	Bodley	 	96
+186	Bodley	 	163
+187	Gough liturg.	 	17
+188	Laud. misc.	 	636
+189	Rawlinson	 	C. 677
+190	1	 	
+191	3	 	
+192	15	 	
+193	H.3.40	 	
+194	Bodley	 	678
+195	Laud. misc.	 	165
+199	Hh.3.11	 	
+200	s.n.	 	
+201	Cotton Cleopatra	 	B.ix
+202	Harley 3725	 	
+203	22	 	
+204	27	 	
+205	Ashmole	 	1474
+206	Advocates	 	18.8.14
+207	278	 	
+208	214	 	
+209	263	 	
+210	264	 	
+211	O. 9. 9	 	
+212	Advocates	 	18.3.10
+213	Advocates	 	18.3.11
+214	47	 	
+215	190	 	
+216	th. lat.	 	fol. 579
+217	1520	 	
+218	Dd.2.5	 	
+219	Kk.1.22	 	
+220	Kk.3.21	 	
+221	25	 	
+222	28	 	
+223	57	 	
+224	92	 	
+225		 	
+226	4.18.8	 	
+227	R. 17. 7	 	
+228		 	
+229	O.18.17	 	
+230	Vulcanius	 	96
+231	Additional	 	32246
+232	Additional	 	42555
+233	Arundel	 	326
+234	Cotton	 	Tiberius B.i
+235	Cotton	 	Claudius B.vi
+236	Cotton	 	Claudius C.ix, fols. 105-202
+238	Cotton	 	Titus C. xx
+239	Cotton	 	Vitellius A.xiii fols. 83--90
+240	Harley	 	209
+241	Harley	 	3061
+242	42	 	
+243	Digby	 	39
+244	Digby	 	96
+245	Digby	 	146
+246	Digby	 	227
+247	Lyell	 	21
+248	Rawlinson	 	C.940
+249	Rawlinson	 	D.235
+250	9M 15792	 	
+251	2	 	
+252	75	 	
+253	lat.	 	1792
+268	F.vi.5	 	
+269	Harley	 	217
+270	Ee.6.16	 	
+271	Additional	 	18632
+272		 	
+273	Add.	 	A. 42
+274	Liturg. Misc.	 	407
+275	Jackson Collection	 	3
+276	136	 	
+277	390	 	
+278		 	
+279		 	
+281		 	
+282	Royal 7 B.xiv	 	
+283	Royal 10 A.xi	 	
+284	105	 	
+285	Additional	 	8930 fols. 1--3
+286	Helmstadiensis	 	499
+287	Helmstadiensis	 	1006
+288	16	 	
+289		 	
+290	A.3.f.13 (pr. bk)	 	
+291	Royal	 	3 D.vi
+292	Royal	 	7 F.xi
+293	Royal	 	15 C.xvi
+294	Bodley	 	415
+295	18	 	
+296	EL 7 H.8	 	
+297	EL 9 H.3	 	
+298	EL 9 H.9	 	
+299	EL 9 H.15	 	
+300	44	 	
+301	Royal	 	12 B.xvi
+302	SS.2.15	 	
+303	Wood empt.	 	14
+304	Inc. 37, a, b (pr. bks)	 	
+305	Add. 6866	 	
+306	Additional	 	9830, flyleaf
+307	Ottobon. lat.	 	352 fols. 1--86
+308	Ii.1.1	 	
+309	111	 	
+310	R. 14. 49	 	
+311	Burney	 	5
+312	QB. 7/1021	 	
+313	Lat. th.	 	d.1
+314	Mellon	 	37 fols i--iii and pastedowns
+315	1	 	
+316	MS Codex 75	 	(olim Lea 23)
+317	Monson 7/52	 	
+318	Cotton Vitellius	 	E.vii fols. 13--70
+319	Royal	 	7 A.iii
+320	Royal	 	9 B.ix
+321	Royal	 	10 A.vii
+322	Royal	 	13 A.vii
+323	Douce	 	158 (pr. bk)
+324	Rawlinson	 	C.504
+325	Rawlinson	 	C.510
+326	Rawlinson	 	D.893 fols. 19--26, 105--106, 113
+327		 	
+328	O. 3. 54	 	
+329	1.381 fols. 81--146	 	
+330	3.833	 	
+331	Additional	 	10596, fols. 25--83
+332	Cotton Otho	 	A.v
+333	1495.4	 	
+334	194 fols. 41--104	 	
+335	Bodley	 	155
+336	Bodley	 	923
+337	Laud. lat.	 	19
+338	lat.	 	41
+339	169	 	
+340	fr.	 	1038
+341	17	 	
+342	d.iii.11	 	
+343	Royal	 	3 B.xv
+344	lat. 199	 	
+345	Wentworth Woodhouse deposit	 	
+346	Add.	 	6865
+347	Mm.2.9	 	
+348	204/110	 	
+349	O. 4. 1	 	
+350	Harley	 	3601
+351	Lansdowne	 	431
+352	Arundel	 	10
+353	177	 	
+354	7006 D	 	
+355	Peniarth 	 	356
+356	111 pp. 3--6, 9--54	 	
+357	111 pp. 7--8, 55--56	 	
+358	140	 	
+359	Arundel	 	86
+360	Cotton Claudius	 	B.v
+361	Royal	 	3 B. xvi
+362	Royal	 	5 B.ii
+363	Royal	 	5 B.xiv
+364	Royal	 	5 D. iv, v
+365	Royal	 	5 D. vi
+366	Royal	 	5 D. vii
+367	Royal	 	6 B.i
+368	Royal	 	6 C.xi
+370	Add.	 	xliv
+371	55	 	
+372	lat.	 	147
+373	Kk. 6. 15	 	
+374	Inc. 1982	 	
+375	O. 7. 31	 	
+376	254	 	
+377	H.2.7	 	
+378	Add.	 	22719
+379	P. V. 1	 	
+380	e Mus. 93	 	
+381	Burney	 	282
+382	Cotton	 	Tiberius B. v, part i, fols. 2--73, 77--88
+383	Cotton	 	Nero D. ii fols. 238--241
+384	Cotton	 	Domitian ii fols. 8--130
+385	Lansdowne	 	358
+386	Royal	 	4 C. xi
+387	Royal	 	6 B. xiv
+388	Sloane	 	4031
+389	HM 30319	 	
+390	Bodley	 	724
+391	Digby	 	157
+392	Lat. misc.	 	c.16
+393	Rawlinson	 	B. 150
+394	202	 	
+395	104	 	
+396	O. 5. 4	 	
+398	458/396	 	
+399	43	 	
+400	86	 	
+401	Cotton	 	Caligula A. viii fols. 4--47
+402	Barlow	 	49 fols. 58--114
+403	Advocates	 	3.1.12
+404	Mm.5.37	 	
+405		 	
+406	Douce	 	114
+407	Add.	 	34633
+408	Arch.	 	G.e.5
+409	MSS. 4.1.14	 	
+410		 	
+412	Laud misc.	 	176
+413	Auct.	 	D.inf.2.6
+414	B. 14. 33	 	
+415	O. 9. 25	 	
+416	Mm.2.8	 	
+417	432 fols. 23--58	 	
+418	48 fols. 107--240 (?and fols. 97--106)	 	
+419	Cotton	 	Claudius A. v fols. 46--134a
+420	Bodley	 	755
+421	e Mus.	 	249
+422	Harley	 	231
+423	Royal	 	11 B. vii
+424	Ashmole	 	342, fols. 69--94
+425	Bodley	 	751
+426	Bodley	 	918
+427	Rawlinson	 	C. 86 fols. 2--30
+428	Beinecke	 	426
+429	Rawlinson	 	A. 371
+430		 	
+431	9852C	 	
+432	Brotherton Collection	 	16
+433	Add.	 	39676
+435	Add.	 	61901
+436	225	 	
+437	6	 	
+438	67	 	
+439	113 fols. 166--169	 	
+440	190	 	
+441	1420	 	
+442	Ii.3.9	 	
+443	Mm.4.28	 	
+444		 	
+445	757	 	
+446	Bodley	 	127
+447	Additional	 	9381
+448	Harley	 	2399, fols. 47--64
+449	Douce	 	22
+450	Royal	 	7 A.x
+451	Ashmole	 	360 fols. 49--88, 113, 114
+452		 	
+453	Harley	 	212
+454	Fairfax	 	24
+455	Fairfax	 	27
+456		 	
+457	Add.	 	37787
+458	Bodley	 	168
+459	Laud Misc.	 	606
+460		 	
+461	Royal	 	13 A.v
+462	198 fols. 176--183	 	
+463	Harley	 	4795
+464	327	 	
+465	Junius	 	1
+466	Rawlinson	 	A.411
+467	37	 	
+468	?.A.3.4	 	
+469	O. 5. 17	 	
+470	Royal	 	6 E. iv
+471	269	 	
+472	P.v.1	 	
+473	e Mus.	 	93
+474	Laud misc.	 	667
+475	Sloane	 	441
+476	Royal	 	3 A.xi
+477	174	 	
+478	406/627	 	
+479	Cosin	 	V.v.19
+480	Harley	 	50
+481	Bodley	 	357
+482	Digby	 	53
+483	Fairfax	 	15 (= Auct. D. inf. 2. 7)
+484	325	 	
+485	3	 	
+486	4	 	
+487		 	
+488	2	 	
+489	I. b. 23	 	
+490	Royal	 	2 D.x
+491	Royal	 	5 E.ix
+492	Royal	 	8 F.v
+493	355	 	
+494	49	 	
+495	Auct.	 	QQ. supra 2.15
+496	6	 	
+497	Bodley	 	618
+498	Lyell	 	38
+499	165	 	
+500	173	 	
+501	3	 	
+502	144	 	
+503	49	 	
+504	Royal	 	5 E. iv
+505	Digby	 	72
+506		 	
+507	UB.	 	S.II.51
+508	Ashmole	 	1523
+509	Sloane	 	2400
+510	Tanner	 	191
+511	Cotton	 	Otho A. iv fols. 1--66
+512	Sloane	 	513
+513	Harley	 	2931
+514	713	 	
+515	77	 	
+516	B. 1. 1	 	
+517	154	 	
+518	B. 1. 3	 	
+519	B. 1. 4	 	
+520	B. 1. 11	 	
+521	B. 1. 12	 	
+522	B. 1. 13	 	
+523	B. 1. 29	 	
+524	B. 1. 31	 	
+525	B. 1. 32	 	
+526	B. 1. 33	 	
+527	B. 1. 34	 	
+528	B. 1. 35	 	
+529	B. 1. 36	 	
+530	B. 1. 39	 	
+531	B. 2. 5	 	
+532	B. 2. 15	 	
+533	B. 3. 8	 	
+534	B. 3. 15	 	
+535	B. 3. 16	 	
+536	B. 4. 3	 	
+537	B. 14. 5	 	
+538	O. 7. 9	 	
+539	Ii. 2. 3	 	
+540	6121	 	
+541	Add.	 	11881
+542	Harley	 	3038
+543	73	 	
+544	107	 	
+545	109	 	
+546	456 fols. 1--126	 	
+547	457 fols. 193--254	 	
+548	477	 	
+549	488 fols. 89--126	 	
+550	Bodley	 	371
+551	Bodley	 	395
+552	Bodley	 	730
+553	35A	 	
+554	39	 	
+555	40	 	
+556	150	 	
+557	173B	 	
+558	229	 	
+559	lat.	 	88
+560	XII	 	
+561	IC.29955--56	 	
+562	Peniarth	 	390C
+563	Inc.	 	3057
+564	281	 	
+565	353	 	
+566	A.2.1	 	
+567	O. 8. 36	 	
+568	Add.	 	23944
+569	Cotton	 	Vespasian E. III, art. 1
+570	Cotton	 	Cleopatra A. II
+571	C.77.d.17	 	
+572		 	
+573	i.12.15	 	
+574	v.4.12	 	
+575	v.2.13	 	
+576	LR.4.e.10	 	
+577	SR.62.a.2	 	
+578	SR.77.g.13	 	
+579	lat. 113	 	
+580	810A	 	
+581	E 5/9/408.7	 	
+582	A 8/1	 	
+583	Add.	 	850
+584	Add.	 	4406, pt 1
+585	Add.	 	6006
+586	Add.	 	6190
+587	Add.	 	6860
+588	Ff.1.27 pp. 253--642	 	
+589	Ff.3.5	 	
+590	Ii.6.5	 	
+591	Oo.6.110 fols. 84--90	 	
+592	Oo.7.48 fols. 16--26	 	
+593	s.n.	 	
+594	2	 	
+595	66A	 	
+596	135	 	
+597	251	 	
+598	404	 	
+599	113/182	 	
+600	145/195	 	
+601	154/204	 	
+602	225/240	 	
+603	480/476	 	
+604	Q. B. 1	 	
+605	3	 	
+606	7	 	
+607	1	 	
+608	2	 	
+609	3	 	
+610	4	 	
+611	5	 	
+612	7	 	
+613	8	 	
+614	9	 	
+615	10	 	
+616	11	 	
+617	12	 	
+618	15	 	
+619	16	 	
+620	17	 	
+621	18	 	
+622	19	 	
+623	20	 	
+624	21	 	
+625	23	 	
+626	22	 	
+627	24	 	
+628	25	 	
+629	26	 	
+630	27	 	
+631	28	 	
+632	29	 	
+633	30	 	
+634	31	 	
+635	32	 	
+636	33	 	
+637	34	 	
+638	35	 	
+639	36	 	
+640	39	 	
+641	38	 	
+642	37	 	
+643	39	 	
+644	40	 	
+645	41	 	
+646	42	 	
+647	43	 	
+648	44	 	
+649	45	 	
+650	46	 	
+651	47	 	
+652	48	 	
+653	49	 	
+654	50	 	
+655	51	 	
+656	52	 	
+657	53	 	
+658	54	 	
+659	55	 	
+660	56	 	
+661	57	 	
+662	58	 	
+663	59	 	
+664	60	 	
+665	61	 	
+666	62	 	
+667	63	 	
+668	64	 	
+669	65	 	
+670	66	 	
+671	67	 	
+672	68	 	
+673	69	 	
+674	70	 	
+675	71	 	
+676	72, i	 	
+677	72, ii	 	
+678	73	 	
+679	74	 	
+680	75	 	
+681	76	 	
+682	77	 	
+683	78	 	
+684	79	 	
+686	80	 	
+687	81	 	
+688	83	 	
+689	84	 	
+690	85, i	 	
+691	85, ii	 	
+692	85, iii	 	
+693	87	 	
+694	88	 	
+695	89	 	
+696	90	 	
+697	91	 	
+698	92	 	
+699	94	 	
+700	95	 	
+701	96	 	
+702	97	 	
+703	98	 	
+704	99	 	
+705	100	 	
+706	101 fols. 1--93	 	
+707	102, 1	 	
+708	102, ii	 	
+709	104	 	
+710	105	 	
+711	107	 	
+712	108	 	
+713	109	 	
+714	111	 	
+715	114	 	
+716	115	 	
+717	118	 	
+718	120	 	
+719	163	 	
+720	B. 13 (35)	 	
+721	C.23 (73)	 	
+722	D.17 (92)	 	
+723	D.19 (94)	 	
+724	F.1 (138)	 	
+725	F.3 (140)	 	
+726	F.12 (149)	 	
+727	G.2 (170)	 	
+728	102	 	
+729	R. 3. 50	 	
+730	R. 7. 28 pp. 1--73	 	
+731	R. 14. 34	 	
+732	Norton. c.18	 	
+733	Richardson	 	26
+734	Fragmenta Manuscripta	 	14
+735	492	 	
+736	HM 31151	 	
+737	Cosin	 	V.iii.20
+738	Cosin	 	V.v.3
+739	163	 	
+740	Hunterian	 	U. 1. 13 (209)
+741	P.iii.1	 	
+742	4	 	
+743	6 fols. 1--176	 	
+744	8, i	 	
+745	8, ii	 	
+746	238	 	
+747	Add.	 	24199
+748	Campbell Roll	 	xxi.1
+749	Cotton	 	Julius A.i fols. 3--43, 73
+750	Cotton	 	Julius E.vii
+751	Cotton	 	Tiberius B.ii fols. 2--85
+752	Cotton	 	Claudius A.xii fols. 81--192
+753	Cotton	 	Galba E.iv fols. 187--244
+754	Cotton	 	Vitellius C.viii fols. 91--130
+755	Cotton	 	Vitellius D.xv fols. 1--28
+756	Cotton	 	Titus A.viii fols. 65--145
+757	Egerton	 	2782
+758	Harley	 	51
+759	Harley	 	76
+760	Harley	 	447
+761	Harley	 	1005
+762	Harley	 	1206
+763	Harley	 	2977
+764	Harley	 	3977
+765	Harley	 	4025
+766	Harley	 	4968
+767	Harley	 	4971
+768	Harley	 	5334
+769	Harley	 	5388
+770	Harley	 	5442
+771	Royal	 	2 E.ix
+772	Royal	 	5 A.viii
+773	Royal	 	6 B.x
+774	Royal	 	6 C.ii
+775	Royal	 	7 B.ix
+776	Royal	 	7 C.ii
+777	Royal	 	7 C.v
+778	Royal	 	7 C.xi
+779	Royal	 	7 E.i
+780	Royal	 	8 B.iv
+781	Royal	 	8 C.iv fols. 2--156
+782	Royal	 	8 C.iv fols. 157--211
+783	Royal	 	8 E.x
+784	Royal	 	8 F.xiv
+785	Royal	 	10 B.xii
+786	Royal	 	11 B.iii
+787	Royal	 	12 C.vi
+788	Royal	 	12 F.xv
+789	IB.40248	 	
+790	Arundel	 	30
+791	67	 	
+792	90	 	
+793	105 fols. 1--133	 	
+794	120	 	
+795	218 fols. 90--114	 	
+796	218 fols. 115--208	 	
+797	362	 	
+798	HM 45717	 	
+799	Egerton	 	3776
+800		 	
+801	736	 	
+802	158.926.4g(4)	 	
+803	158.926.4g(4)	 	
+804	deposited	 	
+805		 	
+806	Add.	 	C. 181
+807	Auct.	 	7.Q.7.24
+808	Bodley	 	130
+809	Bodley	 	216
+810	Bodley	 	225
+811	Bodley	 	240
+812	Bodley	 	297
+813	Bodley	 	356
+814	Bodley	 	412
+815	Bodley	 	426 fols. 119--263
+816	Bodley	 	715
+817	Bodley	 	716
+818	Bodley	 	737
+819	Bodley	 	860
+820	Holkham misc.	 	37
+821	Lat. hist.	 	d.4
+822	Lat. th. 	 	c.26
+823	Laud misc.	 	85
+824	Laud misc.	 	233
+825	Laud misc.	 	291
+826	Laud misc.	 	742
+827	Laud Or.	 	174
+828	e Mus.	 	6
+829	e Mus.	 	7
+830	e Mus.	 	8
+831	e Mus.	 	9
+832	e Mus.	 	26
+833	e Mus.	 	27
+834	e Mus.	 	31
+835	e Mus.	 	32
+836	e Mus.	 	33
+837	e Mus.	 	34
+838	e Mus.	 	36
+839	e Mus.	 	112
+840	Rawlinson	 	C.697
+841	Seld. sup.	 	31
+842	49	 	
+843	175	 	
+844	197	 	
+845	43	 	
+846	209	 	
+847	74	 	
+848	Reg. lat.	 	12
+849	Town Library	 	1
+850		 	
+851	IB.55315	 	
+852	Res.	 	b.162
+853	440/438	 	
+854	O. 1. 52	 	
+855	O. 3. 42	 	
+856	45 fols. 22--170	 	
+857	Advocates	 	18.8.19
+858	Add.	 	35180
+859	Add.	 	38816, fols. 18--20
+860	Arundel	 	368
+861	Cotton	 	Tiberius D.vi fols. 149--150
+862	Cotton	 	Vespasian E.iv fols. 100--103, 211
+863	Cotton	 	Faustina B.iv fols. 180--182
+864	Cotton	 	Julius A.xi fol. 114
+865	Cotton	 	Cleopatra B.iv fols. 2--30
+866	Cotton	 	Faustina B.i fols. 2--11
+867	Royal	 	8 F.xv
+868	Harley	 	3641
+869	Royal	 	5 E.xxii
+870	Royal	 	15 A.xx
+871	1510 nos. 20, 21	 	
+872	lat.	 	153
+873	Laud misc.	 	149
+874	Bodley	 	842
+875	46	 	
+876	xvi.I.7	 	
+877	Additional	 	62452
+878	12	 	
+879	Additional	 	48984
+880	Ee.6.31	 	
+881	O. 8. 20	 	
+882	Add.	 	18899
+883	21	 	
+884	348	 	
+885	403	 	
+886	2370	 	
+887		 	
+888	Add.	 	9831, fols. 2--12
+889	Cotton	 	Cleopatra C.ix fols. 63--165
+890	Sloane	 	1726
+891		 	
+892	Bodley	 	355 fols. 159--223
+893	133	 	
+894	214	 	
+895	182	 	
+896	Ottoboni lat.	 	69
+897	Ottoboni lat.	 	71
+898	Ottoboni lat.	 	96
+899	Ottoboni lat.	 	101
+900	Ottoboni lat.	 	325
+901	Ottoboni lat.	 	352 fols. 1--86
+902	Ottoboni lat.	 	611
+903	Ottoboni lat.	 	623
+904	Ottoboni lat.	 	1126
+905	Ottoboni lat.	 	1276
+906	Ottoboni lat.	 	2048
+907	Ottoboni lat.	 	2088
+908	M.1.27	 	
+909	Town Library	 	6E
+910	Royal	 	10 B.vii
+911	Ottoboni lat.	 	85
+912	Ottoboni lat.	 	99
+913	Ottoboni lat.	 	104
+914	Ottoboni lat.	 	150, i
+915	Ottoboni lat.	 	159
+916	Ottoboni lat.	 	187
+917	Ottoboni lat.	 	208 fols. 87--324
+918	Ottoboni lat.	 	271
+919	Ottoboni lat.	 	277
+920	Ottoboni lat.	 	442
+921	Ottoboni lat.	 	640
+922	Ottoboni lat.	 	862
+923	Ottoboni lat.	 	2055
+924	Ottoboni lat.	 	758
+925	Vat. lat.	 	3056
+926	Vat. lat.	 	7095
+927	121	 	
+928	127	 	
+929	115	 	
+930	1084	 	
+931	Ottoboni lat.	 	73
+932	Ottoboni lat.	 	116
+933	Ottoboni lat.	 	181
+934	Ottoboni lat.	 	182
+935	Ottoboni lat.	 	186
+936	Ottoboni lat.	 	188
+937	Ottoboni lat.	 	193
+938	Ottoboni lat.	 	194
+939	Ottoboni lat.	 	196
+940	Ottoboni lat.	 	200
+941	Ottoboni lat.	 	202
+942	Ottoboni lat.	 	214
+943	Ottoboni lat.	 	229
+944	Sloane	 	1621
+945	Ottoboni lat.	 	235
+946	Ottoboni lat.	 	323
+947	Ottoboni lat.	 	326
+948	Ottoboni lat.	 	331
+949	Ottoboni lat.	 	342
+950	Ottoboni lat.	 	427
+951	Ottoboni lat.	 	357
+952	Ottoboni lat.	 	426
+953	Ottoboni lat.	 	426
+954	Ottoboni lat.	 	468
+955	Ottoboni lat.	 	612
+956	Ottoboni lat.	 	630
+957	Ottoboni lat.	 	1407
+958	Ottoboni lat.	 	746
+959	Ottoboni lat.	 	1603
+960	Ottoboni lat.	 	1757
+961	Ottoboni lat.	 	1764
+962	Ottoboni lat.	 	2071
+963	Vat. lat.	 	4954
+964	68	 	
+965	364/619	 	
+966	414/631	 	
+967	Inc.49	 	
+968	9, ii	 	
+969	R. 9. 9	 	
+970	lat.	 	4928
+971	E.VI.10	 	
+972	Add.	 	9213
+973	Bodley	 	300
+974	Digby	 	178, fols. 15--87
+975	Digby	 	183
+976	150	 	
+977	235	 	
+978	lat.	 	195
+979	Inc.	 	3321
+980	Harley	 	531
+981	Ff. 6. 20	 	
+982	49	 	
+983	F150.d.4.15	 	
+984	Scal. Hebr.	 	8
+985	Harley	 	1705
+986	Royal	 	15 B. iii
+987	Jones	 	41
+988	Cotton	 	Claudius B.ix fols. 2--263
+989	33.1	 	
+990	Royal	 	12 C.xxi
+991	C.V.21	 	
+992	Qq.3.15	 	
+993	VI.15.35	 	
+994	C.15.2	 	
+995	D.8.122	 	
+996	A.3.f.12	 	
+997	H.1970.(D8) [**]	 	
+998	467	 	
+999	227	 	
+1000	Harsnett Library	 	H.f.28
+1001	Lipsius	 	24
+1002	Cotton	 	Claudius A.xiv
+1003	Laud misc.	 	85
+1004	Pepys	 	2329
+1005	C. 5	 	
+1006	D. 16	 	
+1007	Egerton	 	889
+1008	Harley	 	531
+1009	Sloane	 	59
+1010	32	 	
+1011	390	 	
+1012	Ashmole	 	424
+1013	151	 	
+1014	XVIII.F.4.18	 	
+1015	Rawlinson	 	C. 541
+1016	Gen.	 	1126
+1017		 	
+1018	Add.	 	7220
+1019	268	 	
+1020	Add.	 	40675
+1021	Arundel	 	396
+1022	Additional	 	70513
+1023	P.iii.1	 	
+1024	Cotton	 	Cleopatra C.vi
+1025	C.V.220	 	
+1026	18	 	
+1027	Dd. 1. 4	 	
+1028	Dd. 2. 7	 	
+1029	Dd. 8. 15	 	
+1030	Ff. 3. 9	 	
+1031	Ff. 3. 10	 	
+1032	Ff. 3. 19	 	
+1033	Ff. 3. 20	 	
+1034	Ff. 3. 28	 	
+1035	Ff. 3. 29	 	
+1036	Ff. 4. 43	 	
+1037	Ff. 5. 31	 	
+1038	Gg. 4. 17	 	
+1039	Ii. 1. 41	 	
+1040	Ii. 2. 1	 	
+1041	Ii. 3. 1	 	
+1042	Ii. 3. 12	 	
+1043	Ii. 3. 33	 	
+1044	Kk. 1. 20	 	
+1045	Kk. 1. 23	 	
+1046	Kk. 1. 28	 	
+1047	19	 	
+1048	46	 	
+1049	51	 	
+1050	63, fols. 1--198	 	
+1051	63, fols. 199--236	 	
+1052	76, i	 	
+1053	137	 	
+1054	158	 	
+1055	173	 	
+1056	187	 	
+1057	192	 	
+1058	200	 	
+1059	222	 	
+1060	226	 	
+1061	260	 	
+1062	263	 	
+1063	272	 	
+1064	288	 	
+1065	295	 	
+1066	298, i--ii	 	
+1067	304	 	
+1068	326	 	
+1069	337	 	
+1070	341 (inserted leaf)	 	
+1071	345	 	
+1072	371	 	
+1073	375	 	
+1074	400, fols. 150--153	 	
+1075	403	 	
+1076	411	 	
+1077	417	 	
+1078	438	 	
+1079	441	 	
+1080	452	 	
+1081	457	 	
+1082	S.P.71	 	
+1083	148	 	
+1084	149	 	
+1085	210	 	
+1086	5, i	 	
+1087	8, i	 	
+1088	30	 	
+1089	51	 	
+1090	52	 	
+1091	52	 	
+1092	130	 	
+1093	B. I. 17	 	
+1094	B. I. 21	 	
+1095	B. I. 25	 	
+1096	B. 2. 2	 	
+1097	B. 2. 3	 	
+1098	B. 2. 4	 	
+1099	B. 2. 9	 	
+1100	B. 2. 25	 	
+1101	B. 2. 31	 	
+1102	B. 2. 33	 	
+1103	B. 2. 34	 	
+1104	B. 2. 36	 	
+1105	B. 3. 4	 	
+1106	B. 3. 5	 	
+1107	B. 3. 6	 	
+1108	B. 3. 9	 	
+1109	B. 3. 10	 	
+1110	B. 3. 11	 	
+1111	B. 3. 12	 	
+1112	B. 3. 13	 	
+1113	B. 3. 14	 	
+1114	B. 3. 19	 	
+1115	B. 3. 21	 	
+1116	B. 3. 25	 	
+1117	B. 3. 28	 	
+1118	B. 3. 29	 	
+1119	B. 3. 30	 	
+1120	B. 3. 31	 	
+1121	B. 3. 32	 	
+1122	B. 3. 32	 	
+1123	B. 3. 33	 	
+1124	B. 4. 2	 	
+1125	B. 4. 4	 	
+1126	B. 4. 5	 	
+1127	B. 4. 6	 	
+1128	B. 4. 9	 	
+1129	B. 4. 18	 	
+1130	B. 4. 19	 	
+1131	B. 4. 21	 	
+1132	B. 4. 23	 	
+1133	B. 4. 25	 	
+1134	B. 4. 26	 	
+1135	B. 4. 27	 	
+1136	B. 4. 28	 	
+1137	B. 4. 39	 	
+1138	B. 5. 4	 	
+1139	B. 5. 5	 	
+1140	B. 5. 6--7	 	
+1141	B. 5. 8	 	
+1142	B. 5. 8	 	(flyleaves)
+1143	B. 5. 17	 	
+1144	B. 5. 18	 	
+1145	B. 5. 18	 	(flyleaf)
+1146	B. 5. 22	 	
+1147	B. 5. 23	 	
+1148	B. 5. 24	 	
+1149	B. 5. 26	 	
+1150	B. 5. 28	 	
+1151	B. 10. 11	 	
+1152	B. 14. 3	 	
+1153	B. 15. 5	 	
+1154	B. 15. 9--10	 	
+1155	B. 16. 1	 	
+1156	B. 16. 6	 	
+1157	B. 16. 7	 	
+1158	B. 16. 8	 	
+1159	B. 16. 9	 	
+1160	B. 16. 11	 	
+1161	B. 16. 17	 	
+1162	B. 16. 44	 	
+1163	B. 16. 46	 	
+1164	R. 4. 4	 	
+1165	R. 4. 11	 	
+1166	R. 5. 41	 	
+1167	R. 9. 28	 	
+1168	R. 15. 22	 	
+1169	R. 16. 21	 	
+1170	R. 17. 1	 	
+1171	R. 17. 4--5	 	
+1172	O. 2. 31	 	
+1173	O. 2. 51	 	(flyleaves)
+1174	O. 4. 34	 	
+1175	O. 4. 36	 	
+1176	O. 9. 26	 	
+1177	O. 10. 28	 	
+1178	O. 10. 31	 	
+1179	Typ.	 	3
+1180	Lit.B.11	 	(1)
+1181	Lit.A.2	 	(11)
+1182	Lit.B.4	 	(13)
+1183	Lit.C.12	 	(14)
+1184	Lit.B.3	 	(15)
+1185	Lit.A.4	 	(16)
+1186	Lit.D.11	 	(17)
+1187	Lit.D.12	 	(26)
+1188	Lit.B.10	 	(37)
+1189	Lit.A.12	 	(42)
+1190	Lit.A.12	 	(42)
+1191	Lit.E.7--8	 	(43)
+1192	Lit.A.5--7	 	(45)
+1193	Lit.B.1	 	(73)
+1194	Advocates	 	35.1.7
+1195	Lit.E.42 (46), fols. 1--68, 75--81	 	
+1196	53 (D. 8)	 	
+1197	57, ii (B. 7)	 	Lit. MS. B. 13
+1198	62 (E.17)	 	
+1199	65 (A.1)	 	
+1200	67 (D. 7)	 	
+1201	Lit. A. 13 (74)	 	
+1202	Lit.B.1 (73)	 	
+1203	75 (A. 9)	 	
+1204	100 (B.12)	 	
+1205	104 (B.9)	 	
+1206	Add. 	 	6
+1207	Add. 	 	17
+1208	Add. 25	 	
+1209	Add. 128	 	Box ABC
+1210	Add. 20	 	Box CCC, no. 19a
+1211	Add. 127/15	 	Box CCC, no. 23
+1212	Chart. Antiq.	 	A.42
+1213	Register 	 	J.
+1214	Register 	 	P.
+1215		 	
+1216	98 	 	(B.3.6)
+1217	A. 5. 9	 	124
+1218	D.1.26	 	371
+1219	Bamburgh	 	Sel. 40
+1220	78	 	
+1221	91	 	
+1222	139	 	
+1223	213	 	
+1224	Add. 	 	6159
+1225	Add. 	 	6160
+1227	Additional	 	45103
+1228	Arundel	 	16
+1229	Arundel	 	68
+1230	Arundel	 	155
+1231	Cotton Tiberius 	 	A. iii (fols. 2--173)
+1232	Cotton Tiberius 	 	A. iii (fols. 174--177)
+1233	Cotton Tiberius 	 	B. iii (fols. 2--11)
+1234	Cotton Tiberius 	 	B. iv (fol. 87)
+1235	Cotton Caligula	 	A. xiv, fols. 1--92
+1236	Cotton Caligula	 	A. xv, fols. 120--153
+1237	Cotton Claudius	 	A.iii fols. 2--7, 9*
+1238	Cotton Claudius	 	A.iii fols. 9--18, 87--105
+1239	Cotton Claudius	 	A.iii fols. 19--29
+1240	Cotton Claudius	 	B.ii
+1241	Cotton Claudius	 	C.vi fols. 170--203
+1242	Cotton Claudius	 	E.v 
+1243	Cotton Nero	 	A. viii (fols. 1--86)
+1244	Cotton Nero	 	C. vii fols. 29--79
+1245	Cotton Nero	 	C. ix fols. 3--18
+1246	Cotton Nero	 	C. ix fols. 19--21
+1247	Cotton Galba	 	A. xix
+1248	Cotton Galba	 	E. iii
+1249	Cotton Galba	 	E. iv (fols. 1--186)
+1250	Cotton Otho	 	D. viii (fols. 8--173)
+1251	Cotton Vitellius	 	C. iii
+1252	Cotton Vespasian	 	B. xix
+1253	Cotton Vespasian	 	B. xxv
+1254	Cotton Vespasian	 	D. xix (fols. 1--52)
+1255	Cotton Domitian	 	v fols. 2--14
+1256	Cotton Domitian	 	viii fols. 30--70
+1257	Cotton Cleopatra	 	E. i fols. 16--55
+1258	Cotton Faustina	 	B. iii fols. 159--98
+1259	Cotton Faustina	 	B. vi, part 1, fols. 95, 98--100
+1260	Egerton	 	2867
+1261	Egerton	 	3314
+1262	Harley	 	315 fols. 1--39
+1263	Harley	 	624 fols. 84--143
+1264	Harley	 	636
+1265	Harley	 	603
+1266	Royal 	 	1 A.xiv
+1267	Royal 	 	1 D.ix
+1268	Royal 	 	1 E.vii--viii
+1269	Royal 	 	2 D.xxxii
+1270	Royal 	 	7 C.iv
+1271	Royal 	 	7 E.vi (fols. 2--103)
+1272	Royal 	 	10 A.xiii
+1273	Royal 	 	10 B.ix
+1274	Royal 	 	12 D.iv
+1275	20	 	
+1276	59	 	
+1277	62	 	
+1278	180	 	
+1279	194	 	
+1280	303	 	
+1281	399	 	
+1282	415	 	
+1283	430 (flyleaves)	 	
+1284	558	 	
+1285	1212	 	
+1286	1370	 	
+1287	Exch. T.R.	 	Misc. Bks 196 pp. 31--66
+1288	Arc. L.40.2/L.2.	 	
+1289	Arc. L.40.2/L.31.	 	
+1290	Arc. L.40.2/L.32.	 	
+1291	1	 	
+1292	Add.	 	C. 260
+1293	Ashmole	 	1525
+1294	Auct.	 	D.2.2 
+1295	Auct.	 	E.inf.6 
+1296	Auct.	 	E.inf.7
+1297	Bodley	 	1 
+1298	Bodley	 	97
+1299	Bodley	 	97 
+1300	Bodley	 	160 
+1301	Bodley	 	161 
+1302	Bodley	 	196 
+1303	Bodley	 	214 
+1304	Bodley	 	217 
+1305	Bodley	 	251
+1306	Bodley	 	271 
+1307	Bodley	 	281
+1308	Bodley	 	317 
+1309	Bodley	 	336 
+1310	Bodley	 	345
+1311	Bodley	 	345
+1312	Bodley	 	379 
+1313	Bodley	 	385 
+1314	Bodley	 	648 
+1315	Bodley	 	827
+1316	Canonici	 	gr. 35
+1317	Digby	 	4
+1318	Digby	 	5, fols. 1--72
+1319	Digby	 	13
+1320	Digby	 	28
+1322	Digby	 	92
+1323	Digby	 	222
+1324	Junius	 	11 
+1325	Lat. Misc.	 	b.12 fol. 8
+1326	Lat. Misc.	 	d.13 (30572)
+1327	Lat. Misc.	 	d.14
+1328	Lat. Misc.	 	d.30 
+1329	Laud Misc. 	 	160
+1330	Laud. Misc. 	 	576
+1331	Laud. misc. 	 	165
+1333	Laud Misc. 	 	412
+1334	Laud. misc. 	 	161
+1335	Rawlinson	 	B.188
+1336	Rawlinson	 	C.168 fols. 45--108
+1337	Rawlinson	 	C.269
+1338	Tanner	 	15
+1339	Tanner	 	165
+1340	189	 	
+1341	lat. 166	 	
+1342	328 fols. 1--60 	 	K. 1. 7
+1343	300	 	
+1344	89	 	
+1345	194	 	
+1346	68	 	
+1347	Lat.	 	770
+1348	Lat.	 	987
+1349	Lat.	 	10062 fols. 162, 163
+1350	Lat.	 	10062 fols. 162, 163
+1351	Lat.	 	10062 fols. 162, 163 (two leaves)
+1352	Lat.	 	10062 fols. 162, 163 (two leaves)
+1353	nouv. acq. 	 	lat. 1670
+1354	Lat.	 	10062 fols. 162, 163 (two leaves)
+1356	5	 	
+1357	xxvi	 	
+1358	A.100.1300	 	
+1359	32 fols. 1--91	 	
+1360	5	 	
+1361	C.3.8	 	
+1362		 	
+1363	MS. Papers 2 (one folio)	 	(P. Watts Rule)
+1364	(deposit)	 	
+1365	Lat.	 	10062 fols. 162, 163 (two leaves)
+1366	A. 135	 	
+1367	1	 	
+1369	Digby	 	222
+1370	Rawlinson	 	C.269
+1371	1103 (444--52)	 	
+1372	Additional	 	3578
+1373	Ee.6.37	 	
+1375	Ff.4.40	 	
+1376	Ff.6.16	 	
+1377	Gg.5.35	 	
+1378	Ii.1.15	 	
+1379	Ii.2.24	 	
+1380	Kk.1.17	 	
+1381	Kk.1.19	 	
+1382	1	 	
+1383	13	 	
+1384	14	 	
+1385	20	 	
+1386	38	 	
+1387	44	 	
+1388	49	 	
+1389	50	 	
+1390	81	 	
+1391	94	 	
+1392	129	 	
+1393	144	 	
+1394	154	 	
+1395	189	 	
+1396	267	 	
+1397	270	 	
+1398	271	 	
+1399	274	 	
+1400	276	 	
+1401	284	 	
+1402	286	 	
+1403	291	 	
+1404	301	 	
+1405	312	 	
+1406	314	 	
+1407	352	 	
+1408	364	 	
+1409	382	 	
+1410	389	 	
+1411	466	 	
+1412	144	 	
+1413	211	 	
+1414	238	 	
+1415	361	 	
+1416	435	 	
+1417	456	 	
+1418	Pepys	 	2314
+1419	10 (A. 10)	 	
+1420	43 (B.21)	 	
+1421	78 (D.3)	 	
+1422	97 (D.22)	 	
+1423	99 (D.24)	 	
+1424	142 (F. 5)	 	
+1425	164 (F.27)	 	
+1426	171 (G.3)	 	
+1427	230 (K.25)	 	
+1428	262 (K.21)	 	
+1429	B. 1. 40	 	
+1430	B. 1. 42	 	
+1431	B. 4. 1	 	
+1432	B. 14. 37	 	
+1433	R. 14. 30	 	
+1434	R. 15. 14	 	
+1435	R. 14. 31	 	
+1436	O. 2. 51	 	
+1437	R. 15. 32	 	
+1438	O. 3. 7	 	
+1439	O. 3. 43	 	
+1440	O. 4. 10	 	
+1441	O. 4. 11	 	
+1442	1	 	
+1443	Lit.B.6(4)	 	
+1444	Lit.D.6(34)	 	
+1445	Lit.D.5(49)	 	
+1446	Lit.D.16(58)	 	
+1447	Lit.A.8(68)	 	
+1448	Add. 16 (one folio)	 	
+1449	W.27	 	
+1450	Cosin	 	V.ii.9
+1451	Advocates	 	18.6.8
+1452	78	 	
+1453	3529	 	
+1454	Hunter	 	253 (U.4.11)
+1455	Hunter	 	379 (V.1.16)
+1456	Scaliger	 	69
+1457	Scaliger	 	Hebr. 8
+1458	Additional	 	6042
+1459	Additional	 	26770
+1460	Additional	 	33241
+1461	Additional	 	35289
+1462	Additional	 	37517
+1463	Additional	 	46352
+1464	Additional	 	48178
+1465	Arundel	 	57
+1466	Arundel	 	91
+1467	Arundel	 	165
+1468	Arundel	 	282
+1469	Arundel	 	310
+1470	Burney	 	3
+1471	Burney	 	11
+1472	Burney	 	36
+1473	Cotton Julius	 	D.ii
+1474	Cotton Julius	 	D.xi fols. 85--93
+1475	Cotton Tiberius 	 	A.iii fol. 178
+1476	Cotton	 	Tiberius A.vi. fols. 1--35
+1477	Cotton Tiberius 	 	A.vii fols. 1--38
+1478	Cotton Tiberius 	 	A.ix fols. 107--80
+1479	Cotton Caligula	 	A.xv fols. 3--117
+1480	Cotton Claudius	 	B.iv
+1481	Cotton Nero	 	A.viii fols. 1--86
+1482	Cotton Otho	 	E.xiii
+1483	Cotton Vitellius	 	A.ii fols. 3--19
+1484	Cotton Vitellius	 	A.vi
+1485	Cotton Vitellius	 	A.x fols. 1--18
+1486	Cotton Vitellius	 	C.xii fols. 114--57
+1487	Cotton Vitellius	 	C.xii fols. 114--57
+1488	Cotton Vitellius	 	D.xvi
+1489	Cotton Vespasian	 	A.i
+1490	Cotton Vespasian	 	A.ii 
+1491	Cotton Vespasian	 	B.xx
+1492	Cotton Vespasian	 	D.vi fols. 2--77
+1493	Cotton Vespasian	 	E.xi fols. 46--132
+1494	Cotton Titus	 	A.xxvii
+1495	Cotton	 	Domitian i, fols. 2--55
+1496	Cotton Cleopatra	 	A.xii fols. 79--144
+1497	Cotton Cleopatra	 	B.xiii fols. 59--90
+1498	Cotton Cleopatra	 	D.i fols. 1--128
+1499	Cotton Faustina	 	C.xii
+1500	Egerton	 	823 
+1502	Harley	 	1
+1503	Egerton	 	874
+1504	Harley	 	13
+1505	Harley	 	105
+1507	Harley	 	641 fols. 1--115
+1508	Harley	 	647
+1509	Harley	 	652
+1510	Harley	 	1524
+1511	Harley	 	3224
+1512	Harley	 	3644
+1513	Harley	 	3908 fols. 1--100
+1514	Harley	 	4132
+1515	Harley	 	5431
+1516	Harley	 	5369
+1517	Lansdowne	 	359
+1518	Royal	 	1 A.vii
+1519	Royal	 	1 A.xviii
+1520	Royal	 	1 B.xi
+1521	Royal	 	1 E.vi
+1522	Royal	 	3 A.i
+1523	Royal	 	3 A.ii
+1524	Royal	 	4 A.x
+1525	Royal	 	4 A.xi
+1526	Royal	 	5 B.xv
+1527	Royal	 	6 C.i
+1528	Royal	 	7 D.ii
+1529	Royal	 	8 A.vi
+1530	Royal	 	8 C.xvii
+1531	Royal	 	9 B.i
+1532	Royal	 	9 C.vi
+1533	Royal	 	9 E.vii
+1534	Royal	 	10 B.xiv
+1535	Royal	 	11 A.vi
+1536	Royal	 	11 A.xii
+1537	Royal	 	11 B.xiv
+1538	Royal	 	12 B.ix
+1539	Royal	 	12 D.ix
+1540	Royal	 	12 E.xxiii
+1541	Royal	 	13 A.xxii
+1542	Royal	 	13 A.xxiii
+1543	Royal	 	13 B.viii
+1544	Royal	 	15 A.vi
+1545	Royal	 	15 A.xvi
+1546	Royal	 	15 B.vi
+1547	Stowe	 	378
+1548	3	 	
+1549	49	 	
+1550	116 fols. i, 1--131 (part i)	 	
+1551	144 fols. i, ii, 1--163 (part i)	 	
+1552	179 fols. 99--196	 	
+1553	185	 	
+1554	414 fols. 1--80 (part i)	 	
+1555	419	 	
+1556	430	 	
+1557	498	 	
+1558	522	 	
+1559	1213	 	
+1560	Exch. K.R.	 	Misc. Bks 1.27
+1561	Add.	 	54229
+1562	177	 	
+1563	1	 	
+1564	Manuscripts and Archives Division	 	8
+1565		 	
+1566	18	 	
+1567	18	 	
+1568	G.53	 	
+1569	158.926.4g(2)	 	
+1570	Ashmole	 	341, fols. 1--144
+1571	Ashmole	 	1431
+1572	Auct.	 	F.6.3.
+1573	Barlow	 	32
+1574	Bodley	 	97
+1575	Bodley	 	144
+1576	Bodley	 	299
+1577	Bodley	 	381
+1578	Bodley	 	391
+1579	Bodley	 	426 fols. 1--118
+1580	Bodley	 	464
+1581	Bodley	 	507
+1582	Bodley	 	521
+1583	Bodley	 	572
+1584	Bodley	 	596 fols. 175--214
+1585	Bodley	 	600
+1586	Bodley	 	679
+1587	Bodley	 	746
+1588	Bodley	 	826
+1589	Digby	 	174
+1590	Douce	 	88 fols. 68--154
+1591	Douce	 	89
+1592	Fell	 	2
+1593	Hatton	 	94
+1594	Lat. bib.	 	b.2(P)
+1595	Lat. liturg.	 	a.6 fol. 38
+1596	Lat. th.	 	b.2 fol. 2
+1597	Laud. Lat.	 	65
+1598	Laud. misc. 	 	225
+1599	Laud. Misc.	 	296
+1600	Laud. Misc.	 	300
+1601	Laud. Misc.	 	385
+1602	Lyell	 	1
+1603	Marshall	 	19 (kept as Arch. F. d. 27)
+1604	e Museo	 	66
+1605	e Museo	 	223
+1606	Rawlinson	 	C.7
+1607	Rawlinson	 	C.117
+1608	Rawlinson	 	C.159
+1609	Rawlinson	 	C.570
+1610	Seldon supra	 	26
+1611	Seldon supra	 	25
+1612	Seldon supra	 	30 (= Arch. F. d. 31)
+1613	Seldon supra	 	90 fols. 30--37
+1614	1	 	
+1615	41	 	
+1616	65	 	
+1617	125	 	
+1618	130	 	
+1619	221	 	
+1620	248	 	
+1621	254 fols. 191--196	 	
+1622	283	 	
+1623	307	 	
+1624	66B	 	
+1625	152	 	
+1626	4	 	
+1627	19	 	
+1628	21	 	
+1629	117	 	
+1630		 	
+1631	nouv. acq. 	 	lat. 873
+1632	Helmstadiensis	 	481
+1633	xvi.D.6	 	
+1634	B. 16. 12	 	
+1635	P.v.10 fols. 80--124	 	
+1636	36	 	
+1637	195 (B.4.8)	 	
+1638	Cotton Galba	 	E.xi
+1639	Royal	 	2 D.xxiv
+1640	Royal	 	3 C.vi
+1641	Royal	 	3 C.xi
+1642	Royal	 	3 D.ii
+1643	Royal	 	3 D.iv
+1644	Royal	 	3 E.ix
+1645	Royal	 	4 C.i
+1646	1483.5	 	
+1647	Digby	 	153
+1648	Rawlinson	 	poet. 137
+1649	37	 	
+1650	Rawlinson	 	D.913 fols. 83--89
+1651	Royal	 	6 B.xi
+1652	B.IV.38	 	
+1653	Bodley	 	728
+1654		 	
+1655	1	 	
+1656	Peniarth	 	1
+1657	Bodley	 	36
+1658	90	 	
+1659	Hh.3.11	 	
+1660	Ll.1.10	 	
+1661	B. 14. 33	 	
+1662	O. 2. 45	 	
+1663	Egerton 	 	843
+1664	Auct.	 	D.4.13
+1665	189	 	
+1666	Additional	 	24067
+1667	Royal	 	6 D.i
+1668	7	 	
+1669	Lat. liturg.	 	e.6
+1670	Lat. liturg.	 	e. 37
+1671	67	 	
+1672	Lat. liturg.	 	e. 39
+1673	D.13.5 Linc.	 	
+1674	Lat. liturg.	 	d.42
+1675	DN 4923	 	
+1676	lat. 194	 	
+1677	Ff.6.9	 	
+1678	Gg.5.34	 	
+1679	46	 	
+1680	271	 	
+1681	Cotton Otho	 	B.iii fols. 1, 2
+1682	Royal	 	4 E.viii
+1683	Royal	 	8 F.ix
+1684	Royal	 	11 B.xiii
+1685	3	 	
+1686	14 fols. 1--138	 	
+1687	19	 	
+1689	Bodley	 	373
+1690	Sloane	 	285
+1691	Bodley	 	672
+1692	Tanner	 	169*
+1693	8	 	
+1694	57	 	
+1695	VII (Mus. III. 43)	 	
+1696	EL 	 	34 B. 7
+1697	1	 	
+1698	2	 	
+1699	5	 	
+1700	7	 	
+1701	11	 	
+1702	12	 	
+1703	Lat. Misc.	 	d.74
+1704	i (Mus. 27)	 	
+1705	xxiv (viii)	 	
+1706	xxxv (11)	 	
+1707	Dd.10.20	 	
+1708	16	 	
+1709	25	 	
+1710	26	 	
+1711	28	 	
+1712	O. 3. 35	 	
+1713	Hunterian	 	20
+1714	216	 	
+1715	Cotton Vitellius	 	A.xvii fols. 1--16
+1716	Harely	 	6
+1717	Landsdowne	 	431
+1718	M.6	 	
+1719	Auct.	 	D.3.14
+1720	Bodley	 	142
+1721	Bodley	 	374
+1722	Laud Lat. 	 	95
+1723	Laud Misc.	 	607
+1724	49	 	
+1725	88	 	
+1726	95	 	
+1727	148	 	
+1728	lat. 15170 fols. 126--162	 	
+1729	198	 	
+1730	216	 	
+1731	85	 	
+1732	Arundel	 	83
+1733	Auct.	 	E.infra 4
+1734	Ff.1.31	 	
+1735	O.i.3	 	
+1736	O.i.6	 	
+1737	O.i.10	 	
+1738	O.ii.4	 	
+1739	O.iii.10	 	
+1740	O.v.10	 	
+1741	O.v.14	 	
+1742	O.vi.10	 	
+1743	P.i.12	 	
+1744	P.i.17	 	
+1745	P.ii.14	 	
+1746	P.ii.15	 	
+1747	P.iii.7	 	
+1748	P.iv.8	 	
+1749	P.iv.9	 	
+1750	P.v.3	 	
+1751	P.v.4	 	
+1752	P.v.9	 	
+1753	Cotton Vespasian	 	A.xv
+1754	Royal	 	3 A.xii
+1755	Royal	 	5 E.xviii
+1756	Royal	 	7 F.i
+1757	Royal	 	7 F.vi
+1758	Barlow	 	48
+1759	Bodley	 	284
+1760	Laud Lat.	 	17
+1761	82	 	
+1762	26	 	
+1763	34	 	
+1764	48	 	
+1765	52	 	
+1766	53	 	
+1767	62	 	
+1768	63	 	
+1769	67	 	
+1770	68	 	
+1771	70	 	
+1772	94	 	
+1773	Bodley	 	797
+1774	Rawlinson	 	A.420
+1775	Rawlinson	 	C.317
+1776	Ii.2.25	 	
+1777	31	 	
+1778	54	 	
+1779	89	 	
+1780	Cotton Vespasian	 	D.x fols. 4--128
+1781	Royal	 	5 B.ix
+1782	Royal	 	6 D.vi
+1783	Arundel	 	11
+1784	HM 27186	 	
+1785	O. 7. 41	 	
+1786	Gough Essex	 	1
+1787	Harley 	 	1132
+1788	Voss. lat.	 	F.18
+1789	182	 	
+1790	78	 	
+1791	Lat. Misc.	 	f.37
+1793	B.II.32	 	
+1794	Additional	 	24059
+1795	Harley	 	4664
+1796	Harley	 	4747
+1797	13	 	
+1798	49	 	
+1799	S.2.5 (pr. book)	 	
+1802	126	 	
+1803	Pal. lat.	 	65
+1804	Regin. lat.	 	694
+1805	Helmstadiensis	 	927
+1806	26	 	
+1807	O. 1. 64	 	
+1808	Royal	 	12 G.iv
+1809	Auct.	 	F.3.9.
+1810	Bodley	 	901
+1811	Digby	 	104, fols. 169--174
+1812	Digby	 	33
+1813	Digby	 	115
+1814	123	 	
+1815	Digby	 	139
+1816	11	 	
+1817	276	 	
+1818	Royal	 	5 A.v
+1819	R. 15. 16	 	
+1820	H.h.14 (pr. bk)	 	
+1821	Harley	 	5116
+1822	Rawlinson	 	D.238
+1823	Hamilton	 	503
+1824	A.IV.9	 	
+1825	B.8.G.17 (pr. bk)	 	
+1826	39	 	
+1827	Bodley	 	159
+1828	Bodley	 	383
+1829	Bodley	 	390
+1830	Bodley	 	793
+1831	Bodley	 	863
+1832	90	 	
+1833	91	 	
+1834	91	 	
+1835	Z.e.38	 	
+1836	5	 	
+1837	73	 	
+1838	2	 	
+1839	852	 	
+1840	370	 	
+1841	Add.	 	35168
+1842	Arundel	 	230
+1843	Egerton 	 	3759
+1844	Lansdowne	 	338
+1845	145 fols. 138--256	 	
+1846	873	 	
+1847	Lat. fr. 	 	145
+1848	Douce	 	296
+1849	Rawlinson	 	C.531
+1850	Lat. 5557	 	
+1851	Garrett	 	119
+1852	M.J.B.13	 	
+1853	Harley ROLL	 	Y.6
+1854	Gg.1.22	 	
+1855	Q.4.16 (pr. bk)	 	
+1856	Add.	 	34633
+1857	Cotton Faustina	 	B.vi part 1, fols. 41--94
+1858	Advocates	 	18.8.11
+1859		 	
+1860	Don.	 	e.598
+1861	84	 	
+1862	2	 	
+1863	Auct. D.inf.	 	2.8
+1864	Laud gr.	 	28
+1865	e Mus.	 	222
+1866	Add.	 	767
+1867	26542	 	
+1868	490 	 	
+1869	Harley 	 	2254
+1870	717	 	
+1871	Douce	 	322
+1872	Bodley	 	255 fols. 1--44
+1873	Rawlinson	 	G.59
+1874	2	 	
+1875	Cotton Julius	 	B.xiii fols. 2--47
+1876	Ii.6.32	 	
+1877	21182	 	
+1878	PA.3895.P.6	 	
+1879	Hatton	 	18
+1880	Additional	 	8335
+1881	Egerton 	 	2710
+1882	Kk.1.11	 	
+1883	51 	 	
+1884	223	 	
+1885	Q.ii.6	 	
+1886	HM 55	 	
+1887		 	
+1888	9 fols. 32--154	 	
+1889	Savile	 	20
+1890		 	
+1891	65 	 	
+1892	O. 4. 42	 	
+1893	P.i.13	 	
+1894	P.v.5	 	
+1895	Cotton Vespasian	 	D.xi 
+1896	Cotton Cleopatra	 	C.xi
+1897	Egerton 	 	3088
+1898	Harley	 	4981
+1899	1	 	
+1900	e Mus.	 	82
+1901	Laud Misc. 	 	138
+1902	F.4.21 (pr. bk.)	 	
+1903	Harley	 	218 (partly pr. bk.)
+1904	3--4	 	
+1905	42	 	
+1906	365	 	
+1907	366	 	
+1908	462	 	
+1909	280	 	
+1910	59	 	
+1911	87	 	
+1912	R. 3. 51	 	
+1913	R. 9. 24	 	
+1914	Lit. E.3.(71)	 	
+1915	1.381 fols. 1--80	 	
+1916	Advocates	 	18.5.12
+1917	Hunterian	 	467
+1918	Arundel	 	16
+1919	Cotton Julius	 	D.v fols. 14--68
+1920	Cotton Vespasian	 	B.xi fols. 72--79
+1921	Cotton Cleopatra	 	A.xii fols. 4--62
+1922	Egerton 	 	2867
+1923	Harley	 	550
+1924	Royal	 	15 A.xii
+1925	Bodley	 	678
+1926	Digby	 	13
+1927	59	 	
+1928	Harley	 	997
+1929	8 fols. 1--133v, 150--165v	 	
+1930	13	 	
+1931	92	 	
+1932	Advocates	 	1.1.1
+1933	72	 	
+1934	Gen. 333	 	
+1935	Fairfax	 	8
+1936	II.2097	 	
+1937	Advocates	 	18.2.6
+1938	64	 	
+1939	Ff.6.55	 	
+1940	Cotton Tiberius 	 	A.x fols. 5--59
+1941	Barrington 	 	83
+1942	6709	 	
+1943	Additional	 	2770
+1944	Additional	 	10628
+1945	179 	 	
+1946	Forbes of Boyndlie	 	
+1947	bo5 P3 (5F) (pr. bk.)	 	
+1948	C.V.72 (pr. bk.)	 	
+1949	EPB 353 (pr. bks., 5 vols.)	 	
+1950	Additional	 	3303 (6)
+1951	Ff.4.41	 	
+1952	Gg.3.28	 	
+1953	Gg.4.33	 	
+1954	Kk.5.10	 	
+1955	Mm.3.14	 	
+1956	Inc 264+778 (pr. bk.)	 	
+1957	Inc 1049 (pr. bk.)	 	
+1958	Inc 1953 (pr. bk.)	 	
+1959	Rel.b.51.3 (pr. bk.)	 	
+1960	Inc 4163 (pr. bk.)	 	
+1961	Rel.c.50.8 (pr. bk.)	 	
+1962	183	 	
+1963	McClean	 	169
+1964	1	 	
+1965	6 	 	
+1966	13	 	
+1967	14 	 	
+1968	15 	 	
+1969	20 	 	
+1970	22 	 	
+1971	23 	 	
+1972	24 	 	
+1973	25 	 	
+1974	28 	 	
+1975	29 	 	
+1976	41 	 	
+1977	44 	 	
+1978	45	 	
+1979	50	 	
+1980	52	 	
+1981	53	 	
+1982	54	 	
+1983	57	 	
+1984	59	 	
+1985	61	 	
+1987	64	 	
+1988	67	 	
+1989	65	 	
+1990	69	 	
+1991	70	 	
+1992	71	 	
+1993	76	 	
+1994	22	 	
+1995	Pepys	 	1662
+1996	Pepys	 	2981 no. 18
+1997	Pepys	 	2981 no. 19
+1998	241	 	
+1999	74	 	
+2000	112	 	
+2001	172	 	
+2002	32	 	
+2003	51	 	
+2004	56	 	
+2005	100, ii	 	
+2006	101	 	
+2007	B. 1. 9	 	
+2008	B. 10. 5 + Cotton Vit. C. viii fols. 85--90	 	
+2009	B. 15. 30	 	
+2010	O. 3. 22	 	
+2011	O. 3. 55	 	
+2012	C.III.22	 	
+2014	960 (pr. bk.)	 	
+2015	970 (pr. bk., 1st of 3 vols.)	 	
+2016	18274 (pr. bk.)	 	
+2017	440	 	
+2018	Ff.dd.4--5 (pr. bks.)	 	
+2019	A.I.1	 	
+2020	A.I.2	 	
+2021	A.I.3	 	
+2022	A.I.4	 	
+2023	A.I.5	 	
+2024	A.I.6	 	
+2025	A.I.7	 	
+2026	A.I.8	 	
+2027	A.I.9	 	
+2028	A.I.10	 	
+2029	A.I.11	 	
+2030	A.I.12	 	
+2031	A.I.13	 	
+2032	A.I.14	 	
+2033	A.I.15	 	
+2034	A.I.16	 	
+2035	A.II.1	 	
+2036	A.II.2	 	
+2037	A.II.3	 	
+2038	A.II.4 (The 'Carilef Bible')	 	
+2039	A.II.5	 	
+2040	A.II.6	 	
+2041	A.II.7	 	
+2042	A.II.8	 	
+2043	A.II.9	 	
+2044	A.II.10	 	
+2045	A.II.14	 	
+2046	A.II.15	 	
+2047	A.II.16	 	
+2048	A.II.17	 	
+2049	A.II.18	 	
+2050	A.II.19	 	
+2051	A.II.20	 	
+2052	A.II.21	 	
+2053	A.II.22	 	
+2054	A.III.1	 	
+2055	A.III.2	 	
+2056	A.III.3 fols. 1--62	 	
+2057	A.III.3 fols. 63--173	 	
+2058	A.III.4	 	
+2059	A.III.5	 	
+2060	A.III.7	 	
+2061	A.III.8	 	
+2062	A.III.9	 	
+2063	A.III.10	 	
+2064	A.III.11	 	
+2065	A.III.12	 	
+2066	A.III.13	 	
+2067	A.III.14	 	
+2068	A.III.15	 	
+2069	A.III.16	 	
+2070	A.III.17	 	
+2072	A.III.18	 	
+2073	A.III.19	 	
+2074	A.III.21 fols. 1--90	 	
+2075	A.III.22	 	
+2076	A.III.23	 	
+2077	A.III.20	 	
+2078	A.III.21 fols. 91--137	 	
+2079	A.III.24	 	
+2080	A.III.25	 	
+2081	A.III.29	 	
+2082	A.III.28	 	
+2083	A.III.26	 	
+2084	A.III.27	 	
+2085	A.III.30	 	
+2086	A.III.31	 	
+2087	A.III.35	 	
+2088	A.IV.1	 	
+2089	A.IV.2	 	
+2090	A.IV.3	 	
+2091	A.IV.4	 	
+2092	A.IV.5	 	
+2093	A.IV.7	 	
+2094	A.IV.10	 	
+2095	A.IV.11	 	
+2096	A.IV.12	 	
+2097	A.IV.13	 	
+2098	A.IV.14	 	
+2099	A.IV.15	 	
+2100	A.IV.16	 	
+2101	A.IV.17	 	
+2102	A.IV.19	 	
+2103	A.IV.23	 	
+2104	A.IV.28	 	
+2105	A.IV.34	 	
+2106	A.IV.35	 	
+2107	B.I.2	 	
+2108	B.I.3	 	
+2109	B.I.4	 	
+2110	B.I.5	 	
+2111	B.I.6	 	
+2112	B.I.8	 	
+2113	B.I.9	 	
+2114	B.I.10	 	
+2115	B.I.11	 	
+2116	B.I.12	 	
+2117	B.I.13	 	
+2118	B.I.14	 	
+2119	B.I.15	 	
+2120	B.I.16	 	
+2121	B.I.17	 	
+2122	B.I.18	 	
+2123	B.I.19	 	
+2124	B.I.20	 	
+2125	B.I.21	 	
+2126	B.I.22	 	
+2127	B.I.23	 	
+2128	B.I.24	 	
+2129	B.I.25	 	
+2130	B.I.26	 	
+2131	B.I.27 (originally 2 vols.)	 	
+2132	B.I.28	 	
+2133	B.I.29	 	
+2134	B.I.30	 	
+2135	B.I.31	 	
+2136	B.I.32	 	
+2137	B.I.33	 	
+2138	B.I.34	 	
+2139	B.II.1	 	
+2140	B.II.2	 	
+2141	B.II.3	 	
+2142	B.II.4	 	
+2143	B.II.5	 	
+2144	B.II.7	 	
+2145	B.II.8	 	
+2146	B.II.9	 	
+2147	B.II.10	 	
+2148	B.II.11	 	
+2149	B.II.12	 	
+2150	B.II.13	 	
+2151	B.II.14	 	
+2152	B.II.15	 	
+2153	B.II.16	 	
+2154	B.II.17	 	
+2155	B.II.18	 	
+2156	B.II.19	 	
+2157	B.II.20	 	
+2158	B.II.21	 	
+2159	B.II.22	 	
+2160	B.II.23	 	
+2161	B.II.24	 	
+2162	B.II.25	 	
+2163	B.II.26	 	
+2164	B.II.27	 	
+2165	B.II.28	 	
+2166	B.II.29	 	
+2167	B.II.30	 	
+2168	B.II.31	 	
+2169	B.II.32	 	
+2170	B.II.33	 	
+2171	B.II.34	 	
+2172	B.II.35 (four sections, bound together by c. 1500)	 	
+2173	B.II.36	 	
+2174	B.III.1	 	
+2175	B.III.2	 	
+2176	B.III.3 fols. 1--56	 	
+2177	B.III.4 fols. 1--75	 	
+2178	B.III.4 fols. 76--253	 	
+2179	B.III.5	 	
+2180	B.III.6	 	
+2181	B.III.7	 	
+2182	B.III.8	 	
+2183	B.III.9	 	
+2184	B.III.10	 	
+2186	B.III.11	 	
+2187	B.III.12	 	
+2188	B.III.13	 	
+2189	B.III.14	 	
+2190	B.III.15	 	
+2191	B.III.16 + B.III.10 flyleaves	 	
+2192	B.III.17	 	
+2193	B.III.18	 	
+2194	B.III.19	 	
+2195	B.III.20	 	
+2196	B.III.21	 	
+2197	B.III.22	 	
+2198	B.III.23	 	
+2199	B.III.24 (originally 2 vols.)	 	
+2200	B.III.25	 	
+2201	B.III.26	 	
+2202	B.III.27	 	
+2203	B.III.28	 	
+2204	B.III.29	 	
+2205	B.III.30	 	
+2206	B.III.31	 	
+2207	B.IV.1	 	
+2208	B.IV.2	 	
+2209	B.IV.3	 	
+2210	B.IV.4	 	
+2211	B.IV.5	 	
+2212	B.IV.6	 	
+2213	B.IV.7	 	
+2214	B.IV.8	 	
+2215	B.IV.9	 	
+2216	B.IV.10	 	
+2217	B.IV.11	 	
+2218	B.IV.12	 	
+2219	B.IV.14	 	
+2220	B.IV.15	 	
+2221	B.IV.16	 	
+2222	B.IV.17	 	
+2223	B.IV.18	 	
+2224	B.IV.19	 	
+2225	B.IV.20	 	
+2226	B.IV.21	 	
+2227	B.IV.22	 	
+2228	B.IV.23	 	
+2229	B.IV.24	 	
+2230	B.IV.25	 	
+2231	B.IV.26	 	
+2232	B.IV.27	 	
+2233	B.IV.28	 	
+2234	B.IV.29	 	
+2235	B.IV.30	 	
+2236	B.IV.31	 	
+2237	B.IV.34	 	
+2238	B.IV.36	 	
+2239	B.IV.37	 	
+2240	B.IV.39A	 	
+2241	B.IV.39B	 	
+2242	B.IV.40	 	
+2243	B.IV.41	 	
+2244	B.IV.42	 	
+2245	B.IV.43	 	
+2246	B.IV.45	 	
+2247	C.I.1	 	
+2248	C.I.3	 	
+2249	C.I.5	 	
+2250	C.I.6	 	
+2251	C.I.9	 	
+2252	C.I.4	 	
+2253	C.I.7	 	
+2254	C.I.8	 	
+2255	C.I.11	 	
+2256	C.I.12	 	
+2257	C.I.13	 	
+2258	C.I.14	 	
+2259	C.I.16	 	
+2260	C.I.17 (now 2 vols.)	 	
+2261	C.I.18	 	
+2262	C.I.20	 	
+2263	C.II.1	 	
+2264	C.II.2	 	
+2265	C.II.3	 	
+2266	C.II.4	 	
+2267	C.II.5	 	
+2268	C.II.6	 	
+2269	C.II.7	 	
+2270	C.II.8	 	
+2271	C.II.9	 	
+2272	C.II.10	 	
+2273	C.II.11	 	
+2274	C.II.12	 	
+2275	C.II.13	 	
+2276	C.III.1 fols. 1--18	 	
+2277	C.III.1 fols. 19--311	 	
+2278	C.III.1	 	
+2279	C.III.2	 	
+2280	C.III.3	 	
+2281	C.III.4	 	
+2282	C.III.5	 	
+2283	C.III.6	 	
+2284	C.III.7	 	
+2285	C.III.8	 	
+2286	C.III.9	 	
+2287	C.III.10	 	
+2288	C.III.11	 	
+2289	C.III.12	 	
+2290	C.III.13	 	
+2291	C.III.14	 	
+2292	C.III.15	 	
+2293	C.III.16	 	
+2294	C.III.17	 	
+2295	C.III.18	 	
+2296	C.III.20 (2 fols.) 	 	
+2297	C.IV.1	 	
+2298	C.IV.4	 	
+2299	C.IV.5	 	
+2300	C.IV.7	 	
+2301	C.IV.10	 	
+2302	C.IV.11	 	
+2303	C.IV.12	 	
+2304	C.IV.13	 	
+2305	C.IV.15	 	
+2306	C.IV.16 fols. 1--166	 	
+2307	C.IV.16 fols. 167--304	 	
+2308	C.IV.17	 	
+2309	C.IV.19	 	
+2310	C.IV.20A	 	
+2311	C.IV.20B	 	
+2312	C.IV.21	 	
+2313	C.IV.22	 	
+2314	C.IV.25	 	
+2315	C.IV.23 fols. 57--128	 	
+2316	C.IV.24	 	
+2317	C.IV.26	 	
+2318	C.IV.29	 	
+2319	Hunter	 	58
+2320	Hunter	 	100
+2321	D.VII.23--24 (pr. bks.)	 	
+2322	Hunter	 	101
+2323	Inc. 1a--d (pr. bks.)	 	
+2324	Inc. 1f (pr. bk.)	 	
+2325	Inc. 2 (pr. bk.)	 	
+2326	Inc. 3 (pr. bk.)	 	
+2327	Inc. 4a (pr. bk.)	 	
+2328	Inc. 6 (pr. bk.)	 	
+2329	Inc. 11a (pr. bk.)	 	
+2330	Inc. 12 (pr. bk.)	 	
+2331	Inc. 13 a,b (pr. bks.)	 	
+2332	Inc. 14c (pr. bk.)	 	
+2333	Inc. 15a (pr. bk.)	 	
+2334	Inc. 20a (pr. bk.)	 	
+2335	Inc. 20b (pr. bk.)	 	
+2336	Inc. 21b (pr. bk.)	 	
+2337	Inc. 22 (pr. bk.)	 	
+2338	Inc. 25 (pr. bk.)	 	
+2339	Inc 32--34 (pr. bks.)	 	
+2340	Inc. 35 (pr. bk.)	 	
+2341	Inc. 43 (pr. bk.)	 	
+2342	Inc. 44 (pr. bk.)	 	
+2343	Inc. 45 (pr. bk.)	 	
+2344	Inc. 47a (pr. bk.)	 	
+2345	Inc. 47b (pr. bk.)	 	
+2346	Inc. 48 (pr. bk.)	 	
+2347	Inc. 53 (pr. bk.) 	 	
+2348	Inc. 61 (pr. bk.)	 	
+2349	Inc. 62 (pr. bk.)	 	
+2350	B.V.58 (pr. bk.)	 	
+2351	D.VI.37 (pr. bk.)	 	
+2352	D.VII.23--24 (pr. bks.)	 	
+2353	P.V.16, 17 (pr. bks.)	 	
+2354	P.X.40 (pr. bk.)	 	
+2355	Muniments, Endpapers & Bindings no. 17	 	
+2356	Cosin	 	V.i.4
+2357	Cosin	 	V.i.8
+2358	Cosin	 	V.ii.1
+2359	Cosin	 	V.ii.2
+2360	Cosin	 	V.ii.5
+2361	Cosin	 	V.ii.6
+2362	Cosin	 	V.ii.8
+2363	Cosin	 	V.iii.1
+2364	Cosin	 	V.iii.3
+2365	Mickleton & Spearman, 89	 	
+2366	Advocates	 	18.4.3
+2367	Advocates	 	18.6.11
+2368	106	 	
+2369	Hunterian	 	85
+2370		 	
+2371	A.ix.2, 3 (pr. bks.)	 	
+2372	(pr. bk.)	 	
+2373	162 	 	
+2374	240	 	
+2375	F.1.14 (pr. bk.)	 	
+2376	12036	 	
+2377	Additional	 	6162
+2378	Additional	 	16616
+2379	Additional	 	28805
+2380	Additional	 	38666, fol. 4
+2381	Arundel	 	332
+2382	Arundel	 	507
+2383	Cotton Julius	 	A.vi
+2384	Cotton Julius	 	D.iv
+2385	Cotton Claudius	 	D.iv
+2386	Cotton Nero	 	D.iv
+2387	Cotton Otho	 	B.ix
+2388	Cotton Vitellius	 	C.viii fols. 85--90
+2389	Cotton Vitellius	 	D.xx
+2390	Cotton Vitellius	 	E.xii fols. 55--113
+2391	Cotton Vespasian	 	B.x fols. 1--23
+2392	Cotton Titus	 	A.ii
+2393	Cotton Titus	 	A.xviii
+2394	Cotton Titus	 	D.xix fol. 170 (flyleaf only)
+2395	Cotton Domitian	 	vii 
+2396	Cotton Fragments 	 	xxix fols. 36--39
+2397	Harley	 	491
+2398	Harley	 	1804
+2399	Harley 	 	1924
+2400	Harley	 	3049
+2401	Harley	 	3864
+2402	Harley	 	3946
+2403	Harley	 	4657
+2404	Harley	 	4664
+2406	Harley 	 	4703
+2407	Harley	 	4843
+2408	Harley	 	4894
+2409	Harley	 	5234
+2410	Harley	 	5289
+2411	Lansdowne	 	397
+2412	Royal	 	6 A.v
+2413	Royal	 	7 A.vi
+2414	Stowe	 	930
+2415	Yates Thompson 	 	26 (formerly Add. 39943)
+2416	Arundel	 	25
+2417	23	 	
+2418	10	 	
+2419	23	 	
+2420	325	 	
+2421	483	 	
+2422	107.d (pr. bk.)	 	
+2423	Hale	 	114
+2424	7	 	
+2425	13	 	
+2426	(pr. bk.)	 	
+2427	Auct.	 	 1.Q.5.1
+2428	Bodley	 	819
+2429	Digby	 	41, fols. 91, 91*, 92, 101
+2430	Digby	 	81, fols. 133--140
+2431	Douce	 	129
+2432	Fairfax	 	6
+2433	Lat. liturg.	 	f.5
+2434	Lat. misc.	 	b.13 fol. 51 (flyleaf only)
+2435	Laud Lat.	 	12
+2436	Laud Lat.	 	36
+2437	Laud Misc. 	 	262
+2438	Laud Misc.	 	277
+2439	Laud Misc. 	 	344
+2440	Laud Misc. 	 	345
+2441	Laud Misc. 	 	359
+2442	Laud Misc.	 	368
+2443	Laud Misc. 	 	389
+2444	Laud Misc. 	 	392
+2445	Laud Misc. 	 	402
+2446	Laud Misc. 	 	413
+2447	Laud Misc. 	 	489
+2448	Laud Misc. 	 	491
+2449	Laud Misc.	 	546
+2450	Laud Misc.	 	603
+2451	Laud Misc.	 	641
+2452	Laud Misc. 	 	700
+2453	Laud Misc.	 	748
+2454	Rawlinson	 	C.4
+2455	Rawlinson	 	D.338
+2456	Wood empt.	 	24
+2457	4	 	
+2458	lat. 	 	162
+2459	C.e.20 (pr. bk.)	 	
+2460	14	 	
+2461	97	 	
+2462	154	 	
+2463	P.4.46 (pr. bk.)	 	
+2464	86	 	
+2465	C1/S37/11	 	
+2466	XXI	 	
+2467	55	 	
+2468	A.I.10 (pr. bk.)	 	
+2469	XVII	 	E.4.1 (pr. bk.)
+2470	XVII	 	E.4.2 (pr. bk.)
+2471	XVII	 	E.4.6--10 (pr. bks.)
+2472	XVII	 	E.5.9 (pr. bk.)
+2473	XVII	 	F.4.1 (pr. bk.)
+2474	XVII	 	F.4.3 (pr. bk.)
+2475	XVII	 	F.4.4 (pr. bk.)
+2476	XVII	 	F.4.5 (pr. bk.)
+2477	XVII	 	G.4.1--2 (pr. bks.)
+2478	XVII	 	G.4.5 (pr. bk.)
+2479	XVII	 	E.4.11 (pr. bk.)
+2480	XVII	 	E.5.4 (pr. bk.)
+2481	XVII	 	E.5.6 (pr. bk.)
+2482	XVII	 	G.4.3 (pr. bk.)
+2483	XVII	 	F.4.12 (pr. bk.)
+2484	XVIII	 	A.3.4--5 (pr. bks.)
+2485	XVIII	 	A.3.11 (pr. bk.)
+2486	XVIII	 	A.3.12 (pr. bk.)
+2487	XVIII	 	A.3.15 (pr. bk.)
+2488	XVIII	 	B.1.2 (pr. bk.)
+2489	XVIII	 	B.3.5--11 (pr. bks.)
+2490	XVIII	 	B.4.3(1) (pr. bk.)
+2491	XVIII	 	B.4.4 (pr. bk.)
+2492	XVIII	 	B.4.24 (pr. bk.)
+2493	XVIII	 	B.7.6 (pr. bk.)
+2494	XVIII	 	B.5.2 (pr. bk.)
+2495	XVIII	 	B.5.15 (pr. bk.)
+2496	XVIII	 	B.6.7 (pr. bk.)
+2497	XVIII	 	B.6.10 (pr. bk.)
+2498	XVIII	 	C.2.9 (pr. bk.)
+2499	XVIII	 	C.3.5 (pr. bk.)
+2500	XVIII	 	C.3.13(ii) (pr. bk.)
+2501	XVIII	 	C.4.11 (pr. bk.)
+2502	XVIII	 	C.5.2 (pr. bk.)
+2503	XVIII	 	C.5.10--11 (pr. bks.)
+2504	XVIII	 	C.5.15 (pr. bk.)
+2505	VII.G.4 (pr. bk.)	 	
+2506	VII.G.4 (pr. bk.)	 	
+2507	X.A.7 (pr. bk.)	 	
+2508	X.G.13 (pr. bk.)	 	
+2509	XI.G.4 (pr. bk.)	 	
+2510	XII.J.22 (pr. bk.)	 	
+2511	XIV.B.22 (pr. bk.)	 	
+2512	XV.A.12 (pr. bk.)	 	
+2513	XVI.D.9	 	
+2514	XVI.I.1	 	
+2515	XVI.I.12	 	
+2516	XVI.K.4	 	
+2517	XVI.N.8	 	
+2518	XVI.Q.5	 	
+2519	XIX.C.5 (pr. bk.)	 	
+2520		 	
+2521		 	
+2522	55	 	
+2523	150	 	
+2524	Advocates	 	18.1.2
+2525	C.48 (pr. bk.)	 	
+2526	Auct.	 	D.5.14
+2527	Bodley	 	565
+2528	95	 	
+2529	L.5.10 (pr. bk.)	 	
+2530	50	 	
+2531	Royal	 	7 F.iii
+2534	Gg.1.21	 	
+2535	Ii.1.33	 	
+2536	Ii.2.15	 	
+2537	Ii.4.3	 	
+2538	Ii.4.20	 	
+2540	Ll.2.10	 	
+2541	44	 	
+2542	335	 	
+2543	393	 	
+2544	416	 	
+2545	308	 	
+2546	23	 	
+2547	B. 11. 10	 	
+2548	O. 2. 1	 	
+2549	O. 2. 41	 	
+2550	EDC1	 	
+2551	Additional	 	33381
+2552	Arundel	 	377
+2553	Cotton Caligula	 	A.viii fols. 59--209
+2554	Cotton Nero	 	A.xv, xvi, fols. 1--92
+2555	Cotton Vespasian	 	A.xix fols. 2--27
+2556	Cotton Titus	 	A.i fols. 3--56
+2557	Cotton Domitian	 	xv
+2558	Harley	 	547
+2559	Harley	 	985
+2560	Harley	 	1031
+2561	Harley	 	3721
+2562	Sloane	 	1609 fols. 5--10
+2563	204	 	
+2564	448	 	
+2565	A.F. xi	 	
+2566	Bodley	 	582
+2567	Laud Lat. 	 	95
+2568	Laud Misc.	 	647
+2569	Laud Misc. 	 	698
+2570	Rawlinson	 	Q.f.8
+2571	7	 	
+2573	9	 	
+2574	XVIII	 	B.2.13
+2575	Additional	 	3468
+2576	5	 	
+2577	6	 	
+2578	13	 	
+2579	14	 	
+2580	15	 	
+2581	16	 	
+2582	17	 	
+2583	18	 	
+2584	19	 	
+2585	20	 	
+2586	22	 	
+2587	97	 	
+2588	101	 	
+2589	24	 	
+2590	28, 29	 	
+2591	30	 	
+2592	32	 	
+2593	33	 	
+2594	34	 	
+2595	36	 	
+2596	37	 	
+2597	39	 	
+2598	41	 	
+2599	42	 	
+2600	44	 	
+2601	47	 	
+2602	48	 	
+2603	76 fols. 1--40 & 41--132	 	
+2604	79	 	
+2605	80	 	
+2606	81	 	
+2607	82	 	
+2608	83	 	
+2609	84	 	
+2610	98	 	
+2611	99	 	
+2612	103	 	
+2613	105	 	
+2614	106	 	
+2615	107	 	
+2616	108	 	
+2617	109	 	
+2618	114	 	
+2619	117	 	
+2620	116	 	
+2621	219 pp. 27--50	 	
+2622	119	 	
+2623	119	 	
+2624	120	 	
+2625	122	 	
+2626	117	 	
+2627	125	 	
+2628	126	 	
+2629	127	 	
+2630	131	 	
+2631	132	 	
+2632	134	 	
+2633	145	 	
+2634	178	 	
+2635	219 fols. 91--118	 	
+2636	Am.4.2 (pr. bk.)	 	
+2637	By.1.3 (pr. bk.)	 	
+2638	By.1.9 (pr. bk.)	 	
+2639	By.2.1 (pr. bk.)	 	
+2640	By.2.5 (pr. bk.)	 	
+2641	DDg.6.2 (pr. bk.)	 	
+2642	Ee.1.6 (pr. bk.)	 	
+2643	Ef.4.6 (pr. bk.)	 	
+2644	Eh.1.1,2 (pr. bk.)	 	
+2645	En.1 (pr. bk.)	 	
+2646	Fc.5.12 (pr. bk.)	 	
+2647	Ga.3.11 (pr. bk.)	 	
+2648	Ge.1.5 (pr. bk.)	 	
+2649	62+63	 	
+2650	3	 	
+2651	Harley	 	3643
+2652	Cotton Titus	 	A.xxii
+2653	2	 	
+2654	Peniarth	 	119D pp. 503--741
+2655	Peniarth	 	339
+2656	Mm.6.17	 	
+2657		 	
+2658	Additional	 	44874
+2659	Cotton Vitellius	 	E.xii fols. 1--54
+2660	Cotton Vitellius	 	E.xvii fols. 224--250
+2662	Cotton	 	Appendix xiii
+2663	Harley	 	229 fols. 1--47
+2664	Harley	 	3763
+2665	Lansdowne	 	451
+2666	Royal	 	4 E.ii
+2667	Royal	 	8 G.iv
+2668	Royal	 	10 D.vi
+2669	Lat.	 	122
+2670	Barlow	 	7
+2671	Barlow	 	41
+2672	Rawlinson	 	A.287
+2673	Rawlinson	 	G.16
+2674	51	 	
+2675	54	 	
+2676	93	 	
+2677	103	 	
+2678	Additional	 	68 (5)
+2679	302	 	
+2680	lat.	 	22
+2681	Ii.2.4	 	
+2682	Ii.2.11	 	
+2683	41	 	
+2684	190	 	
+2690	B. 11. 2	 	
+2691	O. 10. 23	 	
+2692	Advocates	 	18.5.1
+2693	97	 	
+2694	3501 fols. 0--7	 	
+2695	3501 fols. 8--130	 	
+2696	3502	 	
+2697	3504	 	
+2698	3505	 	
+2699	3507	 	
+2700	3509	 	
+2701	3510	 	
+2702	3513	 	
+2703	3518	 	
+2704	3625	 	
+2705	Additional	 	28188
+2707	Cotton Tiberius	 	B.v fol. 75
+2708	Cotton Vespasian	 	D.xv fols. 2--67
+2709	Cotton Vitellius	 	A.vii fols. 1--112
+2710	Cotton Cleopatra	 	B.xiii fols. 1--58
+2711	Harley	 	863, fols. 1r--7v
+2712	Harley	 	2961
+2713	Royal	 	6 B.vii
+2714	104	 	
+2715	188 fols. 168--174	 	
+2716	203	 	
+2717	489	 	
+2718	Lat.	 	24
+2719	Auct.	 	D.1.7
+2720	Auct.	 	D.1.9
+2721	Auct.	 	D.1.12
+2722	Auct.	 	D.1.13
+2723	Auct.	 	D.1.18
+2724	Auct.	 	D.2.8
+2725	Auct.	 	D.2.16
+2726	Auct.	 	D.3.10
+2727	Auct. D.inf.	 	2.9
+2728	Auct.	 	F.1.15
+2729	Auct.	 	F.3.6
+2730	Auct.	 	F.3.7
+2731	Bodley	 	92
+2732	Bodley	 	93
+2733	Bodley	 	94
+2734	Bodley	 	135
+2735	Bodley	 	137
+2736	Bodley	 	147
+2737	Bodley 	 	148
+2738	Bodley 	 	149
+2739	Bodley 	 	150
+2740	Bodley 	 	162
+2741	Bodley 	 	190
+2742	Bodley 	 	193
+2743	Bodley 	 	201
+2744	Bodley 	 	206
+2745	Bodley 	 	229
+2746	Bodley 	 	230
+2747	Bodley 	 	237
+2748	Bodley 	 	239
+2749	Bodley 	 	253
+2750	Bodley 	 	256
+2751	Bodley 	 	268
+2752	Bodley 	 	272
+2753	Bodley 	 	273
+2754	Bodley 	 	289
+2755	Bodley 	 	274
+2756	Bodley 	 	279
+2757	Bodley 	 	287
+2758	Bodley 	 	290
+2759	Bodley 	 	291
+2760	Bodley 	 	293
+2761	Bodley 	 	301
+2762	Bodley 	 	311
+2763	Bodley 	 	314
+2764	Bodley 	 	315
+2765	Bodley 	 	318
+2766	Bodley	 	319
+2767	Bodley 	 	320
+2768	Bodley 	 	333
+2769	Bodley 	 	335
+2770	Bodley 	 	338
+2771	Bodley	 	286
+2774	Bodley 	 	377
+2775	Bodley 	 	380
+2776	Bodley 	 	382
+2777	Bodley 	 	389
+2778	Bodley 	 	393
+2779	Bodley 	 	394
+2780	Bodley 	 	449
+2781	Bodley 	 	463
+2782	Bodley 	 	473
+2783	Bodley	 	734
+2784	Bodley 	 	479
+2785	Bodley 	 	482
+2786	Bodley 	 	494
+2787	Bodley 	 	579
+2788	Bodley 	 	683
+2789	Bodley 	 	691
+2790	Bodley 	 	707
+2791	Bodley 	 	708
+2792	Bodley 	 	717
+2793	Bodley 	 	718
+2794	Bodley 	 	720
+2795	Bodley 	 	722
+2796	Bodley	 	725
+2797	Bodley 	 	732
+2798	Bodley 	 	736
+2799	Bodley 	 	738
+2800	Bodley 	 	739
+2801	Bodley 	 	744
+2802	Bodley 	 	786
+2803	Bodley 	 	792
+2804	Bodley 	 	804
+2805	Bodley 	 	808
+2806	Bodley 	 	810
+2807	Bodley 	 	813
+2808	Bodley 	 	815
+2809	Bodley 	 	829
+2810	Bodley 	 	830
+2811	Bodley 	 	849
+2812	Bodley 	 	865, fols. 1--88
+2813	Bodley 	 	865, fols. 89--115
+2814	6	 	
+2815	Additional	 	22719
+2816	Harley	 	3671
+2817	Laud Misc. 	 	156
+2818	Additional	 	38129
+2819	3511	 	
+2820	Bodley 	 	62
+2821	Royal 19 C.v	 	
+2822	F.c.18 (pr. bk.)	 	
+2823	lat. 170	 	
+2824	P.AS/B/13	 	(olim Bristol, All Saints, 5)
+2825	Gg.4.15	 	
+2826	Cotton Tiberius	 	A.xii
+2827	Harley	 	4887
+2828	Bodley 	 	269
+2829	Bodley 	 	435
+2830	Bodley	 	700
+2831	Laud Lat. 	 	31
+2832	161	 	
+2833	10--11	 	
+2834	985	 	
+2835	Jones	 	9
+2836	31	 	
+2837	(pr. bk.)	 	
+2838	Additional	 	37488
+2839	Dep. 314/18	 	
+2840	Royal	 	7 A.vii
+2841	Harley	 	114
+2842	Cotton Faustina	 	A.ii fols. 99--175
+2844	Laud Misc. 	 	546
+2845	Cotton Cleopatra	 	D.ix fols. 84--88
+2846	Lat. th.	 	e.9
+2847	O.iii.3	 	
+2848	Ee.3.52	 	
+2849	344984	 	
+2850	119 fols. 1--182	 	
+2851	Laud Misc. 	 	450
+2852	135	 	
+2853	1500.91	 	
+2854	lat.	 	172
+2855	149	 	
+2856	126	 	
+2857	B. 2. 11	 	
+2858	O. 1. 30	 	
+2859	O. 1. 79	 	
+2860	Additional	 	24203
+2861	Additional	 	46203
+2862	Arundel	 	217
+2863	Cotton Galba	 	A.iii, art. 2 (burnt)
+2864	Cotton Vitellius	 	A.x fols. 19--138
+2865	Cotton Faustina	 	A.v
+2866	Cotton Faustina	 	B.i fols. 192--205
+2867	Harley	 	3173
+2868	Harley	 	6551
+2869	Henry Davis Gift 80	 	
+2870	Lat.	 	365
+2871	Ashmole	 	1398, pp. 217--252
+2872	Ashmole	 	1437
+2873	Laud Misc.	 	310
+2874	Laud Misc.	 	619
+2875	Lyell	 	8
+2876	124	 	
+2877	167	 	
+2878	Garrett	 	94
+2879	xvii C.15 (pr. bk.)	 	
+2880		 	
+2881	Additional	 	62129
+2882	Additional	 	62130
+2883	Additional	 	62131
+2884	Additional	 	62132
+2885	Additional	 	62132A
+2886	xvii.E.16--18 (pr. bk., 3 vols.)	 	
+2887	6	 	
+2888	Jones	 	48
+2889	132	 	
+2890	Ashmole	 	1516
+2891	Bodley 	 	706
+2893	VC/II	 	
+2894	Cotton Tiberius	 	B.viii 1--34, 81--197
+2895		 	
+2896	5	 	
+2897	Kk.5.32	 	
+2898	Dd.1.17	 	
+2899	Kk.5.34	 	
+2900	Ii.3.39 (pr. bk.)	 	
+2901	B. 3. 7	 	
+2902	B. 5. 21	 	
+2903	R. 5. 16	 	
+2904	R. 5. 33	 	
+2905	R. 5. 36	 	
+2906	O. 9. 38	 	
+2907	O. 10. 8	 	
+2908	Additional	 	10105
+2909	Additional	 	21614
+2910	Cotton Tiberius	 	A.v
+2911	Cotton Titus	 	D.vii fols. 2--13
+2912	Cotton Cleopatra	 	C.x fols. 71--100
+2913	Harley	 	641 fols. 118--206
+2914	Harley	 	651 fols. 185--191
+2915	Harley	 	1916
+2916	Harley	 	5958 fol. 87
+2917	Harley	 	1918
+2918	Lansdowne	 	212
+2919	Royal	 	12 C.xxiii
+2920	Ashmole	 	790
+2921	Auct. 	 	F.4.32
+2922	Auct. 	 	4.Q.6.83
+2923	Bodley	 	80
+2924	Hatton	 	30
+2925	Lat. hist.	 	a.2
+2926	Laud Misc. 	 	128
+2927	Laud Misc. 	 	497
+2928	Laud Misc. 	 	750
+2929	Wood empt. 	 	1
+2930	15	 	
+2931	304	 	
+2932	Add.	 	64952
+2933	Liber Ruber (binding leaves)	 	
+2934	Douce	 	140
+2935	(pr. bk.)	 	
+2936	309	 	
+2937	B. 2. 32	 	
+2938	B. 5. 14	 	
+2939	B. 5. 15	 	
+2940	B. 5. 20	 	
+2941	34	 	
+2942	O.i.2	 	
+2943	O.iii.1	 	
+2944	P.i.5	 	
+2945	P.i.6	 	
+2946	P.i.10	 	
+2947	Cotton Domitian	 	viii fols. 120--161
+2948	Harley	 	613
+2949	Harley	 	627
+2950	Harley	 	2659
+2951	Royal	 	2 C.xii
+2952	Royal	 	3 B.x
+2953	Royal	 	5 A.xi
+2954	Royal	 	10 C.vi
+2955	Royal	 	11 D.viii
+2956	Royal	 	13 C.v
+2957	179 fols. 1--98	 	
+2958	99	 	
+2959	Bodley 	 	210
+2960	Laud Misc. 	 	123
+2961	Bodley 	 	706
+2962	Rawl. liturg.	 	f.1
+2963	43	 	
+2964	65	 	
+2965	367	 	
+2966	89	 	
+2967	10	 	
+2968	42	 	
+2969	Tanner	 	170
+2970	O.v.5	 	
+2971	151 fols. i--v, 1--209 (pt.1)	 	
+2972	2A	 	
+2973	6717	 	
+2974	Rawlinson	 	B.408
+2975	B. 11. 5	 	
+2976	207	 	
+2977	1494.2	 	
+2978		 	
+2979	Ll.2.9	 	
+2980	109	 	
+2981	74	 	
+2982	62	 	
+2983		 	
+2984	Advocates	 	18.2.8
+2985	Laud Lat. 	 	5
+2986	Royal	 	3 A.xiii
+2987	Additional	 	35285
+2988	Arundel	 	218
+2989	Cotton Vitellius	 	E.i
+2990	Cotton Vitellius	 	E.vii fols. 1, 2
+2991	4	 	
+2992	Loans	 	29/333 fol. 69
+2993	190	 	
+2994	Cotton Vespasian	 	B.xi fols. 1--61
+2995	Royal	 	5 F.v
+2996	Royal	 	13 A.xxi fols. 13--150
+2997	B. 15. 38	 	
+2998	Forbes e.34 (pr. bk.)	 	
+2999	(pr. bks., 2 vols.)	 	
+3000	Cotton Cleopatra	 	D.iii fols. 1--72
+3001	Harley	 	3725 fols. 1--37
+3002	Royal	 	5 A.xii
+3003	Royal	 	8 A.v
+3004	Royal	 	8 D.xvii
+3005	Royal	 	12 E.xiv
+3006	C.37.c.44 (pr. bk.)	 	
+3007	19495 (pr. bk.)	 	
+3008	(pr. bk.)	 	
+3009	Z.12.6 (pr. bk.)	 	
+3010	6	 	
+3011	5	 	
+3012	G.1.3--8 (pr. bks., 6 vols.)	 	
+3013	III.c.(8) (pr. bk.)	 	
+3014	III.c.(17) (pr. bk.)	 	
+3015	(pr. bk.)	 	
+3016	134	 	
+3017	544	 	
+3018		 	
+3019	EL 9 H.17	 	
+3020	Cotton Vespasian	 	D.xii fol. 157
+3021	Harley	 	220
+3022	9	 	
+3023	Th. lat.	 	oct. 167
+3024	Royal	 	5 C.x, xi (2 vols.)
+3025	Rawlinson	 	B.189
+3026		 	
+3027	Bodley 	 	602 fols. 67--171
+3028	Additional	 	37785
+3029	Harley	 	622
+3030	Harley	 	1712
+3031	Bodley 	 	188
+3032	Auct. 	 	1.Q.6.9 (7)
+3033	77	 	
+3034	Lat. th.	 	d. 40
+3035	XXX	 	
+3036	B.96	 	
+3037	90	 	
+3038	302	 	
+3039	A.vi.5--8 (pr. bks.)	 	
+3040	C.viii.14 (pr. bk.)	 	
+3041	E.ii.6, 7 (pr. bks.)	 	
+3042	E.ii.8 (pr. bk.)	 	
+3043	E.ii.9 (pr. bk.)	 	
+3044	E.ii.10 (pr. bk.)	 	
+3045	E.iv.1 (pr. bk.)	 	
+3046	E.iv.3 (pr. bk.)	 	
+3047	E.iv.5 (pr. bk.)	 	
+3048	E.v.8 (pr. bk.)	 	
+3049	E.vi.5 (pr. bk.)	 	
+3050	E.vi.6 (pr. bk.)	 	
+3051	E.vi.7--9 (pr. bks.)	 	
+3052	H.ii.9 (pr. bk.)	 	
+3053	I.i.10 (pr. bk.)	 	
+3054	L.viii.6	 	
+3055	M.i.1 (pr. bk.)	 	
+3056	N.vii.2 (pr. bk.)	 	
+3057	O.i.5	 	
+3058	O.i.8	 	
+3059	O.i.9	 	
+3060	O.ii.1	 	
+3061	O.ii.2	 	
+3062	O.ii.7	 	
+3063	O.ii.9	 	
+3064	O.iii.2	 	
+3065	O.iii.7	 	
+3066	O.iii.13	 	
+3067	O.iv.1	 	
+3068	O.iv.3	 	
+3069	O.iv.4	 	
+3070	O.iv.5	 	
+3071	O.iv.7	 	
+3072	O.iv.8	 	
+3073	O.iv.14	 	
+3074	O.v.4	 	
+3075	O.v.7	 	
+3076	O.v.8	 	
+3077	O.v.9	 	
+3078	O.v.13	 	
+3079	O.v.15	 	
+3080	O.vi.1	 	
+3081	O.vi.3	 	
+3082	O.vi.4	 	
+3083	O.vi.5	 	
+3084	O.vi.6	 	
+3085	O.vi.7	 	
+3086	O.vi.9	 	
+3087	O.vi.12	 	
+3088	O.vi.13	 	
+3089	O.vii.3	 	
+3090	O.vii.4	 	
+3091	O.vii.6	 	
+3092	O.vii.8	 	
+3093	O.viii.1	 	
+3094	O.viii. 5	 	
+3095	O.viii.8	 	
+3096	O.viii.9	 	
+3097	O.viii.10	 	
+3098	O.viii.11	 	
+3099	O.ix.1	 	
+3100	O.ix.7	 	
+3101	O.ix.9	 	
+3102	O.ix.11	 	
+3103	P.i.2	 	
+3104	P.i.4	 	
+3105	P.i.7	 	
+3106	P.i.8	 	
+3107	P.ii.7	 	
+3108	P.ii.8	 	
+3109	P.ii.9	 	
+3110	P.ii.11	 	
+3111	P.ii.13	 	
+3112	P.iii.6	 	
+3113	P.iii.8	 	
+3114	P.iii.9	 	
+3115	P.iii.10	 	
+3116	P.iii.11	 	
+3117	P.iv.1	 	
+3118	P.iv.2	 	
+3119	P.iv.3	 	
+3120	P.iv.7	 	
+3121	P.iv.11	 	
+3122	P.iv.12	 	
+3123	P.iv.13	 	
+3124	P.v.6	 	
+3125	P.v.7	 	
+3126	P.v.11	 	
+3127	P.v.12	 	
+3128	P.v.13	 	
+3129	P.v.15	 	
+3130	P.vi.3	 	
+3131	P.vi.7	 	
+3132	P.vi.9	 	
+3133	P.vi.10	 	
+3134	P.vi.11	 	
+3135	P.vii.2	 	
+3136	P.vii.4	 	
+3137	P.v.14	 	
+3138	P.vii.5	 	
+3139	P.vii.6	 	
+3140	P.viii.1	 	
+3141	P.viii.2	 	
+3142	P.viii.5	 	
+3143	P.viii.7	 	
+3144	P.viii.8	 	
+3145	P.viii.9	 	
+3146	P.viii.11	 	
+3147	P.ix.1	 	
+3148	P.ix.2	 	
+3149	P.ix.4	 	
+3150	P.ix.6	 	
+3151	P.vii.7	 	
+3152	Additional	 	39675
+3153	Harley	 	2983
+3154	Rawlinson	 	B.328
+3155	Rawlinson	 	C.76
+3156	321	 	
+3157	700	 	
+3158	Rawlinson	 	C.427
+3159	Ashmole	 	789
+3160	O.iv.12	 	
+3161	O.v.1	 	
+3162	O.vi.11	 	
+3163	P.iii.2	 	
+3164	P.iii.5	 	
+3165	P.iv.5	 	
+3166	P.vi.1	 	
+3167	10	 	
+3168	37	 	
+3169	66	 	
+3170	105	 	
+3171	106	 	
+3172	xvi.K.10	 	
+3173	90	 	
+3174	157	 	
+3175	169	 	
+3176	R. 7. 11	 	
+3177	O.i.1	 	
+3178	O.i.4	 	
+3179	O.ii.11	 	
+3180	O.iii.6	 	
+3181	O.v.12	 	
+3182	O.vii.7	 	
+3183	O.viii.12	 	
+3184	P.i.15	 	
+3185	P.iii.12	 	
+3186	P.v.8	 	
+3187	P.v.10	 	
+3188	Additional	 	46919
+3189	Burney	 	325
+3190	Cotton Julius	 	A.xi fols. 115--152
+3191	Cotton Nero	 	A.ix. fols. 75--103
+3192	Egerton	 	3133
+3193	Cotton Vespasian	 	A.xiii fols. 94--147
+3194	Royal	 	7 A.iv
+3195	Royal	 	7 F.vii
+3196	Royal	 	7 F.viii
+3197	Bodley 	 	897
+3198	Hatton	 	102
+3199	Rawlinson	 	C.308
+3200	285 fols. 194--251	 	
+3201	xv	 	
+3202	O.iv.10	 	
+3203	lat.	 	226
+3204	Hunterian	 	4
+3205	420	 	
+3206	443	 	
+3207	149	 	
+3208	38	 	
+3209	46	 	
+3210	Hunter	 	57
+3211		 	
+3212	Bodley 	 	236
+3213	134	 	
+3214	199	 	
+3215	Egerton 	 	3142
+3216	(pr. bk.)	 	
+3217	23	 	
+3218	154	 	
+3219	125	 	
+3220	Royal	 	2 F.iii
+3221	Royal	 	12 B.iv
+3222	410	 	
+3223	Wood empt. 14	 	
+3224	K.f.11 (pr. bk)	 	
+3225	171	 	
+3226	Cotton Nero	 	D.ii fols. 215--237
+3227	Egerton	 	3142
+3228	Royal	 	14 C.vi
+3229	2	 	
+3230	86	 	
+3231	R. 3. 29	 	
+3232	Lat.	 	27
+3233	F.III.10 (pr. bk.)	 	
+3234	Q.4.16 (pr. bk.)	 	
+3235	Additional	 	17511
+3236	Cotton Claudius	 	A.v. fols. 135--199
+3238	Cotton Faustina	 	B.iv fols. 3--179
+3239	Cotton Nero	 	A.v fols. 1--82
+3240	Hatton	 	101
+3241	Lyell	 	2
+3242	15	 	
+3243	HM	 	19915
+3244		 	
+3245	5048	 	
+3246	440	 	
+3247	R. 14. 9 fols. 1--10, 82--88	 	
+3248	Royal	 	12 F.iv
+3249	e.ii.1	 	
+3250	13	 	
+3251	Kk.4.21	 	
+3252	1106 fols. 111--120	 	
+3253	Lat. th.	 	c.23
+3254	50	 	
+3255	12, vol. 1	 	
+3256	B. 10. 4	 	
+3257	R. 15. 32 pp. 13--36	 	
+3258		 	
+3259	Additional	 	34890
+3260	Arundel	 	60
+3261	Cotton Vitellius	 	E.xviii
+3262	Cotton Vespasian	 	A.viii
+3263	Cotton Titus	 	D.xxvi, xxvii
+3264	Cotton Domitian	 	xiii fols. 1--87 (and ? fols. 88--127)
+3265	Cotton Domitian	 	xiv fols. 1--20
+3266	Harley	 	960
+3267	Royal	 	2 B.v
+3268	Royal	 	4 A.xiv
+3269	Royal	 	8 A.xviii
+3270	Stowe	 	944
+3271	Vitr. 23--8 (formerly V.3.28)	 	
+3272	G.19 	 	(formerly owned by Mr. W. S. Glazier, no. 19)
+3273	Bodley 	 	91
+3274	Gough liturg.	 	8
+3275	Rawl. liturg.	 	e.1*
+3276	Laud Misc. 	 	374
+3277	Llanstephan	 	176
+3278	Kk.5.34	 	
+3279	(pr. bk.)	 	
+3280	330	 	
+3281	(pr. bk.)	 	
+3282	Lat. Misc. 	 	e. 118
+3283	Latham	 	B.4.6 (pr. bk.)
+3284	2F.f.14 (pr. bk.)	 	
+3285	II.N.1 (pr. bk.)	 	
+3286	Add.	 	82931
+3287	369	 	
+3288	T.9.1 (MS. and pr. bk.)	 	
+3289	O.iv.11	 	
+3290	Additional	 	49598
+3291	171A	 	
+3292		 	
+3293	211 iv (4 fols.)	 	
+3294	10000	 	
+3295	49	 	
+3296	Suffolk Collection	 	1
+3297	Additional	 	37777
+3298	Additional	 	45025
+3299		 	
+3300	96	 	
+3301	171	 	
+3302	516 fols. 208--219	 	
+3303	231	 	
+3304	Cotton Tiberius	 	C.xiii
+3305	Harley	 	1620
+3306	Royal	 	3 E.vi
+3307	210	 	
+3308	Bodley	 	514
+3309	Lat. th. 	 	f.3
+3310	99	 	
+3311	226	 	
+3312	lat. qu.	 	503
+3313		 	
+3314	Additional	 	35295
+3315	Additional	 	38665
+3316	Auct.	 	F.3.13
+3317	48	 	
+3318	187	 	
+3319	(pr. bk.)	 	
+3320	3--1967 (205)	 	
+3321	HM 27187	 	
+3322	(pr. bk.)	 	
+3323	209	 	
+3324	(pr. bk.)	 	
+3325		 	
+3326	(pr. bk.)	 	
+3327	(pr. bks., 2 vols.)	 	
+3328	34	 	
+3329	e Mus.	 	62
+3330	77	 	
+3331	Dd.8.2	 	
+3332	Ee.4.21	 	
+3333	80	 	
+3334	Harley	 	2363
+3335	O. 2. 40	 	
+3336	Hale	 	68
+3337	Dd.9.6	 	
+3338	65	 	
+3339	36	 	
+3341	Additional	 	38817
+3342	Arundel	 	36
+3343	Harley	 	1770
+3344	Rawlinson	 	D.938
+3345	Cotton Vespasian	 	B.xi fols. 84--125, 125*
+3346	Royal	 	13 A.xxi fols. 151--192
+3347	75	 	
+3348	85	 	
+3349	e Mus.	 	195
+3350	Dodsworth	 	140, fols. 98--108
+3351	Laud Misc. 	 	722
+3352	Laud Lat. 	 	69
+3353	Laud Misc. 	 	216
+3354	[Delta].10.4 (pr. bk.)	 	
+3355	[Delta].10.4 (pr. bk.)	 	
+3356	Dd.7.16	 	
+3357	Dd.8.13	 	
+3358	Dd.13.4	 	
+3359	Ff.4.1	 	
+3360	Lipsius 	 	41
+3361	Royal	 	7 F.v
+3362	Royal	 	3 D.ix
+3363	R. 15. 21	 	
+3364	Auct.	 	D.4.15
+3365	A.5.15 (pr. bk.)	 	
+3366	Rawlinson	 	D.938
+3367	Egerton	 	3143
+3368		 	
+3369	Laud Lat.	 	114
+3370	Inc. 90 (pr. bk.)	 	
+3371	48	 	
+3372	(pr. bks., 3 vols.)	 	
+3373	Vet. F1 c.90 (pr. bk.)	 	
+3374	247	 	
+3375	Cotton Claudius	 	D.vii 
+3376	59	 	
+3377		 	
+3378	Dd.10.25	 	
+3379	McClean	 	145
+3380	Additional	 	24061
+3381	Cotton Julius	 	D.x
+3382	Cotton	 	Appendix xxiv
+3383	Royal	 	2 D.v
+3384	Royal	 	5 B.i
+3385	Royal	 	8 D.viii
+3386	Royal	 	11 A.x
+3387	13	 	
+3388	21	 	
+3389	29	 	
+3390	30	 	
+3391	37	 	
+3392	39	 	
+3393	55	 	
+3394	56	 	
+3395	58	 	
+3396	61	 	
+3397	63	 	
+3398	68	 	
+3399	70	 	
+3400	74	 	
+3401	77	 	
+3402	80 fols. 168--244	 	
+3403	81	 	
+3404	83	 	
+3405	85	 	
+3406	95	 	
+3407	97	 	
+3408	101	 	
+3409	103	 	
+3410	102	 	
+3411	106	 	
+3412	110	 	
+3413	111	 	
+3414	114	 	
+3415	115	 	
+3416	119	 	
+3417	122	 	
+3418	128	 	
+3419	129	 	
+3420	134 fols. 97--245	 	
+3421	137	 	
+3422	138 fols. 1--44	 	
+3423	141	 	
+3424	142 fols. 120--122	 	
+3425	145 fols. i, ii, 1-137	 	
+3426	146	 	
+3427	147 fols. 60--179	 	
+3428	148	 	
+3429	149 fols. 139--240	 	
+3430	150	 	
+3431	151 fols. 210--335	 	
+3432	153 fols. 156--179	 	
+3433	153 fols. 1--6	 	
+3434	153 fols. 7--88	 	
+3435	161	 	
+3436	164	 	
+3437	165 fols. 102--190	 	
+3438	170	 	
+3439	189	 	
+3440	195	 	
+3441	196	 	
+3442	200 fols. 114--163	 	
+3443	200 fols. 164--167	 	
+3444	200 fols. 168--175	 	
+3445	200 fols. 176--217 (and perhaps further)	 	
+3446	200 fols. 176--217 (? ff.) 	 	
+3447	200 fols. 176--217 (? ff.) 	 	
+3448	200 fols. 176--217 (? ff.) 	 	
+3449	200 fols. 176--217 (? ff.) 	 	
+3450	200 fols. 176--217 (probably further) 	 	
+3451	200 fols. 176--217 	 	
+3452	200 fols. 176--217 	 	
+3453	208	 	
+3454	215	 	
+3455	217 fols. 86--126 (pt. iii; ? pts. i, ii, iv)	 	
+3456	218 fols. 1--89	 	
+3457	227	 	
+3458	231	 	
+3459	239	 	
+3460	335 fols. 1--228	 	
+3461	336	 	
+3462	337	 	
+3463	339	 	
+3464	343	 	
+3465	349	 	
+3466	345 fols. 97--227	 	
+3467	356 fols. 176--283	 	
+3468	357	 	
+3469	360 fols. 1--118	 	
+3470	370	 	
+3471	372	 	
+3472	375	 	
+3473	377	 	
+3474	378 fols. i, ii, 1--56, 125--165	 	
+3475	379 fols. 1--68	 	
+3476	380 fols. 1--120 (pt. i), 121--228 (pt. ii)	 	
+3477	389	 	
+3478	390	 	
+3479	391	 	
+3480	392 fols. 29--58	 	
+3481	392 fols. 116--131	 	
+3482	393	 	
+3483	394	 	
+3484	395 fols. i, ii, 1--52, 141--172	 	
+3485	396	 	
+3486	397	 	
+3487	398	 	
+3488	408 fols. 20--141	 	
+3489	409	 	
+3490	411	 	
+3491	425 fols. i, 1--21	 	
+3492	427	 	
+3493	431 fols. i, 1--7, 16--88	 	
+3494	437 fols. 43--73	 	
+3495	431 fols. 145--60	 	
+3496	431 fols. 161--182	 	
+3497	449	 	
+3498	451, fols. 83--192	 	
+3499	452	 	
+3500	475 fols. 111--179 (pt. ii)	 	
+3501	481	 	
+3502	540	 	
+3503	1229 nos. 14, 15	 	
+3504	Hale	 	85
+3505	H.1.31 (pr. bk.)	 	
+3506	Bodley	 	839
+3508	Hatton	 	49
+3509	Auct.	 	D.2.1 
+3510	Rawlinson	 	A.374
+3511	Rawlinson	 	C.163
+3512	Rawlinson	 	C.331
+3513	33	 	
+3514	36	 	
+3515	42	 	
+3516	43	 	
+3517	59	 	
+3518	139	 	
+3519	154	 	
+3520	192	 	
+3521	194	 	
+3522	309	 	
+3523	33	 	
+3524	39	 	
+3525	40	 	
+3526	51	 	
+3527	69	 	
+3528	MS. penes Henricum Parry	 	(Tanner, Bibl. Brit., p. 641)
+3529	Kk.2.2	 	
+3530	Mr. T. M. Berington, deposited in Birmingham, U.L.	 	
+3531	Tanner	 	196
+3532	120	 	
+3533	Douce	 	302
+3534	Bodley 	 	406
+3535	Q.cc.30 (pr. bk.)	 	
+3536	Royal	 	5 F.xvii
+3537	251	 	
+3538	2	 	
+3539	2	 	
+3540	8	 	
+3541	B. 1. 8	 	
+3542	B. 2. 22	 	
+3543	B. 3. 27	 	
+3544	B. 14. 7	 	
+3545	B. 14. 30	 	
+3546	B. 16. 5	 	
+3547	Advocates	 	18.5.13
+3548	Cotton Tiberius	 	C.vii
+3549	Bodley 	 	57
+3550	Rawlinson	 	A.445
+3551	xvi.M.6	 	
+3552	xvi.M.7	 	
+3553	10.D34/13	 	
+3554	Bodley 	 	140
+3555	198 fols. 1--175	 	
+3556	27	 	
+3557	IB.24866 (pr. bk.)	 	
+3558	Advocates	 	34.5.5
+3559	xxix	 	
+3560	1	 	
+3561	149	 	
+3562	150	 	
+3563	Harley	 	1246
+3564	Royal	 	8.E.xviii
+3565	Bodley	 	125
+3566	d.6 (pr. bk.)	 	
+3567	Acc.	 	2710
+3568	319	 	
+3569	387	 	
+3570	121	 	
+3571	135	 	
+3572	151	 	
+3573	426	 	
+3574	O. 4. 5	 	
+3575	Royal	 	8 F.xvii
+3576	144 fols. 164--314	 	
+3577	147 fols. 1--59 (= pt. i)	 	
+3578	207	 	
+3579	L.404.1916	 	
+3580	Bodley	 	656
+3581	Douce	 	287
+3582	Douce	 	330
+3583	19	 	
+3584	31	 	
+3585	134	 	
+3587	369	 	
+3588	Ny Kgl.	 	S.172.8 (suprascr.:)0
+3589	Douce	 	296
+3590	Reg. lat. 	 	147 fols. 61--69
+3591	K.d.2 (pr. bk.)	 	
+3592	Inc. 12, i--iii (pr. bks.)	 	
+3593	1	 	
+3594	31	 	
+3595	28	 	
+3596	Cotton Cleopatra	 	D.ix fols. 5--79
+3597	Harley	 	5249
+3598	Bodley	 	956
+3599	Rawlinson	 	A.389
+3600	24	 	
+3601	Royal	 	3 D.i
+3602	339	 	
+3603	Additional	 	3571
+3604	McClean 	 	109
+3605	667	 	
+3606	B. 5. 2	 	
+3607	1	 	
+3608	2	 	
+3609	3	 	
+3610	4	 	
+3611	7	 	
+3612	8	 	
+3613	9	 	
+3614	11	 	
+3615	12	 	
+3616	13	 	
+3617	15	 	
+3618	16	 	
+3619	18	 	
+3620	19--22 (4 vols.)	 	
+3621	23	 	
+3622	24	 	
+3623	25	 	
+3624	26	 	
+3625	27	 	
+3626	28	 	
+3627	29 fols. 201--220	 	
+3628	31	 	
+3629	32	 	
+3630	33	 	
+3631	35	 	
+3632	37	 	
+3633	39	 	
+3634	42	 	
+3635	43	 	
+3636	45	 	
+3637	63	 	
+3638	67	 	
+3639	68	 	
+3640	72	 	
+3641	71	 	
+3642	77	 	
+3643	79	 	
+3644	80	 	
+3645	81	 	
+3646	83	 	
+3647	86	 	
+3648	89	 	
+3649	90	 	
+3650	96	 	
+3651	105	 	
+3652	107	 	
+3653	116	 	
+3654	121	 	
+3655	134	 	
+3656	135	 	
+3657	136	 	
+3658	137	 	
+3659	138	 	
+3660	139	 	
+3661	141	 	
+3662	142	 	
+3663	145	 	
+3664	146	 	
+3665	147	 	
+3666	152	 	
+3667	153	 	
+3668	154	 	
+3669	159	 	
+3670	160	 	
+3671	161	 	
+3672	163	 	
+3673	164	 	
+3674	165	 	
+3675	170	 	
+3676	171	 	
+3677	172	 	
+3678	174	 	
+3679	176	 	
+3680	178	 	
+3681	182	 	
+3682	183	 	
+3683	186	 	
+3684	187	 	
+3685	184 fol. 1	 	
+3686	190	 	
+3687	191	 	
+3688	193	 	
+3689	198	 	
+3690	201	 	
+3691	203	 	
+3692	205	 	
+3693	217	 	
+3694	219	 	
+3695	Di/20/2/B1 fols. 22--25	 	
+3696	Ottob. lat.	 	308
+3697	Royal	 	8 G.iii
+3698	Royal	 	11 B.i
+3699	Royal	 	11 D.vii
+3700	Royal	 	13 E.i
+3701	36	 	
+3702	156	 	
+3703	Vat. lat.	 	4954
+3704	155	 	
+3705	156	 	
+3706	157	 	
+3707	74--76	 	
+3708	115	 	
+3709	Royal	 	4 B.viii
+3710	89	 	
+3711	17 	 	
+3712	41	 	
+3713	47	 	
+3714	Garrett	 	102
+3715	Lyell	 	11
+3716	57	 	
+3717	17	 	
+3718	127	 	
+3719	Lipsius	 	41
+3720	Royal	 	13 B.vi
+3721	Royal	 	6 D.ix
+3722	Royal	 	13 C.iv
+3723	Cotton Nero	 	D.iv
+3724	Cotton Tiberius	 	C.ii
+3725	5	 	
+3726	Auct.	 	D.2.6 fols. 1--155
+3727	17110 E	 	
+3728	96 fols. 113--244 (pt. ii)	 	
+3729	145 fols. 257--264	 	
+3730	356 fols. 125--175	 	
+3731	380 fols. 1--120	 	
+3732	425 fols. 1--21	 	
+3733	431 fols. i, 1--7, 16--88	 	
+3734	83	 	
+3735	Additional	 	54232 (formerly London, Dr. E. G. Millar)
+3736	440	 	
+3737	1	 	
+3738	2	 	
+3739	3	 	
+3740	4	 	
+3741	5	 	
+3742	6	 	
+3743	8	 	
+3744	9	 	
+3745	10	 	
+3746	45, 46	 	
+3747	137	 	
+3748	205	 	
+3749	219	 	
+3750	240	 	
+3751	244	 	
+3752	241	 	
+3753	383	 	
+3754		 	
+3755	Royal	 	15 C.iii
+3756	8	 	
+3757	1106 fols. 1--110	 	
+3758	45, 46	 	
+3759	30	 	
+3760	136C fols. 1--36	 	
+3761	Douce	 	372
+3762	lat. qu. 	 	487
+3763	Harley	 	4711 fol. 299 (flyleaf only)
+3764	1484.2	 	
+3765	091.21038	 	
+3766	091.21195	 	
+3767	Ee.4.30	 	
+3768	Ff.1.19	 	
+3769	Inc. 634, 1121, 3901, 3948 (pr. bks.)	 	
+3770	S.P.21 (flyleaf only)	 	
+3771	433	 	
+3772	12	 	
+3773	4	 	
+3774	71	 	
+3775	Harley	 	6579
+3776	309	 	
+3777	269	 	
+3778	Cotton Caligula	 	A.ii fols. 144--210
+3779	Sloane	 	2515
+3780	Aug. Office Misc. Bks.	 	490
+3781	Bodley	 	277
+3782	Bodley	 	505
+3783	Douce	 	262
+3784	Rawlinson	 	D.318 fols. 73--167
+3785	Lat.	 	10434
+3786	Beinecke 286	 	
+3787	252, pt. ii	 	
+3788	Additional	 	10053
+3789	Additional	 	10052
+3790	51	 	
+3791	HM 112	 	
+3792	P*.10.43 (pr. bk.)	 	
+3793	Additional	 	10392
+3794	Cotton Vespasian	 	B.ix
+3795	Royal	 	7 C.vii
+3796	Royal	 	10 E.iv
+3797	Royal	 	17 D.xxi
+3798	Misc. 10	 	
+3799	Royal	 	4 D.iv
+3800	33	 	
+3801	450	 	
+3802	(pr. bk.)	 	
+3803	Bodley	 	429
+3804	Douce	 	239
+3805	Laud Misc.	 	545
+3806	Lat.	 	3757
+3807	Ottob. lat.	 	1565
+3808	B. 14. 15	 	
+3809	Bodley	 	585 fols. 48--104
+3810	Additional	 	2991
+3811	299	 	
+3812	306	 	
+3813	316	 	
+3814	O. 2. 50	 	
+3815	Laud Misc. 	 	728
+3816	Royal	 	3 E.i--v
+3817	Royal	 	3 E.vii
+3818	Royal	 	3 E.viii
+3819	Royal	 	5 C.vii
+3820	Royal	 	9 B.x
+3821	Royal	 	12 G.vi
+3822	Ee.3.51	 	
+3823	266	 	
+3824	221	 	
+3825	6121	 	
+3826	BD.19 h.9 (now Euing 26)	 	
+3827	58	 	
+3828	Additional	 	29704, 29705, 44892
+3829	Harley	 	40
+3830	Royal	 	2 D.xxxvi
+3831	Royal	 	5 F.i
+3832	Royal	 	7 B.v
+3833	Royal	 	11 B.xii
+3834	Royal	 	13 A.xii
+3835	Royal	 	13 A.xviii
+3836	Royal	 	13 C.vii
+3837	Bodley	 	730
+3838	Laud Lat.	 	87
+3839	58	 	
+3840	lat. 43	 	
+3841	486	 	
+3842	Dp.e.6 (pr. bk.)	 	
+3843	Royal	 	3 A.x
+3844	(pr. bk.)	 	
+3845	Ee.1.7	 	
+3846	E.9.24 (pr. bk.)	 	
+3847	CC.18 (pr. bk.)	 	
+3848	8o B.115 Th. (pr. bk.)	 	
+3849	Auct.	 	I.Q.2.10 (pr. bk.)
+3850	Plimpton collection (pr. bk.)	 	
+3851	194	 	
+3852	436	 	
+3853	e Mus.	 	113
+3854	500	 	
+3855	Royal	 	3 A.ix
+3856	Royal	 	3 E.x, xi
+3857	Royal	 	4 C.vii
+3858	Royal	 	7 D.v
+3859	Royal	 	13 C.xi
+3860	Royal	 	14 C.xii
+3861	Royal	 	15 C.xvi
+3862	Royal	 	1 C.i
+3863	150	 	
+3864	H.1.14 Art. Seld. (pr. bk.)	 	
+3865	Additional	 	34901
+3866	Hale	 	1
+3867	70	 	
+3868	258	 	
+3869	Additional	 	14252
+3870	Cotton Claudius	 	D.ii fols. 1--24, 31--115, 124--135, 266--277
+3871	Cotton Claudius	 	D.ii fols. 116--123
+3872	Cotton Claudius	 	D.ii fols. 136--265
+3873	Harley	 	32
+3874	244	 	
+3875		 	
+3876		 	
+3877		 	
+3878		 	
+3879	Lat.	 	155
+3880	46 fols. 1--108	 	
+3881	46 fols. 109--211	 	
+3882	Dd.1.29	 	
+3883	Ff.6.15	 	
+3884	Kk.4.15	 	
+3885	(formerly owned by Mr R. Allison, Flackwell Heath)	 	
+3886	47	 	
+3887	Fairfax	 	17
+3888	Ee.1.1	 	
+3889	136	 	
+3890	Additional	 	47214
+3891	Lat. th. 	 	d.1
+3892	Ashmole	 	1398, pp. 1--214
+3893	B-L ixb	 	
+3894	Cotton Claudius	 	A.xi
+3895	(pr. bk.)	 	
+3896	Bodley	 	794, pt 3
+3897	091.21040	 	
+3898	Ii.3.20	 	
+3899	23 fols. 1--104	 	
+3900	330 	 	
+3901	361	 	
+3902	R. 5. 36	 	
+3903	R. 7. 2	 	
+3904	Cotton Tiberius	 	A.xv fols. 175--180
+3905	Cotton Otho	 	B.x fol. 51
+3906	Cotton Otho	 	C.i pt. 1
+3907	Cotton Vitellius	 	A.x fols. 158--160
+3908	224	 	
+3909	Cotton Vitellius	 	D.xvii fols. 1--3
+3910	Cotton Cleopatra	 	B.iii fols. 2--35
+3911	Harley	 	3140
+3912	Royal Appx.	 	85 fols. 25--26
+3913	Arch. Seld.	 	B.16
+3914	Auct.	 	F.3.14
+3915	Barlow	 	6
+3916	Bodley	 	852
+3917	Marshall	 	19
+3918	Rawlinson	 	G. 139
+3919	Wood empt. 	 	5
+3920	lat. 	 	172
+3922	42	 	
+3923	128 (2 fols.)	 	
+3924	26	 	
+3925	(deposit)	 	
+3926	Hatton	 	23
+3927	Bodley	 	619
+3928	157	 	
+3929	362	 	
+3930	HM 26560	 	
+3931	O. 2. 4	 	
+3932	507	 	
+3933	Arundel	 	153
+3934	Royal	 	13 D.ii
+3935	Royal	 	14 C.xi
+3936	Hs. 1	 	
+3937	M694 (1 fol.)	 	
+3938	W.R.O. 12.30	 	
+3939	Kk.2.18	 	
+3940	Bodley	 	182
+3941	111	 	
+3942	654	 	
+3943	Lat. 	 	219
+3944	Digby	 	77, fols. 109--149
+3945	Rawlinson	 	C.415
+3946	4447	 	(Gudianus lat. 143)
+3947	SR.68.g.10 (pr. bk.)	 	
+3948	Cotton Faustina	 	B.ix fols. 2--75
+3949	Additional	 	3097
+3950	J. S. Hawkin's sale,	 	Fletcher's, 8 May 1843, no. 2
+3951	Additional	 	31826
+3952	Harley	 	324
+3953	33	 	
+3954	6	 	
+3955	132	 	
+3956	Ee.6.26	 	
+3957	123	 	
+3958	Royal	 	4 B.xiv
+3959	Royal	 	5 F.xvi
+3960	Royal	 	6 E.v
+3961	C.v.23a (pr. bk)	 	
+3962	Royal	 	8 E.ix
+3963	Royal	 	9 E.vi
+3964	Royal	 	9 E.xii
+3965	Royal	 	11 A.v
+3966	Royal	 	11 B.v
+3967	Royal	 	15 A.xxxii
+3968	Arundel	 	28
+3969	118	 	
+3970	47	 	
+3971	Ashmole	 	1522
+3972	Digby	 	147
+3973	Laud Misc.	 	723
+3974	Seld. supra	 	39
+3975	4o Z.33 Th. (pr. bk.)	 	
+3976	c.3.5 (pr. bk.)	 	
+3977	K.3.9 (pr. bk.)	 	
+3978	U.2.16 (pr. bk.)	 	
+3979	A.x.15	 	(Inc. 31: pr. bk.)
+3980	"Omega".1.32 (pr. bk.)	 	
+3981	23. 420	 	
+3982	196	 	
+3983	Auct. 	 	D.1.10
+3984	Bodley	 	729
+3985	Royal	 	1 A.xix
+3986	101	 	
+3987	4	 	
+3988	240	 	
+3989	Cotton Tiberius	 	A.x fols. 145--176, 179--188 (arts. 21--26)
+3990	E.P.D.Par.4 (pr. bk.)	 	
+3991	Auct. 	 	D.2.20
+3992	Bodley	 	643
+3993	"Delta".15.5 (pr. bk.)	 	
+3994	Dr. A. E. Armstrong (pr. bk.)	 	
+3995	1	 	
+3996	Rawlinson	 	G.183--184
+3997	Additional	 	6578
+3998	O. 2. 56	 	
+3999	318	 	
+4000	Harley	 	237
+4001	Harley	 	2373
+4002	Additional	 	61823
+4003	Antiq.d.F	 	1512/1 (pr. bk.)
+4004	lat. 182 fols. 1--53, 60--105	 	
+4005	Ashmole	 	189, fols. 70--115
+4006	Royal	 	7 A.ii
+4007	Additional	 	43405--43406
+4008	Additional	 	21927
+4009	xvi.I.9	 	
+4010	6	 	
+4011	AA.61 Th. Seld. (pr. bk.)	 	
+4012	Additional	 	62450
+4013	P.viii.11	 	
+4014	E.164/1	 	
+4015	Arundel	 	69
+4016	Royal	 	12 B.xii fols. 228--280
+4017	Auct. 	 	D.inf.2.10
+4018	Bodley	 	207
+4019	Bodley	 	398
+4020	Bodley	 	602 fols. 1--66
+4021	Laud Lat. 	 	15
+4022	85	 	
+4023	Advocates	 	18.4.1
+4024	Laud Misc.	 	548
+4025	Arundel	 	252
+4026	Stowe	 	62
+4027	20	 	
+4028	Additional	 	35110
+4029	2	 	
+4030	5	 	
+4031	B.8.G.17 (pr. bk.)	 	
+4032	Rawlinson	 	C.258
+4033	Additional	 	25014
+4034	Harley	 	3013
+4035	143	 	
+4036	119	 	
+4037	(pr. bk.)	 	
+4038	Royal	 	5 B.xi
+4039	181	 	
+4040	Laud Misc.	 	285
+4041		 	
+4042	Laud Misc. 	 	428
+4043	Laud Misc. 428	 	
+4044	261	 	
+4045	Laud Lat. 34	 	
+4046	B.11.33	 	
+4047	73	 	
+4048	Additional	 	3060
+4049	Auct. 	 	D.1.8
+4050	e Mus.	 	60
+4051	307	 	
+4052	60	 	
+4053	63	 	
+4054	20	 	
+4055	39	 	
+4056	Auct.	 	D.4.11
+4057	Lat. class.	 	d.39
+4058	996	 	
+4059	Dd.13.5	 	
+4060	Ee.1.4	 	
+4061	Ee.6.11	 	
+4062	Ff.5.28	 	
+4063	Ff.6.44	 	
+4064	Gg.1.33	 	
+4065	Gg.6.3	 	
+4066	Ii.1.18	 	
+4067	Ii.1.20	 	
+4068	Ii.1.21	 	
+4069	Ii.1.22	 	
+4070	Ii.1.23	 	
+4071	Ii.1.30	 	
+4072	Ii.1.31	 	
+4073	Ii.1.32	 	
+4074	Ii.1.34	 	
+4075	Ii.2.2	 	
+4076	Ii.2.6	 	
+4077	Ii.2.7	 	
+4078	Ii.2.14	 	
+4079	Ii.2.20	 	
+4080	Ii.2.22	 	
+4081	Ii.3.6	 	
+4082	Ii.3.7	 	
+4083	Ii.3.10	 	
+4084	Ii.3.11	 	
+4085	Ii.3.16	 	
+4086	Ii.3.22	 	
+4087	Ii.3.24	 	
+4088	Ii.3.29	 	
+4089	Ii.3.31	 	
+4090	Ii.4.12	 	
+4091	Ii.3.32	 	
+4092	Ii.4.2	 	
+4093	Ii.4.8	 	
+4094	Ii.4.15	 	
+4095	Ii.4.18	 	
+4096	Ii.4.34	 	
+4097	Ii.4.35	 	
+4098	Ii.4.37	 	
+4099	Ii.4.38	 	
+4100	Kk.2.8	 	
+4101	Kk.2.13	 	
+4102	Kk.2.15	 	
+4103	Kk.2.19	 	
+4104	Kk.2.20	 	
+4105	Kk.2.21	 	
+4106	Kk.3.25	 	
+4107	Kk.3.26	 	
+4108	Kk.4.5	 	
+4109	Kk.4.10	 	
+4110	Kk.4.11	 	
+4111	Kk.4.13	 	
+4112	Kk.4.20	 	
+4113	34	 	
+4114	36	 	
+4115	74	 	
+4116	138	 	
+4117	148	 	
+4118	180	 	
+4119	252	 	
+4120	264	 	
+4121	278	 	
+4122	325	 	
+4123	347	 	
+4124	370	 	
+4125	407	 	
+4126	465	 	
+4127	470	 	
+4128	91	 	
+4129	142	 	
+4130	161	 	
+4131	218	 	
+4132	R. 14. 7	 	
+4133	R. 14. 9	 	
+4134	Cosin	 	V.ii.12
+4135	6125	 	
+4136	Additional	 	15759
+4137	Additional	 	30079
+4138	Arundel	 	292
+4139	Cotton Claudius	 	E.viii
+4140	Cotton Nero	 	C.v fols. 162--285
+4141	Royal	 	14 C.i fols. 20--137
+4142	Harley	 	3634
+4143	Harley	 	3950
+4144	Harley	 	957
+4145	Royal	 	14 C.xiii
+4146	Royal App.	 	85 fols. 11--14
+4147	188	 	
+4148	368	 	
+4149	192 fol. 44 (flyleaf)	 	
+4150	IV.328	 	
+4151	Lat.	 	185
+4152	Lat.	 	226
+4153	R.32528 (pr. bk.)	 	
+4154	R.32548 (pr. bk.)	 	
+4155	Auct.	 	D.4.8
+4156	Bodley	 	151
+4157	Bodley	 	454
+4158	Bodley	 	787
+4159	Fairfax	 	20
+4160	lat.	 	53 pp. 169--198
+4161	lat.	 	180
+4162	7	 	
+4163	Jones	 	46
+4164	Harley	 	1034
+4165	Inc. 755 (pr. bk.)	 	
+4166	a.1.27 (pr. bk.)	 	
+4167	54.7	 	
+4168	Harley	 	2386 fols. 1--74
+4169	Ff.6.28	 	
+4170	Harley	 	211
+4171	e Mus. 86	 	
+4172	Seld. supra	 	41
+4173	Royal	 	9 E.ii
+4174	344	 	
+4175	Douce	 	383 fols. 41--46
+4176	Anc.1	 	
+4177	Harley	 	2409
+4178	McClean 	 	123
+4179	887	 	
+4180	RB 9689 (pr. bk.)	 	
+4181	47F (pr. bk)	 	
+4182	Additional	 	57534
+4183	Ii.6.1	 	
+4184	297 fols. 66--219	 	
+4185	481	 	
+4186	R. 16. 4	 	
+4187	O. 3. 37	 	
+4188	Cotton Vitellius	 	E.xv fols. 1--3
+4189	Cotton Vespasian	 	B.vi fols. 111--182
+4190	Cotton Tiberius	 	A.ix fols. 2--102
+4191	Rawlinson	 	C.273
+4192	Rawlinson	 	939
+4193	Auct. 	 	F.6.4
+4194	Bodley	 	477
+4195	Digby	 	168, fols. 147--180
+4196	Digby	 	23
+4197	22	 	
+4198	lat.	 	121
+4199	lat.	 	122
+4200	lat.	 	123
+4201	lat.	 	124
+4202	lat.	 	126
+4203	125	 	
+4204	127	 	
+4205	128	 	
+4206	129	 	
+4207	130	 	
+4208	131	 	
+4209	132	 	
+4210	109	 	
+4211	lat. qu.	 	515
+4212	93	 	
+4213	3521	 	
+4214	Campbell Roll	 	xxi.2
+4215	Arundel	 	157
+4216	315	 	
+4217	403	 	
+4218	Plut. xvii sin. cod. x	 	
+4219	P.i.9	 	
+4220	Harley	 	3249
+4221	6681	 	
+4222	Box of fragments	 	no. 9 (2 fols.)
+4223	Bodley	 	198
+4224	Bodley	 	703
+4225	Digby	 	11, fols. 1--91
+4226	Digby	 	90
+4227	Laud Misc. 	 	746
+4228	227	 	
+4229	228	 	
+4230	lat. 	 	33
+4231	54	 	
+4232	158	 	
+4233	166, 168--172	 	
+4234	17	 	
+4235	(pr. bk.)	 	
+4236	(pr. bk.)	 	
+4237	Auct.	 	4.Q.4.9
+4238	B. 15. 11	 	
+4239	Lat. bib.	 	d.9
+4240	132	 	
+4241	Ff.4.31	 	
+4242	G.K.S.	 	1653 4o (quarto)
+4243	16	 	
+4244	Ii.2.30	 	
+4245	Ii.3.14	 	
+4246	1.22 (pr. bk.)	 	
+4247	Cotton Nero	 	E.v
+4248	Harley	 	33
+4249	Harley	 	3426
+4250	Royal	 	5 F.ii
+4251	Arch. Seld.	 	B.50
+4252	Bodley	 	362
+4253	Digby	 	40
+4254	Duke Humphrey	 	b.1
+4255	Duke Humphrey	 	d.1
+4256	Hatton	 	36
+4257	Laud Misc.	 	558
+4258	lat.	 	37 fols. 61--278
+4259	32	 	
+4260	172	 	
+4261	lat.	 	8537
+4262	7805	 	
+4263	Vat. lat.	 	10669
+4264	12	 	
+4265	26	 	
+4266	30	 	
+4267	107	 	
+4268	110	 	
+4269	144	 	
+4270	341 fols. 15--22	 	
+4271	3506	 	
+4272	Bi.4.g.20 (pr. bk.)	 	
+4273	Sloane	 	280
+4274	Auct.	 	1.Q.3.1
+4275	Digby	 	44
+4276	Bodley	 	741--742
+4277	Rawlinson	 	G.47
+4278	2	 	
+4279	23	 	
+4280	60A (2 fols.)	 	
+4281	A.100.1300	 	
+4282	Laud Misc. 	 	c.75
+4283	52	 	
+4284	57	 	
+4285	77	 	
+4286	106	 	
+4287	131	 	
+4288	341 fols. 8--11	 	
+4289	1557	 	
+4290	Dd.13.2	 	
+4291	Ff.4.11	 	
+4292	Ii.2.10	 	
+4293	Kk.4.2	 	
+4294	750	 	
+4295	Royal	 	7 F.xii
+4296	759	 	
+4300	Bodley	 	252
+4301	Bodley	 	312 fols. 117--185
+4302	Bodley	 	753
+4303	Digby	 	29
+4304	Laud Misc. 	 	209
+4305	Savile	 	106 fols. 5--8
+4306	A.2.8 Th. Seld. (pr. bk.)	 	
+4307	Royal	 	7 E.ii
+4308	Y.4	 	
+4309	B. 2. 18	 	
+4310	Bamburgh Sel. 40	 	
+4311	Additional	 	22572
+4312	Lat. Misc.	 	b.19, B.47--9 (3 leaves)
+4313	Laud Misc. 	 	412
+4314	Selden supra	 	65
+4315	5	 	
+4316	IA.17393 (pr. bk.)	 	
+4317	1073. 1.4 (pr. bk.)	 	
+4318	A.I.12	 	
+4319	22	 	
+4320	Laud Lat.	 	12
+4321	Harley 	 	1924
+4322	Digby	 	41, fols. 91, 91*, 92, 101
+4323	XVIII.A.4.1 (pr. bk.)	 	
+4324	Bodley	 	42
+4325	77	 	
+4326	257	 	
+4327	224	 	
+4328	Auct.	 	D.4.9
+4329	860	 	
+4330	Royal	 	8 G.x
+4331	49	 	
+4332	LRA 6	 	
+4333	Auct. 	 	F.inf.1.1
+4334	B. 14. 17	 	
+4335	Royal	 	10 A.xv
+4336	Bodley	 	198
+4337	Rawlinson	 	G.14
+4338	202	 	
+4339	Cotton Otho	 	A.xiv
+4340	Royal	 	15 C.xv
+4341	Auct.	 	F.2.25
+4342	Cotton Cleopatra	 	C.ix fols. 1--62
+4343	Royal	 	6 E.iii
+4344	H.3.3--7 Th. (pr. bks.)	 	
+4345	Bodley 	 	455
+4346	517 fols. 1--49	 	
+4347	Additional	 	38666 fol. 178
+4348	Cotton Tiberius	 	B.ix fols. 1--4, 225--235
+4349	Harley	 	625
+4350	Harley	 	3753
+4351	Royal	 	12 B.iii
+4352	Royal	 	12 E.xxv
+4353	36 nos. 4, 5 (4 fols.)	 	
+4354	Bodley	 	4
+4355	Bodley	 	50
+4356	Bodley	 	52
+4357	Bodley	 	365 fols. 1--92
+4358	Bodley	 	688
+4359	Bodley	 	689
+4360	Bodley	 	696
+4361	Bodley	 	700
+4362	Bodley	 	751
+4363	Bodley	 	752
+4364	Bodley	 	757
+4365	Digby	 	19
+4366	Digby	 	61, fols. 1--20
+4367	Digby	 	67, fols. 85--116
+4368	Digby	 	77, fols. 150--197
+4369	Digby	 	155
+4370	Digby	 	176, fols. 1--86
+4371	Digby	 	178, fols. 1--4, 88--115
+4372	Digby	 	179
+4373	Digby	 	190, fols. 90--127 (+ Digby 191, fols. 1--78)
+4374	Digby	 	191, fols. 79--167 (+ Digby 190 fols. 128--210)
+4375	Digby	 	212
+4376	Digby	 	216
+4377	e Mus. 	 	19
+4378	Savile	 	19
+4379	4o C.95 Art. (2 fols.)	 	
+4380	211	 	
+4381	Digby	 	218, fols. 70--91
+4382	489, no. 86; 490, nos. 7, 8, 33, 115 (7 fols.)	 	
+4383	lat. 	 	62
+4384	Auct.	 	D.3.7
+4385	Auct.	 	F.5.29
+4386	Bodley	 	238
+4387	Bodley	 	310 fols. 146--300
+4388	Bodley	 	809
+4389	Digby 	 	31
+4390	29	 	
+4391	12	 	
+4392		 	
+4393	Cotton Caligula	 	A.xvi
+4394		 	
+4395	69	 	
+4396	Sloane	 	3884 fol. 70
+4397	Lat. class.	 	d. 39
+4398	Bodley	 	637
+4399	112 fols. 115--210	 	
+4400	Digby 	 	190, fols. 128--210
+4401	Digby	 	191, fols. 79--167 (+ Digby 190 fols. 128--210)
+4402	e Mus. 	 	121
+4403	Digby	 	161, fols. 24--93
+4404	lat.	 	33
+4405	Digby	 	37, fols. 98--141
+4406	1106 fols. 111--120	 	
+4407	Auct.	 	F.5.28, two parts, see below
+4408	Harley	 	1751
+4409	Royal	 	8 A.xiii
+4410	Rawlinson	 	C.900
+4411	Ashmole	 	748
+4412	41	 	
+4413	Lat. Misc.	 	c.75
+4414	Royal	 	13 E.x
+4415	38	 	
+4416	Royal	 	2 D.ix
+4417	Royal	 	4 A.viii
+4418	Royal	 	8 D.iv
+4419	Royal	 	10 A.iv
+4420	Royal	 	11 B.iv
+4421	761	 	
+4422	Bodley	 	209
+4423	Laud Misc.	 	114
+4424	Rawlinson	 	C.81
+4425	4	 	
+4426	47	 	
+4427	96	 	
+4428	Advocates	 	25.5.10
+4429	Advocates	 	35.6.7
+4430	Advocates	 	18.2.6
+4431	499	 	
+4432	R. 5. 36	 	
+4433	Rawlinson 	 	liturg, g.12
+4434	269	 	
+4435	Harley	 	5765
+4436	Bodley rolls	 	22
+4437	Douce	 	HH.252 (pr. bk.)
+4438	Lat. th. 	 	d.35
+4439	Rawlinson 	 	A.388
+4440	formerly Peterborough, Cathedral	 	D.8.17 (pr. bk.)
+4441		 	
+4442	27	 	
+4443	Bodley	 	316
+4444	Additional	 	14250
+4445	BB 200	 	
+4446		 	
+4447	31	 	
+4448	101	 	
+4449	Spencer Collection	 	2
+4450	Mm.6.4	 	
+4451	14	 	
+4452	16	 	
+4453	19	 	
+4454		 	
+4455	Hh.6.11	 	
+4456	Mm.5.30	 	
+4457	468	 	
+4458	236	 	
+4459	10	 	
+4460	132	 	
+4461	209	 	
+4462	Additional	 	54184
+4463	Sloane	 	2397
+4464	26	 	
+4465	xxv.2.19	 	
+4466	Additional	 	33350 fols. 32, 33
+4467	Cotton Galba	 	E.x fols. 2--58
+4468	Cotton Otho	 	D.viii fols. 234--254
+4469	Cotton Vitellius	 	A.vii fols. 1--112
+4470	Cotton Vespasian	 	A.xviii fols. 87--149 (and 150--167?)
+4471	Harley	 	649
+4472	Harley	 	2904
+4473	Royal	 	2 C.xi
+4474	Royal	 	3 B.xi
+4475	Royal	 	5 D.x
+4476	Royal	 	5 F.xv
+4477	Royal	 	7 C.i
+4478	Royal	 	8 C.xvi
+4479	Royal	 	8 D.iii
+4480	Royal	 	8 F.x
+4481	Royal	 	14 C.iv
+4482	Royal	 	14 C.ix
+4483	1106 fols. 111--120	 	
+4484	302	 	
+4485	Bodley	 	543
+4486	Bodley	 	833
+4487	Bodley	 	851
+4488	Gough Missals 122 (pr. bk.)	 	
+4489	Rawlinson 	 	B.333
+4490	Tanner	 	110
+4491	Harley	 	622
+4492	5	 	
+4493	Exch. K.R., 	 	Misc. Books, i.28
+4494	Additional	 	62925
+4495	th. lat. fol. 	 	590
+4496	Dd.9.38	 	
+4497	Inc. (pr. bk.)	 	
+4498	177	 	
+4499	225	 	
+4500	274	 	
+4501	275	 	
+4502	22	 	
+4503	R. 9. 22	 	
+4504	Ry. 24	 	
+4505	Ry. 24	 	
+4506	Ry. 24	 	
+4507	Ry. 24	 	
+4508	Ry. 24	 	
+4509	Ry. 24	 	
+4510	Ry. 24	 	
+4511	100	 	
+4512	104	 	
+4513	Gen.335	 	
+4514	Bibl. Publ.Gr.16J	 	
+4515	Cotton Vitellius	 	A.viii fols. 5--100
+4516	Cotton Vespasian	 	E.iv fols. 104--202
+4517	Theol.	 	2
+4518	Egerton	 	2951
+4519	Harley	 	82 fols. 1--34
+4520	Harley	 	101
+4521	Harley	 	330
+4522	Harley	 	651 fols. 4--177
+4523	Harley	 	876
+4524	Harley	 	978
+4525	Harley	 	979
+4526	Royal	 	1 C.iii
+4527	Royal	 	3 A.iv
+4528	Royal	 	3 A.vi
+4529	Royal	 	3 A.xiv
+4530	Royal	 	4 C.vi
+4531	Royal	 	7 E.ix
+4532	Royal	 	8 C.ix
+4533	Royal	 	9 C.iii
+4534	Royal	 	9 F.iii
+4535	Royal	 	9 F.v
+4536	Royal	 	10 C.iii
+4537	Royal	 	10 D.x
+4538	Royal	 	11 A.xvii
+4539	Royal	 	11 C.ii
+4540	Royal	 	11 C.iii
+4541	Royal	 	11 C.xi
+4542	Royal	 	12 F.xix
+4543	371	 	
+4544	497	 	
+4545	103	 	
+4546	Auct.	 	D.1.19
+4547	Auct.	 	D.2.12
+4548	Auct.	 	D.3.12
+4549	Auct.	 	D.3.15
+4550	Auct.	 	D.4.6
+4551	Auct.	 	D.4.10
+4552	Auct.	 	D.4.18
+4553	Auct.	 	F.3.3
+4554	Bodley	 	396
+4555	Bodley	 	631
+4556	Bodley	 	639
+4557	Auct.	 	F.3.8
+4558	Auct.	 	F.inf.1.2
+4559	Bodley	 	44
+4560	Bodley	 	125
+4561	Bodley	 	146
+4562	Bodley	 	197
+4563	Bodley	 	200
+4564	Boldey	 	241
+4565	Bodley	 	257
+4566	Bodley	 	397
+4567	Bodley	 	409
+4568	Bodley	 	413
+4569	Bodley	 	528
+4570	Bodley	 	550
+4571	Bodley	 	570
+4572	Bodley	 	760
+4573	Bodley	 	772
+4574	Bodley	 	781
+4575	Bodley	 	848
+4576	Bodley	 	853
+4577	Digby	 	148
+4578	Digby	 	151
+4579	Digby	 	158
+4580	Laud Misc.	 	91
+4581	Laud Misc. 	 	79
+4582	Douce	 	F.205 (pr. bk.)
+4583	Digby	 	214
+4584	Digby	 	200
+4585	Digby	 	184
+4586	Laud Misc. 	 	578
+4587	Laud Misc.	 	725
+4588	Rawlinson 	 	A.375
+4589	Rawlinson 	 	A.376
+4590	Rawlinson 	 	A.416
+4591	Rawlinson 	 	C.118
+4592	45	 	
+4593	147	 	
+4594	lat.	 	25
+4595	240	 	
+4596	241	 	
+4597	254	 	
+4598	317	 	
+4599	323	 	
+4600	1	 	
+4601	5	 	
+4602	11	 	
+4603	21	 	
+4604	59	 	
+4605	73	 	
+4606	104	 	
+4607	19	 	
+4608	63	 	
+4609	Harley	 	493
+4610	Cotton Tiberius	 	E.i
+4611	Royal	 	13 D.ix
+4612	Auct.	 	D.inf.2.8
+4613	Royal	 	7 D.xv
+4614	Royal	 	8 F.i
+4615	59	 	
+4616	Rawlinson 	 	liturg. e.1 fols. 9--14
+4617	86	 	
+4618	34	 	
+4619	Z.4.5.17	 	
+4620	Additional	 	63077
+4621	Arundel	 	346
+4622	Cotton Vespasian	 	D.v fols. 121--138
+4623	Cotton Vitellius	 	C.viii fols. 4--22
+4624	Cotton Vitellius	 	D.v
+4625	Cotton Vitellius	 	F.iii
+4626	Harley	 	5273
+4627	Royal	 	6 C.viii
+4628	Royal	 	8 D.xxii
+4629	Royal	 	8 E.iv
+4630	511.2	 	
+4631	Lat.	 	196
+4632	155	 	
+4633	lat.	 	15
+4634	113 fols. 1--165	 	
+4635	Lat.	 	15157 fols. 35--135
+4636	xvi.I.8	 	
+4637	113	 	
+4638	14	 	
+4639	37	 	
+4640	Bodley	 	132
+4641	Gg.3.33	 	
+4642	Lat.	 	186
+4643	Laud Misc. 	 	241
+4644	Laud Misc.	 	308
+4645	Laud Misc. 	 	309
+4646	Rawlinson 	 	C.329
+4647	Beinecke	 	590
+4648	57	 	
+4649	lat.	 	350
+4650	1403	 	
+4651	Ff.4.32	 	
+4652	Inc.	 	2179 (pr. bk.)
+4653	62 fols. 1--48, 49--208, 209--274	 	
+4654	184	 	
+4655	318	 	
+4656	332	 	
+4657	70	 	
+4658	89	 	
+4659	R. 3. 30	 	
+4660	O. 2. 24	 	
+4661	O. 4. 7	 	
+4662	163	 	
+4663	Advocates	 	18.2.4
+4664	Advocates	 	18.3.9
+4665	Advocates	 	18.5.18
+4666	80	 	
+4667	Cotton Nero	 	D ii fols. 2--214, 242--251, 297--305
+4668	Cotton Vitellius	 	A. xiii fols. 91--100
+4669	Royal	 	15 B.xi
+4670	Cotton Vespasian	 	A. xxii
+4671	Harley	 	23
+4672	Harley	 	261
+4673	Harley	 	3680
+4674	Royal	 	1 B.iv
+4675	Royal	 	1 D.iii
+4676	Royal	 	2 C.i
+4677	Royal	 	2 C.iii
+4678	Royal	 	2 C.v
+4679	Royal	 	2 D.vi
+4680	Royal	 	2 D.xxx
+4681	Royal	 	2 E.i
+4682	Royal	 	2 E.vii
+4683	Royal	 	2 F.iv
+4684	Royal	 	2 F.vi
+4685	Royal	 	2 F.xi
+4686	Royal	 	2 F.xii
+4687	Royal	 	3 B.i
+4688	Royal	 	3 B.xiii
+4689	Royal	 	3 C.iv
+4690	Royal	 	3 C.vii
+4691	Royal	 	3 C.viii
+4692	Royal	 	3 C.ix
+4693	Royal	 	3 C.x
+4694	Royal	 	4 A.vii
+4695	Royal	 	4 A.xii
+4696	Royal	 	4 A.xv
+4697	Royal	 	4 A.xvi
+4698	Royal	 	4 B.i
+4699	Royal	 	4 B.ii
+4700	Royal	 	4 B.vii
+4701	Royal	 	4 C.iv
+4702	Royal	 	4 C.x
+4703	Royal	 	4 D.xiii
+4704	Royal	 	4 E.v
+4705	Royal	 	5 A.i
+4706	Royal	 	5 A.iv
+4707	Royal	 	5 A.vii
+4708	Royal	 	5 A.x
+4709	Royal	 	5 A.xv
+4710	Royal	 	5 B.iv
+4711	Royal	 	5 B.vi
+4712	Royal	 	5 B.vii
+4713	Royal	 	5 B.x
+4714	Royal	 	5 B.xiii
+4715	Royal	 	5 B.xvi
+4716	Royal	 	5 C.i
+4717	Royal	 	5 Cviii
+4718	Royal	 	5 D.i
+4719	Royal	 	5 D.iii
+4720	Royal	 	5 D.ix
+4721	Royal	 	5 E.i
+4722	Royal	 	5 E.ii
+4723	Royal	 	5 E.x
+4724	Royal	 	5 E.xx
+4725	Royal	 	6 A.i
+4726	Royal	 	6 A.iv
+4727	Royal	 	6 A.xi
+4728	Royal	 	6 A.xii
+4729	Royal	 	6 B.ii
+4730	Royal	 	6 B.vi
+4731	Royal	 	6 C.iv
+4732	Royal	 	6 C.vi
+4733	Royal	 	6 C.x
+4734	Royal	 	6 D.ii
+4735	Royal	 	6 D.v
+4736	Royal	 	7 A.v
+4737	Royal	 	7 A.xi fols. 19--24
+4738	Royal	 	7 B.xiii
+4739	Royal	 	7 C.xiii, xiv
+4740	Royal	 	7 E.iv
+4741	Royal	 	7 E.viii
+4742	Royal	 	7 F.iv
+4743	Royal	 	8 D.xvi
+4744	Royal	 	9 C.iv
+4745	Royal	 	9 E.xi
+4746	Royal	 	10 A.xii
+4747	Royal	 	10 A.xvi
+4748	Royal	 	10 B.ii
+4749	Royal	 	10 C.iv
+4750	Royal	 	10 C.xii
+4751	Royal	 	11 B.xv
+4752	Royal	 	11 C.i
+4753	Royal	 	11 D.i
+4754	Royal	 	12 C.i
+4755	Royal	 	12 C.iv
+4756	Royal	 	12 D.xiv
+4757	Royal	 	12 F.i
+4758	Royal	 	12 F.viii
+4759	Royal	 	12 F.xiii
+4760	Royal	 	12 G.ii
+4761	Royal	 	12 G.iii
+4762	Royal	 	13 D.iii
+4763	Royal	 	15 A.xix
+4764	Royal	 	15 C.x
+4765	Royal	 	App. 10 fol. 1
+4766	76	 	
+4767	Lat.	 	109
+4768	Bodley	 	134
+4769	Bodley	 	340 & 342 (2 vols.)
+4770	Hatton 	 	54
+4771	Laud Misc. 	 	40
+4772	Wood	 	B.3
+4773	LR.4.a.8 (pr. bk.)	 	
+4774	4	 	
+4775		 	
+4776	Lat.	 	4951
+4777	HM 	 	62
+4778	Lansdowne	 	436
+4779	Cotton Titus	 	D.xxiv
+4780	Rawlinson 	 	B.192
+4781	Cotton Julius	 	A.vii fols. 1--54
+4782	O. 4. 40	 	
+4783	XVI.A.6	 	
+4784	Y.2.16 (pr. bk.)	 	
+4785	Reg. lat.	 	598 fol. 8
+4786	Reg. lat.	 	438 fols. 1--36
+4787	Reg. lat.	 	438 fols. 1--36
+4788	Reg. lat. 646 fols. 1--49	 	
+4789		 	
+4790		 	
+4791	Laud Misc.	 	624
+4792	Dd.6.7	 	
+4793	Dd.8.6	 	
+4794	Ee.1.9	 	
+4795	Dd.11.78	 	
+4796	Dd.7.7--10	 	
+4797	Ee.3.59	 	
+4798	Ee.4.20	 	
+4799	Ee.6.28	 	
+4800	Gg.4.11	 	
+4801	Kk.4.22	 	
+4802	14	 	
+4803	27	 	
+4804	5, 6, 7	 	
+4805	48	 	
+4806	71	 	
+4807	77	 	
+4808	77	 	
+4809	290	 	
+4810	385 fols. 89--212	 	
+4811	244	 	
+4812	230	 	
+4813	19	 	
+4814	180	 	
+4815	183	 	
+4816	B. 5. 1	 	
+4817	B. 5. 3	 	
+4818	B. 14. 33	 	
+4819	B. 14. 36	 	
+4820	R. 10. 5	 	
+4821	O. 5. 8	 	
+4822	O. 7. 13	 	
+4823	O. 9. 34	 	
+4824	Grylls	 	2.179 (pr. bk.)
+4825	2	 	
+4826	444	 	
+4827	Cosin	 	V.v.15 fols. 44--86
+4828	P.i.5	 	
+4829	26	 	
+4830	103	 	
+4831	177	 	
+4832	Additional	 	16164
+4833	Additional	 	26764
+4834	Arundel	 	11 fols. 1--182
+4835	Arundel	 	201 fols. 44--97
+4836	Arundel	 	201 fols. 44--97
+4837	Cotton Julius	 	D.iii fols. 125--196
+4838	Cotton Tiberius	 	D.v part 1
+4839	Cotton Claudius	 	D.i
+4840	Cotton Claudius	 	E.iv fols. 34--377
+4841	Cotton Nero 	 	C.vi
+4842	Cotton Nero	 	D.vii
+4843	Cotton Otho	 	B.iv
+4844	Egerton	 	633
+4845	Egerton	 	654
+4846	Egerton	 	1982
+4847	Egerton	 	3721
+4848	Harley	 	865
+4849	Harley	 	2624
+4850	Harley	 	3737
+4851	Harley	 	3775 fols. 100--139
+4852	Royal	 	2 A.x
+4853	Royal	 	2 B.iv
+4854	Royal	 	2 B.vi
+4855	Royal	 	2 F.vii
+4856	Royal	 	2 F.viii
+4857	Royal	 	3 C.v
+4858	Royal	 	4 D.vii
+4859	Royal	 	6 D.x
+4860	Royal	 	6 E.viii
+4861	Royal	 	8 G.i
+4862	Royal	 	8 G.xi
+4863	Royal	 	9 C.x
+4864	Royal	 	10 C.xiii
+4865	Royal	 	10 D.i
+4866	Royal	 	10 D.iii
+4867	Royal	 	10 E.vii
+4868	Royal	 	10 E.viii
+4869	Royal	 	12 F.ii
+4870	Royal	 	11 D.ix
+4871	Royal	 	12 G.xiv
+4872	Royal	 	13 B.v
+4873	Royal	 	13 C.xiv
+4874	Royal	 	13 D.iv
+4875	Royal	 	13 D.v
+4876	Royal	 	13 D.vi, vii
+4877	Royal	 	13 E.vi
+4878	Royal	 	13 E.ix
+4879	Royal	 	14 C.i fols. 1--19
+4880	Arundel	 	3
+4881	102	 	
+4882	111	 	
+4883	420	 	
+4884	Ashmole	 	304
+4885	Ashmole	 	1796
+4886	Auct.	 	D.2.6 fols. 2--8
+4887	Auct.	 	F.2.13
+4888	Bodley	 	462 fols. 1--325
+4889	Bodley	 	467
+4890	Bodley	 	569
+4891	Laud Lat.	 	67
+4892	Laud Misc. 	 	264
+4893	Laud Misc. 	 	279
+4894	Laud Misc. 	 	358
+4895	Laud Misc.	 	363
+4896	Laud Misc. 	 	370
+4897	Rawlinson 	 	C.31
+4898	Laud Misc. 	 	409
+4899	Rawlinson 	 	D.358
+4900	Rawlinson 	 	G.99
+4901	Rawlinson 	 	liturg. c.1
+4902	Selden supra	 	24
+4903	97	 	
+4904	115	 	
+4905	233	 	
+4906	15	 	
+4907	lat.	 	53 pp. 145--168
+4908	358	 	
+4909	64	 	
+4910	130	 	
+4911	Garrett	 	73
+4912	10	 	
+4913	74	 	
+4914		 	
+4915	lat.	 	1218
+4916	SwB. B 39 BL.	 	
+4917	BR 65. A 9	 	
+4918	Helmstadiensis	 	411
+4919	Helmstadiensis	 	538
+4920	Helmstadiensis	 	628
+4921	Helmstadiensis	 	1029
+4922	Helmstadiensis	 	1108
+4923	Lat. liturg.	 	g.1
+4925	Cotton Domitian	 	 i fols. 56--160
+4926	5, ii	 	
+4927	F.150	 	
+4928	368	 	
+4929	236	 	
+4930	Cotton Julius	 	A.vii fols. 124--133
+4931	R. 7. 28	 	
+4932	563	 	
+4933	21	 	
+4934	130	 	
+4935	136	 	
+4936	3	 	
+4937	Lansdowne	 	382
+4938	Sloane	 	1935
+4939	Lyell	 	6
+4940	152	 	
+4941	82	 	
+4942	HM 26052	 	
+4943	216	 	
+4944	R. 5. 22 fols. 44--71 (part ii)	 	
+4945	R. 16. 34	 	
+4946	174	 	
+4947	Cotton Tiberius	 	C.i fols. 43--203
+4948	Cotton Vitellius	 	A.xii fols. 4--78
+4949	Harley	 	7026 fols. 4--20
+4950	Harley	 	3237
+4951	Royal	 	5 E.xvi
+4952	Royal	 	5 E.xix
+4953	Royal	 	5 F.xiii
+4954	Royal	 	5 F.xviii
+4955	Royal	 	6 B.xv
+4956	Royal	 	8 B.xiv fols. 154--156v
+4957	Royal	 	15 B.xix fols. 200--205
+4958	Royal	 	15 C.ii
+4959	Royal	 	15 C.xi fols. 1--58, 113--194
+4960	Arch. Seld.	 	B.26 fols. 35--94
+4961	Bodley	 	32
+4962	Bodley	 	392
+4963	Bodley	 	407
+4964	Bodley	 	444 fols. 1-27
+4965	Bodley	 	516
+4966	Bodley	 	698
+4967	Bodley	 	756
+4968	Bodley	 	765
+4969	Bodley	 	768
+4970	Bodley	 	835
+4971	Digby	 	173
+4972	Fell	 	1, 4
+4973	Fell	 	3
+4974	e Mus. 	 	2
+4975	Rawlinson 	 	C.400
+4976	Rawlinson 	 	C.723
+4977	22	 	
+4978	1	 	
+4979	2	 	
+4980	3	 	
+4981	4	 	
+4982	5	 	
+4983	6	 	
+4984	7	 	
+4985	8	 	
+4986	9	 	
+4987	10	 	
+4988	11	 	
+4989	12	 	
+4990	13	 	
+4991	14	 	
+4992	15	 	
+4993	16	 	
+4994	17	 	
+4995	18	 	
+4996	19, 20	 	
+4997	21	 	
+4998	22	 	
+4999	23	 	
+5000	24	 	
+5001	25	 	
+5002	26	 	
+5003	27	 	
+5004	28	 	
+5005		 	
+5006	30	 	
+5007	31	 	
+5008	32	 	
+5009	33	 	
+5010	34	 	
+5011	35	 	
+5012	36	 	
+5013	37	 	
+5014	38	 	
+5015	39	 	
+5016	40	 	
+5017	41	 	
+5018	42	 	
+5019	43	 	
+5020	44	 	
+5021	45	 	
+5022	46	 	
+5023	47	 	
+5024	48	 	
+5025	50	 	
+5026	107	 	
+5027	49	 	
+5028	51	 	
+5029	52	 	
+5030	53	 	
+5031	54	 	
+5032	55	 	
+5033	56	 	
+5034	57	 	
+5035	58	 	
+5036	59	 	
+5037	60	 	
+5038	61	 	
+5039	63	 	
+5040	62	 	
+5041	64	 	
+5042	65	 	
+5043	66	 	
+5044	67	 	
+5045	68	 	
+5046	70	 	
+5047	71	 	
+5048	72	 	
+5049	73, 74	 	
+5050	76	 	
+5051	78	 	
+5052	79	 	
+5053	80	 	
+5054	75	 	
+5055	81	 	
+5056	82	 	
+5057	83	 	
+5058	84	 	
+5059	86	 	
+5060	87	 	
+5061	89	 	
+5062	90	 	
+5063	91	 	
+5064	92	 	
+5065	93	 	
+5066	94	 	
+5067	95	 	
+5068	96	 	
+5069	97	 	
+5070	98	 	
+5071	100	 	
+5072	101	 	
+5073	102	 	
+5074	104	 	
+5075	105	 	
+5076	108	 	
+5077	110	 	
+5078	111	 	
+5079	112	 	
+5080	113	 	
+5081	114	 	
+5082	115	 	
+5083	116	 	
+5084	117	 	
+5085	118	 	
+5086	119	 	
+5087	120	 	
+5088	122	 	
+5089	123	 	
+5090	124	 	
+5091	125	 	
+5092	126	 	
+5093	130	 	
+5094	131	 	
+5095	132	 	
+5096	133	 	
+5097	134	 	
+5098	136	 	
+5099	137	 	
+5100	138	 	
+5101	139	 	
+5102	143	 	
+5103	145	 	
+5104	148	 	
+5105	149	 	
+5106	150	 	
+5107	151	 	
+5108	153	 	
+5109	155	 	
+5110	156	 	
+5111	157	 	
+5112	158	 	
+5113	160	 	
+5114	161	 	
+5115	162	 	
+5116	163	 	
+5117	164	 	
+5118	165	 	
+5119	166	 	
+5120	167	 	
+5121	169	 	
+5122	169	 	
+5123	170	 	
+5124	171	 	
+5125	172	 	
+5126	173	 	
+5127	174	 	
+5128	176	 	
+5129	177	 	
+5130	178	 	
+5131	179	 	
+5132	180	 	
+5133	181	 	
+5134	182	 	
+5135	183	 	
+5136	184	 	
+5137	185, 186	 	
+5138	187	 	
+5139	197	 	
+5140	198	 	
+5141	K.d.2 (pr. bk.)	 	
+5142	Lat. th.	 	e.39
+5143	Digby	 	68
+5144	(pr. bk.)	 	
+5145	IB.26227 (pr. bk.)	 	
+5146	Theol.	 	3
+5147	Ff.1.27 pp. 1--40, 73--252	 	
+5148	66 pp. 1--114	 	
+5149	139	 	
+5150	Royal	 	12 F.vi
+5151		 	
+5152	formerly Prof. H. A. Ormerod	 	
+5153	formerly Prof. H. A. Ormerod	 	
+5154	formerly Prof. H. A. Ormerod	 	
+5155	formerly Prof. H. A. Ormerod	 	
+5156	formerly Prof. H. A. Ormerod	 	
+5157	159	 	
+5158	154	 	
+5159	144	 	
+5160	140	 	
+5161	135	 	
+5162	129	 	
+5163	128	 	
+5164	109	 	
+5165	106	 	
+5166	88	 	
+5167	85	 	
+5168	142	 	
+5169	Advocates	 	5.1.15
+5170	Dd.9.52	 	
+5171	Fairfax	 	12
+5172	Additional	 	36652C
+5173	Royal	 	3 A.xv
+5174	Royal	 	3 B.iii
+5175	Royal	 	5 C.v
+5176	Royal	 	8 G.v
+5177	lat.	 	27
+5178	Ii.6.40	 	
+5179	2--1957	 	
+5180	Additional	 	11748
+5181	Cotton Nero	 	C.iv
+5182	Lansdowne	 	383
+5183	150	 	
+5184	Barberini	 	2689
+5185	Gg. 1.6	 	
+5186	35	 	
+5187	241	 	
+5188	B. 15. 18	 	
+5189	H.c.27--31 (pr. bks.)	 	
+5190	Crispin	 	5
+5191	396	 	
+5192	281	 	
+5193	Bn.6.b.11 (pr. bk.)	 	
+5194	Hunterian	 	77
+5195	64	 	
+5196	Additional	 	22121
+5197	Cotton Vespasian	 	D.ix fols. 44--49, 167, 168
+5198	Royal	 	7 D.xvii
+5199	Bib. lat.	 	c.1498. 1--5
+5200	Bodley	 	117
+5201	Bodley	 	417
+5202	Bodley	 	797
+5203	Hatton 	 	14
+5204	Lat. th.	 	e. 26
+5205	Rawlinson 	 	C.57
+5206	b.3.22 (pr. bk.)	 	
+5207	46	 	
+5208	34	 	
+5209	Inc. H491 (pr. bk.)	 	
+5210	Harley	 	3820
+5211	lat.	 	77
+5212	Bodley	 	386
+5213	Add.	 	74236
+5214	422	 	
+5215	R. 7. 13	 	
+5216	Additional	 	46487
+5217	Cotton Tiberius	 	C.i fols. 43--203
+5218	Cotton Faustina	 	A.ii fols. 2--98
+5219	Auct.	 	F.2.14
+5220	Lat.	 	943
+5221	33	 	
+5222	xvi.I.77	 	
+5223	Hargrave	 	313
+5224	88-1972 (218)	 	
+5225	Rawlinson 	 	D.1225
+5226	Bodley	 	771
+5227	41	 	
+5228	77	 	
+5229	XXXII	 	
+5230	Q.75	 	
+5231	039.7-Isi (183787)	 	(formerly Leicester, Bernard Halliday)
+5232	Ottobon.	 	lat. 191
+5233	18	 	
+5234	Laud Misc. 	 	545
+5235	165	 	
+5236	Royal	 	5 E.vii fols. 102--145
+5237	Sloane	 	1617
+5238	2809	 	
+5239	Additional	 	6855
+5240	338.5.29 (pr. bk.)	 	
+5241		 	
+5242	524	 	
+5243	O. 2. 30 fols. 1--128	 	
+5244	Lit.E.10 (101)	 	
+5245	Additional	 	63592
+5246	20611--13 (pr. bk.)	 	
+5247	Additional	 	59855
+5248	Additional	 	62105
+5249	Cotton Faustina	 	A.viii fols. 40--178
+5250	Royal	 	7 A.i
+5251	Royal	 	7 A.ix fols. 1--65
+5252	Royal	 	10 B.vii
+5253	1508 (pr. bk.)	 	
+5254	Lisbon Collection (pr. bk.)	 	
+5255	G.4.30 (pr. bk.)	 	
+5256	Ashmole 	 	1285
+5257	Bodley	 	423 fols. 244--354
+5258	Bodley	 	924
+5259	Lat. th.	 	e.8
+5260	Rawlinson 	 	B.177
+5261	C.1.5.Linc.	 	
+5262	31	 	
+5263	152	 	
+5264	Marston	 	243
+5265	xv.P.8 (pr. bk.)	 	
+5266	449. ii	 	
+5267	4	 	
+5268	Royal	 	4 B.iii
+5269	9	 	
+5270	145	 	
+5271	Additional	 	34652 fol. 2
+5272	Arundel	 	48
+5273	Cotton Vitellius	 	A.xv fols. 4--93
+5274	Bodley	 	719
+5275	62	 	
+5276	126	 	
+5277	153	 	
+5278	158	 	
+5279	163	 	
+5280	176	 	
+5281	183	 	
+5282	185	 	
+5283	165	 	
+5284	314	 	
+5285	Royal	 	3 B.viii
+5286	Royal	 	6 B.xii
+5287	Royal	 	6 D.viii
+5288	Royal	 	8 D.xx
+5289	Royal	 	8 E.vi
+5290	Additional	 	3572
+5292	Royal	 	5 F.viii
+5293	Auct. F.3.10	 	
+5294	Auct.	 	F.5.17
+5295	Hatton	 	26
+5296	Hatton	 	86
+5297	Lat.	 	391
+5298	Auct.	 	F.5.18
+5299	Hatton	 	74
+5300	Rawlinson 	 	A.363 fols. 19--65
+5301	C.III.22	 	
+5302	Arch.	 	A.d.15 (pr. bk.)
+5303	Harley	 	2372
+5304	15	 	
+5305	C.IV.22 fols. 89--139	 	
+5306	Marston	 	118
+5307	Digby 	 	11, fols. 149--189
+5308	12	 	
+5309	11	 	
+5310	Advocates	 	18.7.5 (partly pr. bk.)
+5311	EP.C.Par.2--5 (pr. bks.)	 	
+5312	EP.G.Par.3 (pr. bk.)	 	
+5313	SP.54 (pr. bk.)	 	
+5314		 	
+5315	Burney	 	323
+5316	Ff.i.20	 	
+5317	12	 	
+5318	94	 	
+5319	Inc. 124 (pr. bks.)	 	
+5320	142	 	
+5321	Harley	 	2791
+5322	Kk.1.21	 	
+5323	13	 	
+5324	Harley	 	3241
+5325	20	 	
+5326	143	 	
+5327	101	 	
+5328	Fairfax	 	5
+5329	Garrett	 	27
+5330	18	 	
+5331	Harley	 	2409
+5332	150	 	
+5333	100	 	
+5334	213	 	
+5335	134	 	
+5336	C.V.130 (pr. bk.)	 	
+5337	Add. 8885	 	(olim Bristol Baptist College, Z.d.40)
+5338	IV.481 	 	(previously Untraced, London, Maggs, 1935)
+5339	1	 	
+5340	1	 	
+5341	Additional	 	4081
+5342	Additional	 	7634
+5343	Dd.2.33	 	
+5344	Ff.6.18	 	
+5345	Ff.6.33	 	
+5346	Hh.6.8	 	
+5347	Rit. c.351.1 (pr. bk.)	 	
+5348	32.6.49 (pr. bk.)	 	
+5349	11	 	
+5350	12	 	
+5351	13	 	
+5352	23	 	
+5353	11	 	
+5354	109	 	
+5355	131	 	
+5356	139	 	
+5357	219	 	
+5358	Bp.2.14 (pr. bk.)	 	
+5359	Bp.2.14 (pr. bk.)	 	
+5360	Bp.2.14 (pr. bk.)	 	
+5361	B. 15. 2	 	
+5362	C.7.12 (pr. bk.)	 	
+5363	R. 8. 16	 	
+5364	O. 7. 8	 	
+5365	Z.4.4.3	 	
+5366	Cosin	 	V.v.12
+5367	(pr. bk.)	 	
+5368	(pr. bk.)	 	
+5369	(pr. bk.)	 	
+5370	59	 	
+5371		 	
+5372	Hunterian	 	136
+5373	Hunterian	 	332
+5374	Hunterian	 	509
+5375	(pr. bk.)	 	
+5376	(pr. bk.)	 	
+5377	Skt Georgen in Villingen	 	12
+5378	60	 	
+5379	244	 	
+5380	Additional	 	5208
+5381	Additional	 	22285
+5382	Additional	 	24661
+5383	Additional	 	30514
+5384	Arundel	 	146
+5385	Additional	 	40006
+5386	Cotton	 	Appendix xiv
+5387	Harley	 	42
+5388	Harley	 	487
+5389	Harley	 	612
+5390	Harley	 	632
+5391	Harley	 	993
+5392	Harley	 	1298
+5393	Harley	 	2387
+5394	Royal	 	2 A.xiv
+5395	Royal	 	13 D.viii
+5396	IB.55119 (pr. bk.)	 	
+5397	(pr. bks.)	 	(deposited at Lambeth Palace)
+5398	546	 	
+5399	5	 	
+5400		 	
+5401		 	
+5402		 	
+5403	27907	 	
+5404	English	 	81
+5405	A.51.2Aq.5Be (pr. bk.)	 	
+5406		 	
+5407	Auct.	 	D.3.1
+5408	Auct. D.47	 	
+5409	Barlow	 	49 fols. 4--56
+5410	Bodley	 	62
+5411	Bodley	 	212
+5412	Bodley	 	630
+5413	Douce	 	N.300 (pr. bk.)
+5414	Rawlinson 	 	C.781
+5415	Rawlinson 	 	C.941
+5416	Rawlinson 	 	D.403
+5417	25	 	
+5418	15	 	
+5419	16	 	
+5420	245	 	
+5421	39	 	
+5422	Arch.	 	C.I.1.14 (pr. bk.)
+5423	167	 	
+5424	187	 	
+5425	76.b.11 (pr. bk.)	 	
+5426	77.a.20 (pr. bk.)	 	
+5427	53	 	
+5428	25	 	
+5429	HM 35300	 	formerly Bury St Edmunds, Cathedral, 1
+5430		 	
+5431		 	
+5432	(deposit)	 	
+5433	3970 B (pr. bk.)	 	
+5434	209	 	
+5435	209	 	
+5436	209	 	
+5437	Lyell	 	23
+5438	NMB 2010	 	(formerly Redlynch, Major J. R. Abbey)
+5439	9 fols. 1--3	 	
+5440	Royal	 	8 G.ii
+5441	Royal	 	8 G.vi
+5442	Royal	 	9 B.ix
+5443	Royal	 	11 A.xiii
+5444	Royal	 	11 B.vi
+5445	Royal	 	12 E.xxv
+5446	Bodley	 	419 fols. 1--105
+5447	823	 	
+5448	Ii.4.6	 	
+5449	Cotton Vitellius	 	C.v
+5450	Additional	 	62122
+5451	Digby 	 	81, fols. 67--88
+5452	Gg.3.21	 	
+5453	Grylls	 	2.179 (pr. bk.)
+5454	(pr. bk.)	 	
+5455	P.iv.6	 	
+5456	Cotton Claudius	 	E.i
+5457	Cotton Cleopatra	 	A.vii fols. 7--103
+5458	Royal	 	8 C.vii fols. 5--8
+5459	Lat. misc. b.2 (R)	 	
+5460	Top. Gloucs. d.2	 	
+5461	50	 	
+5462	Lat. 	 	9376 fols. 21--31
+5463	Garrett	 	34
+5464	Ii.6.36	 	
+5465	Burney	 	246
+5466	Burney	 	285
+5467	Burney	 	295
+5468	Burney	 	341
+5469	Burney	 	344
+5470	Burney	 	357
+5471	60	 	
+5472	329	 	
+5473	(pr. bk.)	 	
+5474	Digby	 	99
+5475	522	 	
+5476	297	 	
+5477	448	 	
+5478	Additional	 	40000
+5479	Cotton	 	Nero C.vii, fols. 80--84
+5480	Royal 	 	15 A.x
+5481	Bodley	 	680
+5482	Bodley	 	364
+5483	Tanner	 	10
+5484	17	 	
+5485	Bodley	 	655
+5486	Campell roll	 	xxi.4
+5487	Cotton Vespasian	 	A.xi
+5488	Harley	 	2
+5489	486	 	
+5490	Tanner	 	166
+5491	D.3.16 (pr. bk.)	 	
+5492	4010 Q.10 (pr. bk.)	 	
+5493	B. 14. 4	 	
+5494	358	 	
+5495	Incun. X.5.7 (Rosenwald Collection) (pr. bk.)	 	
+5496	Royal	 	14 C.vi
+5497	Ff.4.45	 	
+5498	Kk.5.33	 	
+5499	28	 	
+5500	Auct.	 	1.Q.6.1
+5501	Bodley	 	249
+5502	Digby	 	154
+5503	Laud Misc. 	 	357
+5504	I.A.1	 	Deposited in the British Library, Loans 29/56
+5505	I.A.2	 	Deposited in the British Library, Loans 29/55
+5506	Digby	 	156
+5507	Laud Misc.	 	453
+5508	20	 	
+5509	Royal	 	4 A.iv
+5510	D.10.9--11 (pr. bks.)	 	
+5511	A.182	 	
+5512	Ee.4.20	 	
+5513	Kk.6.45	 	
+5514	274	 	
+5515	1-1973	 	
+5516	82	 	
+5517	R. 10. 5	 	
+5518	A.IV.6	 	
+5519	Cotton Julius	 	A.x fols. 2--43
+5520	Cotton Galba	 	A.v
+5521	Cotton Vitellius	 	A.xx
+5522	Cotton Faustina	 	B.ix fols. 76--244
+5523	Harley	 	3847
+5524	Digby	 	20, fols. 62--168
+5525	Gough liturg.	 	18
+5526	Laud Misc.	 	4
+5527	Laud Misc.	 	657
+5528	134	 	
+5529	lat.	 	171
+5530	XIV.K.3 (pr. bk.)	 	
+5531	144	 	
+5532	Ashmole	 	750
+5533	Peniarth	 	20
+5534	37	 	
+5535	e Mus. 	 	3
+5536	Additional	 	21253
+5537	21	 	
+5538	Cotton Titus	 	D.xx fols. 68--92
+5539	Royal	 	5 F.x
+5540	W.22	 	
+5541	Sloane	 	1933
+5542		 	
+5543	F.7.20--21 (pr. bks.)	 	
+5544	Harley	 	2818
+5545	Bodley	 	355 fols. 159--223
+5546	Ee.3.50	 	
+5547	Gg.1.11	 	
+5548	116	 	
+5549	126	 	
+5550	B. 14. 2	 	
+5551	Harley	 	59
+5552	Harley	 	3766 
+5553	Harley	 	3776, fols. 1--62, 94--117
+5554	Lansdowne	 	763
+5555	Stowe	 	35
+5556	200 fols. 66-113	 	
+5557	353	 	
+5558	Additional	 	57532
+5559	Auct.	 	D.4.22
+5560	Digby	 	211
+5561	Laud Lat.	 	109
+5562	Laud Misc. 	 	515
+5563	Rawlinson 	 	A.433
+5564	Rawlinson 	 	C.330
+5565	Rawlinson 	 	D.1228
+5566	Rawlinson 	 	G.62
+5567	Garrett	 	114
+5568	316	 	
+5569	71	 	
+5570	B. 3. 22	 	
+5571	B. 4. 8	 	
+5572	B. 4. 11	 	
+5573	B. 4. 12	 	
+5574	B. 4. 13--B. 4. 14	 	
+5575	B. 4. 15	 	
+5576	B. 4. 16	 	
+5577	B. 4. 17	 	
+5578	B. 4. 31	 	
+5579	B. 4. 32	 	
+5580	B. 5. 11	 	
+5581	B. 5. 12	 	
+5582	O. 2. 25	 	
+5583	Bodley	 	139
+5584	Laud Misc.	 	447
+5585	11	 	
+5586	126	 	
+5587	Inc. 3127 (pr. bk.)	 	
+5588	Inc. 3391 (pr. bk.)	 	
+5589	3-1967 (205)	 	
+5590	Cosin F.iv.30/1 (pr. bk.)	 	
+5591	Royal	 	6 C.ix
+5592	Sloane	 	1615 fol. ult.
+5593	IB.26227 (pr. bk.)	 	
+5594	lat.	 	54
+5595	65	 	
+5596	O. 9. 28	 	
+5597	Eng. misc.	 	c. 291 fol. 1
+5598	Additional	 	5368
+5599	Cotton Vespasian	 	A.xvi
+5600	Bodley	 	527
+5601	Garrett	 	71
+5602	9	 	
+5603	222	 	
+5604	Eng.	 	109
+5605	5 (8 fols.)	 	
+5606	75	 	
+5607	R. 14. 5	 	
+5608	Additional	 	6059
+5609	288	 	
+5610	Add.	 	A. 44
+5611	lat.	 	3381
+5612	s. n.	 	
+5613	s. n.	 	
+5614	s. n.	 	
+5615	43	 	
+5616	68	 	
+5617	433	 	
+5618	B. 1. 7	 	
+5619	Harley	 	3145
+5620	(pr. bk.)	 	
+5621	Bodley	 	921
+5622	96	 	
+5623	C.41.g.2 (pr. bk.)	 	
+5624	45	 	
+5625	Ee.4.23 fols. 137--144	 	
+5626	139	 	
+5627	268	 	
+5628	B. 10. 2	 	
+5629	O. 7. 37	 	
+5630	O. 8. 30	 	
+5631	548	 	
+5632	Laing	 	II.515
+5633	O.iv.6	 	
+5634	O.vi.7	 	
+5635	Additional	 	8167
+5636	Cotton Otho	 	C.ii
+5637	Cotton Titus	 	A.viii fols. 2--64
+5638	Royal	 	2 A.xxii
+5639	Royal	 	5 B.viii
+5640	Royal	 	7 D.xxi
+5641	Royal	 	7 F.ii
+5642	Royal	 	9 F.iv
+5643	Royal	 	10 A.xvii
+5644	IA.17230 (pr. bk.)	 	
+5645	K.8.k.8 (paper leaf)	 	
+5646	1507 I (pr. bk.)	 	
+5647	184	 	
+5648	Arc.L.40.2/E.25	 	
+5649	136C fols. 39--42	 	
+5650	29	 	
+5651	37	 	
+5652	34/2	 	
+5653	38	 	
+5654	Egerton 	 	3775
+5655	6712	 	
+5656	Lat. 	 	165
+5657	Bodley	 	46
+5658	Bodley	 	157
+5659	e Mus. 249	 	
+5660	Rawlinson 	 	C.425
+5661	Rawlinson 	 	liturg. g.10
+5662	R.1.23 Th. Seld. (pr. bk.)	 	
+5663	223	 	
+5664	264	 	
+5665	147	 	
+5666	178	 	
+5667	190	 	
+5668	HM 1342	 	
+5669	Additional	 	63787
+5670	Royal	 	8 A.xi
+5671	Stowe	 	49
+5672	Manuscripts and Archives Division	 	63
+5673	30780 (pr. bk.)	 	
+5674	O. 1. 17	 	
+5675	Lit. B.1 (73)	 	
+5676	Additional	 	35283
+5677	Harley	 	3600
+5678	499	 	
+5679	E 163/22/2/5 and E 315/300 fol. 107	 	
+5680	Lat.	 	150
+5681	790	 	
+5682	McClean	 	45
+5683	68	 	
+5684	Q.v.I, 62	 	
+5685	Additional	 	27866
+5686	Rawlinson 	 	liturg. b.1
+5687	lat.	 	7410
+5688	3514	 	
+5689	402	 	
+5690	214	 	
+5691	B. 2. 23	 	
+5692	224	 	
+5693	P.vi.3	 	
+5694	215 fols. 1--8	 	
+5695	Bodley	 	173
+5696	Cotton Faustina	 	B.iii fols. 199--280
+5697	Rawlinson 	 	G.23
+5698	409	 	
+5699	HM 52435	 	
+5700	Mm.3.31	 	
+5701	G.1 (pr. bk.)	 	
+5702	K.f.11 (pr. bk.)	 	
+5703	P.viii.4	 	
+5704	P.ix.5	 	
+5705	53	 	
+5706	163434 (pr. bk.)	 	
+5707	(pr. bk.)	 	
+5708	Cotton Tiberius	 	E.iv
+5709	H1756.A1(B9) [**]	 	
+5710	CC.4 (pr. bk.)	 	
+5711		 	
+5712	127	 	
+5713	Douce	 	368
+5714	Inc. d.G.5.2.1494/1 (pr. bk.)	 	
+5715	M.9.4 Th. (pr. bk.)	 	
+5716	Rawlinson 	 	Q.d.12 (pr. bk.)
+5717	98	 	
+5718	Lat. th. d. 	 	46
+5719	(pr. bk.)	 	
+5720	116	 	
+5721	309	 	
+5722	Ee.2.3	 	
+5723	Gg.2.18	 	
+5724	Sel.3.28--29 (pr. bks.)	 	
+5725	146, fols. 63--318	 	
+5726	163	 	
+5727	173 fols. 1--56	 	
+5728	173, fols. 57--83	 	
+5729	328	 	
+5730	339, i	 	
+5731	473	 	
+5732	123	 	
+5733	S.5.24 (pr. bk.)	 	
+5734	B. 15. 1	 	
+5735	26543	 	
+5736	Anhang 19	 	
+5737	Voss. lat.	 	F.93
+5738	7 fols. 44--83	 	
+5739	Additional	 	29436
+5740	Additional	 	34652 fol. 2
+5741	Additional	 	49598
+5742	Cotton Otho	 	B.x fols. 55, 58, 62
+5743	Cotton Domitian	 	xiii fols. 1--87
+5744	Cotton Otho	 	B.x fols. 55, 58, 62
+5745	Cotton Vitellius	 	E.xviii
+5746	Cotton Nero	 	C.iv
+5747	Cotton Tiberius	 	D.iv, part ii, fols. 158--166
+5748	Cotton Tiberius	 	B.xi
+5749	Cotton Tiberius	 	B.v, part i, fols. 2--73, 77--88
+5750	Cotton Galba	 	A.xviii
+5751	Additional	 	60577
+5752	Additional	 	47967
+5753	*E.15.24 (pr. bk.)	 	
+5754	330	 	
+5755		 	
+5756	Harley	 	213
+5757	Harley	 	315 fols. 46, 47
+5758	Harley	 	328
+5759	Harley Roll	 	CC 21
+5760	Royal	 	5 E.viii
+5761	Royal	 	12 D.xvii
+5762	Royal	 	15 C.vii
+5763	Sloane	 	418 fols. 189--352
+5764	183	 	
+5765	154*	 	
+5766	CC.44 (pr. bk.)	 	
+5767	A.F.xi	 	
+5768	619	 	
+5769	Auct. 	 	D.2.4
+5770	Auct. 	 	D.2.6 fols. 9--155
+5771	Bodley	 	49
+5772	Bodley	 	58
+5773	Bodley	 	535
+5774	Bodley	 	767
+5775	Bodley	 	775
+5776	Digby	 	63
+5777	Bodley	 	755
+5778	Digby	 	112
+5779	Douce	 	125 
+5780	Junius	 	27
+5781	Rawlinson 	 	B.484 fol. 85
+5782	Selden supra	 	76
+5783	114	 	
+5784	L.R.4.a.8 (pr. bk.)	 	
+5785	15	 	
+5786	28	 	
+5787	Rawlinson 	 	C.489
+5788	Laud Misc.	 	572
+5789	Laud Misc. 	 	368 fols. 8--167
+5790	69	 	
+5791	1385 fols. 28ff.	 	
+5792	1	 	
+5793	2	 	
+5794	4	 	
+5795	5	 	
+5796	14	 	
+5797	17	 	
+5798	18	 	
+5799	B.32 (pr. bk.)	 	
+5800	F.173	 	
+5801	Mm.3.13	 	
+5802	Cotton Nero	 	A.ii fols. 3--13
+5803	Cotton Galba	 	A.xiv
+5804	Harley	 	2965
+5805	Bodley	 	451
+5806		 	
+5807	129	 	
+5808	Cotton	 	Appendix xiii
+5809	17	 	
+5810	38	 	
+5811	15	 	
+5812	11	 	
+5813	4	 	
+5814	91	 	
+5815	M.6.6 (pr. bk)	 	
+5816	Dd.1.7,8	 	
+5817	346 (pr. bk.)	 	
+5818	221	 	
+5819	(deposited in London, BL, Loans 11)	 	
+5820	99	 	
+5821	Auct. 	 	D.1.2
+5822	Auct.	 	D. 1. 4
+5823	Auct.	 	D.1.5
+5824	Auct.	 	D.1.10
+5825	Auct.	 	D.1.11
+5826	Auct.	 	D.2.3
+5827	Auct.	 	D. 2. 10
+5828	Auct. D.2.11	 	
+5829	Auct.	 	D.2.13
+5830	Auct.	 	D.3.11
+5831	Auct.	 	D.3.13
+5832	Bodley	 	86
+5833	Bodley	 	132
+5834	Bodley	 	133
+5835	Bodley	 	134
+5836	Bodley	 	141
+5837	Bodley	 	167
+5838	Bodley	 	172
+5839	Bodley	 	192
+5840	Bodley	 	194
+5841	Bodley	 	208
+5842	Bodley	 	223
+5843	Bodley	 	236
+5844	Bodley	 	258
+5845	Bodley	 	267
+5846	Bodley	 	269
+5847	Bodley	 	275
+5848	Bodley	 	295
+5849	Bodley	 	304
+5850	Bodley	 	321
+5851	Bodley	 	371
+5852	Bodley	 	372
+5853	Bodley	 	373
+5854	Bodley	 	378
+5855	Bodley	 	386
+5856	Bodley	 	387
+5857	Bodley	 	395
+5858	Bodley	 	410
+5859	Bodley	 	452
+5860	Bodley	 	453
+5861	Bodley	 	459
+5862	Bodley	 	468
+5863	Bodley	 	477
+5864	Bodley	 	544
+5865	Bodley	 	551
+5866	Bodley	 	583
+5867	Bodley	 	582
+5868	Bodley	 	605
+5869	Bodley	 	684
+5870	Bodley	 	705
+5871	Bodley	 	721
+5872	Bodley	 	726
+5873	Bodley	 	727
+5874	Bodley	 	729
+5875	Bodley	 	735
+5876	Bodley	 	741--742
+5877	Bodley	 	773
+5878	Bodley	 	777
+5879	Bodley	 	785
+5880	Bodley	 	796
+5881	Bodley	 	799
+5882	Bodley	 	802
+5883	Bodley	 	811
+5884	Bodley	 	812
+5885	Bodley	 	818
+5886	Bodley	 	821
+5887	Bodley	 	822
+5888	Bodley	 	838
+5889	Bodley	 	858
+5890	Bodley	 	866
+5891	Bodley	 	867
+5892	Digby	 	220
+5893	Princeton 89	 	
+5894	Bodley	 	384
+5895	Cotton Claudius	 	D.iii
+5896	168	 	
+5897	O. 5. 7	 	
+5898	A.iv.30	 	
+5899	213	 	
+5900	Additional	 	4899
+5901	Harley	 	1032
+5902	436	 	
+5903	Bodley	 	208
+5904	Bodley	 	801
+5905	xxxiii	 	
+5906	178 A	 	
+5907	IB.118 (pr. bk.)	 	
+5908	2.1.17 (pr. bk.)	 	
+5909	Bb.6.17 (pr. bk.)	 	
+5910	182	 	
+5911	lat.	 	191
+5912	Laud Misc.	 	154
+5913	Laud Misc.	 	152
+5914	Digby	 	104, fols. 21--60
+5915	Kk.3.18	 	
+5916	Kk.4.6	 	
+5917	Mm.1.19	 	
+5918	30	 	
+5919	9	 	
+5920	12	 	
+5921	24	 	
+5922	146	 	
+5923	162, fols. 139--160	 	
+5924	178	 	
+5925	198	 	
+5926	217	 	
+5927	265	 	
+5928	279	 	
+5929	367, part ii, fols. 45--52	 	
+5930	391	 	
+5931	496 (pastedowns only)	 	
+5932	557	 	
+5933	71	 	
+5934	42	 	
+5935	503	 	
+5936	Advocates	 	18.5.3
+5937	Hunterian	 	431
+5938	25	 	
+5939	Pryce C2:1	 	(olim Y.103)
+5940	Pryce C2:2	 	(olim Y.104)
+5941	Additional	 	37777
+5942	Additional	 	45025
+5943	Cotton Tiberius	 	B.iv fols. 3--9, 19--86
+5944	Cotton Caligula	 	A.x fols. 65--208
+5945	Cotton Claudius	 	A.i fols. 37--40
+5946	Cotton Claudius	 	A.viii fols. 198--216
+5947	Cotton Claudius	 	C.ix fols. 4--17
+5948	Cotton Nero	 	C.iii fols. 241--246
+5949	Cotton Nero	 	C.v fols. 1--161
+5950	Cotton Nero	 	E.i, vol. 1, vol. 2 (fols. 1--180, 187, 188)
+5951	Cotton Otho	 	B.x fols. 29, 30
+5952	Cotton Otho	 	C.i, part ii
+5953	Cotton Vespasian	 	B.x fols. 31--124
+5954	Cotton Vespasian	 	E.iv fols. 203--210
+5955	Cotton App.	 	56 fols. 1--4
+5956	Harley	 	55 fols. 1--4
+5957	Harley	 	1659
+5958	Harley	 	4967 fols. 1--76
+5959	Harley	 	5228
+5960	Royal	 	2 A.xx
+5961	Royal	 	2 C.vii
+5962	Royal	 	2 D.xxvi
+5963	Royal	 	2 E.vi
+5964	Royal	 	2 E.xi
+5965	Royal	 	2 F.i
+5966	Royal	 	3 A.viii
+5967	Royal	 	4 A.ix
+5968	Royal	 	4 A.xiv
+5969	Royal	 	4 B.iv
+5970	Royal	 	4 B.xiii
+5971	Royal	 	4 C.ii
+5972	Royal	 	4 D.xii
+5973	Royal	 	5 A.vii
+5974	Royal	 	5 A. xiii
+5975	Royal	 	5 A.xiv
+5976	Royal	 	5 B.iii
+5977	Royal	 	5 C.ii
+5978	Royal	 	5 C.vi
+5979	Royal	 	5 E.v
+5980	Royal	 	5 E.xii
+5981	Royal	 	5 B.xiii
+5982	Royal	 	5 F.iii
+5983	Royal	 	5 F.xii
+5984	Royal	 	6 A.vii
+5985	Royal	 	6 A.xvi
+5986	Royal	 	6 C.vii
+5987	Royal	 	6 D.iii
+5988	Royal	 	8 D.xiii
+5989	Royal	 	9 B.v
+5990	Royal	 	9 B.xii
+5991	Royal	 	10 B.x
+5992	Royal	 	11 B.ii
+5993	Royal	 	15 A.xxxiii
+5994	Royal	 	15 B.iv
+5995	Royal	 	15 B.xiv
+5996	238	 	
+5997	Auct.	 	D.inf.2.4
+5998	Auct.	 	F.1.9
+5999	Auct.	 	F.5.16
+6000	Barlow	 	4
+6001	Bodley	 	81
+6002	Bodley	 	223
+6003	Bodley	 	442
+6004	Bodley	 	543
+6005	Bodley	 	633
+6006	Bodley	 	692
+6007	Bodley	 	828
+6008	Bodley	 	861
+6009	Bodley	 	862
+6010	Bodley	 	868
+6011	Hatton	 	6
+6012	Hatton	 	11
+6013	Hatton	 	20
+6014	Hatton	 	23
+6015	Hatton	 	30
+6016	Hatton	 	40
+6017	Hatton	 	42
+6018	Hatton	 	48
+6019	Hatton	 	76
+6020	Hatton	 	93
+6021	Hatton	 	113, 114
+6022	Hatton 	 	115
+6023	Hatton 	 	116
+6024	Junius	 	121
+6025	Laud Misc.	 	482
+6026	Rawlinson 	 	C.428
+6027	Tanner	 	3
+6028	100	 	
+6029	B.8.g.17 (pr. bk.)	 	
+6030	F.1	 	
+6031	F.2	 	
+6032	F.3	 	
+6033	F.5	 	
+6034	F.6	 	
+6035	F.7	 	
+6036	F.8	 	
+6037	F.9	 	
+6038	F.10	 	
+6039	F.11	 	
+6040	F.12	 	
+6041	F.13	 	
+6042	F.14	 	
+6043	F.15	 	
+6044	F.16	 	
+6045	F.18	 	
+6046	F.19	 	
+6047	F.20	 	
+6048	F.21	 	
+6049	F.22	 	
+6050	F.23	 	
+6051	F.24	 	
+6052	F.25--28	 	
+6053	F.29	 	
+6054	F.30	 	
+6055	F.31	 	
+6056	F.32	 	
+6057	F.34	 	
+6058	F.25	 	
+6059	F.36	 	
+6060	F.37	 	
+6061	F.38	 	
+6062	F.39	 	
+6063	F.40	 	
+6064	F.41	 	
+6065	F.42	 	
+6066	F.43	 	
+6067	F.44	 	
+6068	F.45	 	
+6069	F.46	 	
+6070	F.47	 	
+6071	F.48	 	
+6072	F.49	 	
+6073	F.50	 	
+6074	F.51	 	
+6075	F.52	 	
+6076	F.53	 	
+6077	F.54	 	
+6078	F.55	 	
+6079	F.56	 	
+6080	F.57	 	
+6081	F.58	 	
+6082	F.59	 	
+6083	F.60	 	
+6084	F.61	 	
+6085	F.62	 	
+6086	F.63	 	
+6087	F.64	 	
+6088	F.59	 	
+6089	F.66	 	
+6090	F.67	 	
+6091	F.68	 	
+6092	F.69	 	
+6093	F.71	 	
+6094	F.72	 	
+6095	F.73	 	
+6096	F.74	 	
+6097	F.75	 	
+6098	F.76	 	
+6099	F.77	 	
+6100	F.78	 	
+6101	F.79	 	
+6102	F.80	 	
+6103	F.81	 	
+6104	F.82	 	
+6105	F.83	 	
+6106	F.84	 	
+6107	F.85	 	
+6108	F.86	 	
+6109	F.87	 	
+6110	F.88	 	
+6111	F.90	 	
+6112	F.91	 	
+6113	F.92	 	
+6114	F.93	 	
+6115	F.94	 	
+6116	F.96	 	
+6117	F.97	 	
+6118	F.98	 	
+6119	F.99	 	
+6120	F.100	 	
+6121	F.101	 	
+6122	F.102	 	
+6123	F.103	 	
+6124	F.104	 	
+6125	F.105	 	
+6126	F.106	 	
+6127	F.107	 	
+6128	F.108	 	
+6129	F.109	 	
+6130	F.110	 	
+6131	F.111	 	
+6132	F.112	 	
+6133	F.113	 	
+6134	F.114	 	
+6135	F.115	 	
+6136	F.116	 	
+6137	F.117	 	
+6138	F.118	 	
+6139	F.119	 	
+6140	F.120	 	
+6141	F.121	 	
+6142	F.122	 	
+6143	F.123	 	
+6144	F.124	 	
+6145	F.125	 	
+6146	F.126	 	
+6147	F.127	 	
+6148	F.128	 	
+6149	F.129	 	
+6150	F.130	 	
+6151	F.131	 	
+6152	F.132	 	
+6153	F.133	 	
+6154	F.134	 	
+6155	F.135	 	
+6156	F.136	 	
+6157	F.137	 	
+6158	F.138	 	
+6159	F.139	 	
+6160	F.140	 	
+6161	F.141	 	
+6162	F.142	 	
+6163	F.143	 	
+6164	F.144	 	
+6165	F.145	 	
+6166	F.146	 	
+6167	F.147	 	
+6168	F.149	 	
+6169	F.151	 	
+6170	F.152	 	
+6171	F.153	 	
+6172	F.154	 	
+6173	F.155	 	
+6174	F.156	 	
+6175	F.157	 	
+6176	F.159	 	
+6177	F.160	 	
+6178	F.164	 	
+6179	F.165	 	
+6180	F.167	 	
+6181	F.168	 	
+6182	F.169	 	
+6183	F.170	 	
+6184	F.174	 	
+6185	F.175	 	
+6186	F.176	 	
+6187	F.177	 	
+6188	Q.1	 	
+6189	Q.2	 	
+6190	Q.3	 	
+6191	Q.4	 	
+6192	Q.5	 	
+6193	Q.6	 	
+6194	Q.7	 	
+6195	Q.8	 	
+6196	Q.9	 	
+6197	Q.11	 	
+6198	Q.12	 	
+6199	Q.13	 	
+6200	Q.14	 	
+6201	Q.15	 	
+6202	Q.16	 	
+6203	Q.17	 	
+6204	Q.18	 	
+6205	Q.19	 	
+6206	Q.20	 	
+6207	Q.21	 	
+6208	Q.22	 	
+6209	Q.23	 	
+6210	Q.24	 	
+6211	Q.25	 	
+6212	Q.26	 	
+6213	Q.27	 	
+6214	Q.28	 	
+6215	Q.29	 	
+6216	Q.30	 	
+6217	Q.31	 	
+6218	Q.32	 	
+6219	Q.33	 	
+6220	Q.34	 	
+6221	Q.35	 	
+6222	Q.37	 	
+6223	Q.38	 	
+6224	Q.39	 	
+6225	Q.40	 	
+6226	Q.41	 	
+6227	Q.42	 	
+6228	Q.43	 	
+6229	Q.44	 	
+6230	Q.45	 	
+6231	Q.46	 	
+6232	Q.47	 	
+6233	Q.48	 	
+6234	Q.49	 	
+6235	Q.51	 	
+6236	Q.52	 	
+6237	Q.53	 	
+6238	Q.54	 	
+6239	Q.55	 	
+6240	Q.56	 	
+6241	Q.57	 	
+6242	Q.58	 	
+6243	Q.59	 	
+6244	Q.60	 	
+6245	Q.61	 	
+6246	Q.62	 	
+6247	Q.63	 	
+6248	Q.64	 	
+6249	Q.65	 	
+6250	Q.66	 	
+6251	Q.67	 	
+6252	Q.69	 	
+6253	Q.70	 	
+6254	Q.71	 	
+6255	Q.72	 	
+6256	Q.74	 	
+6257	Q.76	 	
+6258	Q.77	 	
+6259	Q.78	 	
+6260	Q.81	 	
+6261	Q.82	 	
+6262	Q.85	 	
+6263	Q.87	 	
+6264	Q.88	 	
+6265	Q.89	 	
+6266	Q.90	 	
+6267	Q.92	 	
+6268	Q.93	 	
+6269	Q.94	 	
+6270	Q.96	 	
+6271	Q.97	 	
+6272	Q.98	 	
+6273	Q.99	 	
+6274	Q.100	 	
+6275	60	 	
+6276	43	 	
+6277	Burney	 	1
+6278	Harley	 	3096
+6279	Harley	 	3239
+6280	Royal	 	5 B.v
+6281	Q.89	 	
+6282	49	 	
+6283	Rawlinson 	 	C.780
+6284	F.89	 	
+6285	Ee.5.32	 	
+6286	Hh.1.5	 	
+6287	Harley	 	4124
+6288	81	 	
+6289	Spencer	 	26
+6290	Bodley	 	388
+6291	lat.	 	63
+6292	Additional	 	24660
+6293	Arundel	 	201
+6294	Lat. liturg.	 	g.8
+6295	lat.	 	53 fols. 1--6
+6296	33	 	
+6297	R. 5. 40	 	
+6298	R. 5. 40, flyleaf iv	 	
+6299	101	 	
+6300	102	 	
+6301	Harley	 	46
+6302	Harley	 	208
+6303	13	 	
+6304	Laud Misc.	 	140
+6305	Rawlinson 	 	C.162
+6306	s. n.	 	
+6307	s. n.	 	
+6308	xvi.G.23	 	
+6309	xvi	 	Q.3, 4
+6310	xvi.	 	Q.13
+6311		 	
+6312	(pr. bk.)	 	
+6313	181	 	
+6314	Ee.6.40	 	
+6315	309	 	
+6316	451	 	
+6317	A* 1.12(1) (pr. bk.)	 	
+6318	102	 	
+6319	207 fols. 22--79	 	
+6320	332	 	
+6321	H.24.f.10 (pr. bk.)	 	
+6322	228	 	
+6323	Additional	 	24361
+6324	Additional	 	38816 fols. 21--39
+6325	Additional	 	40007
+6326	Burney	 	220
+6327	Harley	 	56
+6328	1	 	
+6329	Bodley	 	39
+6330	Bodley rolls	 	3
+6331	Digby	 	186, fols. 1, 2
+6332	Lat. liturg.	 	g.1
+6333	Rawlinson 	 	C.553
+6334	Rawlinson 	 	G.11, 12
+6335	193	 	
+6336	224	 	
+6337	i.1.1, 2 (pr. bks.)	 	
+6338	HM 903	 	
+6339	61	 	
+6340		 	
+6341	94	 	
+6342	22	 	
+6343	227	 	
+6344	228	 	
+6345	Additional	 	2823
+6346	248	 	
+6347	Cotton Vespasian	 	B.xxiii
+6348	Royal	 	8 B.xix
+6349	Arundel	 	6
+6350	Bodley	 	842
+6351	81	 	
+6352	150	 	
+6353	Cotton Vespasian	 	B.xix fols. 83--163
+6354	Ee.4.19	 	
+6355		 	
+6356	Rawlinson 	 	B.200
+6357	Rawlinson 	 	B.199
+6358	XVI.P.8	 	
+6359	XVI.P.5--7	 	
+6360	XVI.A.8	 	
+6361	C.V.65 (pr. bk.)	 	
+6362	C.V.66 (pr. bk.)	 	
+6363	Cotton Ch. 	 	xiv.4
+6364	Lyell	 	17
+6365	Cotton Tiberius	 	A.xv fols. 181--194
+6366	Ottob. lat.	 	177
+6367	Brotherton Collection	 	29
+6368	B.II.36	 	
+6369		 	
+6370	Th.	 	4
+6371	Egerton	 	840a
+6372	4678 + Nat. Libr. IB 363 8vo	 	+ Nat. Libr., Lbs. frag. 51
+6373	252	 	
+6374	Sloane	 	285
+6375	G.43	 	
+6376	Cotton Titus	 	A.i fols. 57--140
+6377	Cotton Titus	 	A. i fols. 141--145
+6379	3505	 	
+6380	Laud Misc. 	 	428
+6381	Cotton Julius	 	D.vi
+6382	Burney 	 	310
+6383	Harley	 	4725
+6384	Harley	 	3858
+6385	Cotton Vitellius	 	A.ix
+6386	Cotton Vespasian	 	A.vi, fols 61--89
+6387	Harley	 	4657
+6388	Harley	 	4657
+6389	Harley	 	4688
+6390		 	
+6391	Additional	 	48984
+6392	485	 	
+6393	Additional	 	34749
+6394		 	
+6395	22	 	
+6396	149	 	
+6397	159	 	
+6398	50	 	
+6399	202	 	
+6400	Laud Misc. 	 	b.19, B.47--9 (3 leaves)
+6401	Arundel	 	231
+6402	Harley	 	1003
+6403	Egerton	 	272
+6404	Sloane	 	1056A
+6405	Sloane	 	1617
+6406	Sloane 	 	1584
+6407	Royal	 	15 B.xvi
+6408	Lansdowne 	 	387
+6409	Harley	 	459
+6410	Harley	 	461
+6411	Royal	 	5 E.xiii
+6412	Harley	 	3066
+6413	Royal	 	15 A.xxii
+6414	Royal	 	7 F.x
+6415	Royal	 	6 D.vii
+6416	Royal	 	5 D.ii
+6417	Royal	 	5 C.viii
+6418	Royal	 	5 B.xii
+6419	Harley	 	1688
+6420	Egerton	 	3267
+6421	Harley	 	3901
+6422	Egerton	 	3668
+6423	Cotton Titus	 	D.xvi
+6424	Royal	 	14 C.vii
+6425	Add.	 	59616
+6426	Harley	 	536
+6427	Harley	 	5977, fol. 59
+6428	15	 	
+6429		 	
+6430	Lat. theol. qu.	 	297
+6431		 	
+6432	O.vii.2	 	
+6433	O.vii.5	 	
+6434	O.vii.7	 	
+6435	O.vii.7	 	
+6436		 	
+6437		 	
+6438	Inc. 8948	 	
+6439	Tanner	 	169*
+6440	21878E	 	
+6441	16, vols. I and II	 	
+6442	26	 	
+6443	199	 	
+6444	390	 	
+6445	Add.	 	5667
+6446	Add.	 	10106
+6447	Add.	 	22934
+6448	Add.	 	25031
+6449	Add.	 	35283
+6450	Add.	 	45568
+6451	Add.	 	48179
+6452	Add.	 	30898
+6453	Add.	 	53710
+6454	Add.	 	54230
+6455	Add.	 	54231
+6456	Add.	 	65252
+6457	Add.	 	57337
+6458	Egerton	 	2204
+6459	Harley	 	6
+6460	Harley	 	460
+6461	Harley	 	462
+6462	Harley	 	463
+6463	Harley	 	631
+6464	Harley	 	1587, fols. 1--188
+6465	Harley	 	2397
+6466	Harley	 	3100
+6467	Harley	 	5394
+6468	Royal	 	2 C.x
+6469	Royal	 	3 D.viii
+6470	Royal	 	4 C.v
+6471	Royal	 	4 E.vi
+6472	Royal	 	8 D.v*
+6473	Royal	 	17 D.xxi
+6474	Royal	 	Appendix 1
+6475	e.8.29 (pr. bk)	 	
+6476	209	 	
+6477	167	 	
+6478	(pr. bk)	 	
+6479	(pr. bk)	 	
+6480	369 C	 	
+6481		 	
+6482	2	 	
+6483	4	 	
+6484	5	 	
+6485	12	 	
+6486	11	 	
+6487	12	 	
+6488	4513	 	
+6489	1/1	 	
+6490	18	 	
+6491	28	 	
+6492	MS Douce 218	 	
+6493	Royal	 	9 B.ix
+6494	Harley 100	 	
+6495		 	
+6496	Add. 70929	 	
+6497	Cotton	 	Claudius D.ix
+6498	R.2.1--4	 	
+6499	R.2.5	 	
+6500	Cotton	 	Claudius C.ix fols. 18-103
+6501	228	 	
+6502	228	 	
+6503		 	
+6504	Q.75	 	
+6505	Llanstephan 175 fols. 1--52	 	
+6506	Reg. lat. 320	 	
+6507	s.n.	 	
+6508	Lat. 70	 	
+6509	329	 	
+6510	B.1.6	 	
+6511	B.1.6	 	
+6512	B.1.9	 	
+6513	B.1.13	 	
+6514	B.1.14	 	
+6515	B.1.32	 	
+6516	B.20.30	 	
+6517	B.3.16	 	

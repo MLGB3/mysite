@@ -1,0 +1,1980 @@
+--------------
+select id, medieval_catalogue from books_book where medieval_catalogue > '' order by id
+--------------
+
+id	medieval_catalogue
+150	BP20.6
+151	BP20.9
+152	BP21.251
+154	BP21.344
+155	BP13.5
+157	BP4.4
+158	BP21.338 ?
+159	BP21.232f--g ?
+161	BP21.3
+162	BP21.38
+165	BP3.42
+166	BP21.24
+168	BP23.2
+169	BP2.15 = BP21.9
+174	BP21.25
+176	BP21.16
+181	BP4.6
+186	BP2.8 = BP21.56
+191	BP21.190
+192	BP21
+193	BP2.20 = BP23.15 ?
+205	S1.25, S2.22
+244	B4.2
+318	B5.10
+319	B5.1
+320	B5.7
+321	B5.8
+322	B5.11
+343	P1. 1
+493	A6. 1
+584	B13. 20
+594	B13. 2
+596	B13. 28
+605	B13. 29
+606	B13. 40
+617	B13. 69
+618	B13. 168
+619	B13. 171
+620	B13. 3
+621	B13. 38
+645	B13. 186
+646	B13. 46
+648	B13. 244
+651	B13. 124
+652	?B13. 91
+653	B13. 218
+656	B13.141
+657	B13.217
+658	B13.224
+660	?B13. 223
+662	?B13.158
+666	?B13. 225
+668	B13.220
+671	B13.145
+674	B13.130
+676	?B13.229
+679	B13.125
+683	B13.230
+687	B13.151
+688	B13.209
+697	B13.4
+699	?B13.39
+700	?B13.97
+712	B13.163
+720	B13.201
+733	B13.67
+736	B13.42
+750	?B13.164
+757	B13.85
+774	B13.170
+796	B16.5
+799	B13.34
+806	B13.60
+813	B16.13
+822	B13.101
+826	B16.18
+828	B13.189
+829	B13.181
+830	B13.180
+831	B13.57
+832	B13.191
+833	B13.25
+834	B13.62
+835	B13.37
+836	B13.13
+838	B13.6
+839	B13.192
+840	B16.16--17
+843	B13.7
+844	B13.251
+849	B13.101e
+965	UC2.25
+968	UC3.99
+970	UC3.72
+971	UC7.143
+973	UC15.22
+974	UC15.14
+975	UC15.13
+985	UC29.43
+988	UC39.75, UC41.2
+1004	UC48.386
+1005	UC48.160
+1006	UC48.163
+1007	UC48.213
+1010	UC48.114
+1011	UC48.205
+1012	UC48.385
+1013	UC48.207
+--------------
+select id, medieval_catalogue_notes from books_book where medieval_catalogue_notes > '' order by id
+--------------
+
+id	medieval_catalogue_notes
+3	Leofric
+5	?Leofric; cat. p. 309
+6	?Leofric; cat. pp. 304, 367
+7	?Leofric
+11	Leofric; cat. pp. 303, 368
+12	Cat. p. 371
+13	Cat. p. 369
+14	Cat. p. 304
+16	Leofric
+18	Cat. p. 367
+19	Cat. p. 350
+20	Cat. p. 333
+21	Cat. p. 368
+23	"Cat. pp. 304, 369"
+24	Cat. p. 331
+25	Cat. p. 370; Leland
+27	"Cat. pp. 303, 371"
+30	?Leofric; cat. p. 351
+36	?Leofric; cat. p. 334
+37	?Leofric
+40	"Leofric; cat. pp. 303, 368; Leland"
+42	Cat. p. 368
+44	Cat. p. 350
+45	"Cat. pp. 307, 368"
+46	"Cat. pp. 308, 373"
+47	"Cat. pp. 308(?), 373"
+48	Cat. p. 368
+49	"Cat. pp. 307(?), 373"
+50	Leofric; cat. p. 323
+52	"Cat. pp. 304, 367"
+53	Leofric
+54	"Leofric; cat. pp. 307, 368"
+55	"Cat. pp. 304, 368"
+57	"Cat. pp. 302, 373"
+58	"Cat. pp. 303, 372"
+59	"Cat. pp. 302, 372"
+60	"Cat. pp. 303, 372"
+61	"Cat. pp. 303, 370"
+62	"Cat. pp. 301, 372"
+63	"Cat. pp. 302, 373"
+64	Cat. p. 372
+65	Cat. p. 372
+66	"Cat. pp. 302, 371"
+67	"Cat. pp. 302, 371"
+68	"Cat. pp. 302, 373"
+69	"Cat. pp. 303, 374"
+70	"Cat. pp. 302, 372"
+71	Cat. p. 367
+72	"Cat. pp. 302, 373"
+73	"Cat. pp. 303, 367"
+75	Cat. p. 366
+76	Cat. p. 371
+77	"Cat. pp. 301, 372"
+78	"Cat. pp. 301, 372"
+79	"Cat. pp. 302, 372"
+80	Cat. p. 373
+81	Cat. p. 370
+82	Cat. p. 368
+83	"Cat. pp. 301, 372"
+84	Cat. p. 369
+85	"Cat. pp. 304, 369"
+86	Cat. p. 369
+87	"Cat. pp. 302, 373"
+88	1327; cat. p. 368
+89	"Cat. pp. 302, 370"
+90	Cat. p. 371
+91	Cat. p. 371
+92	"?Leofric; cat. pp. 303, 367"
+93	Cat. p. 370
+94	Cat. p. 372; Leland
+95	Cat. p. 370
+96	Cat. p. 369
+97	"Cat. pp. 309(?), 373"
+98	"Cat. pp. 309(?), 373"
+99	"Cat. pp. 302, 372"
+100	Cat. p. 370
+101	Cat. p. 371
+102	"Cat. pp. 302, 303, 372"
+103	"Cat. pp. 305, 371"
+104	Cat. p. 368
+105	"Cat. pp. 309, 370"
+106	"Cat. pp. 303, 371; Leland"
+107	"Cat. pp. 305, 367; Leland"
+108	"Cat. pp. 308, 336"
+111	"Cat. pp. 302, 372"
+112	"Cat. pp. 302, 370"
+113	"Leofric; cat. pp. 302, 367 or 371"
+114	"Cat. pp. 302, 372"
+116	Cat. p. 368; Leland
+117	Cat. p. 370
+118	"Cat. pp. 307(?), 373"
+119	Cat. p. 370
+120	Cat. p. 370
+121	Cat. p. 367
+122	Cat. p. 373
+123	"Cat. pp. 303, 372"
+124	Cat. p. 370
+125	Cat. p. 373
+126	Cat. p. 370
+127	"Cat. pp. 302, 367 or 371"
+128	Cat. p. 368
+129	"Cat. pp. 303, 372"
+130	"Cat. pp. 302, 373"
+131	"Cat. pp. 302, 372"
+132	"Cat. pp. 304, 369"
+133	"Cat. pp. 302, 373"
+134	"Cat. pp. 302, 373"
+135	Cat. p. 373; Leland
+136	Cat. p. 371
+137	"?Leofric; cat. pp. 303, 371; Leland"
+139	Cat. p. 369
+140	Cat. p. 304
+142	Cat. p. 368
+143	Cat. p. 350
+144	Cat. p. 333
+194	C.VII.3; cat. 119
+195	Ingram 47
+282	Cat. 99
+283	Cat. 92
+337	B. iii
+897	a
+898	A
+1027	Cat. 339; Ingram 149
+1028	.L.; cat. 211; Ingram 110
+1029	Cat. 164; Ingram 73
+1030	Cat. 144; Ingram 130
+1031	Ingram 68
+1032	Cat. 1554; Ingram 35
+1033	Cat. 13 or 14; Ingram 95
+1034	H. of Eastry 4
+1035	Cat. 195; Ingram 59; Leland
+1036	d; Cat. 118; Ingram 268
+1038	Cat. 988; Ingram 280
+1039	Cat. 232; Ingram 293
+1042	Cat. 354
+1043	Cat. 152; Ingram 128
+1044	Cat. 156; Ingram 143
+1045	Cat. 59; Ingram 136
+1046	Cat. 1166; Ingram 61
+1047	Cat. 351
+1048	Cat. 853; Ingram 176
+1049	Cat. 282; Ingram 152
+1052	Cat. 1438
+1055	? Cat. 311
+1056	? Cat. 186; Ingram 155
+1057	Cat. 74
+1058	Cat. 94
+1060	Cat. 1310
+1061	Old cat. 44
+1064	Cat. 1389
+1065	? Cat. 358
+1067	Old cat. 152
+1068	Cat. 47
+1071	Cat. 886; Ingram 125; Leland
+1072	Cat. 257
+1073	Cat. 281, Stone 10
+1079	Cat. 1420
+1080	Cat. 188 or 189
+1081	?Cat. 114
+1083	Cat. 874
+1084	Cat. 875
+1085	Cat. 862
+1086	Cat. 51 or 52, Ingram 138
+1087	Cat. 340; Ingram 148
+1088	Cat. 1182
+1089	Ingram 5
+1092	Cat. 173
+1093	Cat. 208; Ingram 113
+1094	Cat. 60; Ingram 135
+1095	Cat. 176, Ingram 270
+1096	Ingram 66
+1097	Cat. 87, Ingram 121
+1098	Cat. 240, Ingram 53
+1099	Cat. 123, Ingram 64
+1100	Ingram 139
+1101	Cat. 188, Ingram 107
+1102	Cat. 17, Ingram 88
+1103	Cat. 197, Ingram 114
+1104	Cat. 213, Ingram 74
+1105	Cat. 199, Ingram 115
+1106	Cat. 206--7, Ingram 117
+1108	Cat. 49; Ingram 134
+1109	Cat. 61, Ingram 133
+1110	Cat. 797 or 875, Ingram 54
+1111	Ingram 36
+1112	Cat. 46, Ingram 49
+1113	Cat. 226, Ingram 84
+1114	Cat. 924, Ingram 109
+1115	Ingram 69
+1116	Cat. 33, Ingram 96
+1117	Cat. 205, Ingram 116
+1118	Ingram 41
+1119	Cat. 793 or 872, Ingram 40
+1120	Cat. 10 or 11, Ingram 91
+1121	Cat. 
+1122	Cat. 19, Ingram 86
+1123	Cat. 23, Ingram 97
+1124	Cat. 6, Ingram 89
+1125	Cat. 1390, Ingram 50
+1126	Cat. 8, Ingram 118
+1127	Cat. 220, Ingram 75
+1128	Cat. 332, Ingram 131
+1129	Cat. 1777 or H. of Eastry 5, Ingram 15
+1130	Cat. 1778 or H. of Eastry 2, Ingram 16
+1131	Ingram 63
+1132	Cat. 1339, Ingram 90
+1133	Cat. 1 or 2, Ingram 85
+1134	Cat. 34, Ingram 99
+1135	Ingram 60
+1136	Cat. 203, Ingram 101
+1137	Ingram 34
+1138	Cat. 854, Ingram 56
+1139	Cat. 799, Ingram 48
+1140	Cat. 856--7, Ingram 45--6
+1141	Ingram 92
+1142	Chillenden 5, ?Ingram 223
+1143	Cat. 1325, Ingram 58
+1144	Ingram 79
+1145	Cat. 143
+1146	Cat. 202, Ingram 103
+1147	Cat. 200, Ingram 100
+1148	Cat. 201, Ingram 102
+1149	Cat. 324, Ingram 76
+1150	Cat. 326, Ingram 78
+1151	? Leland
+1152	Old cat. 106, cat. 79
+1153	Cat. 1084
+1154	?Cat. 172
+1156	Cat. 1671, Ingram 11
+1157	Cat. 1649, Ingram 23
+1158	Cat. 1666, Ingram 12
+1159	Cat. 1670, Ingram 9
+1160	Cat. 1676
+1161	Cat. 833
+1162	Ingram 202
+1163	H. of Eastry 41, Ingram 234
+1164	Cat. 816, Ingram 154
+1168	Old cat. 39, cat. 438
+1169	Ingram 266
+1170	Cat. 323
+1171	Ingram 112, 111
+1173	Cat. 360
+1174	Cat. 221
+1175	Cat. 221
+1179	Cat. 99
+1180	Ingram 269.
+1181	Ingram 242
+1182	Ingram 221
+1184	Cat. 1493, Ingram 217
+1185	Chillenden 23, Ingram 250
+1186	Cat. 628--9, Ingram 237
+1189	Cat
+1190	Cat. 1597, Ingram 20
+1192	Cat. 1214--16, Ingram 37--9, Leland
+1195	Cat. 359, 361, 364, 365
+1199	Ingram 22
+1200	cf. Cat. 577
+1201	Ingram 27
+1203	Ingram 29
+1204	Ingram 141
+1205	Cat. 1810
+1208	cf. cat. 306
+1209	cf. cat. 329?
+1210	cf. cat. 371
+1211	cf. cat. 126
+1217	cat. 1096
+1218	cat. 137
+1219	cf. cat. 865
+1221	cf. cat. 632
+1222	Cat. 950
+1227	Ingram 161
+1231	Cat. 296?
+1241	Cat. 291
+1242	Cat. 352, Ingram 197
+1244	Cat. 362
+1246	cat. 292
+1247	Cat. 954
+1249	H. of Eastry 69
+1250	Cat. 360
+1251	Cat. 308?
+1252	cat. 284
+1253	cat. 244
+1254	cat. 278
+1255	Cat. 137
+1256	Cat. 318
+1261	cf. cat. 287
+1262	Cat. 362
+1263	Cat. 362
+1264	Ingram 281
+1266	cat. 314
+1268	Cat. 321?
+1269	cat. 78, Ingram 278, Leland
+1270	Cat. 246
+1271	cat. 291
+1272	cat. 139
+1274	cat. 91, Ingram 123
+1276	cat. 71, Ingram 45
+1277	Cat. 225
+1279	Ingram 172
+1282	cat. 134 or 135, Leland
+1289	Ingram 201; ? Chillenden 2
+1290	Ingram 186
+1295	cat. 855; Ingram 57
+1296	cat. 784; Ingram 32
+1297	cf. cat. 77
+1298	cat. 48
+1299	cat. 48
+1300	cat. 88, Ingram 124
+1301	Cat. 85, Ingram 122
+1303	Cat. 1668, Ingram 7
+1304	cat. 89, Ingram 120
+1305	Ingram 1
+1306	cat. 62, Ingram 144
+1307	Ingram 164
+1308	Cat. 9, Ingram 119
+1309	cat. 1793
+1310	cat. 808, Ingram 193
+1311	cat. 808, Ingram 193
+1312	Cat. 1661, not Ingram 177
+1313	cat. 204, Ingram 104
+1315	cf. cat. 51, 52
+1317	Cat. 954
+1318	? Old cat. 220
+1324	? Cat. 304
+1325	? Chillenden 16
+1326	? Cat. 283
+1328	? Cat. 283
+1329	Cat. 922, Ingram 44
+1330	? Cat. 1245
+1331	Ingram 47
+1334	Cat. 921, not Ingram 32
+1340	Cat. 452
+1341	cat. 835
+1344	cat. 90
+1346	cat. 1665, Ingram 8
+1357	cat. 127
+1360	cat. 145
+1362	old cat. 40 cf. cat. 438
+1364	cat. 325, Ingram 77
+1371	cat. 373
+1372	Cat. 925
+1373	cat. 1357
+1375	cat. 204
+1377	Leland
+1378	cat. 1155
+1379	Cat. 934
+1380	cat. 323
+1381	cat. 551
+1382	cat. 530
+1383	Cat. 902
+1384	cat. 903
+1385	cat. 224
+1386	Cat. 1723
+1388	Cat. 9
+1389	Cat. 1516
+1392	Cat. 910
+1394	cat. 457
+1396	cat. 884
+1398	cat. 1632
+1399	Cat. 383
+1400	cat. 892
+1403	cat. 444
+1405	cat. 939
+1406	Cat. 419
+1407	Cat. 1008
+1408	cat. 1202
+1409	Cat. 621
+1411	Cat. 1245
+1412	cat. 1467
+1415	cat. 25
+1417	1150
+1419	Cat. 356 
+1420	Cat. 901
+1421	cat. 1228
+1422	cat. 937
+1423	cat. 1218
+1426	cat. 1485
+1427	cat. 482
+1429	cat. 363
+1430	Cat. 113
+1431	? cat. 196
+1432	Cat. 1543
+1433	part of cat. 1599
+1435	cat. 1273
+1437	Cat. 1157
+1438	Cat. 993
+1439	cat. 1125
+1440	Cat. 1439
+1441	Cat. 1440
+1443	cat. 17
+1444	cat. 157
+1445	cat. 1286
+1446	Cat. 300
+1447	cat. 349
+1449	cat. 168
+1450	cat. 616
+1451	cat. 1193
+1454	cat. 1544
+1456	Cat. 1468
+1457	cat. 89
+1458	cat. 1444
+1460	cat. 907
+1461	cat. 1519
+1463	cf. cat. after 950
+1464	cat. 916
+1465	cat. 1536
+1468	cat. 1766
+1470	Cat. 10
+1471	Cat. 44
+1472	Cat. 156
+1477	Cat. 917
+1478	Cat. 931
+1479	Cat. 330
+1480	Cat. 95
+1484	? Cat. 887
+1489	? Leland
+1492	cat. 131
+1494	Cat. 895
+1495	cat. 434, Leland
+1496	cat. 640
+1498	Cat. 1123
+1500	? Part of cat. 1599
+1502	Cat. 1147
+1503	cat. 345
+1504	cat. 1166
+1507	cat. 926
+1508	Cat. 1164
+1510	cat. 197
+1511	cat. 964
+1515	cat. 462
+1518	Cat. 31
+1522	cat. 109
+1523	cat. 105
+1524	cat. 98
+1525	cat. 143
+1526	Cat. 358
+1527	cat. 427
+1528	cat. 415
+1529	cat. 820
+1531	cat. 544
+1532	? cat. 1810
+1533	Cat. 1692
+1534	cat. 1324
+1535	cat. 1785
+1536	cat. 958
+1538	cat. 1244
+1540	cat. 1196
+1541	cat. 893
+1542	cat. 912
+1543	Cat. 906
+1544	cat. 1011
+1545	cat. 1438
+1546	cat. 1476
+1547	cat. 1619
+1549	cat. 1809
+1550	cat. 299
+1551	cat. 1551
+1553	cat. 708
+1554	cat. 851
+1555	cat. 929
+1556	cat. 1651
+1557	cat. 845
+1558	cat. 1510
+1561	cat. 71
+1562	cat. 447
+1564	Cat. 665
+1565	cat. 29
+1566	cat. 14
+1567	cat. 14
+1569	cat. 844
+1570	Cat. 1130
+1571	cat. 1264
+1572	cat. 1240
+1574	Not cat. 1431
+1576	cat. 1812
+1578	cat. 329
+1579	cat. 137, Leland
+1580	Cat. 1156
+1583	Part in cat. 129
+1584	cat. 443
+1585	cat. 1562
+1587	cat. 507
+1588	cat. 364
+1589	cat. 987
+1590	Cat. 870
+1591	cat. 1565
+1593	cat. 588
+1596	Fol. 1 of cat. 357
+1597	not cat. 1200
+1598	cat. 676
+1600	Cat. 325
+1601	cat. 468
+1602	Cat. 182
+1604	Cat. 441
+1605	Cat. 1222
+1606	Cat. 953
+1607	cat. 1140
+1609	Cat. 1433
+1611	cat. 1019
+1612	cat. 222
+1614	cat. 12
+1615	cat. 374
+1616	cat. 1197
+1617	cat. 1277
+1619	cat. 1170
+1620	cat. 1145
+1622	cat. 1009
+1623	Cat. 936
+1624	cat. 1124
+1625	cat. 1390
+1626	cat. 367
+1627	cat. 286
+1628	cat. 1763
+1629	cat. 351
+1630	Cf. cat. 439
+1631	cat. 758
+1632	cat. 933 (cf. p. 519)
+1739	? Leland
+1748	Leland
+1754	Leland
+1756	? Leland
+1778	Leland
+1793	Cat. vet., p. 63 A
+1819	Boethius A.
+1821	Josephus A
+1845	Cat. 43--49
+1866	List, 1
+1904	cat. 2 and 3
+1905	cat. 129
+1907	cat. 133
+1908	cat. 385
+1909	cat. 397
+1910	cat. 18
+1911	cat. 391
+1912	cat. 394
+1913	cat. 423
+1915	cat. 169
+1916	cat. 396
+1917	cat. 124
+1918	cat. 167
+1919	cat. 374
+1921	cat. 371
+1923	cat. 273
+1924	cat. 405
+1925	cat. 119
+1926	cat. 415
+1927	cat. 113
+1928	cat. 118
+1946	cat., p. 76 A
+1952	cat., p. 5
+1953	cat., pp. 18 H, 93 H
+1955	G
+1962	Athelstan
+1964	cat., p. 47 E
+1968	cat., pp. 22 P, 99 P
+1969	Cat., pp. 24 C, 100 C
+1971	cat., pp. 39 P, 116 P
+1973	cat., p. 75 A
+1974	cat., p. 49 N
+1975	cat., p. 47 H
+1977	cat., pp. 8, 33 O, 111 O
+1979	cat., pp. 15 E, 90 E
+1983	cat., p. 73 N
+1984	cat., p. 72 C
+1987	cat., p. 71 B
+1988	cat., pp. 77 G, 79 G
+1989	cat., pp. 25 D, 101 D
+1992	cat., pp. 75 B, 81 B
+1993	cat., pp. 19 D, 94 D
+1994	cat., pp. 21 [F], 37, 41 F, 97 H
+1999	cat., pp. 35 E, 112 E
+2000	cat., p. 68 G
+2001	cat., pp. 33 C, 110 C
+2002	cat., p. 64 A recte B
+2003	cat., pp. 24 P, 101 P
+2006	cat., pp. 35 F, 112 F
+2007	cat., p. 72 F
+2008	cat., pp. 18 L, 93 L
+2010	cat., pp. 32 A, 109 A, 119
+2011	cat., pp. 30 B, 107 B
+2020	cat., p. 53 C
+2021	cat., p. 51 K (In libraria)
+2022	cat., p. 51 M (In libraria)
+2023	cat., p. 119
+2025	cat., p. 50 B (In libraria)
+2026	cat., pp. 44 I, 51 I (In libraria)
+2027	cat., p. 52 E
+2028	cat., pp. 2(?), 76 D, 81 D (In refectorio)
+2029	cat., p. 73 Q (In libraria)
+2030	cat., pp. 11 H, 40 H, 86 H
+2031	cat., pp. 44 Q, 51 Q (In libraria)
+2032	cat., p. 41 L
+2033	cat., pp. 44 F, 52 F (In libraria)
+2034	cat., pp. 45 E, 53 E (In libraria)
+2037	cat., p. 50 E
+2038	cat., pp. 1, 50 H, 80 H, 117 (In refectorio)
+2039	cat., p. 50 A (In libraria)
+2041	cat., pp. 50--51 C (see Notes)
+2042	cat., p. 53 A
+2043	cat., p. 51 H
+2044	cat., pp. 13 A, 88 A
+2045	cat., p. 51 O (In libraria)
+2046	cat., p. 52 A
+2047	cat., pp. 16 D, 92 D
+2049	cat., p. 52 F
+2050	cat., pp. 17 B, 93 B, 118
+2051	cat., p. 49 G (In libraria)
+2052	cat., pp. 27 C, 103 C
+2053	cat., p. 52 G
+2054	cat., pp. 11 D, 86 D ("modici valoris est")
+2055	cat., pp. 11 C, 86 C
+2056	cat., pp. 12 C, 87 C
+2057	cat., pp. 12 A, 88 A
+2058	cat., pp. 12 D, 87 D
+2059	cat., pp. 12 A, 88 A
+2060	cat., p. 51 K
+2061	cat., pp. 13 B, 88 B
+2062	cat., pp. 13 AA, 89 AA
+2063	cat., pp. 3, 13 L, 88 L
+2065	cat., pp. 26 G, 103 G
+2066	cat., p. 68 A
+2067	cat., p. 51 L (In libraria)
+2068	cat., p. 51 M
+2069	cat., pp. 14 B, 90 B
+2070	cat., pp. 2(?), 15 F, 90 F
+2072	cat., pp. 15 A, 90 A
+2073	cat., pp. 15 B, 91 B
+2074	cf. cat., pp. 44 A, 51 A
+2075	cat., pp. 15 B, 91 B
+2076	cat., pp. 15 A, 91 A
+2077	Cat., pp. 15 A, 91 A
+2078	Cat., pp. 15 A, 91 A
+2079	cat., pp. 16 E, 91 E
+2082	cat., pp. 15 F, 90 F
+2083	cat, pp. 11 C, 86 C
+2085	cat., pp. 16 D, 92 D
+2086	cat. p. 68 C
+2087	cat., pp. 51 P, 83 P, cf. p. 42 D (recte P)
+2088	cat., pp. 11 D, 87 D, 118
+2089	cat., pp. 13 X, 89 X
+2090	cat., pp. 14 II, 89 II
+2091	cat., pp. 13 FF, 89 FF
+2093	cat., pp. 15 G, 90 G
+2094	cat, pp. 16 B, 92 B, 118
+2095	cat., pp. 16 D, 92 D
+2096	cat., pp. 16 C, 92 C
+2097	cat., pp. 17 D, 92 D
+2098	cat., pp. 16 B, 92 B
+2099	cat., pp. 17 D, 93 D
+2100	cat., pp. 17 G, 93 G
+2104	cat., pp. 18 A, 94 A
+2105	cat., pp. 14 C, 90 C (in quaterno)
+2106	Cat., pp. 30 A, 107 A
+2107	cat., p. 54 D
+2108	cat., p. 54 A
+2110	cat., p. 73 R
+2111	cat., p. 74 N
+2112	cat., p. 72 C
+2113	cat., p. 73 T
+2114	cat., p. 72 B
+2115	cat., p. 72 E
+2116	cat., pp. 23 E, 99 E
+2117	cat., p. 73 O
+2118	cat., p. 74 A
+2119	Cat., pp. 23, 37, 100
+2120	cat., p. 72 D
+2121	cat., p. 73 L
+2123	cat., p. 73 K
+2124	cat., pp. 23 I, 99 I
+2125	cat., p. 73 I
+2126	cat., p. 73 H
+2127	cat., p. 78 F
+2128	cat., p. 74 D (in libraria)
+2129	cat., p. 74 E
+2130	cat., pp. 24 A, 74 A, 100 A
+2131	cat., pp. 22 F K, 98 F K
+2132	cat., pp. 22 N, 98 N
+2133	cat., p. 47 P
+2134	cat., p. 48 P
+2135	cat., p. 49 B
+2137	cat., p. 53 A
+2138	cat., p. 53 B
+2139	cat., p. 56 A
+2142	cat., p. 68 A
+2144	cat., p. 58 F (In libraria)
+2145	cat., p. 57 A (In libraria)
+2146	cat., p. 58 G (In libraria)
+2147	cat., pp. 1, 57 C (In libraria), 117
+2148	cat., pp. 1, 58 E (In libraria), 117
+2149	cat., p. 62 AB
+2150	cat., pp. 1, 60 K, 117
+2151	cat., pp. 1, 60 L, 117
+2152	cat., p. 60 M
+2153	cat., pp. 59 G, 117
+2154	cat., pp. 59 F, 117
+2155	cat., p. 63 AA
+2156	cat., p. 60 H
+2157	cat., p. 61 X
+2158	cat., pp. 2, 60 N, 117
+2159	cat., pp. 1, 59 D, 117
+2161	cat., p. 59 C
+2162	cat., p. 59 E
+2163	cat., p. 59 A
+2164	cat., p. 63 AC
+2165	cat., p. 59 A (recte B) (In libraria)
+2166	cf. cat., p. 63 AD
+2167	cat., pp. 3, 13 E, 88 E
+2168	cat., p. 76 C
+2169	cat., p. 63 A
+2170	cat., p. 65 A
+2171	cat., p. 64 C
+2172	Cat., pp. 3, 56 G, 65 G
+2174	cat., pp. 2, 72 A, 118
+2175	cat., p. 59K (In libraria)
+2176	cat., p. 61 S
+2177	cat., p. 63 AE
+2178	cat., p. 46 K 
+2179	cat., p. 60 P
+2180	cat., p. 63 Ab
+2181	cat., p. 61 V
+2182	cat., p. 69 D
+2183	cat., pp. 2, 63 D, 117
+2184	cat., pp. 2, 63 C, 117
+2186	cat., pp. 63 F, 117
+2188	cat., p. 63 G 
+2189	cat., p. 66 E 
+2190	cat., p. 66 D
+2191	cat., pp. 3, 67 A, 117
+2192	cat., p. 70 A
+2196	cat., p. 71 B
+2197	cat., p. 71 I
+2198	cat., p. 47 O
+2199	cat., p. 43 S
+2200	cat., pp. 27 M, 104 M
+2202	cat., p. 83 Z
+2206	cat., pp. 42 AF, 84 F
+2207	cat., pp. 2, 20 C, 96 C
+2208	cat., pp. 3, 69 B
+2210	cat., p. 57 C
+2211	cat., p. 57 B
+2212	cat., pp. 1, 61 R (recte: Q)
+2213	cat., p. 61 R
+2214	cat., pp. 19 B, 95 B
+2215	cat., pp. 2, 32 A, 109 A
+2216	cat., pp. 24 G, 101 G
+2217	cat., p. 69 C
+2218	cat., pp., 2, 60 O
+2219	cat., pp. 54 L, 80 L, 118
+2220	cat., p. 65 C
+2221	cat, p. 65 G
+2222	cat., pp. 35 H, 112 H
+2223	cat., pp. 35 T, 112 T
+2225	cat., pp. 21 F, 97 F
+2227	cat., p. 66 B
+2228	cat., p. 66 A
+2229	cat., pp. 30 A, 107 A
+2230	cat., pp. 25 B, 101 B
+2233	cat., pp. 11 R, 85 R
+2239	cat., pp. 35 M, 112 M
+2241	cat., pp. 29 D, 106 D
+2245	cat., p. 83 AH
+2248	cat., pp. 36 A, 37 A, 114 A
+2250	cat., pp. 36 A, 114 A
+2252	cat., pp. 36 B, 37 B, 114 B
+2253	cat., pp. 34 B, 112 B
+2254	cat., p. 46 N
+2256	cat., pp. 36 C, 37 C, 114 C
+2257	cat., p. 48 T
+2258	cat., p. 47 I
+2260	Cf. cat., p. 77 B
+2261	cat., p. 77 D
+2263	cat., p. 46 C
+2264	cat., p. 47 A
+2265	cat., p. 47 D
+2267	cat., p. 47 C
+2268	cat., p. 46 H 
+2272	cat., pp. 36 X, 113 X
+2273	cat., p. 48 AD
+2274	Cat., p. 48 AC
+2275	cat., p. 47 L 
+2276	cat., pp. 35 K, 112 K
+2277	Cat., p. 46 F
+2279	cat., pp. 35 D, 113 D
+2280	cat., pp. 35 H, 113 H
+2281	cat., pp. 35 E, 113 E
+2282	cat., pp. 35 R, 112 R
+2284	cat., pp. 35 Q, 112 Q
+2285	cat., p. 112 V
+2291	cat., pp. 32 S, 110 S
+2292	cat., p. 77 C
+2297	cat., pp. 35 G, 112 G
+2299	cat., pp. 31 C, 108 C, 119
+2300	Cat., pp. 31 F, 108 F
+2301	cat., pp. 4, 30 F, 108 F
+2302	cat., pp. 33 L, 111 L
+2303	cat., p. 78 H 
+2304	cat., p. 111 K
+2305	cat., pp. 30 O, 107 O
+2307	cat., p. 77 E
+2309	cat., pp. 32 G, 109 G
+2310	cat., pp. 32 M, 110 M
+2314	cat., p. 124 L
+2316	cat., p. 48 AG
+2318	cat, pp. 33 P (recte F), 111 F
+2320	cat., pp. 33 A, 110 A
+2356	Cat., pp. 13 BB, 89 BB
+2357	cat., p. 71 D
+2358	cat., pp. 12 A, 87 A
+2359	cat., p. 50 D
+2361	cat., pp. 4, 124 O
+2362	cat., p. 75 O
+2363	cat., pp. 26 F, 102 F; Leland, De Script., p. 205
+2366	cat., p. 67 C
+2367	cat., pp. 7, 33 H, 110 H
+2368	Cat., p. 83 AI
+2369	Cat., p. 64 F
+2373	cat., p. 49 M
+2378	cat., pp. 16 A, 92 A, 118
+2383	cat., pp. 33 A, 111 A
+2384	cat., p. 124 K
+2387	Athelstan
+2388	cat., pp. 18 L, 93 L
+2397	cat., p. 56 L 
+2399	cat., p. 116
+2401	cat., p. 64 D
+2402	1.3i.T2
+2405	cat., pp. 20 D, 96 D
+2406	cat., pp. 27 H, 104 H
+2408	cat., p. 76 R
+2411	cat., p. 124 P
+2412	cat., pp. 24 A, 101 A
+2417	cat., p. 49 H
+2418	cat., p. 56 D E F 
+2420	cat., pp. 32 A, 109 A
+2424	cat., p. 63 Y
+2425	cat., pp. 34 A, 111 A
+2432	cat., p. 55 P
+2435	cat., pp. 10 C, 85 C
+2436	cat., p. 51 I
+2437	cat., p. 75 K
+2438	cat., p. 67 D
+2439	cat., pp. 16 C, 91 C
+2441	cat., p. 57 D
+2443	Cat., p. 71 G
+2444	cat., pp. 21 A, 97 A
+2446	cat., pp. 29 L, 106 L
+2449	? cat., pp. 3, 118
+2450	cat., p. 56 I
+2451	cat., pp. 75 F, 118
+2454	cat., p. 72 AH
+2455	cat., p. 59 L
+2456	cat., pp. 20 K, 95 K
+2461	cat., p. 56 K
+2462	cat., pp. 33 E, 111 E
+2465	cat., pp. 28 KK, 105 KK
+2466	Cat., pp. 2, 117
+2516	cat., pp. 19 H, 95 H
+2518	cat., pp. 15 A, 91 A
+2579	Inv. 1465, ix
+2580	Inv. 1465, vi
+2581	Inv. 1465, xxii
+2584	Inv. 1465, viii
+2586	Inv. 1465, iv
+2612	Inv. 1465, xv
+2617	Bale, Index, p. 202
+2631	Inv. 1465, xxxiii
+2632	Bale
+2634	Inv. 1531 (?), fol. 4v
+2672	Marlborough list
+2682	Leofric
+2684	? Leofric; cat., p. 309
+2685	? Leofric; cat., pp. 304, 367
+2686	? Leofric
+2690	Leofric; cat., pp. 303, 368
+2691	Cat., p. 371
+2692	Cat., p. 369
+2693	Cat., p. 304
+2695	Leofric
+2697	Cat., p. 350
+2698	Cat., p. 350
+2699	Cat., p. 303
+2700	Cat., p. 368
+2702	Cat., p. 331
+2705	? Leofric; cat., p. 351 (?)
+2711	? Leofric; cat., p. 334
+2712	? Leofric
+2716	Cat., p. 368
+2718	Cat., p. 350
+2719	Cat., pp. 307, 368
+2720	Cat., pp. 308, 373
+2721	Cat., pp. 308 (?), 373
+2722	Cat., p. 368
+2723	Cat., p. 367
+2724	Cat., pp. 307 (?), 373
+2725	Leofric; cat., p. 323
+2727	Cat., pp. 304, 367
+2728	Leofric
+2729	Leofric; cat., pp. 307, 368
+2730	Cat., pp. 304, 368
+2731	Cat., pp. 303, 372
+2732	Cat., pp. 302, 373
+2733	Cat., pp. 303, 372
+2734	Cat., pp. 302, 372
+2735	Cat., pp. 303, 372
+2736	Cat., pp. 303, 370
+2737	Cat., pp. 301, 372
+2738	Cat., pp. 302, 373
+2739	Cat., p. 372
+2740	Cat., p. 372
+2741	Cat., pp. 302, 371
+2742	Cat., pp. 302, 371
+2743	Cat., pp. 302, 373
+2744	Cat., pp. 303, 374
+2746	Cat., p. 367
+2747	Cat., pp. 302, 373
+2748	Cat., pp. 303, 367
+2749	Cat., pp. 302, 371
+2750	Cat., p. 366
+2751	Cat., p. 371
+2752	Cat., pp. 301, 372
+2753	Cat., pp. 301, 372
+2754	Cat., pp. 301, 372
+2755	Cat., pp. 302, 372
+2756	Cat., p. 373
+2757	Cat., p. 368
+2758	Cat., p. 369
+2759	Cat., pp. 304, 369
+2760	Cat., p. 369
+2761	Cat., pp. 302, 373
+2762	inv. 1327; cat., p. 368
+2763	Cat., pp. 302, 370
+2764	Cat., p. 371
+2765	Cat., p. 371
+2766	? Leofric; cat., pp. 303, 367
+2767	Cat., p. 370
+2768	Cat., p. 372; Leland
+2769	Cat., p. 370
+2770	Cat., p. 369
+2771	Cat., p. 370
+2774	Cat., pp. 309 (?), 373
+2775	Cat., pp. 309 (?), 373
+2776	Cat., pp. 302, 372
+2777	Cat., p. 370
+2778	Cat., p. 371
+2779	Cat., pp. 302, 303, 372
+2780	Cat., 305, 371
+2781	Cat., p. 368
+2782	Cat., pp. 309, 370
+2783	Cat., p. 370
+2784	Cat., pp. 303, 371; Leland
+2785	cat., pp. 305, 367; Leland
+2786	cat., pp. 308, 36
+2787	Leofric
+2788	Cat., pp. 302, 371
+2789	Cat., pp. 302, 372
+2790	Cat., pp. 302, 370
+2791	Leofric; cat., pp. 302, 367 or 371
+2792	Cat., pp. 302, 372
+2794	Cat., p. 368; Leland
+2795	Cat., p. 370
+2796	Cat., pp. 307 (?), 373
+2797	Cat., p. 370
+2798	Cat., p. 367
+2799	Cat., p. 373
+2800	Cat., pp. 303, 372
+2801	Cat., p. 370
+2802	Cat., p. 368
+2803	Cat., pp. 303, 372
+2804	Cat., pp. 302, 373
+2805	Cat., pp. 302, 372
+2806	Cat., pp. 304, 369
+2807	Cat., pp. 302, 373
+2808	Cat., pp. 302, 373
+2809	Cat., p. 373; Leland
+2810	Cat., p. 371
+2811	? Leofric; cat., pp. 303, 371; Leland
+2812	Cat., p. 369
+2813	Cf. cat., p. 304
+2814	Cf. cat., p. 333
+2826	Leland
+2899	cf. Cat., fol. 102v
+2907	Monyton list, 25
+2909	Monyton list, 53
+2917	? Leland
+2919	Leland
+2921	Cat., p. 441; Leland
+2929	Monyton list, 55
+2952	Leland
+3207	?
+3321	?
+3362	Leland 
+3382	Cf. cat. 289
+3383	Cat. 108
+3385	Cat. 225
+3387	Leche, 16
+3389	Cf. cat. 60
+3392	Leche, 25
+3396	Cat. 55
+3397	Cat. 51 or 52
+3398	Leche, 42
+3401	Cf. cat. 14
+3403	Cf. cat. 15
+3410	Cf. cat. 19
+3411	Cat. 199
+3412	Cf. cat. 26, 27
+3414	Cat. 20
+3416	Cat. 130
+3420	Cat. 21
+3421	Leche, 41
+3429	Cat. 186
+3430	Leche 13
+3431	Cat. 175
+3436	Cf. cat. 155, 156
+3439	Cf. cat. 218
+3441	Cf. cat. 372
+3455	cf. cat. 66
+3459	Cat. 109
+3460	cat. 84
+3463	Cat. 312
+3464	cf. cat. 22
+3465	cat. 29 or 30
+3473	Cat. 143
+3474	? Cat. 370
+3476	cf. cat. 149
+3477	Cf. cat., p. 150, n. 1
+3479	Cf. cat. 215
+3483	cf. cat. 216
+3484	Cat. 38
+3488	Cat., p. 145, n. 2
+3497	Cf. cat. 266
+3499	cat. 140
+3502	cat. 61
+3509	Cat. 49
+3511	Cf. cat. 249, 272
+3514	Cat. 141, n. 5
+3518	Cf. cat. 211
+3521	Cf. cat. 180
+3522	Cat. 168
+3523	Cat. 117
+3526	Cf. cat. 158
+3527	Cat. 114
+3539	Cat. 163, Libraria 64
+3540	Cat. 35 (= no. 25 of the books In libraria)
+3541	Cat. 185, Libraria 68
+3542	Cat. 174
+3543	Cat. 162, Libraria 65
+3544	Cat. 243
+3545	Cat. 150
+3546	Cat. 276, Libraria 116
+3547	Cat. 595
+3548	Cat. 368, Libraria 188
+3551	Cat. 604, Libraria 225
+3552	Cat. 604a
+3563	Cf. cat. p. 124, l. 9
+3564	Cf. cat. p. 124, l. 41
+3565	Cf. cat., p. 124
+3599	Young 73
+3606	Cat. 1; old cat. 1
+3607	Cat. 1; old cat. 1
+3608	Cat. 44
+3610	Cat. 53; old cat. 58 
+3611	Old cat. 19
+3612	Cat. 28
+3613	Cat. 63; old cat. 3
+3614	Cat. 65
+3615	Cat. 67
+3616	Cat. 59; old cat. 27
+3617	Cat. 86; old cat. 73; Leland
+3618	Cat. 62; old cat. 36
+3619	Cat. 3; old cat. 85
+3620	Cat. 6--9
+3621	Cat. 12; old cat. 73
+3622	Cat. 13; old cat. 73
+3623	Cat. 15; old cat. 73
+3624	Cat. 16; old cat. 73
+3625	Cat. 17; old cat. 73
+3626	Cat. 20
+3628	Cat. 84; old cat. 61
+3629	Cat. 52
+3630	Cat. 38
+3631	Cat. 70
+3632	Cat. 34
+3633	Cat. 33
+3634	Cat. 25
+3635	Cat. 88
+3638	Cat. 99; old cat. 70
+3640	Cat. 75
+3641	Cat. 49
+3643	Cat. 22
+3644	Cat. 47; old cat. 40
+3645	Cat. 30
+3647	Cat. 5
+3648	Cat. 74; old cat. 6 (or 72)
+3649	Cat. 73; old cat. 4
+3650	Cat. 76; old cat. 62
+3652	Cat. 79
+3653	Cat. 24
+3654	Cat. 45
+3655	Cat. 77; old cat. 14
+3656	Cat. 10
+3658	Cat. 415
+3659	Cat. 43
+3660	Cat. 26
+3661	Cat. 55; old cat. 24
+3662	old cat. 20 or 39
+3663	Cat. 54; old cat. 59
+3664	? old cat. 83
+3665	Cat. 98; old cat. 55 (?)
+3666	Cat. 100
+3667	Cat. 93
+3668	Cat. 81
+3669	Cat. 108
+3670	Cat. 90
+3671	Cat. 50; old. cat. 16; Leland
+3672	Cat. 101 ?; Leland
+3673	Cat. 29
+3674	Cat. 72; old cat. 69
+3675	Cat. 91
+3676	Cat. 27; old cat. 77
+3677	Cat. 23; cf. old cat. 86
+3678	Cat. 97; old cat. 80; Leland
+3679	Cat. 82
+3681	Cat. 78; old cat. 13
+3682	Cat. 39
+3683	Cat. 61
+3684	Cat. 21; old cat. 87
+3686	Cat. 18
+3687	Cat. 64
+3688	Cat. 46; old cat. 38
+3690	Cat. 85; old cat. 62
+3691	Cat. 31
+3693	Cat. 103; old cat. 39
+3694	Cat. 87; old cat. 71
+3697	Cat. 4; Leland
+3698	Cat. 32; Leland
+3699	Old cat. 15 (?); cat. 60; Leland
+3700	Cat. 102; Leland
+3701	Cf. old cat. 60
+3704	Cat. 56; old cat. 25
+3705	Cat. 57
+3706	Cat. 58; old cat. 63
+3707	Cat. 94--96; old cat. 28
+3720	Leland
+3721	Leland
+3722	Leland
+3723	Cf. inv. 1367
+3737	Cat. O.(3)
+3738	Cat. M.(1)
+3739	Cat. O.(4)
+3740	Cat. M.(7)
+3741	Cat. M.(9)
+3742	Cat. M.(5)
+3743	Cat. M.(6)
+3744	Cat. N.(2)
+3748	Cat. C.(1)
+3752	Cat. (Q.2)
+3755	Cat. G.(3)
+3756	Inv. 1295 (117); cat. F.(1)
+3759	Baldock 15
+3807	? Leland
+3812	ff.8
+3814	Q.Pm
+3824	Leland
+3867	Horn 2
+3868	Horn 2
+3876	? Horn 4
+3919	Leland
+3935	Leland
+3942	cat., p. xciv
+4120	Bozoun cat. 30
+4125	Bozoun cat. 26
+4145	Bozoun cat. 29, ?26
+4159	Bozoun cat. 27
+4262	Liber 163 in ordine; DK.H.1444, 74
+4264	Cat. 209, 434
+4265	Cat. 209, 96
+4266	Cat. 209, 430
+4269	Andrew 25
+4271	Cat. 209, 134; inv. fol. 25
+4272	Warham 64
+4275	Inv., fols. 2v, 24
+4277	Inv., fols. 23v, 27v
+4282	Cf. Bale, Index, p. 452
+4289	Leland
+4301	Leland
+4305	Leland
+4310	cf. list 1501, 110
+4311	List 1501, 50; etc.
+4312	cf. list 1501, 111; etc. 
+4313	List 1501, 165; etc.
+4314	List 1501, 311
+4315	List 1501, 26; etc.
+4318	cat. 1409, H
+4319	C over erased F; Cat. 1409, F
+4321	? Cat. 1315, 22
+4326	List 1400, 41
+4327	List 374
+4329	List 1374
+4334	Cat. 26
+4335	Cat. 51 
+4336	Cat. 1
+4337	Cat. 1
+4338	Cat. 85
+4339	Cf. cat. 52
+4340	Cat. 72
+4341	Cat. 71
+4342	Bale, Index, p. 468
+4352	Cat T.205
+4354	Reg. Coll., sub anno 1496
+4357	Cat. T.184; cf. electio 1519, Norice 20
+4363	Cat. T.228
+4367	Cat. D.28
+4368	Bale, Index, p. 192
+4370	Reg. Coll., sub anno 1483, 37
+4375	Cf. Bale, Index, p. 384
+4376	Reg. Coll., sub anno 1483, 37
+4377	Cat. D.22
+4378	Cat. D.22; electio 1519, Barlow 11
+4380	Cat. E.120
+4381	Cf. Bale, Index, p. 13
+4382	Cat. P.49
+4386	Cat., p. 228
+4393	Leland
+4396	Cf. cat., p. 69
+4399	Cat., p. 69 
+4401	Cat., p. 68 
+4402	Cat., p. 70
+4407	Cat., p. 67 
+4408	Cf. Bale, Index, p. 399
+4413	Cf. Bale, Index, p. 238, etc.
+4442	Cat. 14
+4443	Cat. 22
+4457	Cf. cats., pp. lxxxvi, 365
+4458	Cf. cat., p. lxxxviii
+4476	Cat., p. 363
+4479	Cat., p. 363
+4486	Leland, De Script. Brit., p. 264
+4492	Cf. cat., p. 364
+4498	Cat., p. 120
+4502	Cat, p. 120
+4504	Cat., p. 119
+4505	Cat, p. 118
+4506	Cat., p. 119
+4507	Cat., p. 119
+4508	Cat., p. 119
+4509	Cat., p. 119
+4510	Cat., p. 119
+4511	Cat., p. 119
+4512	Cat., p. 121
+4515	Cat., p. 120
+4520	Cat., p. 120
+4522	Cat., p. 119
+4527	Cat., p. 121
+4547	Cat., p. 119
+4548	Cat., p. 117
+4549	Cat., p. 117
+4550	Cat., p. 117
+4560	Cf. cat., p. 120
+4564	Cat., p. 118; list in B.Q.R., 9
+4565	Cat., p. 118; list in B.Q.R., 7
+4568	Cat., p. 120
+4577	Cat., p. 118
+4579	Cat., p. 119
+4581	Cat., p. 121?
+4583	Cf. ca., p. 119
+4585	Cat., p. 119
+4586	Cat., p. 121
+4587	Cat, p. 121
+4589	Cat., p. 120
+4590	Cat., p. 120
+4591	Cf. cat., p. 120
+4593	Cf. cat., p. 119
+4599	Cat., p. 122 or 123
+4600	List in BQR, 13
+4602	List in BQR, 15
+4608	Cf. cat., p. 118
+4613	Leland
+4614	Leland
+4617	Cat., fol. 2
+4619	Cat., fol. 2v
+4625	Cat., fol. 1v; Leland
+4626	Cf. cat., fol. 5
+4627	Cat., fol. 3
+4629	Cat., fol. 3v; Leland
+4631	Cat., fol. 3v; Leland
+4636	Cat., fol. 4v
+4649	Cf. cat. I, p. 127
+4651	Cf. cat. I, . 123; II.7
+4654	Cf. cat. I, p. 126; II.96
+4656	Cat. I, p. 128; II.18
+4657	Faustina List 10
+4659	Cf. cat. II.186
+4660	Cat. I, p. 126; II.98
+4661	Cat. I, p. 124; II.46
+4663	Cf. cat. I, p. 127; II.57
+4664	Cf. cat. I, p. 126; II.74
+4666	Cat. I, p. 124; II.47
+4669	Cat. II. 100 (ii)
+4672	Cat. II.120
+4673	Cf. cat. I, p. 126; II.50
+4677	Cf. cat. I, p. 127; II.57
+4682	Cat. II.240
+4685	Cat. II.237
+4687	Cat. I, p. 14; II.80
+4689	Cat. I, p. 125; II.24
+4690	Cf. cat. II.241
+4692	Cat. II.49
+4693	Cat. II.3
+4697	Cat. II.128
+4698	Cat. I, p. 125; II.28
+4701	cf. cat. II.13
+4702	Cat. II.117, 200
+4707	Cat. I, p. 125; II.83
+4709	Cat., I, p. 122; II.9
+4710	cat. I, p. 122; II.2
+4711	Cat. I, p. 122; II.12
+4712	Cat. I, p. 122; II.15
+4713	Cat. I, p. 122; II.18
+4714	Cat. I, p. 123; II.19
+4715	cat. I, p.123; II.21
+4716	cat. II.20
+4717	Cat. II.5
+4718	Cat. I, p. 122; II.6
+4719	Cat. I, p. 122; II.6
+4720	Cat. I, p. 122; II.1
+4721	Cat. II.81
+4723	Cat. I, p. 125; II.93
+4725	Cat. I, p. 125; II.34
+4726	Cat. I, p. 125; II.35
+4728	Cat. I, p. 126; II.76
+4730	Cat. I, p. 125; II.30
+4731	Cat I, p. 125; II.31
+4732	Cat. I, p. 125; II.24
+4733	Cat. I, p. 125; II.29
+4734	Cat. I, p. 123; II.37
+4735	Cat. II.94
+4743	Cat. I, p. 127; II.91
+4749	Cat. II. 236
+4754	Cat. I, p. 127; II.99
+4755	Cat. I, p. 127; II. 92
+4758	Cat. II. 239
+4764	Cat. II.197
+4768	Cat. I., p. 123; II.16
+4769	Cat. I, p. 127; II.112
+4771	Cat. II.144
+4775	Cf. cat. I, p. 126
+4776	Cf. cat. I, p. 127; II.57
+4777	Cat. I, p. 124; II.48
+4782	cf. Cat., p. 6
+4783	Cat. p. 6, (6)
+4785	Cat. I.77
+4790	Cat. I, p. 122; II.4
+4830	Wethamstede list, p. 268
+4831	de armariolo A
+4855	Whethamstede list, p. 268
+4931	Leland, Script. Brit., p. 152
+4945	Cf. Leland, Itin. 1. 263
+4946	Young 160
+4948	Leland
+4951	Cf. Young 23
+4952	Young 31
+4955	Young 155?
+4958	Young 154
+4972	Young 158 & 159
+4973	Young 157
+4977	Young 135?
+4978	Young 163
+4979	Young 134
+4980	Young 84
+4981	Young 93
+4982	Young 126
+4983	Young 56
+4984	Young 72
+4985	Young 167
+4986	Young 24
+4987	Young 105
+4988	Young 172
+4989	Young 156
+4990	Young 38
+4991	Young 2
+4992	Young 124
+4996	Cf. Young 145
+4997	Cf. Young 146
+4998	Young 90
+4999	Young 37
+5000	Young 59
+5001	Young 75
+5003	Young 83
+5004	Young 130
+5005	Young 45 or 152
+5008	Young 57
+5009	Young 98
+5010	Young 5
+5011	Young 18
+5012	Young 116
+5013	Young 51
+5014	Young 3
+5015	Young 168
+5016	Young 97
+5017	Young 101
+5018	Young 119
+5019	Young 120 or 143
+5020	Young 42
+5021	Young 68
+5022	Young 41
+5023	Young 118
+5024	Young 43
+5025	Young 63
+5026	Young 45 or 152
+5028	Young 121
+5029	Young 54
+5030	Young 66
+5031	Young 1
+5033	Cf. Young 19
+5034	Young 57
+5035	Young 111
+5038	Young 112
+5039	Young 110
+5040	Young 78
+5041	Young 81
+5042	Young 25 or 179
+5043	Young 173
+5044	Young 50
+5048	Young 133
+5050	Young 64
+5051	Young 11
+5053	Young 26
+5054	Young 9
+5055	Young 139
+5058	Young 61 or 114
+5059	Young 141
+5061	Young 22
+5062	Young 10
+5063	Young 65
+5064	Young 103
+5065	Young 181
+5066	Young 149
+5067	Young 46
+5068	Young 47
+5069	Young 150
+5070	Young 180
+5071	Young 60
+5072	Young 12
+5073	Young 100
+5074	Young 120 or 143
+5075	Young 153
+5076	Young 53
+5078	Young 85
+5079	Young 138
+5080	Young 168
+5081	Young 176
+5082	Young 86
+5083	Young 17
+5084	Young 29
+5085	Young 40
+5086	Young 32
+5087	Young 33
+5090	Leland; Young 87
+5091	Young 67
+5092	Young 123
+5093	Young 169
+5094	Young 144
+5096	Young 71
+5097	Young 95
+5099	Young 58
+5100	Young 25 or 179
+5101	Young 6
+5102	Young 44
+5103	Young 48
+5106	Young 30
+5109	Young 89
+5110	Young 99
+5111	Young 14
+5112	Young 15
+5114	Young 108
+5115	Young 107
+5116	Young 122
+5117	Young 171
+5118	Young 35
+5119	Young 34
+5120	Young 151
+5121	Young 127
+5122	Young 55
+5123	Young 96
+5124	Young 21
+5125	Young 74
+5126	Young 13
+5127	Cf. Young 162
+5129	Young 128
+5131	Young 20
+5133	Young 132
+5134	Young 82
+5135	?
+5136	Young 148
+5137	Young 174, 91
+5139	Young 7
+5140	Young 131
+5157	Young 136
+5158	Young 175
+5159	Young 125
+5160	Young 117
+5161	Young 161
+5165	Young 77
+5167	Young 61 or 114
+5168	Young 27
+5219	Leland
+5272	Leland
+5346	Cat. B.2
+5355	Cat. N.49
+5357	Cat. N.49
+5358	Cat. L.33
+5359	Cat. L.33
+5360	Cat. L.33
+5361	Cat. L.33
+5373	cat. K.11
+5374	Cat. B.40
+5377	Cat. M.2
+5378	Cat. O.16
+5379	Cat. L.44
+5380	Cat. M.72
+5385	Cat. E.1
+5387	cat. D.75
+5389	? Cat. M.64
+5390	Cat. O.10
+5392	Cat. E.67
+5397	Cat. N.84, 85
+5405	Cat D.122
+5406	Cat. P.51
+5407	cat. R.1
+5411	Cat. K.9
+5412	Cat. N.64
+5418	Cat. M.44
+5427	Cat. R.36
+5429	Cat. K.59
+5440	Leland
+5441	Leland
+5443	Leland
+5444	Leland
+5445	Leland
+5446	Leland
+5487	Leland
+5488	Leland
+5497	cat. G.XV
+5498	cat. P.IIII
+5499	cat. P.II
+5501	cat. B.XXV
+5502	Cat. N.II
+5503	cat. B.XXII
+5505	cat. P.X
+5509	Leland
+5522	Leland, Coll., 1. 173
+5547	cat. 18
+5556	Leland
+5563	cf. cat. 22
+5606	Leland
+5607	Leland
+5609	Leland
+5610	Leland
+5611	Leland
+5626	Bale
+5638	Inv. 1388, 13; 1540, p. 344
+5642	Leland
+5651	Inv. 1388, 1; 1540, p. 343
+5652	cf. Leland
+5660	Inv. 1540, p. 344
+5810	Cf. Cat., p. 71
+5811	Cat., p. 70
+5812	Cat., p. 66
+5813	Cat., p. 68
+5899	Blacman 4
+5902	Blacman 34
+5912	Blacman 2
+5913	Blacman 1
+5914	Blacman 13
+5937	Cf. Young 37, 38
+5953	Leland
+5958	Cf. Young 167
+5959	Cf. Young 275
+5960	Young 309
+5962	Young 6
+5964	Young 61
+5965	Young 67
+5966	Young 59
+5968	Young 5
+5970	Young 70
+5971	Young 3
+5974	Young 21
+5975	Young 25
+5976	Young 41
+5977	Young 18
+5979	Young 35
+5980	Young 39
+5981	Young 333
+5982	Young 253
+5983	Young 53
+5984	Leland; Young 36
+5985	Young 73
+5986	Young 26
+5987	Cf. Young 28
+5993	Leland; Young 305
+5994	Young 218
+5995	Young 291 or 292
+5997	Young 55
+6000	Young 98
+6005	Leland
+6011	Young 324
+6012	Young 240
+6014	Young 222
+6015	Young 24
+6016	Young 217
+6017	Young 221
+6018	Young 216
+6019	Young 332
+6020	Young 223
+6021	Young 318, 319
+6022	Young 317
+6023	Young 320
+6024	Young 321
+6030	Young 92
+6031	Young 245
+6032	Young 227
+6033	Young 101
+6034	Young 118
+6035	Young 186
+6037	Young 71
+6038	Young 107
+6039	Young 15
+6040	Young 182
+6042	Young 169
+6043	Young 201
+6044	Young 109
+6045	Young 255
+6046	Young 241
+6047	Young 208
+6048	Young 72
+6049	Young 283
+6050	Young 254
+6051	Young 170
+6052	Young 7--10
+6054	Young 323
+6055	Young 152
+6056	Young 29
+6057	Young 95
+6058	Young 264
+6059	Young 100
+6060	Young 88, 91 or 93
+6061	Young 225
+6062	Young 163
+6063	Young 270
+6064	Young 34
+6065	Young 259
+6066	Young 106
+6067	Young 159
+6068	Young 247
+6070	Young 86
+6071	Young 249
+6072	Young 63
+6073	Young 153
+6074	Young 49
+6075	Young 63
+6077	Young 137
+6078	Young 14
+6079	Young 151
+6082	Young 187
+6083	Young 224
+6084	Young 96
+6086	Young 260
+6087	Young 150
+6088	Young 295
+6089	Young 234
+6090	Young 64
+6091	Young 262
+6092	Young 149
+6093	Young 80
+6094	Young 308
+6095	Young 203
+6096	Young 168
+6097	Young 52
+6098	Young 11
+6099	Young 105
+6100	Young 166
+6101	Young 157
+6102	Young 307
+6103	Young 4
+6104	Young 2
+6105	Young 47
+6106	Young 51
+6107	Leland; Young 272
+6108	Young 256
+6109	Young 200
+6111	Young 179
+6112	Young 87
+6113	Young 97
+6114	Young 27
+6115	Young 77
+6116	Young 261
+6117	Young 175 (?)
+6119	Young 289
+6120	Young 180
+6121	Young 142
+6122	Young 141
+6123	Young 143
+6124	Young 140
+6125	Young 144
+6126	Young 146
+6127	Young 138
+6128	Young 138
+6129	Young 139
+6130	Young 174 (?)
+6131	Young 206
+6132	Young 251
+6133	Young 193
+6134	Young 76
+6135	Young 236
+6136	Young 232
+6137	Young 250
+6138	Young 304
+6139	Young 306
+6140	Young 204
+6141	Young 108
+6142	Young 211
+6143	Young 290
+6144	Young 126
+6145	Young 207
+6146	Young 99
+6148	Young 62
+6149	Young 197
+6150	Young 94
+6151	Young 178
+6152	Young 32
+6153	Young 116
+6155	Young 173
+6156	Young 171
+6157	Young 294
+6158	Young 258
+6159	Young 161
+6160	Young 127
+6161	Young 184
+6162	Young 1
+6163	Young 78
+6164	Young 185
+6165	Young 268
+6166	Young 191
+6167	Young 271
+6168	Young 30
+6169	Young 198
+6170	Young 44
+6171	Young 48
+6172	Young 285
+6173	Young 85
+6174	Young 202
+6175	Young 300
+6176	Young 181
+6177	Young 57 (?)
+6178	Young 160
+6179	Young 233
+6180	Young 145
+6181	Young 209 (?)
+6182	Young 267
+6185	Young 210
+6186	Young 154
+6187	Young 212 (?)
+6188	Young 219
+6189	Young 83
+6190	Young 325
+6191	Young 331
+6193	Young 113
+6194	Leland; Young 42
+6195	Young 58 or 60
+6196	Young 120
+6197	Young 111
+6198	Young 121
+6199	Young 231
+6200	Young 244
+6201	Young 242
+6202	Young 65
+6203	Young 328
+6204	Young 312 (?)
+6205	Young 125
+6206	Young 156
+6207	Young 40
+6208	Young 243
+6209	Young 238
+6210	Young 31
+6211	Young 190
+6212	Young 302
+6213	Young 340
+6214	Young 89
+6215	Young 338
+6216	Young 230
+6217	Young 164
+6219	Young 155
+6220	Young 263
+6221	Young 135
+6222	Young 288
+6223	Young 226
+6224	Young 281
+6225	Young 273
+6226	Young 276
+6227	Young 165
+6228	Young 214
+6229	Young 90
+6230	Young 114
+6231	Young 334
+6233	Young 45
+6234	Young 278
+6235	Young 43
+6236	Young 280
+6237	Young 220
+6238	Young 310
+6239	Young 326
+6240	Young 115
+6241	Young 239
+6243	Young 332
+6244	Young 279
+6245	Young 122
+6246	Young 196
+6247	Young 329
+6248	Young 237
+6249	Young 112
+6250	Young 336
+6251	Young 123
+6252	Young 148
+6253	Young 25
+6254	Young 162
+6255	Young 287
+6256	Leland; Young 335
+6257	Young 46
+6258	Young 117
+6259	Young 341
+6260	Young 269
+6261	Young 66
+6262	Young 246
+6263	Young 327
+6264	Young 134
+6265	Young 299
+6266	Young 265
+6267	Young 311
+6268	Young 82
+6269	Young 68
+6270	Young 274
+6271	Young 303
+6272	Young 228
+6273	Young 315 (?)
+6274	Young 314 (?)
+6298	Newton
+6305	Newton
+6325	Leland
+6335	Leland
+6347	cat. 493
+6349	Cat. 165
+6350	Cf. cat. 645
+6351	Cat. 160
+6352	cat. 643
+6353	Cat. 104
+6356	Newton
+6357	Newton
+6358	Cf. Newton 37.
+6359	cf. Newton 72, 73, 38
+6365	Leland
+6371	? Part of cat. 1599
+6379	Cat., p. 350
