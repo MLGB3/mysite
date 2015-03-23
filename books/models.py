@@ -139,7 +139,11 @@ class Book(models.Model):
         return ('item_detail',None,{'object_id':self.id})
 
     def __unicode__(self):
-        return '%s %s %s %s%s' % (self.provenance,self.shelfmark_1,self.shelfmark_2,self.evidence,self.author_title)
+        return '%s %s %s %s %s' % (self.provenance,
+                                   self.shelfmark_1,
+                                   self.shelfmark_2,
+                                   self.evidence,
+                                   self.author_title)
 
 #========================================================================
         
@@ -226,4 +230,3 @@ class RawBook(models.Model):
 
 
 #========================================================================
-        
