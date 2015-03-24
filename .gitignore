@@ -9,4 +9,10 @@
 /solr.py
 /apache/mlgb.wsgi
 /apache/apache_django_wsgi.conf
+/books/date_sort.py
+/books/numeric_shelfmark_sort.py
+/books/sql/dates_alpha_sort.txt
+/books/sql/dates_numeric_sort.sql
+/books/sql/shelfmarks_alpha_sort.txt
+/books/sql/shelfmarks_numeric_sort.sql
 
