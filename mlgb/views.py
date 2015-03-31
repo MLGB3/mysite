@@ -1468,6 +1468,7 @@ def get_advanced_search_field_labels(): #{
     'general_notes'     : 'General notes',
     'printed_book'      : 'Type of book',
     'id'                : 'Book ID',
+    'image'             : 'Has images?',
   }
 
   return field_labels
@@ -1526,6 +1527,7 @@ def get_form_to_solr_field_dict(): #{
     'general_notes'     : 'nt',
     'printed_book'      : 'printed_book',
     'id'                : 'id',
+    'image'             : 'image',
   }
 
   return fields
