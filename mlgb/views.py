@@ -301,6 +301,9 @@ def results( request, pagename = 'results', called_by_editable_page = False, adv
     # Check whether they want to print this page
     printing = get_value_from_GET( request, "printing", False )
 
+    # CTB - does the record have images?
+    has_images = get_value_from_GET( request, "has_images", False )
+
     # Now run the Solr query
     if advanced_search:
       (resultsets, number_of_records, 
@@ -332,7 +335,7 @@ def results( request, pagename = 'results', called_by_editable_page = False, adv
         #}
         else: #{
           text_for_one_record = display_as_treeview( resultsets[i], first_record, \
-                                field_to_search, search_term, page_size )
+                                field_to_search, search_term, page_size, has_images )
         #}
 
         # Add the string of HTML that you have generated for this record to the main HTML source
@@ -1468,7 +1471,7 @@ def get_advanced_search_field_labels(): #{
     'general_notes'     : 'General notes',
     'printed_book'      : 'Type of book',
     'id'                : 'Book ID',
-    'image'             : 'Has images?',
+    'has_images'        : 'Has images?',
   }
 
   return field_labels
@@ -1527,7 +1530,6 @@ def get_form_to_solr_field_dict(): #{
     'general_notes'     : 'nt',
     'printed_book'      : 'printed_book',
     'id'                : 'id',
-    'image'             : 'image',
   }
 
   return fields
@@ -2289,7 +2291,7 @@ def get_treeview_formatting(): #{
 #--------------------------------------------------------------------------------
 
 def display_as_treeview( one_row, first_record = False, \
-                         field_to_search = '', search_term = '', page_size = '' ): #{
+                         field_to_search = '', search_term = '', page_size = '', has_images = False ): #{
 
   global prev_heading_1 # these two globals allow us to see whether there has been a change of heading
   global prev_heading_2
@@ -2302,6 +2304,15 @@ def display_as_treeview( one_row, first_record = False, \
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
   pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
   ownership, contents, content_urls, prov_notes) = extract_from_result( one_row )
+
+  # CTB - we check the has_images flag is set
+  #       if it is we return nothing if the 
+  #       record has no images. It's a hack
+  #       but it'll do for now. 01.04.15
+  
+  if has_images != False:
+    if not images:
+      return ''
 
   # Get photos if any
   link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
