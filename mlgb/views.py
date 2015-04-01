@@ -2236,6 +2236,7 @@ def advanced_solr_query( request ): #{
     # CTB - adding has_images advanced search field to solr query
     has_images = get_value_from_GET( request, "has_images", False )
     if has_images:
+      print '************ ' + has_images
       images_query = ' AND images:[* TO *]'
       solr_query = solr_query.join(images_query)
 
