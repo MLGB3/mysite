@@ -2235,6 +2235,8 @@ def advanced_solr_query( request ): #{
 
     # CTB - adding has_images advanced search field to solr query
     has_images = get_value_from_GET( request, "has_images", False )
+    from django.http import HttpResponse
+    return HttpResponse("*****" + has_images)
     if has_images:
       from django.http import HttpResponse
       return HttpResponse("*****" + has_images)
