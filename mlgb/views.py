@@ -2233,6 +2233,12 @@ def advanced_solr_query( request ): #{
     else:
       solr_query = '*:*'
 
+    # CTB - adding has_images advanced search field to solr query
+    has_images = get_value_from_GET( request, "has_images", False )
+    if has_images:
+      images_query = ' AND images:[* TO *]'
+      solr_query = solr_query.join(images_query)
+
     # Run the Solr query
     s_para={'q'    : solr_query,
             'wt'   : s_wt,  # 's_wt', i.e. 'writer type' is set in config.py, defaults to "json"
@@ -2311,9 +2317,9 @@ def display_as_treeview( one_row, first_record = False, \
   #       record has no images. It's a hack
   #       but it'll do for now. 01.04.15
 
-  if has_images != False:
-    if not images:
-      return ''
+  #if has_images != False:
+  #  if not images:
+  #    return ''
 
   # Get photos if any
   link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
