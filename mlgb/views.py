@@ -1448,6 +1448,7 @@ def get_advanced_search_form_fields(): #{
     'general_notes'     ,
     'printed_book'      ,
     'id'                ,
+    'has_images'        ,
   ]
 
   return fields
@@ -2309,7 +2310,7 @@ def display_as_treeview( one_row, first_record = False, \
   #       if it is we return nothing if the 
   #       record has no images. It's a hack
   #       but it'll do for now. 01.04.15
-  
+
   if has_images != False:
     if not images:
       return ''
