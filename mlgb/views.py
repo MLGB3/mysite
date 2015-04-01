@@ -2239,8 +2239,8 @@ def advanced_solr_query( request ): #{
     images_query = ' AND images:[* TO *]'
     solr_query = solr_query.join(images_query)
 
-    from django.http import HttpResponse
-    return HttpResponse(solr_query)
+    #from django.http import HttpResponse
+    #return HttpResponse(solr_query)
 
     # Run the Solr query
     s_para={'q'    : solr_query,
