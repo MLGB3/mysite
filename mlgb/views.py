@@ -301,9 +301,6 @@ def results( request, pagename = 'results', called_by_editable_page = False, adv
     # Check whether they want to print this page
     printing = get_value_from_GET( request, "printing", False )
 
-    # CTB - does the record have images?
-    has_images = get_value_from_GET( request, "has_images", False )
-
     # Now run the Solr query
     if advanced_search:
       (resultsets, number_of_records, 
@@ -929,6 +926,14 @@ def extract_from_result( resultset, add_punctuation = True ): #{
     if add_punctuation and not shelfmark1.endswith( '.' ): shelfmark1 += '.'
   #}
 
+  # CTB - printed book to display &para; in treeview
+  # this is added to the return result set at function
+  # end  
+  if trim(resultset['printed_book']) == "1": 
+    printed_book = "&para;"
+  else
+    printed_book = ""
+
   # evidence code
   evidence_code = trim( resultset['ev'] )
   if evidence_code == 'blank': evidence_code = ''
@@ -1072,7 +1077,7 @@ def extract_from_result( resultset, add_punctuation = True ): #{
   return (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
           evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
           pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-          ownership, contents, content_urls, prov_notes)
+          ownership, contents, content_urls, prov_notes, printed_book)
 
 #}
 #--------------------------------------------------------------------------------
@@ -2010,7 +2015,7 @@ def downloadcsv( request, pagename = 'download' ): #{
         (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
         evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
         pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-        ownership, contents, content_urls, prov_notes) = extract_from_result( resultsets[i], False )
+        ownership, contents, content_urls, prov_notes, printed_book) = extract_from_result( resultsets[i], False )
 
         data.append( [] ) # add a new empty row
         j = i + 1
@@ -2311,16 +2316,7 @@ def display_as_treeview( one_row, first_record = False, \
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
   pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-  ownership, contents, content_urls, prov_notes) = extract_from_result( one_row )
-
-  # CTB - we check the has_images flag is set
-  #       if it is we return nothing if the 
-  #       record has no images. It's a hack
-  #       but it'll do for now. 01.04.15
-
-  #if has_images != False:
-  #  if not images:
-  #    return ''
+  ownership, contents, content_urls, prov_notes, printed_book) = extract_from_result( one_row )
 
   # Get photos if any
   link_to_photos = get_photo_evidence( id, images, evidence_code, evidence_desc )
@@ -2384,6 +2380,10 @@ def display_as_treeview( one_row, first_record = False, \
   # 'Heading 3' is not really a heading, but a repeated item of detail text.
   if heading3: detail_text += heading3
 
+  # CTB Add &para; for printed books
+  if len(printed_book) > 0:
+    detail_text += '<!-- printed book? -->' + printed_book
+
   if len( link_to_photos ) > 0:
     detail_text += link_to_photos
 
@@ -2394,6 +2394,8 @@ def display_as_treeview( one_row, first_record = False, \
       detail_text += '<span class="noevidence"> </span>'
     #}
   #}
+
+
   detail_text += ' <!-- type of evidence -->'
   detail_text += two_spaces
 
@@ -2494,7 +2496,7 @@ def display_as_table( one_row, expand_2nd_tablerow, first_record = False, \
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
   pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-  ownership, contents, content_urls, prov_notes) \
+  ownership, contents, content_urls, prov_notes, printed_book) \
   = extract_from_result( one_row, False ) # here False means 'don't add punctuation'
 
   unformatted_provenance = extract_unformatted_provenance( one_row ) # no italics etc
@@ -2933,7 +2935,7 @@ def get_headings_from_sort_order( one_row ):  #{
   (id, provenance, modern_location1, modern_location2, shelfmark1, shelfmark2,
   evidence_code, evidence_desc, suggestion_of_contents, date_of_work,
   pressmark, medieval_catalogue, unknown, general_notes, notes_on_evidence, images,
-  ownership, contents, content_urls, prov_notes) = extract_from_result( one_row )
+  ownership, contents, content_urls, prov_notes, printed_book) = extract_from_result( one_row )
 
   sort = order_by
   if not sort: sort = default_order_by 
