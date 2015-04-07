@@ -931,7 +931,7 @@ def extract_from_result( resultset, add_punctuation = True ): #{
   # end  
   if trim(resultset['printed_book']) == "1": 
     printed_book = "&para;"
-  else
+  else:
     printed_book = ""
 
   # evidence code
