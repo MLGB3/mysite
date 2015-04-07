@@ -632,7 +632,7 @@ def browse( request, letter = 'A', pagename = 'browse', called_by_editable_page 
       #}
       else: #{
         text_for_one_record = display_as_treeview( resultsets[i], first_record, \
-                              field_to_search, search_term, page_size )
+                              field_to_search, search_term, page_size, has_images )
       #}
 
       # Add the string of HTML that you have generated for this record to the main HTML source
