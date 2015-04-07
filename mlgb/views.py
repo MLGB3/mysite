@@ -301,6 +301,9 @@ def results( request, pagename = 'results', called_by_editable_page = False, adv
     # Check whether they want to print this page
     printing = get_value_from_GET( request, "printing", False )
 
+    # CTB - pass the has_images field value
+    has_images = get_value_from_GET( request, "has_images", False )
+
     # Now run the Solr query
     if advanced_search:
       (resultsets, number_of_records, 
