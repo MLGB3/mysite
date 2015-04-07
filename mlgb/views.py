@@ -564,14 +564,14 @@ def browse( request, letter = 'A', pagename = 'browse', called_by_editable_page 
   page_size = str( default_rows_per_page )
   solr_start = 0
 
+  # CTB - pass the has_images field value
+  has_images = get_value_from_GET( request, "has_images", False )
+
   if request.GET: #{ # are there any parameters in GET?
 
     # Check whether they want to print this page
     printing = get_value_from_GET( request, "printing", False )
 
-    # CTB - pass the has_images field value
-    has_images = get_value_from_GET( request, "has_images", False )
-    
     # Get actual records per page and start row from GET
     page_size = get_value_from_GET( request, "page_size", str( default_rows_per_page )) 
     solr_start = get_value_from_GET( request, "start", 0 ) 
