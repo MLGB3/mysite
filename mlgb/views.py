@@ -18,6 +18,7 @@ from urllib                   import quote, unquote
 from cStringIO                import StringIO
 
 import csv
+import MySQLdb
 
 from mysite.config          import *
 from mysite.MLGBsolr        import *
@@ -3277,3 +3278,31 @@ def prov_notes_div( first_book_id, prov_notes, add_blank_line = False ): #{
 #}
 #--------------------------------------------------------------------------------
 
+def provenances( request, pagename = 'provenances', called_by_editable_page = False ):
+
+  db = MySQLdb.connect(host="localhost", 
+                     user="mlgbAdmin",
+                      passwd="mlgb", 
+                      db="mlgb") 
+ 
+  cur = db.cursor() 
+
+  cur.execute("SELECT id, provenance, county, institution FROM books_provenance ORDER BY provenance ASC")
+
+  provenances_list = ""
+
+  # print all the first cell of all the rows
+  for row in cur.fetchall() :
+      provenance_fullname = row[0]['provenance'] + ', ' + row[0]['county'] + ', ' + row[0]['institution']
+      provenances_list = provenances_list + '<li><a href="/mlgb?search_term="' + provenance_fullname + '&field_to_search=medieval_library&page_size=500">' + provenance_fullname + '</a></li>'
+
+  html_response = '<ul>' + provenances_list + '</ul>'
+
+  t = loader.get_template('mlgb/provenances.html')
+
+  c = Context( { 'pagename': pagename, 
+                 'editable': false, 
+                 'result_string': html_response,
+               } )
+
+  return HttpResponse( t.render( c ) ) 

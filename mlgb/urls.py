@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     ( r'^browse/(?P<letter>\w+)/$',    'mysite.mlgb.views.browse' ),
     ( r'^category/$',                  'mysite.mlgb.views.category' ),
     ( r'^book/(?P<book_id>\d+)/$',     'mysite.mlgb.views.book' ),
+    ( r'^provenances/$',               'mysite.mlgb.views.provenances' ),
     )
 
