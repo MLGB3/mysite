@@ -19,6 +19,7 @@ from cStringIO                import StringIO
 
 import csv
 import MySQLdb
+import urllib
 
 from mysite.config          import *
 from mysite.MLGBsolr        import *
@@ -3290,19 +3291,17 @@ def provenances( request, pagename = 'provenances', called_by_editable_page = Fa
   cur.execute("SELECT id, provenance, county, institution FROM books_provenance ORDER BY provenance ASC")
 
   provenances_list = ""
-
   # print all the first cell of all the rows
   for row in cur.fetchall() :
-      provenance_fullname = row[0]['provenance'] + ', ' + row[0]['county'] + ', ' + row[0]['institution']
-      provenances_list = provenances_list + '<li><a href="/mlgb?search_term="' + provenance_fullname + '&field_to_search=medieval_library&page_size=500">' + provenance_fullname + '</a></li>'
-
+      provenance_fullname = escape(str(row[1]).decode('iso-8859-1').encode('utf8') + ', ' + str(row[2]).decode('iso-8859-1').encode('utf8') + ', ' + str(row[3]).decode('iso-8859-1').encode('utf8'))
+     # provenances_list = provenances_list + '<li><a href="/mlgb?search_term="' + urllib.quote_plus(provenance_fullname).encode('utf8') + '&field_to_search=medieval_library&page_size=500">' + provenance_fullname + '</a></li>'
+      provenances_list = provenances_list + '<li>' + provenance_fullname + '</li>'
   html_response = '<ul>' + provenances_list + '</ul>'
-
   t = loader.get_template('mlgb/provenances.html')
 
   c = Context( { 'pagename': pagename, 
-                 'editable': false, 
+                 'editable': False, 
                  'result_string': html_response,
                } )
 
-  return HttpResponse( t.render( c ) ) 
+  return HttpResponse(t.render(c)) 

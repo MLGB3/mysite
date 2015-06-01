@@ -24,5 +24,7 @@ urlpatterns = patterns('',
 
     ( r'^e/media/(?P<path>.*)$', 'django.views.static.serve', { 'document_root': settings.MEDIA_ROOT } ),
     ( r'^media/(?P<path>.*)$',   'django.views.static.serve', { 'document_root': settings.MEDIA_ROOT } ),
- )
+
+    ( r'^provenances/', 'mysite.mlgb.views.provenances' ),
+)
 
